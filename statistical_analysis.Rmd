@@ -1,6 +1,8 @@
 ---
 title: "Statistical Analysis"
-date: "2023-11-18"
-output: html_document
+output: 
+  html_document:
+    toc: true
+    toc_float: true
 ---
 

@@ -1,6 +1,22 @@
 ---
 title: "Exploratory Data Analysis"
-date: "2023-11-18"
-output: html_document
+output: 
+  html_document:
+    toc: true
+    toc_float: true
 ---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+
+knitr::opts_chunk$set(
+  echo = TRUE, 
+  message = FALSE, 
+  warning = FALSE
+)
+```
+
+```{r}
+raw_df = read.csv("data/significant-volcanic-eruption-database.csv", sep = ";")
+```
 
