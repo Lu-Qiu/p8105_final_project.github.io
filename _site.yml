@@ -2,15 +2,16 @@ name: "My Website"
 output_dir: "."
 navbar:
   title: "Home"
-  right:
-    - text: "Exploratory Data Analysis"
-      href: resume.html
-    - text: "Statistical Analysis"
-      href: dashboard.html
-    - text: "Project Report"
+  left: 
+    - text: "Report"
       href: report.html
+    - text: "Exploratory Data Analysis"
+      href: exploratory_data_analysis.html
+    - text: "Statistical Analysis"
+      href: statistical_analysis.html 
+  right:
     - icon: fa-envelope fa-lg
-      href: mailto:<qiuluscut@gmail.com>
+      href: mailto:<lq2234@cumc.columbia.edu>
     - icon: fa-github fa-lg
       href: https://github.com/Lu-Qiu/p8105_final_project.github.io
    
