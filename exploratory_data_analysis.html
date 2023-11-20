@@ -13,7 +13,7 @@
 
 <title>Exploratory Data Analysis</title>
 
-<script src="site_libs/header-attrs-2.25/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.24/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -358,13 +358,23 @@ div.tocify {
 
 
 <pre class="r"><code>raw_df = 
-  read.csv(&quot;data/significant-volcanic-eruption-database.csv&quot;, sep = &quot;;&quot;) |&gt;
+  read.csv(
+    &quot;data/significant-volcanic-eruption-database.csv&quot;, 
+    sep = &quot;;&quot;, na.strings=c(&quot;&quot;, NA)) |&gt;
   janitor::clean_names() |&gt;
-  select(-c(month, day, status, volcano_missing, volcano_missing_description, )) |&gt;
+  select(
+    -c(month, day, location, status, volcano_missing, volcano_missing_description, earthquakes_houses_damaged_description),
+    -starts_with(&quot;total&quot;)
+    ) |&gt;
   mutate(
-    flag_tsunami = case_match(flag_tsunami, &quot;Tsunami&quot;~ 1, &quot;&quot; ~ 0),
-    flag_earthquake = case_match(flag_earthquake, &quot;Earthquake&quot;~ 1, &quot;&quot; ~ 0)
-  )</code></pre>
+    flag_tsunami = case_match(flag_tsunami, &quot;Tsunami&quot;~ 1, NA ~ 0),
+    flag_earthquake = case_match(flag_earthquake, &quot;Earthquake&quot;~ 1, NA ~ 0)
+  ) |&gt;
+  separate(coordinates, into = c(&quot;lat&quot;, &quot;long&quot;), sep = &quot;,&quot;) |&gt;
+  mutate(
+    lat = as.numeric(lat), long = as.numeric(long)
+  ) |&gt;
+  mutate_at(vars(ends_with(&#39;description&#39;)), ~ifelse(is.na(.), &quot;None/No Record&quot;, .))</code></pre>
 
 
 

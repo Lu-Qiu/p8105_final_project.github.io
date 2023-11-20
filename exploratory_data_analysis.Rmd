@@ -18,12 +18,25 @@ knitr::opts_chunk$set(
 
 ```{r}
 raw_df = 
-  read.csv("data/significant-volcanic-eruption-database.csv", sep = ";") |>
+  read.csv(
+    "data/significant-volcanic-eruption-database.csv", 
+    sep = ";", na.strings=c("", NA)) |>
   janitor::clean_names() |>
-  select(-c(month, day, status, volcano_missing, volcano_missing_description, )) |>
+  select(
+    -c(month, day, location, status, volcano_missing, volcano_missing_description, earthquakes_houses_damaged_description),
+    -starts_with("total")
+    ) |>
   mutate(
-    flag_tsunami = case_match(flag_tsunami, "Tsunami"~ 1, "" ~ 0),
-    flag_earthquake = case_match(flag_earthquake, "Earthquake"~ 1, "" ~ 0)
-  )
+    flag_tsunami = case_match(flag_tsunami, "Tsunami"~ 1, NA ~ 0),
+    flag_earthquake = case_match(flag_earthquake, "Earthquake"~ 1, NA ~ 0)
+  ) |>
+  separate(coordinates, into = c("lat", "long"), sep = ",") |>
+  mutate(
+    lat = as.numeric(lat), long = as.numeric(long)
+  ) |>
+  mutate_at(vars(ends_with('description')), ~ifelse(is.na(.), "None/No Record", .))
+
+  
+  
 ```
 
