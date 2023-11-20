@@ -357,7 +357,14 @@ div.tocify {
 </div>
 
 
-<pre class="r"><code>raw_df = read.csv(&quot;data/significant-volcanic-eruption-database.csv&quot;, sep = &quot;;&quot;)</code></pre>
+<pre class="r"><code>raw_df = 
+  read.csv(&quot;data/significant-volcanic-eruption-database.csv&quot;, sep = &quot;;&quot;) |&gt;
+  janitor::clean_names() |&gt;
+  select(-c(month, day, status, volcano_missing, volcano_missing_description, )) |&gt;
+  mutate(
+    flag_tsunami = case_match(flag_tsunami, &quot;Tsunami&quot;~ 1, &quot;&quot; ~ 0),
+    flag_earthquake = case_match(flag_earthquake, &quot;Earthquake&quot;~ 1, &quot;&quot; ~ 0)
+  )</code></pre>
 
 
 
