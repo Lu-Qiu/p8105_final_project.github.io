@@ -4,20 +4,39 @@ output:
   html_document:
     toc: true
     toc_float: true
+    code_folding: "hide"
 ---
 
 ```{r setup, include=FALSE}
 library(tidyverse)
+library(leaflet)
+library(cowplot)
 
+# set knitr defaults
 knitr::opts_chunk$set(
   echo = TRUE, 
   message = FALSE, 
   warning = FALSE
 )
+
+# set theme defaults
+theme_set(theme_minimal() + theme(legend.position = "bottom"))
+
+# set color scale defaults
+options(
+    ggplot2.continuous.colour = "viridis",
+    ggplot2.continuous.fill   = "viridis")
+
+scale_colour_discrete = scale_colour_viridis_d
+scale_fill_discrete   = scale_fill_viridis_d
 ```
 
+## Data Cleaning and Processing
+
+(Describe the steps in data cleaning)
+
 ```{r}
-raw_df = 
+tidy_df = 
   read.csv(
     "data/significant-volcanic-eruption-database.csv", 
     sep = ";", na.strings=c("", NA)) |>
@@ -36,7 +55,86 @@ raw_df =
   ) |>
   mutate_at(vars(ends_with('description')), ~ifelse(is.na(.), "None/No Record", .))
 
-  
-  
 ```
 
+The final dataset used in the analysis has the following key variables:
+
+* `year`: the year of eruption
+* `flag_tsunami`: specifies whether there is a tsunami accompanying the volcanic eruption (1: with tsunami, 0: no tsunami)
+* `flag_earthquake`: specifies whether there is an earthquake accompanying the volcanic eruption (1: with earthquake, 0: no earthquake)
+* `volcano_name`: the name of the volcano
+* `country`: the country where the volcano is located
+* `elevation`: the elevation of the volcano
+* `volcano_type`: 
+* `volcanic_explosivity_index`          
+* `volcano_deaths`                      
+* `volcano_deaths_description`         
+* `volcano_injuries`                    
+* `volcano_injuries_description`       
+* `volcano_damage_in_m`                
+* `volcano_damage_description`         
+* `volcano_houses_destroyed`             
+* `volcano_houses_destroyed_description`
+* `lat`                                 
+* `long`
+
+
+## Geographical Distribution of Volcanic Eruptions
+
+First, we want to figure out which countries or regions are most prone to volcanic eruptions, so we make an interactive map to display the geographical distribution of volcanoes.
+
+```{r}
+geo_df = 
+  tidy_df |>
+  select(volcano_name, country, volcano_type, elevation, lat, long) |>
+  group_by(volcano_name, country, volcano_type, elevation, lat, long) |>
+  summarise(eruption_count = n())
+
+geo_df |>
+  filter(eruption_count >= 2) |>
+  leaflet() |>
+  addTiles() |>
+  addProviderTiles(providers$CartoDB.Positron) |>
+  addMarkers(lat = ~lat, 
+             lng = ~long, 
+             label = ~paste(
+               "Name: ", volcano_name, "<br>",
+               "Country: ", country, "<br>",
+               "Volcano Type: ", volcano_type, "<br>",
+               "Elevation: ", elevation, "<br>",
+               "Eruption Count: ", eruption_count) |> lapply(htmltools::HTML)) 
+```
+
+We can notice that most volcanoes are located at the edge of the continents. This pattern is a result of the tectonic plate boundaries where volcanic activity is often concentrated. 
+
+```{r}
+country1 =
+  geo_df |>
+  group_by(country)|>
+  summarise(n = n()) |>
+  arrange(desc(n)) |>
+  head(5) |>
+  ggplot(aes(x = reorder(country, -n), y = n, fill = country)) +
+  geom_bar(stat = "identity", width = 0.6) +
+  labs(title = "Top Five Countries with the Most Volcanoes",
+       x = "Country",
+       y = "Number of Volcanoes") 
+
+
+country2 =
+  geo_df |>
+  group_by(country)|>
+  summarise(n = sum(eruption_count)) |>
+  arrange(desc(n)) |>
+  head(5) |>
+  ggplot(aes(x = reorder(country, -n), y = n, fill = country)) +
+  geom_bar(stat = "identity", width = 0.6) +
+  labs(title = "Top Five Countries with the Most Volcanic Eruptions",
+       x = "Country",
+       y = "Number of Eruptions") 
+
+plot_grid(country1, country2, ncol = 1)
+```
+
+The top five countries with the most volcanoes are: Indonesia, Japan, United States, Papua New Guinea and Russia.  
+The top five countries with the most volcanic eruptions are: Indonesia, Japan, Italy, Iceland and United States.
