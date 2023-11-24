@@ -258,6 +258,108 @@ numeric_df |>
 
 <mark> bar plot and box plot are different (mean？median?)
 
+### Correlation between Earthquake Occurrence and Casualties and Property Losses Caused by Volcanic Activity
+
+#### Plot 2-1: Correlation between Earthquake Occurrence and Injuries
+
+```{r}
+# flag_earthquake vs volcano_injuries box plot
+numeric_df |>
+  filter(!is.na(volcano_injuries)) |>
+  ggplot(aes(x = flag_earthquake, y = volcano_injuries, group = flag_earthquake)) +
+  geom_boxplot() +
+  labs(title = "Correlation between Earthquake Occurrence and Injuries", x = "Earthquake Occurrence", y = "Injuries") +
+  theme_minimal()
+```
+
+```{r}
+# flag_earthquake vs volcano_injuries bar plot
+numeric_df |>
+  filter(!is.na(volcano_injuries)) |>
+  group_by(flag_earthquake) |>
+  summarize(total_injuries = mean(volcano_injuries)) |>
+  ggplot(aes(x = flag_earthquake, y = total_injuries, fill = flag_earthquake)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title = "Correlation between Earthquake Occurrence and Injuries", x = "Earthquake Occurrence", y = "Injuries") +
+  theme_minimal() 
+```
+
+<mark> outlier 
+
+#### Plot 2-2: Correlation between Earthquake Occurrence and Deaths
+
+```{r}
+# flag_earthquake vs volcano_deaths box plot
+numeric_df |>
+  filter(!is.na(volcano_deaths)) |>
+  ggplot(aes(x = flag_earthquake, y = volcano_deaths, group = flag_earthquake)) +
+  geom_boxplot() +
+  labs(title = "Correlation between Earthquake Occurrence and Deaths", x = "Earthquake Occurrence", y = "Deaths") +
+  theme_minimal()
+```
+
+```{r}
+# flag_earthquake vs volcano_deaths bar plot
+numeric_df |>
+  filter(!is.na(volcano_deaths)) |>
+  group_by(flag_earthquake) |>
+  summarize(total_deaths = mean(volcano_deaths)) |>
+  ggplot(aes(x = flag_earthquake, y = total_deaths, fill = flag_earthquake)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title ="Correlation between Earthquake Occurrence and Deaths", x = "Earthquake Occurrence", y = "Deaths") +
+  theme_minimal() 
+```
+
+#### Plot 2-3: Correlation between Earthquake Occurrence and Damage(money in million)
+
+```{r}
+# flag_earthquake vs damage box plot
+numeric_df |>
+  filter(!is.na(volcano_damage_in_m)) |>
+  ggplot(aes(x = flag_earthquake, y = volcano_damage_in_m, group = flag_earthquake)) +
+  geom_boxplot() +
+  labs(title = "Correlation between Earthquake Occurrence and Damage(money in million)", x = "Earthquake Occurrence", y = "Damage(money in million)") +
+  theme_minimal()
+```
+
+```{r}
+# flag_earthquake vs damage bar plot
+numeric_df |>
+  filter(!is.na(volcano_damage_in_m)) |>
+  group_by(flag_earthquake) |>
+  summarize(total_damage = mean(volcano_damage_in_m)) |>
+  ggplot(aes(x = flag_earthquake, y = total_damage, fill = flag_earthquake)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title ="Correlation between Earthquake Occurrence and Damage(money in million)", x = "Earthquake Occurrence", y = "Damage(money in million)") +
+  theme_minimal() 
+```
+
+#### Plot 2-4: Correlation between Earthquake Occurrence and Houses Destroyed(number of destroyed houses)
+
+```{r}
+# flag_earthquake vs volcano_houses_destroyed box plot
+numeric_df |>
+  filter(!is.na(volcano_houses_destroyed)) |>
+  ggplot(aes(x = flag_earthquake, y = volcano_houses_destroyed, group = flag_earthquake)) +
+  geom_boxplot() +
+  labs(title = "Correlation between Earthquake Occurrence and Houses Destroyed", x = "Earthquake Occurrence", y = "Houses Destroyed") +
+  theme_minimal()
+```
+
+```{r}
+# flag_earthquake vs volcano_houses_destroyed bar plot
+numeric_df |>
+  filter(!is.na(volcano_houses_destroyed)) |>
+  group_by(flag_earthquake) |>
+  summarize(total_houses_destroyed = mean(volcano_houses_destroyed)) |>
+  ggplot(aes(x = flag_earthquake, y = total_houses_destroyed, fill = flag_earthquake)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title ="Correlation between Earthquake Occurrence and Houses Destroyed", x = "Earthquake Occurrence", y = "Houses Destroyed") +
+  theme_minimal() 
+```
+
+<mark> outlier
+
 ## Time Distribution of Volcanic Eruptions
 
 ### Tidy data
