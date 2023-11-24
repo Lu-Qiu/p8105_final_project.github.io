@@ -227,6 +227,22 @@ ggplot(time_df, aes(x = as.numeric(year))) +
     x = "Year",
     y = "Count",
     color = "Variable"
-  ) +
-  theme_minimal()
+  )
 ```
+
+#### Plot 4: Analysis of Total Damage and House Destruction Over Time
+```{r}
+ggplot(time_df, aes(x = as.numeric(year))) +
+  geom_line(aes(y = total_damage, color = "Damage"), size = 1) +
+  geom_line(aes(y = total_house_destruction, color = "House Destruction"), size = 1)+
+  labs(
+    title = "Analysis of Total Damage and House Destruction Over Time",
+    x = "Year",
+    y = "Count",
+    color = "Variable"
+  ) 
+```
+
+
+
+
