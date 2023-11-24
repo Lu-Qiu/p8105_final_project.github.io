@@ -195,3 +195,24 @@ ggplot(expo,aes(x = period, y = count,fill = volcanic_explosivity_index))+
   ) +
   theme_minimal() 
 ```
+
+#### Tidy Data
+```{r}
+time_df <- tidy_df |>
+  filter(year > 1900) |>
+  mutate(
+    volcano_deaths = replace(volcano_deaths, is.na(volcano_deaths), 0),
+    volcano_injuries = replace(volcano_injuries, is.na(volcano_injuries), 0),
+    volcano_damage_in_m = replace(volcano_damage_in_m, is.na(volcano_damage_in_m), 0),
+    volcano_houses_destroyed = replace(volcano_houses_destroyed, is.na(volcano_houses_destroyed), 0),
+    year = as.character(year)
+  ) |>
+group_by(year) |>
+  summarize(
+    total_deaths = sum(volcano_deaths,na.rm = TRUE),
+    total_injuries = sum(volcano_injuries,na.rm = TRUE),
+    total_damage = sum(volcano_damage_in_m,na.rm = TRUE),
+    total_house_destruction = sum(volcano_houses_destroyed,na.rm = TRUE)
+  )
+
+```
