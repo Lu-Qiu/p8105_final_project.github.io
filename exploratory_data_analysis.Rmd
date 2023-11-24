@@ -65,7 +65,7 @@ The final dataset used in the analysis has the following key variables:
 * `volcano_name`: the name of the volcano
 * `country`: the country where the volcano is located
 * `elevation`: the elevation of the volcano
-* `volcano_type`: 
+* `volcano_type`: the type of the volcano
 * `volcanic_explosivity_index`          
 * `volcano_deaths`                      
 * `volcano_deaths_description`         
@@ -97,6 +97,7 @@ geo_df |>
   addProviderTiles(providers$CartoDB.Positron) |>
   addMarkers(lat = ~lat, 
              lng = ~long, 
+             clusterOptions = markerClusterOptions(),
              label = ~paste(
                "Name: ", volcano_name, "<br>",
                "Country: ", country, "<br>",
@@ -139,7 +140,7 @@ plot_grid(country1, country2, ncol = 1)
 The top five countries with the most volcanoes are: Indonesia, Japan, United States, Papua New Guinea and Russia.  
 The top five countries with the most volcanic eruptions are: Indonesia, Japan, Italy, Iceland and United States.
 
-## Time distribution of eruption
+## Time Distribution of Volcanic Eruptions
 
 ### Tidy data
 ```{r}
