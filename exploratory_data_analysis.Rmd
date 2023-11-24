@@ -158,6 +158,106 @@ numeric_df =
     volcanic_explosivity_index = factor(volcanic_explosivity_index))
 ```
 
+### Correlation between Tsunami Occurrence and Casualties and Property Losses Caused by Volcanic Activity
+
+#### Plot 1-1: Correlation between Tsunami Occurrence and Injuries
+
+```{r}
+# flag_tsunami vs volcano_injuries box plot
+numeric_df |>
+  filter(!is.na(volcano_injuries)) |>
+  ggplot(aes(x = flag_tsunami, y = volcano_injuries, group = flag_tsunami)) +
+  geom_boxplot() +
+  labs(title = "Correlation between Tsunami Occurrence and Injuries", x = "Tsunami Occurrence", y = "Injuries") +
+  theme_minimal()
+```
+
+```{r}
+# flag_tsunami vs volcano_injuries bar plot
+numeric_df |>
+  filter(!is.na(volcano_injuries)) |>
+  group_by(flag_tsunami) |>
+  summarize(total_injuries = mean(volcano_injuries)) |>
+  ggplot(aes(x = flag_tsunami, y = total_injuries, fill = flag_tsunami)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title = "Correlation between Tsunami Occurrence and Injuries", x = "Tsunami Occurrence", y = "Injuries") +
+  theme_minimal() 
+```
+
+#### Plot 1-2: Correlation between Tsunami Occurrence and Deaths
+
+```{r}
+# flag_tsunami vs volcano_deaths box plot
+numeric_df |>
+  filter(!is.na(volcano_deaths)) |>
+  ggplot(aes(x = flag_tsunami, y = volcano_deaths, group = flag_tsunami)) +
+  geom_boxplot() +
+  labs(title = "Correlation between Tsunami Occurrence and Deaths", x = "Tsunami Occurrence", y = "Deaths") +
+  theme_minimal()
+```
+
+```{r}
+# flag_tsunami vs volcano_deaths bar plot
+numeric_df |>
+  filter(!is.na(volcano_deaths)) |>
+  group_by(flag_tsunami) |>
+  summarize(total_deaths = mean(volcano_deaths)) |>
+  ggplot(aes(x = flag_tsunami, y = total_deaths, fill = flag_tsunami)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title ="Correlation between Tsunami Occurrence and Deaths", x = "Tsunami Occurrence", y = "Deaths") +
+  theme_minimal() 
+```
+
+#### Plot 1-3: Correlation between Tsunami Occurrence and Damage(money in million)
+
+```{r}
+# flag_tsunami vs damage box plot
+numeric_df |>
+  filter(!is.na(volcano_damage_in_m)) |>
+  ggplot(aes(x = flag_tsunami, y = volcano_damage_in_m, group = flag_tsunami)) +
+  geom_boxplot() +
+  labs(title = "Correlation between Tsunami Occurrence and Damage(money in million)", x = "Tsunami Occurrence", y = "Damage(money in million)") +
+  theme_minimal()
+```
+
+```{r}
+# flag_tsunami vs damage bar plot
+numeric_df |>
+  filter(!is.na(volcano_damage_in_m)) |>
+  group_by(flag_tsunami) |>
+  summarize(total_damage = mean(volcano_damage_in_m)) |>
+  ggplot(aes(x = flag_tsunami, y = total_damage, fill = flag_tsunami)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title ="Correlation between Tsunami Occurrence and Damage(money in million)", x = "Tsunami Occurrence", y = "Damage(money in million)") +
+  theme_minimal() 
+```
+
+#### Plot 1-4: Correlation between Tsunami Occurrence and Houses Destroyed(number of destroyed houses)
+
+```{r}
+# flag_tsunami vs volcano_houses_destroyed box plot
+numeric_df |>
+  filter(!is.na(volcano_houses_destroyed)) |>
+  ggplot(aes(x = flag_tsunami, y = volcano_houses_destroyed, group = flag_tsunami)) +
+  geom_boxplot() +
+  labs(title = "Correlation between Tsunami Occurrence and Houses Destroyed", x = "Tsunami Occurrence", y = "Houses Destroyed") +
+  theme_minimal()
+```
+
+```{r}
+# flag_tsunami vs volcano_houses_destroyed bar plot
+numeric_df |>
+  filter(!is.na(volcano_houses_destroyed)) |>
+  group_by(flag_tsunami) |>
+  summarize(total_houses_destroyed = mean(volcano_houses_destroyed)) |>
+  ggplot(aes(x = flag_tsunami, y = total_houses_destroyed, fill = flag_tsunami)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title ="Correlation between Tsunami Occurrence and Houses Destroyed", x = "Tsunami Occurrence", y = "Houses Destroyed") +
+  theme_minimal() 
+```
+
+<mark> bar plot and box plot are different (mean？median?)
+
 ## Time Distribution of Volcanic Eruptions
 
 ### Tidy data
