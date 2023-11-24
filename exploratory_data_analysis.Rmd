@@ -360,6 +360,104 @@ numeric_df |>
 
 <mark> outlier
 
+### Correlation between Volcano Type and Casualties and Property Losses Caused by Volcanic Activity
+
+#### Plot 3-1: Correlation between Volcano Type and Injuries
+
+```{r}
+# volcano_type vs volcano_injuries box plot
+numeric_df |>
+  filter(!is.na(volcano_injuries)) |>
+  ggplot(aes(x = volcano_type, y = volcano_injuries, group = volcano_type)) +
+  geom_boxplot() +
+  labs(title = "Correlation between Volcano Type and Injuries", x = "Volcano Type", y = "Injuries") +
+  theme_minimal()
+```
+
+```{r}
+# volcano_type vs volcano_injuries bar plot
+numeric_df |>
+  filter(!is.na(volcano_injuries)) |>
+  group_by(volcano_type) |>
+  summarize(total_injuries = mean(volcano_injuries)) |>
+  ggplot(aes(x = reorder(volcano_type, total_injuries), y = total_injuries, fill = volcano_type)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title = "Correlation between Volcano Type and Injuries", x = "Volcano Type", y = "Injuries") +
+  theme_minimal() 
+```
+
+#### Plot 3-2: Correlation between Volcano Type and Deaths
+
+```{r}
+# volcano_type vs volcano_deaths box plot
+numeric_df |>
+  filter(!is.na(volcano_deaths)) |>
+  ggplot(aes(x = volcano_type, y = volcano_deaths, group = volcano_type)) +
+  geom_boxplot() +
+  labs(title = "Correlation between Volcano Type and Deaths", x = "Volcano Type", y = "Deaths") +
+  theme_minimal()
+```
+
+```{r}
+# volcano_type vs volcano_deaths bar plot
+numeric_df |>
+  filter(!is.na(volcano_deaths)) |>
+  group_by(volcano_type) |>
+  summarize(total_deaths = mean(volcano_deaths)) |>
+  ggplot(aes(x = reorder(volcano_type, total_deaths), y = total_deaths, fill = volcano_type)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title ="Correlation between Volcano Type and Deaths", x = "Volcano Type", y = "Deaths") +
+  theme_minimal() 
+```
+
+#### Plot 3-3: Correlation between Volcano Type and Damage(money in million)
+
+```{r}
+# volcano_type vs damage box plot
+numeric_df |>
+  filter(!is.na(volcano_damage_in_m)) |>
+  ggplot(aes(x = volcano_type, y = volcano_damage_in_m, group = volcano_type)) +
+  geom_boxplot() +
+  labs(title = "Correlation between Volcano Type and Damage(money in million)", x = "Volcano Type", y = "Damage(money in million)") +
+  theme_minimal()
+```
+
+```{r}
+# volcano_type vs damage bar plot
+numeric_df |>
+  filter(!is.na(volcano_damage_in_m)) |>
+  group_by(volcano_type) |>
+  summarize(total_damage = mean(volcano_damage_in_m)) |>
+  ggplot(aes(x = reorder(volcano_type, total_damage), y = total_damage, fill = volcano_type)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title ="Correlation between Volcano Type and Damage(money in million)", x = "Volcano Type", y = "Damage(money in million)") +
+  theme_minimal() 
+```
+
+#### Plot 3-4: Correlation between Volcano Type and Houses Destroyed(number of destroyed houses)
+
+```{r}
+# volcano_type vs volcano_houses_destroyed box plot
+numeric_df |>
+  filter(!is.na(volcano_houses_destroyed)) |>
+  ggplot(aes(x = volcano_type, y = volcano_houses_destroyed, group = volcano_type)) +
+  geom_boxplot() +
+  labs(title = "Correlation between Volcano Type and Houses Destroyed", x = "Volcano Type", y = "Houses Destroyed") +
+  theme_minimal()
+```
+
+```{r}
+# volcano_type vs volcano_houses_destroyed bar plot
+numeric_df |>
+  filter(!is.na(volcano_houses_destroyed)) |>
+  group_by(volcano_type) |>
+  summarize(total_houses_destroyed = mean(volcano_houses_destroyed)) |>
+  ggplot(aes(x = reorder(volcano_type, total_houses_destroyed), y = total_houses_destroyed, fill = volcano_type)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title ="Correlation between Volcano Type and Houses Destroyed", x = "Volcano Type", y = "Houses Destroyed") +
+  theme_minimal() 
+```
+
 ## Time Distribution of Volcanic Eruptions
 
 ### Tidy data
