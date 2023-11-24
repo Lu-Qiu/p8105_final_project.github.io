@@ -141,7 +141,7 @@ The top five countries with the most volcanic eruptions are: Indonesia, Japan, I
 
 ## Time distribution of eruption
 
-#### Tidy data
+### Tidy data
 ```{r}
 voc_year <- tidy_df%>%
   group_by(year,volcanic_explosivity_index)%>%
@@ -166,15 +166,14 @@ expo_frequency<- voc_year%>%
   summarise(count = n()) 
 ```
 
-```{r,fig.width=9}
+```{r}
 ggplot(expo_frequency,aes(x = period, y = count))+
   geom_bar(stat="identity",fill = "#D04F4F")+
   labs(
     x = "Period",
     y = "Count",
     title = "Volcanic Explosivity Index Frequency Over Periods"
-  )+
-  theme_minimal()
+  )
 ```
 
 #### Plot2: Volcanic Explosivity Index Count Over Periods
@@ -192,11 +191,10 @@ ggplot(expo,aes(x = period, y = count,fill = volcanic_explosivity_index))+
     x = "Period",
     y = "Count",
     title = "Volcanic Explosivity Index Count Over Periods"
-  ) +
-  theme_minimal() 
+  )
 ```
 
-#### Tidy Data
+### Tidy Data 2
 ```{r}
 time_df <- tidy_df |>
   filter(year > 1900) |>
