@@ -216,3 +216,17 @@ group_by(year) |>
   )
 
 ```
+
+#### Plot 3:Analysis of Toal Deaths and Total Injuries Over Time
+```{r}
+ggplot(time_df, aes(x = as.numeric(year))) +
+  geom_line(aes(y = total_deaths, color = "Deaths"), size = 1) +
+  geom_line(aes(y = total_injuries, color = "Injuries"), size = 1) +
+  labs(
+    title = "Analysis of Toal Deaths and Total Injuries Over Time",
+    x = "Year",
+    y = "Count",
+    color = "Variable"
+  ) +
+  theme_minimal()
+```
