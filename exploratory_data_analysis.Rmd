@@ -670,6 +670,46 @@ ggplot(time_df, aes(x = as.numeric(year))) +
   ) 
 ```
 
+## Iceland Volcanic Activity Analysis
 
+```{r}
+library(tidyverse)
+library(ggplot2)
+iceland_volcanic_data = read_delim("data/significant-volcanic-eruption-database.csv") |>
+  filter(Country == "Iceland") |>
+  janitor::clean_names()
 
+ggplot(iceland_volcanic_data, aes(x = year)) +
+  geom_histogram(bins = 30, fill = "#69b3a2", color = "#1b4332") +
+  theme_minimal() +
+  labs(title = "Distribution of Volcanic Eruptions in Iceland Over Time",
+       x = "Year",
+       y = "Number of Eruptions")
+library(tidyverse)
+library(ggplot2)
+
+iceland_volcanic_data %>%
+  count(volcano_type) %>%
+  arrange(desc(n)) %>%
+  mutate(volcano_type = factor(volcano_type, levels = volcano_type)) %>%
+  ggplot(aes(x = volcano_type, y = n, fill = volcano_type)) + 
+  geom_col() + 
+  scale_fill_brewer(palette = "Reds") +
+  theme_minimal() +
+  labs(title = "Prevalence of Different Volcano Types in Iceland",
+       x = "Volcano Type",
+       y = "Count") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+iceland_volcanic_data |>
+  mutate(vei_ordered = factor(volcanic_explosivity_index, levels = 1:6)) |>
+  ggplot(aes(x = vei_ordered, fill = vei_ordered)) +
+  geom_bar() +
+  scale_fill_brewer(palette = "Blues") +
+  theme_minimal() +
+  labs(title = "Distribution of Volcanic Explosivity Index (VEI) in Iceland",
+       x = "VEI",
+       y = "Count")
+
+```
 
