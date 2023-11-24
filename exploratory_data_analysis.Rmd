@@ -138,3 +138,22 @@ plot_grid(country1, country2, ncol = 1)
 
 The top five countries with the most volcanoes are: Indonesia, Japan, United States, Papua New Guinea and Russia.  
 The top five countries with the most volcanic eruptions are: Indonesia, Japan, Italy, Iceland and United States.
+
+## Time distribution of eruption
+
+#### Tidy data
+```{r}
+voc_year <- tidy_df%>%
+  group_by(year,volcanic_explosivity_index)%>%
+  summarise(count = n())
+```
+
+```{r}
+voc_year$period <- ifelse(voc_year$year < 0, "Before Christ",
+ifelse(voc_year$year <= 1000, "0-1000",
+ifelse(voc_year$year <= 1500, "1000-1500",
+ifelse(voc_year$year <= 1899, "1500-1900",
+ifelse(tidy_df$year <= 1999, "20th century", "21st century"))))) 
+
+voc_year$period <- factor(voc_year$period, levels = c("Before Christ", "0-1000", "1000-1500", "1500-1900", "20th century","21st century"))
+```
