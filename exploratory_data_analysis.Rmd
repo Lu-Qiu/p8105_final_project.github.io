@@ -458,6 +458,116 @@ numeric_df |>
   theme_minimal() 
 ```
 
+### Correlation between VEI(Volcanic Explosivity Index) and Casualties and Property Losses Caused by Volcanic Activity
+
+#### Plot 4-1: Correlation between VEI and Injuries
+
+```{r}
+# VEI vs volcano_injuries box plot
+numeric_df |>
+  filter(!is.na(volcano_injuries),
+         !is.na(volcanic_explosivity_index)) |>
+  ggplot(aes(x = volcanic_explosivity_index, y = volcano_injuries, group = volcanic_explosivity_index)) +
+  geom_boxplot() +
+  labs(title = "Correlation between VEI and Injuries", x = "VEI", y = "Injuries") +
+  theme_minimal()
+```
+
+```{r}
+# VEI vs volcano_injuries bar plot
+numeric_df |>
+  filter(!is.na(volcano_injuries),
+         !is.na(volcanic_explosivity_index)) |>
+  group_by(volcanic_explosivity_index) |>
+  summarize(total_injuries = mean(volcano_injuries)) |>
+  ggplot(aes(x = reorder(volcanic_explosivity_index, total_injuries), y = total_injuries, fill = volcanic_explosivity_index)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title = "Correlation between VEI and Injuries", x = "VEI", y = "Injuries") +
+  theme_minimal() 
+```
+
+<mark> outlier
+
+#### Plot 4-2: Correlation between VEI and Deaths
+
+```{r}
+# VEI vs volcano_deaths box plot
+numeric_df |>
+  filter(!is.na(volcano_deaths),
+         !is.na(volcanic_explosivity_index)) |>
+  ggplot(aes(x = volcanic_explosivity_index, y = volcano_deaths, group = volcanic_explosivity_index)) +
+  geom_boxplot() +
+  labs(title = "Correlation between VEI and Deaths", x = "VEI", y = "Deaths") +
+  theme_minimal()
+```
+
+```{r}
+# VEI vs volcano_deaths bar plot
+numeric_df |>
+  filter(!is.na(volcano_deaths),
+         !is.na(volcanic_explosivity_index)) |>
+  group_by(volcanic_explosivity_index) |>
+  summarize(total_deaths = mean(volcano_deaths)) |>
+  ggplot(aes(x = reorder(volcanic_explosivity_index, total_deaths), y = total_deaths, fill = volcanic_explosivity_index)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title ="Correlation between VEI and Deaths", x = "VEI", y = "Deaths") +
+  theme_minimal() 
+```
+
+#### Plot 4-3: Correlation between VEI and Damage(money in million)
+
+```{r}
+# VEI vs damage box plot
+numeric_df |>
+  filter(!is.na(volcano_damage_in_m),
+         !is.na(volcanic_explosivity_index)) |>
+  ggplot(aes(x = volcanic_explosivity_index, y = volcano_damage_in_m, group = volcanic_explosivity_index)) +
+  geom_boxplot() +
+  labs(title = "Correlation between VEI and Damage(money in million)", x = "VEI", y = "Damage(money in million)") +
+  theme_minimal()
+```
+
+```{r}
+# VEI vs damage bar plot
+numeric_df |>
+  filter(!is.na(volcano_damage_in_m),
+         !is.na(volcanic_explosivity_index)) |>
+  group_by(volcanic_explosivity_index) |>
+  summarize(total_damage = mean(volcano_damage_in_m)) |>
+  ggplot(aes(x = reorder(volcanic_explosivity_index, total_damage), y = total_damage, fill = volcanic_explosivity_index)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title ="Correlation between VEI and Damage(money in million)", x = "VEI", y = "Damage(money in million)") +
+  theme_minimal() 
+```
+
+#### Plot 4-4: Correlation between VEI and Houses Destroyed(number of destroyed houses)
+
+```{r}
+# VEI vs volcano_houses_destroyed box plot
+numeric_df |>
+  filter(!is.na(volcano_houses_destroyed),
+         !is.na(volcanic_explosivity_index)) |>
+  ggplot(aes(x = volcanic_explosivity_index, y = volcano_houses_destroyed, group = volcanic_explosivity_index)) +
+  geom_boxplot() +
+  labs(title = "Correlation between VEI and Houses Destroyed", x = "VEI", y = "Houses Destroyed") +
+  theme_minimal()
+```
+
+```{r}
+# VEI vs volcano_houses_destroyed bar plot
+numeric_df |>
+  filter(!is.na(volcano_houses_destroyed),
+         !is.na(volcanic_explosivity_index)) |>
+  group_by(volcanic_explosivity_index) |>
+  summarize(total_houses_destroyed = mean(volcano_houses_destroyed)) |>
+  ggplot(aes(x = reorder(volcanic_explosivity_index, total_houses_destroyed), y = total_houses_destroyed, fill = volcanic_explosivity_index)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title ="Correlation between VEI and Houses Destroyed", x = "VEI", y = "Houses Destroyed") +
+  theme_minimal() 
+```
+
+<mark> outlier
+
 ## Time Distribution of Volcanic Eruptions
 
 ### Tidy data
