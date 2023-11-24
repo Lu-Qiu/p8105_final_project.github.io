@@ -176,3 +176,22 @@ ggplot(expo_frequency,aes(x = period, y = count))+
   )+
   theme_minimal()
 ```
+
+#### Plot2: Volcanic Explosivity Index Count Over Periods
+```{r}
+expo <- voc_year%>%
+  select(period,volcanic_explosivity_index)%>%
+  group_by(period,volcanic_explosivity_index)%>%
+  summarise(count = n())
+```
+
+```{r,fig.width=9}
+ggplot(expo,aes(x = period, y = count,fill = volcanic_explosivity_index))+
+  geom_bar(stat="identity", position="stack") +
+   labs(
+    x = "Period",
+    y = "Count",
+    title = "Volcanic Explosivity Index Count Over Periods"
+  ) +
+  theme_minimal() 
+```
