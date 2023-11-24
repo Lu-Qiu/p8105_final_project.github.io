@@ -157,3 +157,22 @@ ifelse(tidy_df$year <= 1999, "20th century", "21st century")))))
 
 voc_year$period <- factor(voc_year$period, levels = c("Before Christ", "0-1000", "1000-1500", "1500-1900", "20th century","21st century"))
 ```
+
+#### Plot 1: Volcanic Explosivity Index Frequency Over Periods
+```{r}
+expo_frequency<- voc_year%>%
+  select(period,volcanic_explosivity_index)%>%
+  group_by(period)%>%
+  summarise(count = n()) 
+```
+
+```{r,fig.width=9}
+ggplot(expo_frequency,aes(x = period, y = count))+
+  geom_bar(stat="identity",fill = "#D04F4F")+
+  labs(
+    x = "Period",
+    y = "Count",
+    title = "Volcanic Explosivity Index Frequency Over Periods"
+  )+
+  theme_minimal()
+```
