@@ -45,15 +45,31 @@ tidy_df =
     -c(month, day, location, status, volcano_missing, volcano_missing_description, earthquakes_houses_damaged_description),
     -starts_with("total")
     ) |>
-  mutate(
-    flag_tsunami = case_match(flag_tsunami, "Tsunami"~ 1, NA ~ 0),
-    flag_earthquake = case_match(flag_earthquake, "Earthquake"~ 1, NA ~ 0)
+  mutate( # change flags to boolean
+    flag_tsunami = case_match(flag_tsunami, "Tsunami"~ TRUE, NA ~ FALSE),
+    flag_earthquake = case_match(flag_earthquake, "Earthquake"~ TRUE, NA ~ FALSE)
   ) |>
   separate(coordinates, into = c("lat", "long"), sep = ",") |>
   mutate(
     lat = as.numeric(lat), long = as.numeric(long)
   ) |>
-  mutate_at(vars(ends_with('description')), ~ifelse(is.na(.), "None/No Record", .))
+  mutate_at(vars(ends_with('description')), ~ifelse(is.na(.), "None/No Record", .)) |>
+  mutate( # correct injuries description
+    volcano_injuries_description = case_match(
+      volcano_injuries_description,
+      "Very Many (~1001 or more deaths)" ~ "Very Many (~1001 or more injuries)", 
+      "Many (~101 to 1000 deaths)" ~ "Many (~101 to 1000 injuries)", 
+      "Some (~51 to 100 deaths)" ~ "Some (~51 to 100 injuries)", 
+      "Few (~1 to 50 deaths)" ~ "Few (~1 to 50 injuries)",
+      "None/No Record" ~ "None/No Record"
+    )
+  ) |>
+  mutate( # change descriptions to factors w/ levels
+    volcano_deaths_description = factor(volcano_deaths_description, levels = c("Very Many (~1001 or more deaths)", "Many (~101 to 1000 deaths)", "Some (~51 to 100 deaths)", "Few (~1 to 50 deaths)", "None/No Record")),
+    volcano_injuries_description = factor(volcano_injuries_description, levels = c("Very Many (~1001 or more injuries)", "Many (~101 to 1000 injuries)", "Some (~51 to 100 injuries)", "Few (~1 to 50 injuries)", "None/No Record")),
+    volcano_damage_description = factor(volcano_damage_description, levels = c("EXTREME (~$25 million or more)", "SEVERE (~>$5 to $24 million)", "MODERATE (~$1 to $5 million)", "LIMITED (roughly corresponding to less than $1 million)", "None/No Record")),
+    volcano_houses_destroyed_description = factor(volcano_houses_destroyed_description, levels = c("Very Many (~1001 or more houses)", "Many (~101 to 1000 houses)", "Some (~51 to 100 houses)", "Few (~1 to 50 houses)", "None/No Record"))
+  )
 
 ```
 
@@ -567,6 +583,268 @@ numeric_df |>
 ```
 
 <mark> outlier
+
+
+-------------------
+
+## The Factors Influencing Casualties and Property Losses Caused by Volcanic Activity(descriptive)
+
+Using bar charts, we can take a look at the levels of casualties and damages from volcanic eruptions with different factors involved.
+
+```{r}
+cad_df = tidy_df |>
+  select(year, flag_tsunami, flag_earthquake,
+         volcano_type, volcanic_explosivity_index, 
+         volcano_deaths_description, volcano_injuries_description,
+         volcano_damage_description, volcano_houses_destroyed_description,
+         volcano_deaths, volcano_injuries, 
+         volcano_damage_in_m, volcano_houses_destroyed)
+```
+
+
+### Tsunami and Earthquake
+
+```{r deaths}
+p1 = cad_df|>
+  filter(volcano_deaths_description != "None/No Record") |>
+  ggplot(aes(x = flag_tsunami, fill = volcano_deaths_description)) +
+  geom_bar(stat = "count", position = "fill") +
+  geom_text(stat = "count",
+            aes(label = ..count..),
+            position = position_fill(vjust = 0.5)) +
+  labs(title = "Proportion of Casualty Levels for Eruptions with Deaths",
+       x = "Tsunami",
+       y = "Proportion") +
+  theme(legend.position = "none")
+
+p2 = cad_df|>
+  filter(volcano_deaths_description != "None/No Record") |>
+  ggplot(aes(x = flag_earthquake, fill = volcano_deaths_description)) +
+  geom_bar(stat = "count", position = "fill") +
+  geom_text(stat = "count",
+            aes(label = ..count..),
+            position = position_fill(vjust = 0.5)) +
+  labs(title = "", x = "Earthquake", y = "Proportion") +
+  theme(legend.position = "none")
+
+p_row = 
+  plot_grid(
+  p1 + theme(legend.position="none"), 
+  p2 + theme(legend.position="none"),
+  align = 'vh',
+  nrow = 1
+  )
+
+legends = get_legend(
+  p1 + 
+    guides(color = guide_legend(nrow = 2)) +
+    theme(legend.position = "bottom")
+)
+
+plot_grid(p_row, legends, ncol = 1, rel_heights = c(1, .1))
+```
+
+```{r injuries}
+p1 = cad_df|>
+  filter(volcano_injuries_description != "None/No Record") |>
+  ggplot(aes(x = flag_tsunami, fill = volcano_injuries_description)) +
+  geom_bar(stat = "count", position = "fill") +
+  geom_text(stat = "count",
+            aes(label = ..count..),
+            position = position_fill(vjust = 0.5)) +
+  labs(title = "Proportion of Casualty Levels for Eruptions with Injuries",
+       x = "Tsunami",
+       y = "Proportion") +
+  theme(legend.position = "none")
+
+p2 = cad_df|>
+  filter(volcano_injuries_description != "None/No Record") |>
+  ggplot(aes(x = flag_earthquake, fill = volcano_injuries_description)) +
+  geom_bar(stat = "count", position = "fill") +
+  geom_text(stat = "count",
+            aes(label = ..count..),
+            position = position_fill(vjust = 0.5)) +
+  labs(title = "", x = "Earthquake", y = "Proportion") +
+  theme(legend.position = "none")
+
+p_row = 
+  plot_grid(
+  p1 + theme(legend.position="none"), 
+  p2 + theme(legend.position="none"),
+  align = 'vh',
+  nrow = 1
+  )
+
+legends = get_legend(
+  p1 + 
+    guides(color = guide_legend(nrow = 2)) +
+    theme(legend.position = "bottom")
+)
+
+plot_grid(p_row, legends, ncol = 1, rel_heights = c(1, .1))
+```
+
+```{r damages}
+p1 = cad_df|>
+  filter(volcano_damage_description != "None/No Record") |>
+  ggplot(aes(x = flag_tsunami, fill = volcano_damage_description)) +
+  geom_bar(stat = "count", position = "fill") +
+  geom_text(stat = "count",
+            aes(label = ..count..),
+            position = position_fill(vjust = 0.5)) +
+  labs(title = "Proportion of Loss Levels for Eruptions with Damages",
+       x = "Tsunami",
+       y = "Proportion") +
+  theme(legend.position = "none")
+
+p2 = cad_df|>
+  filter(volcano_damage_description != "None/No Record") |>
+  ggplot(aes(x = flag_earthquake, fill = volcano_damage_description)) +
+  geom_bar(stat = "count", position = "fill") +
+  geom_text(stat = "count",
+            aes(label = ..count..),
+            position = position_fill(vjust = 0.5)) +
+  labs(title = "", x = "Earthquake", y = "Proportion") +
+  theme(legend.position = "none")
+
+p_row = 
+  plot_grid(
+  p1 + theme(legend.position="none"), 
+  p2 + theme(legend.position="none"),
+  align = 'vh',
+  nrow = 1
+  )
+
+legends = get_legend(
+  p1 + 
+    guides(color = guide_legend(nrow = 2)) +
+    theme(legend.position = "bottom")
+)
+
+plot_grid(p_row, legends, ncol = 1, rel_heights = c(1, .1))
+```
+
+```{r houses destroyed}
+p1 = cad_df|>
+  filter(volcano_houses_destroyed_description != "None/No Record") |>
+  ggplot(aes(x = flag_tsunami, fill = volcano_houses_destroyed_description)) +
+  geom_bar(stat = "count", position = "fill") +
+  geom_text(stat = "count",
+            aes(label = ..count..),
+            position = position_fill(vjust = 0.5)) +
+  labs(title = "Proportion of Loss Levels for Eruptions with Houses Destroyed",
+       x = "Tsunami",
+       y = "Proportion") +
+  theme(legend.position = "none")
+
+p2 = cad_df|>
+  filter(volcano_houses_destroyed_description != "None/No Record") |>
+  ggplot(aes(x = flag_earthquake, fill = volcano_houses_destroyed_description)) +
+  geom_bar(stat = "count", position = "fill") +
+  geom_text(stat = "count",
+            aes(label = ..count..),
+            position = position_fill(vjust = 0.5)) +
+  labs(title = "", x = "Earthquake", y = "Proportion") +
+  theme(legend.position = "none")
+
+p_row = 
+  plot_grid(
+  p1 + theme(legend.position="none"), 
+  p2 + theme(legend.position="none"),
+  align = 'vh',
+  nrow = 1
+  )
+
+legends = get_legend(
+  p1 + 
+    guides(color = guide_legend(nrow = 2)) +
+    theme(legend.position = "bottom")
+)
+
+plot_grid(p_row, legends, ncol = 1, rel_heights = c(1, .1))
+```
+
+We can see that in general, for volcanic eruptions with casualties and damages, the occurrence of tsunami and earthquakes will increase the severity of the losses.
+
+### VEI
+
+```{r VEI deaths}
+cad_df|>
+  filter(
+    volcano_deaths_description != "None/No Record",
+    !is.na(volcanic_explosivity_index)
+    ) |>
+  ggplot(
+    aes(x = factor(volcanic_explosivity_index), fill = volcano_deaths_description)) +
+  geom_bar(stat = "count", position = "fill") +
+  geom_text(stat = "count",
+            aes(label = ..count..),
+            position = position_fill(vjust = 0.5)) +
+  labs(title = "Proportion of Casualty Levels for Eruptions with Deaths",
+       x = "VEI",
+       y = "Proportion") +
+  theme(legend.position = "bottom")
+```
+
+```{r VEI injuries}
+cad_df|>
+  filter(
+    volcano_injuries_description != "None/No Record",
+    !is.na(volcanic_explosivity_index)
+    ) |>
+  ggplot(
+    aes(x = factor(volcanic_explosivity_index), fill = volcano_injuries_description)) +
+  geom_bar(stat = "count", position = "fill") +
+  geom_text(stat = "count",
+            aes(label = ..count..),
+            position = position_fill(vjust = 0.5)) +
+  labs(title = "Proportion of Casualty Levels for Eruptions with Injuries",
+       x = "VEI",
+       y = "Proportion") +
+  theme(legend.position = "bottom")
+```
+
+```{r VEI damages}
+cad_df|>
+  filter(
+    volcano_damage_description != "None/No Record",
+    !is.na(volcanic_explosivity_index)
+    ) |>
+  ggplot(
+    aes(x = factor(volcanic_explosivity_index), fill = volcano_damage_description)) +
+  geom_bar(stat = "count", position = "fill") +
+  geom_text(stat = "count",
+            aes(label = ..count..),
+            position = position_fill(vjust = 0.5)) +
+  labs(title = "Proportion of Casualty Levels for Eruptions with Damages",
+       x = "VEI",
+       y = "Proportion") +
+  theme(legend.position = "bottom")
+```
+
+```{r VEI houses destroyed}
+cad_df|>
+  filter(
+    volcano_houses_destroyed_description != "None/No Record",
+    !is.na(volcanic_explosivity_index)
+    ) |>
+  ggplot(aes(
+    x = factor(volcanic_explosivity_index), 
+    fill = volcano_houses_destroyed_description)) +
+  geom_bar(stat = "count", position = "fill") +
+  geom_text(stat = "count",
+            aes(label = ..count..),
+            position = position_fill(vjust = 0.5)) +
+  labs(title = "Proportion of Casualty Levels for Eruptions with Houses Destroyed",
+       x = "VEI",
+       y = "Proportion") +
+  theme(legend.position = "bottom")
+```
+
+We can see that as VEI increases, the proportion of volcanic eruptions with more severe losses also increases, especially for casualty levels. This indicates that eruptions with a large VEI is likely to be more deadly.
+
+
+-----------------------------
 
 ## Time Distribution of Volcanic Eruptions
 
