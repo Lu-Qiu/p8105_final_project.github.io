@@ -180,7 +180,7 @@ plot_grid(country1, country2, ncol = 1)
 The top five countries with the most volcanoes are: Indonesia, Japan, United States, Papua New Guinea and Russia.  
 The top five countries with the most volcanic eruptions are: Indonesia, Japan, Italy, Iceland and United States.
 
-## The Factors Influencing Casualties and Property Losses Caused by Volcanic Activity(numeric)
+## Factors Influencing Volcanic Losses (Numeric)
 
 In this section, we aim to explore the impact of various factors(the occurrence of tsunami and earthquake, the type of volcano and the volcanic explosivity index) on casualties and property losses resulting from volcanic eruptions.
 
@@ -611,7 +611,7 @@ numeric_df |>
 
 -------------------
 
-## The Factors Influencing Casualties and Property Losses Caused by Volcanic Activity(descriptive)
+## Factors Influencing Volcanic Losses (Descriptive)
 
 Using bar charts, we can take a look at the levels of casualties and damages from volcanic eruptions with different factors involved.
 
