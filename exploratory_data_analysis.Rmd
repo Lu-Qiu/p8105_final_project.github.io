@@ -54,21 +54,45 @@ tidy_df =
     lat = as.numeric(lat), long = as.numeric(long)
   ) |>
   mutate_at(vars(ends_with('description')), ~ifelse(is.na(.), "None/No Record", .)) |>
-  mutate( # correct injuries description
+  mutate( # shorten description
+    volcano_deaths_description = case_match(
+      volcano_deaths_description,
+      "Very Many (~1001 or more deaths)" ~ "Very Many (~1001 or more)", 
+      "Many (~101 to 1000 deaths)" ~ "Many (~101 to 1000)", 
+      "Some (~51 to 100 deaths)" ~ "Some (~51 to 100)", 
+      "Few (~1 to 50 deaths)" ~ "Few (~1 to 50)",
+      "None/No Record" ~ "None/No Record"
+    ),
     volcano_injuries_description = case_match(
       volcano_injuries_description,
-      "Very Many (~1001 or more deaths)" ~ "Very Many (~1001 or more injuries)", 
-      "Many (~101 to 1000 deaths)" ~ "Many (~101 to 1000 injuries)", 
-      "Some (~51 to 100 deaths)" ~ "Some (~51 to 100 injuries)", 
-      "Few (~1 to 50 deaths)" ~ "Few (~1 to 50 injuries)",
+      "Very Many (~1001 or more deaths)" ~ "Very Many (~1001 or more)", 
+      "Many (~101 to 1000 deaths)" ~ "Many (~101 to 1000)", 
+      "Some (~51 to 100 deaths)" ~ "Some (~51 to 100)", 
+      "Few (~1 to 50 deaths)" ~ "Few (~1 to 50)",
+      "None/No Record" ~ "None/No Record"
+    ),
+    volcano_damage_description = case_match(
+      volcano_damage_description,
+      "EXTREME (~$25 million or more)" ~ "EXTREME (~>=$25 million)", 
+      "SEVERE (~>$5 to $24 million)" ~ "SEVERE (~$5 to $24 million)", 
+      "MODERATE (~$1 to $5 million)" ~ "MODERATE (~$1 to $5 million)", 
+      "LIMITED (roughly corresponding to less than $1 million)" ~ "LIMITED (~<$1 million)",
+      "None/No Record" ~ "None/No Record"
+    ),
+    volcano_houses_destroyed_description = case_match(
+      volcano_houses_destroyed_description,
+      "Very Many (~1001 or more houses)" ~ "Very Many (~1001 or more)", 
+      "Many (~101 to 1000 houses)" ~ "Many (~101 to 1000)", 
+      "Some (~51 to 100 houses)" ~ "Some (~51 to 100)", 
+      "Few (~1 to 50 houses)" ~ "Few (~1 to 50)",
       "None/No Record" ~ "None/No Record"
     )
   ) |>
   mutate( # change descriptions to factors w/ levels
-    volcano_deaths_description = factor(volcano_deaths_description, levels = c("Very Many (~1001 or more deaths)", "Many (~101 to 1000 deaths)", "Some (~51 to 100 deaths)", "Few (~1 to 50 deaths)", "None/No Record")),
-    volcano_injuries_description = factor(volcano_injuries_description, levels = c("Very Many (~1001 or more injuries)", "Many (~101 to 1000 injuries)", "Some (~51 to 100 injuries)", "Few (~1 to 50 injuries)", "None/No Record")),
-    volcano_damage_description = factor(volcano_damage_description, levels = c("EXTREME (~$25 million or more)", "SEVERE (~>$5 to $24 million)", "MODERATE (~$1 to $5 million)", "LIMITED (roughly corresponding to less than $1 million)", "None/No Record")),
-    volcano_houses_destroyed_description = factor(volcano_houses_destroyed_description, levels = c("Very Many (~1001 or more houses)", "Many (~101 to 1000 houses)", "Some (~51 to 100 houses)", "Few (~1 to 50 houses)", "None/No Record"))
+    volcano_deaths_description = factor(volcano_deaths_description, levels = c("Very Many (~1001 or more)", "Many (~101 to 1000)", "Some (~51 to 100)", "Few (~1 to 50)", "None/No Record")),
+    volcano_injuries_description = factor(volcano_injuries_description, levels = c("Very Many (~1001 or more)", "Many (~101 to 1000)", "Some (~51 to 100)", "Few (~1 to 50)", "None/No Record")),
+    volcano_damage_description = factor(volcano_damage_description, levels = c("EXTREME (~>=$25 million)", "SEVERE (~$5 to $24 million)", "MODERATE (~$1 to $5 million)", "LIMITED (~<$1 million)", "None/No Record")),
+    volcano_houses_destroyed_description = factor(volcano_houses_destroyed_description, levels = c("Very Many (~1001 or more)", "Many (~101 to 1000)", "Some (~51 to 100)", "Few (~1 to 50)", "None/No Record"))
   )
 
 ```
@@ -637,8 +661,9 @@ p_row =
 
 legends = get_legend(
   p1 + 
-    guides(color = guide_legend(nrow = 2)) +
-    theme(legend.position = "bottom")
+    guides(fill = guide_legend(nrow = 2), byrow=TRUE) +
+    theme(legend.position = "bottom") +
+    theme(legend.title=element_blank())
 )
 
 plot_grid(p_row, legends, ncol = 1, rel_heights = c(1, .1))
@@ -677,8 +702,9 @@ p_row =
 
 legends = get_legend(
   p1 + 
-    guides(color = guide_legend(nrow = 2)) +
-    theme(legend.position = "bottom")
+    guides(fill = guide_legend(nrow = 2), byrow=TRUE) +
+    theme(legend.position = "bottom") +
+    theme(legend.title=element_blank())
 )
 
 plot_grid(p_row, legends, ncol = 1, rel_heights = c(1, .1))
@@ -717,8 +743,9 @@ p_row =
 
 legends = get_legend(
   p1 + 
-    guides(color = guide_legend(nrow = 2)) +
-    theme(legend.position = "bottom")
+    guides(fill = guide_legend(nrow = 2), byrow=TRUE) +
+    theme(legend.position = "bottom") +
+    theme(legend.title=element_blank())
 )
 
 plot_grid(p_row, legends, ncol = 1, rel_heights = c(1, .1))
@@ -757,8 +784,9 @@ p_row =
 
 legends = get_legend(
   p1 + 
-    guides(color = guide_legend(nrow = 2)) +
-    theme(legend.position = "bottom")
+    guides(fill = guide_legend(nrow = 2), byrow=TRUE) +
+    theme(legend.position = "bottom") +
+    theme(legend.title=element_blank())
 )
 
 plot_grid(p_row, legends, ncol = 1, rel_heights = c(1, .1))
@@ -783,7 +811,8 @@ cad_df|>
   labs(title = "Proportion of Casualty Levels for Eruptions with Deaths",
        x = "VEI",
        y = "Proportion") +
-  theme(legend.position = "bottom")
+  theme(legend.position = "bottom") +
+  theme(legend.title=element_blank())
 ```
 
 ```{r VEI injuries}
@@ -801,7 +830,8 @@ cad_df|>
   labs(title = "Proportion of Casualty Levels for Eruptions with Injuries",
        x = "VEI",
        y = "Proportion") +
-  theme(legend.position = "bottom")
+  theme(legend.position = "bottom") +
+  theme(legend.title=element_blank())
 ```
 
 ```{r VEI damages}
@@ -819,7 +849,8 @@ cad_df|>
   labs(title = "Proportion of Casualty Levels for Eruptions with Damages",
        x = "VEI",
        y = "Proportion") +
-  theme(legend.position = "bottom")
+  theme(legend.position = "bottom") +
+  theme(legend.title=element_blank())
 ```
 
 ```{r VEI houses destroyed}
@@ -838,7 +869,8 @@ cad_df|>
   labs(title = "Proportion of Casualty Levels for Eruptions with Houses Destroyed",
        x = "VEI",
        y = "Proportion") +
-  theme(legend.position = "bottom")
+  theme(legend.position = "bottom") +
+  theme(legend.title=element_blank())
 ```
 
 We can see that as VEI increases, the proportion of volcanic eruptions with more severe losses also increases, especially for casualty levels. This indicates that eruptions with a large VEI is likely to be more deadly.
