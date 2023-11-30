@@ -6,15 +6,14 @@ output:
     toc_float: true
 ---
 
+#Statistical Analysis
+
 ```{r}
 library(MASS)
 library(tidyverse)
-
 ```
-## Data Cleaning and Processing
 
-(Describe the steps in data cleaning)
-
+## Dataset Preparation
 ```{r}
 tidy_df = 
   read.csv(
@@ -34,59 +33,90 @@ tidy_df =
     lat = as.numeric(lat), long = as.numeric(long)
   ) |>
   mutate_at(vars(ends_with('description')), ~ifelse(is.na(.), "None/No Record", .)) |>
-  mutate( # correct injuries description
+  mutate( # shorten description
+    volcano_deaths_description = case_match(
+      volcano_deaths_description,
+      "Very Many (~1001 or more deaths)" ~ "Very Many (~1001 or more)", 
+      "Many (~101 to 1000 deaths)" ~ "Many (~101 to 1000)", 
+      "Some (~51 to 100 deaths)" ~ "Some (~51 to 100)", 
+      "Few (~1 to 50 deaths)" ~ "Few (~1 to 50)",
+      "None/No Record" ~ "None/No Record"
+    ),
     volcano_injuries_description = case_match(
       volcano_injuries_description,
-      "Very Many (~1001 or more deaths)" ~ "Very Many (~1001 or more injuries)", 
-      "Many (~101 to 1000 deaths)" ~ "Many (~101 to 1000 injuries)", 
-      "Some (~51 to 100 deaths)" ~ "Some (~51 to 100 injuries)", 
-      "Few (~1 to 50 deaths)" ~ "Few (~1 to 50 injuries)",
+      "Very Many (~1001 or more deaths)" ~ "Very Many (~1001 or more)", 
+      "Many (~101 to 1000 deaths)" ~ "Many (~101 to 1000)", 
+      "Some (~51 to 100 deaths)" ~ "Some (~51 to 100)", 
+      "Few (~1 to 50 deaths)" ~ "Few (~1 to 50)",
+      "None/No Record" ~ "None/No Record"
+    ),
+    volcano_damage_description = case_match(
+      volcano_damage_description,
+      "EXTREME (~$25 million or more)" ~ "EXTREME (~>=$25 million)", 
+      "SEVERE (~>$5 to $24 million)" ~ "SEVERE (~$5 to $24 million)", 
+      "MODERATE (~$1 to $5 million)" ~ "MODERATE (~$1 to $5 million)", 
+      "LIMITED (roughly corresponding to less than $1 million)" ~ "LIMITED (~<$1 million)",
+      "None/No Record" ~ "None/No Record"
+    ),
+    volcano_houses_destroyed_description = case_match(
+      volcano_houses_destroyed_description,
+      "Very Many (~1001 or more houses)" ~ "Very Many (~1001 or more)", 
+      "Many (~101 to 1000 houses)" ~ "Many (~101 to 1000)", 
+      "Some (~51 to 100 houses)" ~ "Some (~51 to 100)", 
+      "Few (~1 to 50 houses)" ~ "Few (~1 to 50)",
       "None/No Record" ~ "None/No Record"
     )
   ) |>
   mutate( # change descriptions to factors w/ levels
-    volcano_deaths_description = factor(volcano_deaths_description, levels = c("Very Many (~1001 or more deaths)", "Many (~101 to 1000 deaths)", "Some (~51 to 100 deaths)", "Few (~1 to 50 deaths)", "None/No Record")),
-    volcano_injuries_description = factor(volcano_injuries_description, levels = c("Very Many (~1001 or more injuries)", "Many (~101 to 1000 injuries)", "Some (~51 to 100 injuries)", "Few (~1 to 50 injuries)", "None/No Record")),
-    volcano_damage_description = factor(volcano_damage_description, levels = c("EXTREME (~$25 million or more)", "SEVERE (~>$5 to $24 million)", "MODERATE (~$1 to $5 million)", "LIMITED (roughly corresponding to less than $1 million)", "None/No Record")),
-    volcano_houses_destroyed_description = factor(volcano_houses_destroyed_description, levels = c("Very Many (~1001 or more houses)", "Many (~101 to 1000 houses)", "Some (~51 to 100 houses)", "Few (~1 to 50 houses)", "None/No Record"))
+    volcano_deaths_description = factor(volcano_deaths_description, levels = c("Very Many (~1001 or more)", "Many (~101 to 1000)", "Some (~51 to 100)", "Few (~1 to 50)", "None/No Record")),
+    volcano_injuries_description = factor(volcano_injuries_description, levels = c("Very Many (~1001 or more)", "Many (~101 to 1000)", "Some (~51 to 100)", "Few (~1 to 50)", "None/No Record")),
+    volcano_damage_description = factor(volcano_damage_description, levels = c("EXTREME (~>=$25 million)", "SEVERE (~$5 to $24 million)", "MODERATE (~$1 to $5 million)", "LIMITED (~<$1 million)", "None/No Record")),
+    volcano_houses_destroyed_description = factor(volcano_houses_destroyed_description, levels = c("Very Many (~1001 or more)", "Many (~101 to 1000)", "Some (~51 to 100)", "Few (~1 to 50)", "None/No Record"))
   )
 
 ```
 
+## Ordered logistic regression
 
-## Fit Model(Draft)
+### Methodology
 
+
+
+### Correlation analysis(相关性分析)
+
+
+### Test effect modifier
+Now we will examine the relationship between the dependent variable `volcano_deaths_description` and the interaction between `flag_earthquake` and `flag_tsunami`.
 ```{r}
-
-#相关性分析
-
-
-#交互项
-
 model1 <- polr(volcano_deaths_description~flag_earthquake*flag_tsunami,data = tidy_df)
 summary(model1)
 
-ctable123 <- coef(summary(model1))
+ctable1 <- coef(summary(model1))
 
-p <- pnorm(abs(ctable123[, "t value"]), lower.tail = FALSE) * 2
+p <- pnorm(abs(ctable1[, "t value"]), lower.tail = FALSE) * 2
 
-(ctable <- cbind(ctable123, "p value" = p))
+(ctable1 <- cbind(ctable1, "p value" = p))
 
-# not reject H0, keep flag_earthquake, flag_tsunami
+```
+The interaction p-value is greater than 0.05, so it's not significant. There is not enough evidence to suggest that the relationship between volcano_deaths_description and the combination of flag_earthquake and flag_tsunami is significantly different from the sum of their individual effects.Given this result, we consider using a simpler model without the interaction term.
 
-#看significance要不要
-  
-## fit ordered logit model and store results 'm'
-m <- polr(volcano_deaths_description ~ flag_earthquake + flag_tsunami + volcanic_explosivity_index+elevation, data = tidy_df, Hess=TRUE)
+### Fit the Ordinal Logistic Regression Model
+
+```{r}
+model2 <- polr(volcano_deaths_description ~ flag_earthquake + flag_tsunami + volcanic_explosivity_index+elevation, data = tidy_df, Hess=TRUE)
 
 ## view a summary of the model
-summary(m)
+summary(model2)
 
-ctable <- coef(summary(m))
+ctable2 <- coef(summary(model2))
 
-p <- pnorm(abs(ctable[, "t value"]), lower.tail = FALSE) * 2
+p <- pnorm(abs(ctable2[, "t value"]), lower.tail = FALSE) * 2
 
-(ctable <- cbind(ctable, "p value" = p))
+(ctable2 <- cbind(ctable2, "p value" = p))
+```
+
+
+
 
 # default method gives profiled CIs
 (ci <- confint(m)) 

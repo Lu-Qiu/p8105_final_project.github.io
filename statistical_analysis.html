@@ -357,6 +357,7 @@ div.tocify {
 </div>
 
 
+<p>#Statistical Analysis</p>
 <pre class="r"><code>library(MASS)
 library(tidyverse)</code></pre>
 <pre><code>## ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
@@ -370,9 +371,8 @@ library(tidyverse)</code></pre>
 ## ✖ dplyr::lag()    masks stats::lag()
 ## ✖ dplyr::select() masks MASS::select()
 ## ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
-<div id="data-cleaning-and-processing" class="section level2">
-<h2>Data Cleaning and Processing</h2>
-<p>(Describe the steps in data cleaning)</p>
+<div id="dataset-preparation" class="section level2">
+<h2>Dataset Preparation</h2>
 <pre class="r"><code>tidy_df = 
   read.csv(
     &quot;data/significant-volcanic-eruption-database.csv&quot;, 
@@ -391,31 +391,61 @@ library(tidyverse)</code></pre>
     lat = as.numeric(lat), long = as.numeric(long)
   ) |&gt;
   mutate_at(vars(ends_with(&#39;description&#39;)), ~ifelse(is.na(.), &quot;None/No Record&quot;, .)) |&gt;
-  mutate( # correct injuries description
+  mutate( # shorten description
+    volcano_deaths_description = case_match(
+      volcano_deaths_description,
+      &quot;Very Many (~1001 or more deaths)&quot; ~ &quot;Very Many (~1001 or more)&quot;, 
+      &quot;Many (~101 to 1000 deaths)&quot; ~ &quot;Many (~101 to 1000)&quot;, 
+      &quot;Some (~51 to 100 deaths)&quot; ~ &quot;Some (~51 to 100)&quot;, 
+      &quot;Few (~1 to 50 deaths)&quot; ~ &quot;Few (~1 to 50)&quot;,
+      &quot;None/No Record&quot; ~ &quot;None/No Record&quot;
+    ),
     volcano_injuries_description = case_match(
       volcano_injuries_description,
-      &quot;Very Many (~1001 or more deaths)&quot; ~ &quot;Very Many (~1001 or more injuries)&quot;, 
-      &quot;Many (~101 to 1000 deaths)&quot; ~ &quot;Many (~101 to 1000 injuries)&quot;, 
-      &quot;Some (~51 to 100 deaths)&quot; ~ &quot;Some (~51 to 100 injuries)&quot;, 
-      &quot;Few (~1 to 50 deaths)&quot; ~ &quot;Few (~1 to 50 injuries)&quot;,
+      &quot;Very Many (~1001 or more deaths)&quot; ~ &quot;Very Many (~1001 or more)&quot;, 
+      &quot;Many (~101 to 1000 deaths)&quot; ~ &quot;Many (~101 to 1000)&quot;, 
+      &quot;Some (~51 to 100 deaths)&quot; ~ &quot;Some (~51 to 100)&quot;, 
+      &quot;Few (~1 to 50 deaths)&quot; ~ &quot;Few (~1 to 50)&quot;,
+      &quot;None/No Record&quot; ~ &quot;None/No Record&quot;
+    ),
+    volcano_damage_description = case_match(
+      volcano_damage_description,
+      &quot;EXTREME (~$25 million or more)&quot; ~ &quot;EXTREME (~&gt;=$25 million)&quot;, 
+      &quot;SEVERE (~&gt;$5 to $24 million)&quot; ~ &quot;SEVERE (~$5 to $24 million)&quot;, 
+      &quot;MODERATE (~$1 to $5 million)&quot; ~ &quot;MODERATE (~$1 to $5 million)&quot;, 
+      &quot;LIMITED (roughly corresponding to less than $1 million)&quot; ~ &quot;LIMITED (~&lt;$1 million)&quot;,
+      &quot;None/No Record&quot; ~ &quot;None/No Record&quot;
+    ),
+    volcano_houses_destroyed_description = case_match(
+      volcano_houses_destroyed_description,
+      &quot;Very Many (~1001 or more houses)&quot; ~ &quot;Very Many (~1001 or more)&quot;, 
+      &quot;Many (~101 to 1000 houses)&quot; ~ &quot;Many (~101 to 1000)&quot;, 
+      &quot;Some (~51 to 100 houses)&quot; ~ &quot;Some (~51 to 100)&quot;, 
+      &quot;Few (~1 to 50 houses)&quot; ~ &quot;Few (~1 to 50)&quot;,
       &quot;None/No Record&quot; ~ &quot;None/No Record&quot;
     )
   ) |&gt;
   mutate( # change descriptions to factors w/ levels
-    volcano_deaths_description = factor(volcano_deaths_description, levels = c(&quot;Very Many (~1001 or more deaths)&quot;, &quot;Many (~101 to 1000 deaths)&quot;, &quot;Some (~51 to 100 deaths)&quot;, &quot;Few (~1 to 50 deaths)&quot;, &quot;None/No Record&quot;)),
-    volcano_injuries_description = factor(volcano_injuries_description, levels = c(&quot;Very Many (~1001 or more injuries)&quot;, &quot;Many (~101 to 1000 injuries)&quot;, &quot;Some (~51 to 100 injuries)&quot;, &quot;Few (~1 to 50 injuries)&quot;, &quot;None/No Record&quot;)),
-    volcano_damage_description = factor(volcano_damage_description, levels = c(&quot;EXTREME (~$25 million or more)&quot;, &quot;SEVERE (~&gt;$5 to $24 million)&quot;, &quot;MODERATE (~$1 to $5 million)&quot;, &quot;LIMITED (roughly corresponding to less than $1 million)&quot;, &quot;None/No Record&quot;)),
-    volcano_houses_destroyed_description = factor(volcano_houses_destroyed_description, levels = c(&quot;Very Many (~1001 or more houses)&quot;, &quot;Many (~101 to 1000 houses)&quot;, &quot;Some (~51 to 100 houses)&quot;, &quot;Few (~1 to 50 houses)&quot;, &quot;None/No Record&quot;))
+    volcano_deaths_description = factor(volcano_deaths_description, levels = c(&quot;Very Many (~1001 or more)&quot;, &quot;Many (~101 to 1000)&quot;, &quot;Some (~51 to 100)&quot;, &quot;Few (~1 to 50)&quot;, &quot;None/No Record&quot;)),
+    volcano_injuries_description = factor(volcano_injuries_description, levels = c(&quot;Very Many (~1001 or more)&quot;, &quot;Many (~101 to 1000)&quot;, &quot;Some (~51 to 100)&quot;, &quot;Few (~1 to 50)&quot;, &quot;None/No Record&quot;)),
+    volcano_damage_description = factor(volcano_damage_description, levels = c(&quot;EXTREME (~&gt;=$25 million)&quot;, &quot;SEVERE (~$5 to $24 million)&quot;, &quot;MODERATE (~$1 to $5 million)&quot;, &quot;LIMITED (~&lt;$1 million)&quot;, &quot;None/No Record&quot;)),
+    volcano_houses_destroyed_description = factor(volcano_houses_destroyed_description, levels = c(&quot;Very Many (~1001 or more)&quot;, &quot;Many (~101 to 1000)&quot;, &quot;Some (~51 to 100)&quot;, &quot;Few (~1 to 50)&quot;, &quot;None/No Record&quot;))
   )</code></pre>
 </div>
-<div id="fit-modeldraft" class="section level2">
-<h2>Fit Model(Draft)</h2>
-<pre class="r"><code>#相关性分析
-
-
-#交互项
-
-model1 &lt;- polr(volcano_deaths_description~flag_earthquake*flag_tsunami,data = tidy_df)
+<div id="ordered-logistic-regression" class="section level2">
+<h2>Ordered logistic regression</h2>
+<div id="methodology" class="section level3">
+<h3>Methodology</h3>
+</div>
+<div id="correlation-analysis相关性分析" class="section level3">
+<h3>Correlation analysis(相关性分析)</h3>
+</div>
+<div id="test-effect-modifier" class="section level3">
+<h3>Test effect modifier</h3>
+<p>Now we will examine the relationship between the dependent variable
+<code>volcano_deaths_description</code> and the interaction between
+<code>flag_earthquake</code> and <code>flag_tsunami</code>.</p>
+<pre class="r"><code>model1 &lt;- polr(volcano_deaths_description~flag_earthquake*flag_tsunami,data = tidy_df)
 summary(model1)</code></pre>
 <pre><code>## 
 ## Re-fitting to get Hessian</code></pre>
@@ -430,66 +460,50 @@ summary(model1)</code></pre>
 ## flag_earthquakeTRUE:flag_tsunamiTRUE -1.4140     0.6082  -2.325
 ## 
 ## Intercepts:
-##                                                             Value    Std. Error
-## Very Many (~1001 or more deaths)|Many (~101 to 1000 deaths)  -2.9122   0.1695  
-## Many (~101 to 1000 deaths)|Some (~51 to 100 deaths)          -1.6261   0.1008  
-## Some (~51 to 100 deaths)|Few (~1 to 50 deaths)               -1.2701   0.0902  
-## Few (~1 to 50 deaths)|None/No Record                          1.0278   0.0856  
-##                                                             t value 
-## Very Many (~1001 or more deaths)|Many (~101 to 1000 deaths) -17.1805
-## Many (~101 to 1000 deaths)|Some (~51 to 100 deaths)         -16.1277
-## Some (~51 to 100 deaths)|Few (~1 to 50 deaths)              -14.0852
-## Few (~1 to 50 deaths)|None/No Record                         12.0119
+##                                               Value    Std. Error t value 
+## Very Many (~1001 or more)|Many (~101 to 1000)  -2.9122   0.1695   -17.1805
+## Many (~101 to 1000)|Some (~51 to 100)          -1.6261   0.1008   -16.1277
+## Some (~51 to 100)|Few (~1 to 50)               -1.2701   0.0902   -14.0852
+## Few (~1 to 50)|None/No Record                   1.0278   0.0856    12.0119
 ## 
 ## Residual Deviance: 1965.408 
 ## AIC: 1979.408</code></pre>
-<pre class="r"><code>ctable123 &lt;- coef(summary(model1))</code></pre>
+<pre class="r"><code>ctable1 &lt;- coef(summary(model1))</code></pre>
 <pre><code>## 
 ## Re-fitting to get Hessian</code></pre>
-<pre class="r"><code>p &lt;- pnorm(abs(ctable123[, &quot;t value&quot;]), lower.tail = FALSE) * 2
+<pre class="r"><code>p &lt;- pnorm(abs(ctable1[, &quot;t value&quot;]), lower.tail = FALSE) * 2
 
-(ctable &lt;- cbind(ctable123, &quot;p value&quot; = p))</code></pre>
-<pre><code>##                                                                  Value
-## flag_earthquakeTRUE                                          0.3257621
-## flag_tsunamiTRUE                                             2.2014159
-## flag_earthquakeTRUE:flag_tsunamiTRUE                        -1.4139778
-## Very Many (~1001 or more deaths)|Many (~101 to 1000 deaths) -2.9121681
-## Many (~101 to 1000 deaths)|Some (~51 to 100 deaths)         -1.6261279
-## Some (~51 to 100 deaths)|Few (~1 to 50 deaths)              -1.2701068
-## Few (~1 to 50 deaths)|None/No Record                         1.0277927
-##                                                             Std. Error
-## flag_earthquakeTRUE                                         0.45120480
-## flag_tsunamiTRUE                                            0.25729271
-## flag_earthquakeTRUE:flag_tsunamiTRUE                        0.60820260
-## Very Many (~1001 or more deaths)|Many (~101 to 1000 deaths) 0.16950430
-## Many (~101 to 1000 deaths)|Some (~51 to 100 deaths)         0.10082820
-## Some (~51 to 100 deaths)|Few (~1 to 50 deaths)              0.09017331
-## Few (~1 to 50 deaths)|None/No Record                        0.08556421
-##                                                                 t value
-## flag_earthquakeTRUE                                           0.7219829
-## flag_tsunamiTRUE                                              8.5560760
-## flag_earthquakeTRUE:flag_tsunamiTRUE                         -2.3248467
-## Very Many (~1001 or more deaths)|Many (~101 to 1000 deaths) -17.1804968
-## Many (~101 to 1000 deaths)|Some (~51 to 100 deaths)         -16.1277089
-## Some (~51 to 100 deaths)|Few (~1 to 50 deaths)              -14.0851744
-## Few (~1 to 50 deaths)|None/No Record                         12.0119466
-##                                                                  p value
-## flag_earthquakeTRUE                                         4.703050e-01
-## flag_tsunamiTRUE                                            1.167744e-17
-## flag_earthquakeTRUE:flag_tsunamiTRUE                        2.008016e-02
-## Very Many (~1001 or more deaths)|Many (~101 to 1000 deaths) 3.717141e-66
-## Many (~101 to 1000 deaths)|Some (~51 to 100 deaths)         1.629542e-58
-## Some (~51 to 100 deaths)|Few (~1 to 50 deaths)              4.685005e-45
-## Few (~1 to 50 deaths)|None/No Record                        3.075199e-33</code></pre>
-<pre class="r"><code># not reject H0, keep flag_earthquake, flag_tsunami
-
-#看significance要不要
-  
-## fit ordered logit model and store results &#39;m&#39;
-m &lt;- polr(volcano_deaths_description ~ flag_earthquake + flag_tsunami + volcanic_explosivity_index+elevation, data = tidy_df, Hess=TRUE)
+(ctable1 &lt;- cbind(ctable1, &quot;p value&quot; = p))</code></pre>
+<pre><code>##                                                    Value Std. Error     t value
+## flag_earthquakeTRUE                            0.3257621 0.45120480   0.7219829
+## flag_tsunamiTRUE                               2.2014159 0.25729271   8.5560760
+## flag_earthquakeTRUE:flag_tsunamiTRUE          -1.4139778 0.60820260  -2.3248467
+## Very Many (~1001 or more)|Many (~101 to 1000) -2.9121681 0.16950430 -17.1804968
+## Many (~101 to 1000)|Some (~51 to 100)         -1.6261279 0.10082820 -16.1277089
+## Some (~51 to 100)|Few (~1 to 50)              -1.2701068 0.09017331 -14.0851744
+## Few (~1 to 50)|None/No Record                  1.0277927 0.08556421  12.0119466
+##                                                    p value
+## flag_earthquakeTRUE                           4.703050e-01
+## flag_tsunamiTRUE                              1.167744e-17
+## flag_earthquakeTRUE:flag_tsunamiTRUE          2.008016e-02
+## Very Many (~1001 or more)|Many (~101 to 1000) 3.717141e-66
+## Many (~101 to 1000)|Some (~51 to 100)         1.629542e-58
+## Some (~51 to 100)|Few (~1 to 50)              4.685005e-45
+## Few (~1 to 50)|None/No Record                 3.075199e-33</code></pre>
+<p>The interaction p-value is greater than 0.05, so it’s not
+significant. There is not enough evidence to suggest that the
+relationship between volcano_deaths_description and the combination of
+flag_earthquake and flag_tsunami is significantly different from the sum
+of their individual effects.Given this result, we consider using a
+simpler model without the interaction term.</p>
+</div>
+<div id="fit-the-ordinal-logistic-regression-model"
+class="section level3">
+<h3>Fit the Ordinal Logistic Regression Model</h3>
+<pre class="r"><code>model2 &lt;- polr(volcano_deaths_description ~ flag_earthquake + flag_tsunami + volcanic_explosivity_index+elevation, data = tidy_df, Hess=TRUE)
 
 ## view a summary of the model
-summary(m)</code></pre>
+summary(model2)</code></pre>
 <pre><code>## Call:
 ## polr(formula = volcano_deaths_description ~ flag_earthquake + 
 ##     flag_tsunami + volcanic_explosivity_index + elevation, data = tidy_df, 
@@ -503,89 +517,56 @@ summary(m)</code></pre>
 ## elevation                  -0.0001413  6.797e-05 -2.0789
 ## 
 ## Intercepts:
-##                                                             Value    Std. Error
-## Very Many (~1001 or more deaths)|Many (~101 to 1000 deaths)  -3.1295   0.0628  
-## Many (~101 to 1000 deaths)|Some (~51 to 100 deaths)          -1.9045   0.1400  
-## Some (~51 to 100 deaths)|Few (~1 to 50 deaths)               -1.5159   0.1462  
-## Few (~1 to 50 deaths)|None/No Record                          0.7093   0.1557  
-##                                                             t value 
-## Very Many (~1001 or more deaths)|Many (~101 to 1000 deaths) -49.8420
-## Many (~101 to 1000 deaths)|Some (~51 to 100 deaths)         -13.6064
-## Some (~51 to 100 deaths)|Few (~1 to 50 deaths)              -10.3672
-## Few (~1 to 50 deaths)|None/No Record                          4.5551
+##                                               Value    Std. Error t value 
+## Very Many (~1001 or more)|Many (~101 to 1000)  -3.1295   0.0628   -49.8420
+## Many (~101 to 1000)|Some (~51 to 100)          -1.9045   0.1400   -13.6064
+## Some (~51 to 100)|Few (~1 to 50)               -1.5159   0.1462   -10.3672
+## Few (~1 to 50)|None/No Record                   0.7093   0.1557     4.5551
 ## 
 ## Residual Deviance: 1618.762 
 ## AIC: 1634.762 
 ## (176 observations deleted due to missingness)</code></pre>
-<pre class="r"><code>ctable &lt;- coef(summary(m))
+<pre class="r"><code>ctable2 &lt;- coef(summary(model2))
 
-p &lt;- pnorm(abs(ctable[, &quot;t value&quot;]), lower.tail = FALSE) * 2
+p &lt;- pnorm(abs(ctable2[, &quot;t value&quot;]), lower.tail = FALSE) * 2
 
-(ctable &lt;- cbind(ctable, &quot;p value&quot; = p))</code></pre>
-<pre><code>##                                                                    Value
-## flag_earthquakeTRUE                                         -0.552512426
-## flag_tsunamiTRUE                                             1.648138155
-## volcanic_explosivity_index                                  -0.015103483
-## elevation                                                   -0.000141301
-## Very Many (~1001 or more deaths)|Many (~101 to 1000 deaths) -3.129473947
-## Many (~101 to 1000 deaths)|Some (~51 to 100 deaths)         -1.904503847
-## Some (~51 to 100 deaths)|Few (~1 to 50 deaths)              -1.515915558
-## Few (~1 to 50 deaths)|None/No Record                         0.709327089
-##                                                               Std. Error
-## flag_earthquakeTRUE                                         9.130293e-02
-## flag_tsunamiTRUE                                            1.815541e-01
-## volcanic_explosivity_index                                  5.219720e-02
-## elevation                                                   6.796789e-05
-## Very Many (~1001 or more deaths)|Many (~101 to 1000 deaths) 6.278788e-02
-## Many (~101 to 1000 deaths)|Some (~51 to 100 deaths)         1.399711e-01
-## Some (~51 to 100 deaths)|Few (~1 to 50 deaths)              1.462223e-01
-## Few (~1 to 50 deaths)|None/No Record                        1.557225e-01
-##                                                                 t value
-## flag_earthquakeTRUE                                          -6.0514202
-## flag_tsunamiTRUE                                              9.0779452
-## volcanic_explosivity_index                                   -0.2893543
-## elevation                                                    -2.0789380
-## Very Many (~1001 or more deaths)|Many (~101 to 1000 deaths) -49.8420094
-## Many (~101 to 1000 deaths)|Some (~51 to 100 deaths)         -13.6064096
-## Some (~51 to 100 deaths)|Few (~1 to 50 deaths)              -10.3671977
-## Few (~1 to 50 deaths)|None/No Record                          4.5550712
-##                                                                  p value
-## flag_earthquakeTRUE                                         1.435744e-09
-## flag_tsunamiTRUE                                            1.106439e-19
-## volcanic_explosivity_index                                  7.723103e-01
-## elevation                                                   3.762305e-02
-## Very Many (~1001 or more deaths)|Many (~101 to 1000 deaths) 0.000000e+00
-## Many (~101 to 1000 deaths)|Some (~51 to 100 deaths)         3.668270e-42
-## Some (~51 to 100 deaths)|Few (~1 to 50 deaths)              3.496274e-25
-## Few (~1 to 50 deaths)|None/No Record                        5.236785e-06</code></pre>
-<pre class="r"><code># default method gives profiled CIs
-(ci &lt;- confint(m)) </code></pre>
-<pre><code>## Waiting for profiling to be done...</code></pre>
-<pre><code>##                                    2.5 %        97.5 %
-## flag_earthquakeTRUE                   NA            NA
-## flag_tsunamiTRUE            1.1389212660  2.178582e+00
-## volcanic_explosivity_index -0.1368223985  1.056672e-01
-## elevation                  -0.0002639617 -1.840986e-05</code></pre>
-<pre class="r"><code># CIs assuming normality
-confint.default(m) </code></pre>
-<pre><code>##                                    2.5 %        97.5 %
-## flag_earthquakeTRUE        -0.7314628901 -3.735620e-01
-## flag_tsunamiTRUE            1.2922986597  2.003978e+00
-## volcanic_explosivity_index -0.1174081228  8.720116e-02
-## elevation                  -0.0002745156 -8.086410e-06</code></pre>
-<pre class="r"><code>## odds ratios
-exp(coef(m))</code></pre>
-<pre><code>##        flag_earthquakeTRUE           flag_tsunamiTRUE 
-##                  0.5755021                  5.1972943 
-## volcanic_explosivity_index                  elevation 
-##                  0.9850100                  0.9998587</code></pre>
-<pre class="r"><code>## OR and CI
-exp(cbind(OR = coef(m), ci))</code></pre>
-<pre><code>##                                   OR     2.5 %    97.5 %
-## flag_earthquakeTRUE        0.5755021        NA        NA
-## flag_tsunamiTRUE           5.1972943 3.1233972 8.8337742
-## volcanic_explosivity_index 0.9850100 0.8721251 1.1114519
-## elevation                  0.9998587 0.9997361 0.9999816</code></pre>
+(ctable2 &lt;- cbind(ctable2, &quot;p value&quot; = p))</code></pre>
+<pre><code>##                                                      Value   Std. Error
+## flag_earthquakeTRUE                           -0.552512426 9.130293e-02
+## flag_tsunamiTRUE                               1.648138155 1.815541e-01
+## volcanic_explosivity_index                    -0.015103483 5.219720e-02
+## elevation                                     -0.000141301 6.796789e-05
+## Very Many (~1001 or more)|Many (~101 to 1000) -3.129473947 6.278788e-02
+## Many (~101 to 1000)|Some (~51 to 100)         -1.904503847 1.399711e-01
+## Some (~51 to 100)|Few (~1 to 50)              -1.515915558 1.462223e-01
+## Few (~1 to 50)|None/No Record                  0.709327089 1.557225e-01
+##                                                   t value      p value
+## flag_earthquakeTRUE                            -6.0514202 1.435744e-09
+## flag_tsunamiTRUE                                9.0779452 1.106439e-19
+## volcanic_explosivity_index                     -0.2893543 7.723103e-01
+## elevation                                      -2.0789380 3.762305e-02
+## Very Many (~1001 or more)|Many (~101 to 1000) -49.8420094 0.000000e+00
+## Many (~101 to 1000)|Some (~51 to 100)         -13.6064096 3.668270e-42
+## Some (~51 to 100)|Few (~1 to 50)              -10.3671977 3.496274e-25
+## Few (~1 to 50)|None/No Record                   4.5550712 5.236785e-06</code></pre>
+</div>
+</div>
+<div id="default-method-gives-profiled-cis" class="section level1">
+<h1>default method gives profiled CIs</h1>
+<p>(ci &lt;- confint(m))</p>
+</div>
+<div id="cis-assuming-normality" class="section level1">
+<h1>CIs assuming normality</h1>
+<p>confint.default(m)</p>
+<div id="odds-ratios" class="section level2">
+<h2>odds ratios</h2>
+<p>exp(coef(m))</p>
+</div>
+<div id="or-and-ci" class="section level2">
+<h2>OR and CI</h2>
+<p>exp(cbind(OR = coef(m), ci))</p>
+<p>```</p>
+</div>
 </div>
 
 
