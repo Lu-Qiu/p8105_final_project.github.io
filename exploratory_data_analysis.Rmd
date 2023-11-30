@@ -11,6 +11,7 @@ output:
 library(tidyverse)
 library(leaflet)
 library(cowplot)
+library(gridExtra)
 
 # set knitr defaults
 knitr::opts_chunk$set(
@@ -180,11 +181,9 @@ plot_grid(country1, country2, ncol = 1)
 The top five countries with the most volcanoes are: Indonesia, Japan, United States, Papua New Guinea and Russia.  
 The top five countries with the most volcanic eruptions are: Indonesia, Japan, Italy, Iceland and United States.
 
-## Factors Influencing Volcanic Losses (Numeric)
+## The Factors Influencing Volcanic Losses(numeric)
 
 In this section, we aim to explore the impact of various factors(the occurrence of tsunami and earthquake, the type of volcano and the volcanic explosivity index) on casualties and property losses resulting from volcanic eruptions.
-
-### Tidy Data
 
 ```{r}
 numeric_df = 
@@ -198,416 +197,201 @@ numeric_df =
     volcanic_explosivity_index = factor(volcanic_explosivity_index))
 ```
 
-### Correlation between Tsunami Occurrence and Casualties and Property Losses Caused by Volcanic Activity
-
-#### Plot 1-1: Correlation between Tsunami Occurrence and Injuries
+### Plot: Tsunami Occurrence Influencing Volcanic Losses
 
 ```{r}
-# flag_tsunami vs volcano_injuries box plot
-numeric_df |>
+par(mfrow = c(2,2))
+
+# volcano_injuries vs flag_tsunami 
+tsunami_injuries = 
+  numeric_df |>
   filter(!is.na(volcano_injuries)) |>
-  ggplot(aes(x = flag_tsunami, y = volcano_injuries, group = flag_tsunami)) +
+  ggplot(aes(x = flag_tsunami, y = log(volcano_injuries), group = flag_tsunami, fill = flag_tsunami)) +
   geom_boxplot() +
-  labs(title = "Correlation between Tsunami Occurrence and Injuries", x = "Tsunami Occurrence", y = "Injuries") +
-  theme_minimal()
+  labs(title = "Injuries vs Tsunami", x = "Tsunami Occurrence", y = "ln_Injuries")
+
+
+# volcano_deaths vs flag_tsunami
+tsunami_deaths = 
+  numeric_df |>
+  filter(!is.na(volcano_deaths)) |>
+  ggplot(aes(x = flag_tsunami, y = log(volcano_deaths), group = flag_tsunami, fill = flag_tsunami)) +
+  geom_boxplot() +
+  labs(title = "Deaths vs Tsunami", x = "Tsunami Occurrence", y = "ln_Deaths") 
+
+
+# damage vs flag_tsunami
+tsunami_damage = 
+  numeric_df |>
+  filter(!is.na(volcano_damage_in_m)) |>
+  ggplot(aes(x = flag_tsunami, y = log(volcano_damage_in_m), group = flag_tsunami, fill = flag_tsunami)) +
+  geom_boxplot() +
+  labs(title = "Damage(money in million) vs Tsunami", x = "Tsunami Occurrence", y = "ln_Damage(money in million)") 
+
+
+# volcano_houses_destroyed vs flag_tsunami 
+tsunami_houses_destroyed = 
+  numeric_df |>
+  filter(!is.na(volcano_houses_destroyed)) |>
+  ggplot(aes(x = flag_tsunami, y = log(volcano_houses_destroyed), group = flag_tsunami, fill = flag_tsunami)) +
+  geom_boxplot() +
+  labs(title = "Houses Destroyed vs Tsunami", x = "Tsunami Occurrence", y = "ln_Houses Destroyed")
+
+grid.arrange(tsunami_injuries, tsunami_deaths, tsunami_damage, tsunami_houses_destroyed, ncol = 2)
 ```
 
+* Comment: The box plots above indicate a noticeable influence of tsunami occurrence on the volcanic losses. The tsunami effects triggered by volcanic activities are likely to contribute to an increase in both casualties and property damage.
+
+### Plot: Earthquake Occurrence Influencing Volcanic Losses
+
 ```{r}
-# flag_tsunami vs volcano_injuries bar plot
-numeric_df |>
+par(mfrow = c(2,2))
+
+# volcano_injuries vs flag_earthquake
+earthquake_injuries = 
+  numeric_df |>
   filter(!is.na(volcano_injuries)) |>
-  group_by(flag_tsunami) |>
-  summarize(total_injuries = mean(volcano_injuries)) |>
-  ggplot(aes(x = flag_tsunami, y = total_injuries, fill = flag_tsunami)) +
-  geom_bar(stat = "identity", position = "dodge") +
-  labs(title = "Correlation between Tsunami Occurrence and Injuries", x = "Tsunami Occurrence", y = "Injuries") +
-  theme_minimal() 
-```
+  ggplot(aes(x = flag_earthquake, y = log(volcano_injuries), group = flag_earthquake, fill = flag_earthquake)) +
+  geom_boxplot() +
+  labs(title = "Injuries vs Earthquake", x = "Earthquake Occurrence", y = "ln_Injuries") 
 
-#### Plot 1-2: Correlation between Tsunami Occurrence and Deaths
 
-```{r}
-# flag_tsunami vs volcano_deaths box plot
-numeric_df |>
+#volcano_deaths vs flag_earthquake
+earthquake_deaths = 
+  numeric_df |>
   filter(!is.na(volcano_deaths)) |>
-  ggplot(aes(x = flag_tsunami, y = volcano_deaths, group = flag_tsunami)) +
+  ggplot(aes(x = flag_earthquake, y = log(volcano_deaths), group = flag_earthquake, fill = flag_earthquake)) +
   geom_boxplot() +
-  labs(title = "Correlation between Tsunami Occurrence and Deaths", x = "Tsunami Occurrence", y = "Deaths") +
-  theme_minimal()
-```
+  labs(title = "Deaths VS Earthquake", x = "Earthquake Occurrence", y = "ln_Deaths")
 
-```{r}
-# flag_tsunami vs volcano_deaths bar plot
-numeric_df |>
-  filter(!is.na(volcano_deaths)) |>
-  group_by(flag_tsunami) |>
-  summarize(total_deaths = mean(volcano_deaths)) |>
-  ggplot(aes(x = flag_tsunami, y = total_deaths, fill = flag_tsunami)) +
-  geom_bar(stat = "identity", position = "dodge") +
-  labs(title ="Correlation between Tsunami Occurrence and Deaths", x = "Tsunami Occurrence", y = "Deaths") +
-  theme_minimal() 
-```
 
-#### Plot 1-3: Correlation between Tsunami Occurrence and Damage(money in million)
-
-```{r}
-# flag_tsunami vs damage box plot
-numeric_df |>
+#damage vs flag_earthquake 
+earthquake_damage = 
+  numeric_df |>
   filter(!is.na(volcano_damage_in_m)) |>
-  ggplot(aes(x = flag_tsunami, y = volcano_damage_in_m, group = flag_tsunami)) +
+  ggplot(aes(x = flag_earthquake, y = log(volcano_damage_in_m), group = flag_earthquake, fill = flag_earthquake)) +
   geom_boxplot() +
-  labs(title = "Correlation between Tsunami Occurrence and Damage(money in million)", x = "Tsunami Occurrence", y = "Damage(money in million)") +
-  theme_minimal()
-```
+  labs(title = "Damage(money in million) VS Earthquake", x = "Earthquake Occurrence", y = "ln_Damage(money in million)") 
 
-```{r}
-# flag_tsunami vs damage bar plot
-numeric_df |>
-  filter(!is.na(volcano_damage_in_m)) |>
-  group_by(flag_tsunami) |>
-  summarize(total_damage = mean(volcano_damage_in_m)) |>
-  ggplot(aes(x = flag_tsunami, y = total_damage, fill = flag_tsunami)) +
-  geom_bar(stat = "identity", position = "dodge") +
-  labs(title ="Correlation between Tsunami Occurrence and Damage(money in million)", x = "Tsunami Occurrence", y = "Damage(money in million)") +
-  theme_minimal() 
-```
 
-#### Plot 1-4: Correlation between Tsunami Occurrence and Houses Destroyed(number of destroyed houses)
-
-```{r}
-# flag_tsunami vs volcano_houses_destroyed box plot
-numeric_df |>
+#volcano_houses_destroyed vs flag_earthquake
+earthquake_houses_destroyed = 
+  numeric_df |>
   filter(!is.na(volcano_houses_destroyed)) |>
-  ggplot(aes(x = flag_tsunami, y = volcano_houses_destroyed, group = flag_tsunami)) +
+  ggplot(aes(x = flag_earthquake, y = log(volcano_houses_destroyed), group = flag_earthquake,fill = flag_earthquake)) +
   geom_boxplot() +
-  labs(title = "Correlation between Tsunami Occurrence and Houses Destroyed", x = "Tsunami Occurrence", y = "Houses Destroyed") +
-  theme_minimal()
+  labs(title = "Houses Destroyed VS Earthquake", x = "Earthquake Occurrence", y = "ln_Houses Destroyed") 
+
+
+grid.arrange(earthquake_injuries, earthquake_deaths, earthquake_damage, earthquake_houses_destroyed, ncol = 2)
 ```
 
-```{r}
-# flag_tsunami vs volcano_houses_destroyed bar plot
-numeric_df |>
-  filter(!is.na(volcano_houses_destroyed)) |>
-  group_by(flag_tsunami) |>
-  summarize(total_houses_destroyed = mean(volcano_houses_destroyed)) |>
-  ggplot(aes(x = flag_tsunami, y = total_houses_destroyed, fill = flag_tsunami)) +
-  geom_bar(stat = "identity", position = "dodge") +
-  labs(title ="Correlation between Tsunami Occurrence and Houses Destroyed", x = "Tsunami Occurrence", y = "Houses Destroyed") +
-  theme_minimal() 
-```
+* Comment: The above box plots indicate that when volcanic eruptions trigger volcanic earthquakes, there is a generally noticeable increase in casualties and property damage compared to situations where volcanic earthquakes are not triggered.
 
-<mark> bar plot and box plot are different (mean？median?)
-
-### Correlation between Earthquake Occurrence and Casualties and Property Losses Caused by Volcanic Activity
-
-#### Plot 2-1: Correlation between Earthquake Occurrence and Injuries
+### Plot: Volcano Type Influencing Volcanic Losses
 
 ```{r}
-# flag_earthquake vs volcano_injuries box plot
-numeric_df |>
+par(mfrow = c(2,2))
+
+# volcano_injuries vs volcano_type
+type_injuries =
+  numeric_df |>
   filter(!is.na(volcano_injuries)) |>
-  ggplot(aes(x = flag_earthquake, y = volcano_injuries, group = flag_earthquake)) +
+  ggplot(aes(x = reorder(volcano_type, volcano_injuries, median), y = log(volcano_injuries), group = volcano_type, fill = volcano_type)) +
   geom_boxplot() +
-  labs(title = "Correlation between Earthquake Occurrence and Injuries", x = "Earthquake Occurrence", y = "Injuries") +
-  theme_minimal()
-```
+  labs(title = "Injuries vs Volcano Type", x = "Volcano Type", y = "ln_Injuries") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1), legend.position = "none")
 
-```{r}
-# flag_earthquake vs volcano_injuries bar plot
-numeric_df |>
-  filter(!is.na(volcano_injuries)) |>
-  group_by(flag_earthquake) |>
-  summarize(total_injuries = mean(volcano_injuries)) |>
-  ggplot(aes(x = flag_earthquake, y = total_injuries, fill = flag_earthquake)) +
-  geom_bar(stat = "identity", position = "dodge") +
-  labs(title = "Correlation between Earthquake Occurrence and Injuries", x = "Earthquake Occurrence", y = "Injuries") +
-  theme_minimal() 
-```
 
-<mark> outlier 
-
-#### Plot 2-2: Correlation between Earthquake Occurrence and Deaths
-
-```{r}
-# flag_earthquake vs volcano_deaths box plot
-numeric_df |>
+# volcano_deaths vs volcano_type
+type_deaths = 
+  numeric_df |>
   filter(!is.na(volcano_deaths)) |>
-  ggplot(aes(x = flag_earthquake, y = volcano_deaths, group = flag_earthquake)) +
+  ggplot(aes(x = reorder(volcano_type, volcano_deaths, median), y = log(volcano_deaths), group = volcano_type, fill = volcano_type)) +
   geom_boxplot() +
-  labs(title = "Correlation between Earthquake Occurrence and Deaths", x = "Earthquake Occurrence", y = "Deaths") +
-  theme_minimal()
-```
+  labs(title = "Deaths vs Volcano Type", x = "Volcano Type", y = "ln_Deaths")+
+  theme(axis.text.x = element_text(angle = 60, hjust = 1), legend.position = "none")
 
-```{r}
-# flag_earthquake vs volcano_deaths bar plot
-numeric_df |>
-  filter(!is.na(volcano_deaths)) |>
-  group_by(flag_earthquake) |>
-  summarize(total_deaths = mean(volcano_deaths)) |>
-  ggplot(aes(x = flag_earthquake, y = total_deaths, fill = flag_earthquake)) +
-  geom_bar(stat = "identity", position = "dodge") +
-  labs(title ="Correlation between Earthquake Occurrence and Deaths", x = "Earthquake Occurrence", y = "Deaths") +
-  theme_minimal() 
-```
 
-#### Plot 2-3: Correlation between Earthquake Occurrence and Damage(money in million)
-
-```{r}
-# flag_earthquake vs damage box plot
-numeric_df |>
+# damage vs volcano_type
+type_damage =
+  numeric_df |>
   filter(!is.na(volcano_damage_in_m)) |>
-  ggplot(aes(x = flag_earthquake, y = volcano_damage_in_m, group = flag_earthquake)) +
+  ggplot(aes(x = reorder(volcano_type, volcano_damage_in_m, median), y = log(volcano_damage_in_m), group = volcano_type, fill = volcano_type)) +
   geom_boxplot() +
-  labs(title = "Correlation between Earthquake Occurrence and Damage(money in million)", x = "Earthquake Occurrence", y = "Damage(money in million)") +
-  theme_minimal()
-```
+  labs(title = "Damage vs Volcano Type", x = "Volcano Type", y = "ln_Damage(money in million)")+
+  theme(axis.text.x = element_text(angle = 45, hjust = 1), legend.position = "none")
 
-```{r}
-# flag_earthquake vs damage bar plot
-numeric_df |>
-  filter(!is.na(volcano_damage_in_m)) |>
-  group_by(flag_earthquake) |>
-  summarize(total_damage = mean(volcano_damage_in_m)) |>
-  ggplot(aes(x = flag_earthquake, y = total_damage, fill = flag_earthquake)) +
-  geom_bar(stat = "identity", position = "dodge") +
-  labs(title ="Correlation between Earthquake Occurrence and Damage(money in million)", x = "Earthquake Occurrence", y = "Damage(money in million)") +
-  theme_minimal() 
-```
 
-#### Plot 2-4: Correlation between Earthquake Occurrence and Houses Destroyed(number of destroyed houses)
-
-```{r}
-# flag_earthquake vs volcano_houses_destroyed box plot
-numeric_df |>
+# volcano_houses_destroyed vs volcano_type
+type_houses_destroyed =
+  numeric_df |>
   filter(!is.na(volcano_houses_destroyed)) |>
-  ggplot(aes(x = flag_earthquake, y = volcano_houses_destroyed, group = flag_earthquake)) +
+  ggplot(aes(x = reorder(volcano_type, volcano_houses_destroyed, median), y = log(volcano_houses_destroyed), group = volcano_type, fill = volcano_type)) +
   geom_boxplot() +
-  labs(title = "Correlation between Earthquake Occurrence and Houses Destroyed", x = "Earthquake Occurrence", y = "Houses Destroyed") +
-  theme_minimal()
+  labs(title = "Houses Destroyed vs Volcano Type", x = "Volcano Type", y = "ln_Houses Destroyed")+
+  theme(axis.text.x = element_text(angle = 45, hjust = 1), legend.position = "none")
+
+grid.arrange(type_injuries, type_deaths, type_damage, type_houses_destroyed, ncol = 2)
 ```
 
-```{r}
-# flag_earthquake vs volcano_houses_destroyed bar plot
-numeric_df |>
-  filter(!is.na(volcano_houses_destroyed)) |>
-  group_by(flag_earthquake) |>
-  summarize(total_houses_destroyed = mean(volcano_houses_destroyed)) |>
-  ggplot(aes(x = flag_earthquake, y = total_houses_destroyed, fill = flag_earthquake)) +
-  geom_bar(stat = "identity", position = "dodge") +
-  labs(title ="Correlation between Earthquake Occurrence and Houses Destroyed", x = "Earthquake Occurrence", y = "Houses Destroyed") +
-  theme_minimal() 
-```
+* Comment: 
+  * The above box plots indicate that there is no clear correlation between the types of volcanoes and the volcanic losses. Some volcanoes that result in significant property damage during eruptions do not necessarily lead to a high number of casualties (which may be related to missing values).
+  * Among these volcanoes, eruptions of the "Maar" type lead to the most severe casualties, while eruptions of the "Stratovolcano" type comparatively result in more substantial property damage.
 
-<mark> outlier
-
-### Correlation between Volcano Type and Casualties and Property Losses Caused by Volcanic Activity
-
-#### Plot 3-1: Correlation between Volcano Type and Injuries
+### Plot: VEI Influencing Volcanic Losses
 
 ```{r}
-# volcano_type vs volcano_injuries box plot
-numeric_df |>
-  filter(!is.na(volcano_injuries)) |>
-  ggplot(aes(x = volcano_type, y = volcano_injuries, group = volcano_type)) +
-  geom_boxplot() +
-  labs(title = "Correlation between Volcano Type and Injuries", x = "Volcano Type", y = "Injuries") +
-  theme_minimal()
-```
+par(mfrow = c(2,2))
 
-```{r}
-# volcano_type vs volcano_injuries bar plot
-numeric_df |>
-  filter(!is.na(volcano_injuries)) |>
-  group_by(volcano_type) |>
-  summarize(total_injuries = mean(volcano_injuries)) |>
-  ggplot(aes(x = reorder(volcano_type, total_injuries), y = total_injuries, fill = volcano_type)) +
-  geom_bar(stat = "identity", position = "dodge") +
-  labs(title = "Correlation between Volcano Type and Injuries", x = "Volcano Type", y = "Injuries") +
-  theme_minimal() 
-```
-
-#### Plot 3-2: Correlation between Volcano Type and Deaths
-
-```{r}
-# volcano_type vs volcano_deaths box plot
-numeric_df |>
-  filter(!is.na(volcano_deaths)) |>
-  ggplot(aes(x = volcano_type, y = volcano_deaths, group = volcano_type)) +
-  geom_boxplot() +
-  labs(title = "Correlation between Volcano Type and Deaths", x = "Volcano Type", y = "Deaths") +
-  theme_minimal()
-```
-
-```{r}
-# volcano_type vs volcano_deaths bar plot
-numeric_df |>
-  filter(!is.na(volcano_deaths)) |>
-  group_by(volcano_type) |>
-  summarize(total_deaths = mean(volcano_deaths)) |>
-  ggplot(aes(x = reorder(volcano_type, total_deaths), y = total_deaths, fill = volcano_type)) +
-  geom_bar(stat = "identity", position = "dodge") +
-  labs(title ="Correlation between Volcano Type and Deaths", x = "Volcano Type", y = "Deaths") +
-  theme_minimal() 
-```
-
-#### Plot 3-3: Correlation between Volcano Type and Damage(money in million)
-
-```{r}
-# volcano_type vs damage box plot
-numeric_df |>
-  filter(!is.na(volcano_damage_in_m)) |>
-  ggplot(aes(x = volcano_type, y = volcano_damage_in_m, group = volcano_type)) +
-  geom_boxplot() +
-  labs(title = "Correlation between Volcano Type and Damage(money in million)", x = "Volcano Type", y = "Damage(money in million)") +
-  theme_minimal()
-```
-
-```{r}
-# volcano_type vs damage bar plot
-numeric_df |>
-  filter(!is.na(volcano_damage_in_m)) |>
-  group_by(volcano_type) |>
-  summarize(total_damage = mean(volcano_damage_in_m)) |>
-  ggplot(aes(x = reorder(volcano_type, total_damage), y = total_damage, fill = volcano_type)) +
-  geom_bar(stat = "identity", position = "dodge") +
-  labs(title ="Correlation between Volcano Type and Damage(money in million)", x = "Volcano Type", y = "Damage(money in million)") +
-  theme_minimal() 
-```
-
-#### Plot 3-4: Correlation between Volcano Type and Houses Destroyed(number of destroyed houses)
-
-```{r}
-# volcano_type vs volcano_houses_destroyed box plot
-numeric_df |>
-  filter(!is.na(volcano_houses_destroyed)) |>
-  ggplot(aes(x = volcano_type, y = volcano_houses_destroyed, group = volcano_type)) +
-  geom_boxplot() +
-  labs(title = "Correlation between Volcano Type and Houses Destroyed", x = "Volcano Type", y = "Houses Destroyed") +
-  theme_minimal()
-```
-
-```{r}
-# volcano_type vs volcano_houses_destroyed bar plot
-numeric_df |>
-  filter(!is.na(volcano_houses_destroyed)) |>
-  group_by(volcano_type) |>
-  summarize(total_houses_destroyed = mean(volcano_houses_destroyed)) |>
-  ggplot(aes(x = reorder(volcano_type, total_houses_destroyed), y = total_houses_destroyed, fill = volcano_type)) +
-  geom_bar(stat = "identity", position = "dodge") +
-  labs(title ="Correlation between Volcano Type and Houses Destroyed", x = "Volcano Type", y = "Houses Destroyed") +
-  theme_minimal() 
-```
-
-### Correlation between VEI(Volcanic Explosivity Index) and Casualties and Property Losses Caused by Volcanic Activity
-
-#### Plot 4-1: Correlation between VEI and Injuries
-
-```{r}
-# VEI vs volcano_injuries box plot
-numeric_df |>
+# volcano_injuries vs VEI
+VEI_injuries = 
+  numeric_df |>
   filter(!is.na(volcano_injuries),
          !is.na(volcanic_explosivity_index)) |>
-  ggplot(aes(x = volcanic_explosivity_index, y = volcano_injuries, group = volcanic_explosivity_index)) +
+  ggplot(aes(x = volcanic_explosivity_index, y = log(volcano_injuries), group = volcanic_explosivity_index, fill = volcanic_explosivity_index)) +
   geom_boxplot() +
-  labs(title = "Correlation between VEI and Injuries", x = "VEI", y = "Injuries") +
-  theme_minimal()
-```
+  labs(title = "Injuries VS VEI", x = "VEI (level)", y = "ln_Injuries")+
+  theme(legend.position = "none")
 
-```{r}
-# VEI vs volcano_injuries bar plot
-numeric_df |>
-  filter(!is.na(volcano_injuries),
-         !is.na(volcanic_explosivity_index)) |>
-  group_by(volcanic_explosivity_index) |>
-  summarize(total_injuries = mean(volcano_injuries)) |>
-  ggplot(aes(x = reorder(volcanic_explosivity_index, total_injuries), y = total_injuries, fill = volcanic_explosivity_index)) +
-  geom_bar(stat = "identity", position = "dodge") +
-  labs(title = "Correlation between VEI and Injuries", x = "VEI", y = "Injuries") +
-  theme_minimal() 
-```
 
-<mark> outlier
-
-#### Plot 4-2: Correlation between VEI and Deaths
-
-```{r}
-# VEI vs volcano_deaths box plot
-numeric_df |>
+# volcano_deaths vs VEI
+VEI_deaths = 
+  numeric_df |>
   filter(!is.na(volcano_deaths),
          !is.na(volcanic_explosivity_index)) |>
-  ggplot(aes(x = volcanic_explosivity_index, y = volcano_deaths, group = volcanic_explosivity_index)) +
+  ggplot(aes(x = volcanic_explosivity_index, y = log(volcano_deaths), group = volcanic_explosivity_index, fill = volcanic_explosivity_index)) +
   geom_boxplot() +
-  labs(title = "Correlation between VEI and Deaths", x = "VEI", y = "Deaths") +
-  theme_minimal()
-```
+  labs(title = "Deaths vs VEI", x = "VEI (level)", y = "ln_Deaths")+
+  theme(legend.position = "none")
 
-```{r}
-# VEI vs volcano_deaths bar plot
-numeric_df |>
-  filter(!is.na(volcano_deaths),
-         !is.na(volcanic_explosivity_index)) |>
-  group_by(volcanic_explosivity_index) |>
-  summarize(total_deaths = mean(volcano_deaths)) |>
-  ggplot(aes(x = reorder(volcanic_explosivity_index, total_deaths), y = total_deaths, fill = volcanic_explosivity_index)) +
-  geom_bar(stat = "identity", position = "dodge") +
-  labs(title ="Correlation between VEI and Deaths", x = "VEI", y = "Deaths") +
-  theme_minimal() 
-```
 
-#### Plot 4-3: Correlation between VEI and Damage(money in million)
-
-```{r}
-# VEI vs damage box plot
-numeric_df |>
+# damage vs VEI 
+VEI_damage =
+  numeric_df |>
   filter(!is.na(volcano_damage_in_m),
          !is.na(volcanic_explosivity_index)) |>
-  ggplot(aes(x = volcanic_explosivity_index, y = volcano_damage_in_m, group = volcanic_explosivity_index)) +
+  ggplot(aes(x = volcanic_explosivity_index, y = log(volcano_damage_in_m), group = volcanic_explosivity_index, fill = volcanic_explosivity_index)) +
   geom_boxplot() +
-  labs(title = "Correlation between VEI and Damage(money in million)", x = "VEI", y = "Damage(money in million)") +
-  theme_minimal()
-```
+  labs(title = "Damage(money in million) vs VEI", x = "VEI (level)", y = "ln_Damage(money in million)") +
+  theme(legend.position = "none")
 
-```{r}
-# VEI vs damage bar plot
-numeric_df |>
-  filter(!is.na(volcano_damage_in_m),
-         !is.na(volcanic_explosivity_index)) |>
-  group_by(volcanic_explosivity_index) |>
-  summarize(total_damage = mean(volcano_damage_in_m)) |>
-  ggplot(aes(x = reorder(volcanic_explosivity_index, total_damage), y = total_damage, fill = volcanic_explosivity_index)) +
-  geom_bar(stat = "identity", position = "dodge") +
-  labs(title ="Correlation between VEI and Damage(money in million)", x = "VEI", y = "Damage(money in million)") +
-  theme_minimal() 
-```
 
-#### Plot 4-4: Correlation between VEI and Houses Destroyed(number of destroyed houses)
-
-```{r}
-# VEI vs volcano_houses_destroyed box plot
-numeric_df |>
+# volcano_houses_destroyed vs VEI
+VEI_houses_destroyed =
+  numeric_df |>
   filter(!is.na(volcano_houses_destroyed),
          !is.na(volcanic_explosivity_index)) |>
-  ggplot(aes(x = volcanic_explosivity_index, y = volcano_houses_destroyed, group = volcanic_explosivity_index)) +
+  ggplot(aes(x = volcanic_explosivity_index, y = log(volcano_houses_destroyed), group = volcanic_explosivity_index, fill = volcanic_explosivity_index)) +
   geom_boxplot() +
-  labs(title = "Correlation between VEI and Houses Destroyed", x = "VEI", y = "Houses Destroyed") +
-  theme_minimal()
+  labs(title = "Houses Destroyed vs VEI", x = "VEI (level)", y = "ln_Houses Destroyed") +
+  theme(legend.position = "none")
+
+
+grid.arrange(VEI_injuries, VEI_deaths, VEI_damage, VEI_houses_destroyed, ncol = 2)
 ```
 
-```{r}
-# VEI vs volcano_houses_destroyed bar plot
-numeric_df |>
-  filter(!is.na(volcano_houses_destroyed),
-         !is.na(volcanic_explosivity_index)) |>
-  group_by(volcanic_explosivity_index) |>
-  summarize(total_houses_destroyed = mean(volcano_houses_destroyed)) |>
-  ggplot(aes(x = reorder(volcanic_explosivity_index, total_houses_destroyed), y = total_houses_destroyed, fill = volcanic_explosivity_index)) +
-  geom_bar(stat = "identity", position = "dodge") +
-  labs(title ="Correlation between VEI and Houses Destroyed", x = "VEI", y = "Houses Destroyed") +
-  theme_minimal() 
-```
-
-<mark> outlier
-
+* Comment: The above box plots show that with the increase in the volcanic explosivity index, there is a general upward trend in casualties and property damage caused by volcanic eruptions. In other words, as the energy of the volcanic eruption increases, the casualties and losses become more severe.
 
 -------------------
 
