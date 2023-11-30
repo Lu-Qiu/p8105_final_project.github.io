@@ -4,16 +4,35 @@ output:
   html_document:
     toc: true
     toc_float: true
+    code_folding: "hide"
 ---
 
-#Statistical Analysis
 
-```{r}
+```{r setup, include=FALSE}
 library(MASS)
 library(tidyverse)
+library(Hmisc)
+library(corrplot)
+
+# set knitr defaults
+knitr::opts_chunk$set(
+  echo = TRUE, 
+  message = TRUE, 
+  warning = FALSE
+)
+
+# set theme defaults
+theme_set(theme_minimal() + theme(legend.position = "bottom"))
+
+# set color scale defaults
+options(
+    ggplot2.continuous.colour = "viridis",
+    ggplot2.continuous.fill   = "viridis")
+
+scale_colour_discrete = scale_colour_viridis_d
+scale_fill_discrete   = scale_fill_viridis_d
 ```
 
-## Dataset Preparation
 ```{r}
 tidy_df = 
   read.csv(
@@ -76,18 +95,14 @@ tidy_df =
 
 ```
 
-## Ordered logistic regression
 
-### Methodology
-
+## Methodology
 
 
-### Correlation analysis(相关性分析)
+
+## Correlation Analysis
 
 ```{r}
-library(Hmisc)
-library(corrplot)
-
 variables_of_interest <- c("flag_earthquake", "flag_tsunami", "volcanic_explosivity_index", "elevation")
 
 selected_data <- tidy_df %>%
@@ -106,7 +121,7 @@ corrplot(correlation_matrix, type = "lower", add = TRUE, method = "number",
          tl.pos = "n", cl.pos = "n")
 ```
 
-### Test effect modifier
+## Test of Effect Modifier
 Now we will examine the relationship between the dependent variable `volcano_deaths_description` and the interaction between `flag_earthquake` and `flag_tsunami`.
 ```{r}
 model1 <- polr(volcano_deaths_description~flag_earthquake*flag_tsunami,data = tidy_df)
@@ -121,7 +136,7 @@ p <- pnorm(abs(ctable1[, "t value"]), lower.tail = FALSE) * 2
 ```
 The interaction p-value is greater than 0.05, so it's not significant. There is not enough evidence to suggest that the relationship between volcano_deaths_description and the combination of flag_earthquake and flag_tsunami is significantly different from the sum of their individual effects.Given this result, we consider using a simpler model without the interaction term.
 
-### Fit the Ordinal Logistic Regression Model
+## Fit the Ordinal Logistic Regression Model
 
 ```{r}
 model2 <- polr(volcano_deaths_description ~ flag_earthquake + flag_tsunami + volcanic_explosivity_index+elevation, data = tidy_df, Hess=TRUE)
@@ -131,7 +146,7 @@ summary(model2)
 ```
 
 
-### Comparison between models with and without flag_tsunami(相关性分析的后续，不需要的话就删掉)
+## Comparison between models with and without flag_tsunami(相关性分析的后续，不需要的话就删掉)
 
 ```{r}
 model_without_tsunami <- polr(volcano_deaths_description ~ flag_earthquake + volcanic_explosivity_index + elevation, data = tidy_df, Hess = TRUE)

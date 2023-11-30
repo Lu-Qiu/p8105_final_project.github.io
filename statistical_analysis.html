@@ -33,6 +33,7 @@
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 <link href="site_libs/font-awesome-6.4.2/css/all.min.css" rel="stylesheet" />
@@ -221,6 +222,9 @@ $(document).ready(function () {
 </style>
 
 <!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
 
 
 
@@ -350,6 +354,14 @@ div.tocify {
 
 <div id="header">
 
+<div class="btn-group pull-right float-right">
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
 
 
 <h1 class="title toc-ignore">Statistical Analysis</h1>
@@ -357,22 +369,6 @@ div.tocify {
 </div>
 
 
-<p>#Statistical Analysis</p>
-<pre class="r"><code>library(MASS)
-library(tidyverse)</code></pre>
-<pre><code>## ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-## ✔ dplyr     1.1.3     ✔ readr     2.1.4
-## ✔ forcats   1.0.0     ✔ stringr   1.5.0
-## ✔ ggplot2   3.4.3     ✔ tibble    3.2.1
-## ✔ lubridate 1.9.2     ✔ tidyr     1.3.0
-## ✔ purrr     1.0.2     
-## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-## ✖ dplyr::filter() masks stats::filter()
-## ✖ dplyr::lag()    masks stats::lag()
-## ✖ dplyr::select() masks MASS::select()
-## ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
-<div id="dataset-preparation" class="section level2">
-<h2>Dataset Preparation</h2>
 <pre class="r"><code>tidy_df = 
   read.csv(
     &quot;data/significant-volcanic-eruption-database.csv&quot;, 
@@ -431,26 +427,11 @@ library(tidyverse)</code></pre>
     volcano_damage_description = factor(volcano_damage_description, levels = c(&quot;EXTREME (~&gt;=$25 million)&quot;, &quot;SEVERE (~$5 to $24 million)&quot;, &quot;MODERATE (~$1 to $5 million)&quot;, &quot;LIMITED (~&lt;$1 million)&quot;, &quot;None/No Record&quot;)),
     volcano_houses_destroyed_description = factor(volcano_houses_destroyed_description, levels = c(&quot;Very Many (~1001 or more)&quot;, &quot;Many (~101 to 1000)&quot;, &quot;Some (~51 to 100)&quot;, &quot;Few (~1 to 50)&quot;, &quot;None/No Record&quot;))
   )</code></pre>
+<div id="methodology" class="section level2">
+<h2>Methodology</h2>
 </div>
-<div id="ordered-logistic-regression" class="section level2">
-<h2>Ordered logistic regression</h2>
-<div id="methodology" class="section level3">
-<h3>Methodology</h3>
-</div>
-<div id="correlation-analysis相关性分析" class="section level3">
-<h3>Correlation analysis(相关性分析)</h3>
-<pre class="r"><code>library(Hmisc)</code></pre>
-<pre><code>## Warning: 程辑包&#39;Hmisc&#39;是用R版本4.3.2 来建造的</code></pre>
-<pre><code>## 
-## 载入程辑包：&#39;Hmisc&#39;</code></pre>
-<pre><code>## The following objects are masked from &#39;package:dplyr&#39;:
-## 
-##     src, summarize</code></pre>
-<pre><code>## The following objects are masked from &#39;package:base&#39;:
-## 
-##     format.pval, units</code></pre>
-<pre class="r"><code>library(corrplot)</code></pre>
-<pre><code>## corrplot 0.92 loaded</code></pre>
+<div id="correlation-analysis" class="section level2">
+<h2>Correlation Analysis</h2>
 <pre class="r"><code>variables_of_interest &lt;- c(&quot;flag_earthquake&quot;, &quot;flag_tsunami&quot;, &quot;volcanic_explosivity_index&quot;, &quot;elevation&quot;)
 
 selected_data &lt;- tidy_df %&gt;%
@@ -467,10 +448,10 @@ corrplot(correlation_matrix, p.mat = p_value_matrix, method = &quot;color&quot;,
          tl.pos = &quot;lt&quot;, insig = &quot;label_sig&quot;, type = &quot;upper&quot;)
 corrplot(correlation_matrix, type = &quot;lower&quot;, add = TRUE, method = &quot;number&quot;,
          tl.pos = &quot;n&quot;, cl.pos = &quot;n&quot;)</code></pre>
-<p><img src="statistical_analysis_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p><img src="statistical_analysis_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 </div>
-<div id="test-effect-modifier" class="section level3">
-<h3>Test effect modifier</h3>
+<div id="test-of-effect-modifier" class="section level2">
+<h2>Test of Effect Modifier</h2>
 <p>Now we will examine the relationship between the dependent variable
 <code>volcano_deaths_description</code> and the interaction between
 <code>flag_earthquake</code> and <code>flag_tsunami</code>.</p>
@@ -527,8 +508,8 @@ of their individual effects.Given this result, we consider using a
 simpler model without the interaction term.</p>
 </div>
 <div id="fit-the-ordinal-logistic-regression-model"
-class="section level3">
-<h3>Fit the Ordinal Logistic Regression Model</h3>
+class="section level2">
+<h2>Fit the Ordinal Logistic Regression Model</h2>
 <pre class="r"><code>model2 &lt;- polr(volcano_deaths_description ~ flag_earthquake + flag_tsunami + volcanic_explosivity_index+elevation, data = tidy_df, Hess=TRUE)
 
 ## view a summary of the model
@@ -554,13 +535,13 @@ summary(model2)</code></pre>
 ## 
 ## Residual Deviance: 1618.762 
 ## AIC: 1634.762 
-## (因为不存在，176个观察量被删除了)</code></pre>
+## (176 observations deleted due to missingness)</code></pre>
 </div>
 <div
 id="comparison-between-models-with-and-without-flag_tsunami相关性分析的后续不需要的话就删掉"
-class="section level3">
-<h3>Comparison between models with and without
-flag_tsunami(相关性分析的后续，不需要的话就删掉)</h3>
+class="section level2">
+<h2>Comparison between models with and without
+flag_tsunami(相关性分析的后续，不需要的话就删掉)</h2>
 <pre class="r"><code>model_without_tsunami &lt;- polr(volcano_deaths_description ~ flag_earthquake + volcanic_explosivity_index + elevation, data = tidy_df, Hess = TRUE)
 anova(model2, model_without_tsunami)|&gt; knitr::kable()</code></pre>
 <table>
@@ -639,9 +620,9 @@ p &lt;- pnorm(abs(ctable2[, &quot;t value&quot;]), lower.tail = FALSE) * 2
 ## flag_tsunamiTRUE                                9.0779452 1.106439e-19
 ## volcanic_explosivity_index                     -0.2893543 7.723103e-01
 ## elevation                                      -2.0789380 3.762305e-02
-## Very Many (~1001 or more)|Many (~101 to 1000) -49.8420094 0.000000e+00
-## Many (~101 to 1000)|Some (~51 to 100)         -13.6064096 3.668270e-42
-## Some (~51 to 100)|Few (~1 to 50)              -10.3671977 3.496274e-25
+## Very Many (~1001 or more)|Many (~101 to 1000) -49.8420093 0.000000e+00
+## Many (~101 to 1000)|Some (~51 to 100)         -13.6064096 3.668269e-42
+## Some (~51 to 100)|Few (~1 to 50)              -10.3671977 3.496273e-25
 ## Few (~1 to 50)|None/No Record                   4.5550712 5.236785e-06</code></pre>
 <p>Interpretation:</p>
 <p>We can also get confidence intervals for the parameter estimates.</p>
@@ -656,8 +637,8 @@ p &lt;- pnorm(abs(ctable2[, &quot;t value&quot;]), lower.tail = FALSE) * 2
 <pre class="r"><code># CIs assuming normality
 confint.default(model2) </code></pre>
 <pre><code>##                                    2.5 %        97.5 %
-## flag_earthquakeTRUE        -0.7314628901 -3.735620e-01
-## flag_tsunamiTRUE            1.2922986597  2.003978e+00
+## flag_earthquakeTRUE        -0.7314628900 -3.735620e-01
+## flag_tsunamiTRUE            1.2922986598  2.003978e+00
 ## volcanic_explosivity_index -0.1174081228  8.720116e-02
 ## elevation                  -0.0002745156 -8.086410e-06</code></pre>
 <p>Interpretation:</p>
@@ -678,7 +659,6 @@ exp(cbind(OR = coef(model2), ci))</code></pre>
 ## volcanic_explosivity_index 0.9850100 0.8721251 1.1114519
 ## elevation                  0.9998587 0.9997361 0.9999816</code></pre>
 <p>Interpretation:</p>
-</div>
 </div>
 
 
@@ -716,6 +696,11 @@ $(document).ready(function () {
 </script>
 
 <!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("hide" === "show");
+});
+</script>
 
 <script>
 $(document).ready(function ()  {
