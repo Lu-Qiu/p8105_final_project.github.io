@@ -107,13 +107,26 @@ model2 <- polr(volcano_deaths_description ~ flag_earthquake + flag_tsunami + vol
 
 ## view a summary of the model
 summary(model2)
+```
+The estimated model can be written as:
 
+
+Interprate:
+
+
+
+Some people require a p value to be satisfied. In this situation, comparing the t-value to the conventional normal distribution using a z test is one method of computing a p-value. This is only true when there are infinite degrees of freedom, but large samples can well approximate it; as sample size drops, the sample becomes more biased. This method is simple to implement and is utilized in other software programs like Stata. We compute the p-values and then merge them back with the table after storing the coefficient table.
+```{r}
+## store table
 ctable2 <- coef(summary(model2))
 
+## calculate and store p values
 p <- pnorm(abs(ctable2[, "t value"]), lower.tail = FALSE) * 2
 
+## combined table
 (ctable2 <- cbind(ctable2, "p value" = p))
 ```
+Interprate:
 
 
 
@@ -131,3 +144,4 @@ exp(coef(m))
 exp(cbind(OR = coef(m), ci))
 
 ```
+
