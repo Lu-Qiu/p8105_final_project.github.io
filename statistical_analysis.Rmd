@@ -111,7 +111,7 @@ summary(model2)
 The estimated model can be written as:
 
 
-Interprate:
+Interpretation:
 
 
 
@@ -126,7 +126,7 @@ p <- pnorm(abs(ctable2[, "t value"]), lower.tail = FALSE) * 2
 ## combined table
 (ctable2 <- cbind(ctable2, "p value" = p))
 ```
-Interprate:
+Interpretation:
 
 
 
@@ -141,9 +141,12 @@ We can also get confidence intervals for the parameter estimates.
 # CIs assuming normality
 confint.default(model2) 
 ```
+Interpretation:
 
 
 
+Another way to interpret logistic regression models is to convert the coefficients into odds ratios. To get the OR and confidence intervals, we just exponentiate the estimates and confidence intervals.
+```{r}
 ## odds ratios
 exp(coef(model2))
 
@@ -151,4 +154,4 @@ exp(coef(model2))
 exp(cbind(OR = coef(model2), ci))
 
 ```
-
+Interpretation:

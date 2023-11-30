@@ -527,7 +527,7 @@ summary(model2)</code></pre>
 ## AIC: 1634.762 
 ## (176 observations deleted due to missingness)</code></pre>
 <p>The estimated model can be written as:</p>
-<p>Interprate:</p>
+<p>Interpretation:</p>
 <p>Some people require a p value to be satisfied. In this situation,
 comparing the t-value to the conventional normal distribution using a z
 test is one method of computing a p-value. This is only true when there
@@ -562,7 +562,7 @@ p &lt;- pnorm(abs(ctable2[, &quot;t value&quot;]), lower.tail = FALSE) * 2
 ## Many (~101 to 1000)|Some (~51 to 100)         -13.6064096 3.668270e-42
 ## Some (~51 to 100)|Few (~1 to 50)              -10.3671977 3.496274e-25
 ## Few (~1 to 50)|None/No Record                   4.5550712 5.236785e-06</code></pre>
-<p>Interprate:</p>
+<p>Interpretation:</p>
 <p>We can also get confidence intervals for the parameter estimates.</p>
 <pre class="r"><code># default method gives profiled CIs
 (ci &lt;- confint(model2)) </code></pre>
@@ -579,16 +579,25 @@ confint.default(model2) </code></pre>
 ## flag_tsunamiTRUE            1.2922986597  2.003978e+00
 ## volcanic_explosivity_index -0.1174081228  8.720116e-02
 ## elevation                  -0.0002745156 -8.086410e-06</code></pre>
+<p>Interpretation:</p>
+<p>Another way to interpret logistic regression models is to convert the
+coefficients into odds ratios. To get the OR and confidence intervals,
+we just exponentiate the estimates and confidence intervals.</p>
+<pre class="r"><code>## odds ratios
+exp(coef(model2))</code></pre>
+<pre><code>##        flag_earthquakeTRUE           flag_tsunamiTRUE 
+##                  0.5755021                  5.1972943 
+## volcanic_explosivity_index                  elevation 
+##                  0.9850100                  0.9998587</code></pre>
+<pre class="r"><code>## OR and CI
+exp(cbind(OR = coef(model2), ci))</code></pre>
+<pre><code>##                                   OR     2.5 %    97.5 %
+## flag_earthquakeTRUE        0.5755021        NA        NA
+## flag_tsunamiTRUE           5.1972943 3.1233972 8.8337742
+## volcanic_explosivity_index 0.9850100 0.8721251 1.1114519
+## elevation                  0.9998587 0.9997361 0.9999816</code></pre>
+<p>Interpretation:</p>
 </div>
-</div>
-<div id="odds-ratios" class="section level2">
-<h2>odds ratios</h2>
-<p>exp(coef(model2))</p>
-</div>
-<div id="or-and-ci" class="section level2">
-<h2>OR and CI</h2>
-<p>exp(cbind(OR = coef(model2), ci))</p>
-<p>```</p>
 </div>
 
 
