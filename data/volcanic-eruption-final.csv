@@ -1,0 +1,836 @@
+"year","flag_tsunami","flag_earthquake","volcano_name","country","elevation","volcano_type","volcanic_explosivity_index","volcano_deaths","volcano_deaths_description","volcano_injuries","volcano_injuries_description","volcano_damage_in_m","volcano_damage_description","volcano_houses_destroyed","volcano_houses_destroyed_description","lat","long"
+1280,FALSE,FALSE,"Quilotoa","Ecuador",3914,"Caldera",6,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",-0.85,-78.9
+1540,TRUE,FALSE,"Augustine","United States",1252,"Lava dome",4,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",59.37,-153.42
+1660,TRUE,FALSE,"Long Island","Papua New Guinea",1280,"Complex volcano",6,2000,"Very Many (~1001 or more)",NA,"None/No Record",NA,"SEVERE (~$5 to $24 million)",NA,"Many (~101 to 1000)",-5.358,147.12
+1858,FALSE,TRUE,"Tate-yama","Japan",2621,"Stratovolcano",NA,NA,"Many (~101 to 1000)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",36.57,137.6
+1864,FALSE,FALSE,"Kelut","Indonesia",1731,"Stratovolcano",2,54,"Some (~51 to 100)",NA,"None/No Record",NA,"None/No Record",NA,"Many (~101 to 1000)",-7.93,112.308
+1873,FALSE,FALSE,"Ragang","Philippines",2815,"Stratovolcano",2,NA,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",7.67,124.5
+1902,FALSE,FALSE,"Tori-shima","Japan",403,"Stratovolcano",3,125,"Many (~101 to 1000)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",30.48,140.32
+1907,FALSE,FALSE,"Alayta","Ethiopia",1501,"Shield volcano",2,NA,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",12.88,40.57
+1909,FALSE,FALSE,"Semeru","Indonesia",3676,"Stratovolcano",2,221,"Many (~101 to 1000)",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",-8.108,112.92
+1919,FALSE,FALSE,"Kelut","Indonesia",1731,"Stratovolcano",4,5110,"Very Many (~1001 or more)",NA,"None/No Record",NA,"None/No Record",9000,"Very Many (~1001 or more)",-7.93,112.308
+1919,FALSE,FALSE,"Nasu","Japan",1917,"Stratovolcano",NA,2,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",37.12,139.97
+1920,FALSE,FALSE,"Izalco","El Salvador",1950,"Stratovolcano",3,NA,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",13.813,-89.633
+1938,FALSE,FALSE,"Bandai","Japan",1819,"Stratovolcano",NA,2,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",37.6,140.08
+1949,FALSE,FALSE,"Villarrica","Chile",2847,"Stratovolcano",3,54,"Some (~51 to 100)",NA,"None/No Record",NA,"MODERATE (~$1 to $5 million)",NA,"None/No Record",-39.42,-71.93
+1963,FALSE,FALSE,"Fuego","Guatemala",3763,"Stratovolcano",3,7,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",14.473,-90.88
+1968,FALSE,FALSE,"Mayon","Philippines",2462,"Stratovolcano",3,6,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",13.257,123.685
+1985,FALSE,FALSE,"Semeru","Indonesia",3676,"Stratovolcano",3,70,"Some (~51 to 100)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-8.108,112.92
+1992,FALSE,FALSE,"Marapi","Indonesia",2891,"Complex volcano",2,1,"Few (~1 to 50)",5,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",-0.381,100.473
+2001,FALSE,FALSE,"Stromboli","Italy",926,"Stratovolcano",2,1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",38.789,15.213
+2004,FALSE,FALSE,"Manam","Papua New Guinea",1807,"Stratovolcano",4,5,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-4.1,145.061
+2010,TRUE,TRUE,"Sarigan","United States",538,"Stratovolcano",NA,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",16.708,145.78
+2018,FALSE,TRUE,"Etna","Italy",3350,"Stratovolcano",2,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",37.734,15.004
+2020,FALSE,FALSE,"Taal","Philippines",400,"Stratovolcano",NA,NA,"None/No Record",NA,"None/No Record",67,"EXTREME (~>=$25 million)",4573,"Very Many (~1001 or more)",14.002,120.993
+1357,FALSE,FALSE,"Katla","Iceland",1512,"Subglacial volcano",4,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",63.63,-19.05
+1586,FALSE,FALSE,"Kelut","Indonesia",1731,"Stratovolcano",5,10000,"Very Many (~1001 or more)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-7.93,112.308
+1730,FALSE,FALSE,"Tseax River Cone","Canada",609,"Pyroclastic cone",NA,NA,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",55.12,-128.9
+1823,FALSE,FALSE,"Kilauea","United States",1222,"Shield volcano",0,NA,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",19.425,-155.292
+1832,FALSE,FALSE,"Merapi","Indonesia",2947,"Stratovolcano",3,32,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"Some (~51 to 100)",-7.542,110.442
+1838,FALSE,FALSE,"Gamalama","Indonesia",1715,"Stratovolcano",2,4,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",0.8,127.325
+1858,FALSE,FALSE,"Mayon","Philippines",2462,"Stratovolcano",2,NA,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",13.257,123.685
+1872,FALSE,FALSE,"Aso","Japan",1592,"Caldera",3,4,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",32.88,131.1
+1879,TRUE,FALSE,"Stromboli","Italy",926,"Stratovolcano",2,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",38.789,15.213
+1893,FALSE,FALSE,"Azuma","Japan",2024,"Stratovolcano",2,2,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",37.73,140.25
+1918,TRUE,FALSE,"Banua Wuhu","Indonesia",-5,"Submarine volcano",3,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",3.138,125.491
+1940,FALSE,FALSE,"Miyake-jima","Japan",815,"Stratovolcano",2,11,"Few (~1 to 50)",20,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",34.08,139.53
+1966,TRUE,FALSE,"Tinakula","Solomon Is.",851,"Stratovolcano",3,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-10.38,165.8
+1970,FALSE,FALSE,"Hekla","Iceland",1491,"Stratovolcano",3,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",63.98,-19.7
+1974,FALSE,FALSE,"Fuego","Guatemala",3763,"Stratovolcano",4,NA,"Few (~1 to 50)",NA,"None/No Record",NA,"MODERATE (~$1 to $5 million)",NA,"Many (~101 to 1000)",14.473,-90.88
+1975,FALSE,FALSE,"Marapi","Indonesia",2891,"Complex volcano",2,80,"Some (~51 to 100)",NA,"None/No Record",NA,"SEVERE (~$5 to $24 million)",NA,"Many (~101 to 1000)",-0.381,100.473
+1977,FALSE,FALSE,"Krafla","Iceland",650,"Caldera",1,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",65.73,-16.78
+1984,FALSE,FALSE,"On-take","Japan",3063,"Complex volcano",NA,29,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",35.9,137.48
+1989,FALSE,FALSE,"Aso","Japan",1592,"Caldera",NA,1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",32.88,131.1
+1991,FALSE,FALSE,"Mutnovsky","Russia",2322,"Complex volcano",NA,1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",52.453,158.195
+1991,FALSE,FALSE,"Hudson, Cerro","Chile",1905,"Stratovolcano",5,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",-45.9,-72.97
+1992,FALSE,FALSE,"Dieng Volc Complex","Indonesia",2565,"Complex volcano",NA,1,"Few (~1 to 50)",2,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",-7.2,109.92
+1993,FALSE,FALSE,"Mayon","Philippines",2462,"Stratovolcano",2,75,"Some (~51 to 100)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",13.257,123.685
+1995,FALSE,FALSE,"Kelimutu","Indonesia",1640,"Complex volcano",NA,1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-8.758,121.83
+2015,FALSE,FALSE,"Okataina","New Zealand",1111,"Lava dome",NA,1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-38.12,176.5
+2018,TRUE,FALSE,"Kadovar","Papua New Guinea",365,"Stratovolcano",NA,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-3.62,144.62
+-1750,FALSE,FALSE,"Veniaminof","United States",2507,"Stratovolcano",6,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",56.17,-159.38
+847,FALSE,FALSE,"Bona-Churchill","United States",5005,"Stratovolcano",6,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",61.38,-141.75
+930,FALSE,FALSE,"Ceboruco","Mexico",2280,"Stratovolcano",6,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",21.125,-104.508
+1158,FALSE,FALSE,"Hekla","Iceland",1491,"Stratovolcano",4,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",63.98,-19.7
+1329,FALSE,FALSE,"Etna","Italy",3350,"Stratovolcano",1,NA,"Many (~101 to 1000)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",37.734,15.004
+1510,FALSE,FALSE,"Hekla","Iceland",1491,"Stratovolcano",4,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",63.98,-19.7
+1615,FALSE,FALSE,"Banda Api","Pacific Ocean",640,"Caldera",3,NA,"None/No Record",NA,"None/No Record",NA,"MODERATE (~$1 to $5 million)",NA,"Some (~51 to 100)",-4.525,129.871
+1617,FALSE,FALSE,"Fuego","Guatemala",3763,"Stratovolcano",3,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",14.473,-90.88
+1646,FALSE,FALSE,"Makian","Indonesia",1357,"Stratovolcano",4,NA,"Many (~101 to 1000)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",0.32,127.4
+1677,FALSE,FALSE,"La Palma","Spain",2426,"Stratovolcano",2,1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",28.58,-17.83
+1784,FALSE,FALSE,"Hualalai","United States",2523,"Shield volcano",0,NA,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",19.692,-155.87
+1800,FALSE,FALSE,"St. Helens","United States",2549,"Stratovolcano",5,NA,"Many (~101 to 1000)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",46.2,-122.18
+1820,FALSE,FALSE,"Banda Api","Pacific Ocean",640,"Caldera",2,NA,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-4.525,129.871
+1827,TRUE,TRUE,"Avachinsky","Russia",2741,"Stratovolcano",2,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",53.255,158.83
+1843,FALSE,FALSE,"Etna","Italy",3350,"Stratovolcano",2,56,"Some (~51 to 100)",NA,"Some (~51 to 100)",NA,"None/No Record",NA,"None/No Record",37.734,15.004
+1847,FALSE,FALSE,"Dieng Volc Complex","Indonesia",2565,"Complex volcano",2,NA,"Some (~51 to 100)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-7.2,109.92
+1857,TRUE,TRUE,"Umboi","Papua New Guinea",1548,"Complex volcano",NA,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-5.589,147.875
+1866,TRUE,FALSE,"Ofu-Olosega","United States",639,"Shield volcano",2,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-14.175,-169.618
+1870,FALSE,FALSE,"Ruang","Indonesia",725,"Stratovolcano",2,NA,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",40,"Few (~1 to 50)",2.28,125.425
+1870,FALSE,FALSE,"Iliwerung","Indonesia",1018,"Complex volcano",3,NA,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-8.54,123.59
+1885,FALSE,TRUE,"Purace","Colombia",4650,"Stratovolcano",3,NA,"Some (~51 to 100)",NA,"None/No Record",NA,"MODERATE (~$1 to $5 million)",NA,"Some (~51 to 100)",2.32,-76.4
+1897,TRUE,FALSE,"Tinakula","Solomon Is.",851,"Stratovolcano",2,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-10.38,165.8
+1902,TRUE,FALSE,"Soufriere St. Vincent","St. Vincent & the Grenadines",1220,"Stratovolcano",4,1680,"Very Many (~1001 or more)",NA,"Many (~101 to 1000)",NA,"None/No Record",NA,"None/No Record",13.33,-61.18
+1903,FALSE,FALSE,"Karthala","Comoros",2361,"Shield volcano",NA,17,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-11.75,43.38
+1932,FALSE,FALSE,"Kusatsu-Shirane","Japan",2176,"Stratovolcano",3,2,"Few (~1 to 50)",7,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",36.62,138.55
+1951,TRUE,FALSE,"Kavachi","Solomon Is.",-20,"Submarine volcano",2,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-9.02,157.95
+1971,FALSE,FALSE,"Kusatsu-Shirane","Japan",2176,"Stratovolcano",NA,6,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",36.62,138.55
+1991,FALSE,FALSE,"Lokon-Empung","Indonesia",1580,"Stratovolcano",1,1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",1.358,124.792
+1995,FALSE,FALSE,"Pacaya","Guatemala",2552,"Complex volcano",3,1,"Few (~1 to 50)",NA,"None/No Record",NA,"LIMITED (~<$1 million)",1,"Few (~1 to 50)",14.381,-90.601
+1998,FALSE,FALSE,"Kilauea","United States",1222,"Shield volcano",NA,1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",19.425,-155.292
+1999,FALSE,FALSE,"Fuego","Guatemala",3763,"Stratovolcano",2,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",14.473,-90.88
+2011,FALSE,FALSE,"Gamalama","Indonesia",1715,"Stratovolcano",3,4,"Few (~1 to 50)",NA,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",0.8,127.325
+2017,FALSE,FALSE,"Sinabung","Indonesia",2460,"Stratovolcano",NA,NA,"None/No Record",NA,"None/No Record",NA,"MODERATE (~$1 to $5 million)",NA,"None/No Record",3.17,98.392
+920,FALSE,FALSE,"Katla","Iceland",1512,"Subglacial volcano",4,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",63.63,-19.05
+1104,FALSE,FALSE,"Hekla","Iceland",1491,"Stratovolcano",5,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",63.98,-19.7
+1151,FALSE,FALSE,"Krisuvik","Iceland",379,"Crater rows",1,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",63.93,-22.1
+1206,FALSE,FALSE,"Hekla","Iceland",1491,"Stratovolcano",2,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",63.98,-19.7
+1329,TRUE,TRUE,"Etna","Italy",3350,"Stratovolcano",3,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",37.734,15.004
+1485,FALSE,FALSE,"Aso","Japan",1592,"Caldera",2,1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",32.88,131.1
+1550,FALSE,FALSE,"Dukono","Indonesia",1185,"Complex volcano",3,NA,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",1.68,127.88
+1576,FALSE,FALSE,"Colima","Mexico",3850,"Stratovolcano",3,NA,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",19.514,-103.62
+1580,FALSE,FALSE,"Katla","Iceland",1512,"Subglacial volcano",4,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",63.63,-19.05
+1598,FALSE,FALSE,"Asama","Japan",2560,"Complex volcano",2,800,"Many (~101 to 1000)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",36.4,138.53
+1730,FALSE,FALSE,"Lanzarote","Spain",670,"Fissure vent",2,NA,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",29.03,-13.63
+1772,FALSE,FALSE,"Papandayan","Indonesia",2665,"Stratovolcano",3,2957,"Very Many (~1001 or more)",NA,"None/No Record",NA,"None/No Record",NA,"Many (~101 to 1000)",-7.32,107.73
+1781,TRUE,FALSE,"Sakura-jima","Japan",1117,"Stratovolcano",4,23,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",31.58,130.67
+1826,FALSE,FALSE,"Aso","Japan",1592,"Caldera",2,NA,"Many (~101 to 1000)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",32.88,131.1
+1840,TRUE,FALSE,"Kilauea","United States",1222,"Shield volcano",0,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",19.425,-155.292
+1840,FALSE,FALSE,"Savo","Solomon Is.",510,"Stratovolcano",3,NA,"Many (~101 to 1000)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-9.13,159.82
+1850,FALSE,FALSE,"Rabaul","Papua New Guinea",688,"Pyroclastic shield",2,NA,"Many (~101 to 1000)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-4.271,152.203
+1858,FALSE,FALSE,"Tate-yama","Japan",2621,"Stratovolcano",NA,NA,"Many (~101 to 1000)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",36.57,137.6
+1883,FALSE,FALSE,"Karthala","Comoros",2361,"Shield volcano",2,NA,"Many (~101 to 1000)",NA,"None/No Record",NA,"SEVERE (~$5 to $24 million)",NA,"None/No Record",-11.75,43.38
+1887,FALSE,FALSE,"Mayon","Philippines",2462,"Stratovolcano",3,15,"Few (~1 to 50)",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"Few (~1 to 50)",13.257,123.685
+1890,FALSE,FALSE,"Makian","Indonesia",1357,"Stratovolcano",2,NA,"None/No Record",NA,"None/No Record",NA,"SEVERE (~$5 to $24 million)",NA,"Many (~101 to 1000)",0.32,127.4
+1902,TRUE,FALSE,"Pelee","Martinique",1397,"Stratovolcano",4,1500,"Many (~101 to 1000)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",14.82,-61.17
+1902,FALSE,FALSE,"Santa Maria","Guatemala",3772,"Stratovolcano",6,2500,"Very Many (~1001 or more)",NA,"None/No Record",NA,"MODERATE (~$1 to $5 million)",NA,"Some (~51 to 100)",14.756,-91.552
+1936,FALSE,FALSE,"Asama","Japan",2560,"Complex volcano",3,2,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",36.4,138.53
+1937,FALSE,FALSE,"Llaima","Chile",3125,"Stratovolcano",2,3,"Few (~1 to 50)",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",-38.692,-71.729
+1943,FALSE,FALSE,"Azul, Cerro","Ecuador",1690,"Shield volcano",3,1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-0.9,-91.42
+1951,FALSE,FALSE,"Lamington","Papua New Guinea",1680,"Stratovolcano",4,2942,"Very Many (~1001 or more)",NA,"Some (~51 to 100)",NA,"None/No Record",NA,"None/No Record",-8.95,148.15
+1970,FALSE,FALSE,"Campi Flegrei","Italy",458,"Caldera",NA,3,"Few (~1 to 50)",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"Few (~1 to 50)",40.827,14.139
+1981,FALSE,FALSE,"Semeru","Indonesia",3676,"Stratovolcano",3,372,"Many (~101 to 1000)",152,"Many (~101 to 1000)",NA,"None/No Record",NA,"None/No Record",-8.108,112.92
+1983,TRUE,FALSE,"Iliwerung","Indonesia",1018,"Complex volcano",1,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-8.54,123.59
+1985,FALSE,FALSE,"Etna","Italy",3350,"Stratovolcano",1,1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",37.734,15.004
+1990,FALSE,FALSE,"Sabancaya","Peru",5967,"Stratovolcano",3,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",-15.78,-71.85
+1990,FALSE,FALSE,"Nyiragongo","Congo, DRC",3470,"Stratovolcano",NA,1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-1.52,29.25
+1997,FALSE,FALSE,"Semeru","Indonesia",3676,"Stratovolcano",3,2,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-8.108,112.92
+1999,TRUE,FALSE,"Soufriere Hills","Montserrat",915,"Stratovolcano",3,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",16.72,-62.18
+2000,FALSE,FALSE,"Merapi","Indonesia",2947,"Stratovolcano",2,1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-7.542,110.442
+50,FALSE,FALSE,"Ambrym","Vanuatu",1334,"Pyroclastic shield",6,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-16.25,168.12
+590,FALSE,FALSE,"San Salvador","El Salvador",1893,"Stratovolcano",NA,NA,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",13.736,-89.286
+1302,FALSE,FALSE,"Ischia","Italy",789,"Complex volcano",NA,NA,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",40.73,13.897
+1568,FALSE,FALSE,"Savo","Solomon Is.",510,"Stratovolcano",3,1001,"Very Many (~1001 or more)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-9.13,159.82
+1570,FALSE,FALSE,"Mombacho","Nicaragua",1344,"Stratovolcano",NA,400,"Many (~101 to 1000)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",11.826,-85.968
+1663,FALSE,FALSE,"Usu","Japan",731,"Stratovolcano",5,5,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",42.53,140.83
+1693,FALSE,TRUE,"Etna","Italy",3350,"Stratovolcano",NA,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",37.734,15.004
+1755,FALSE,FALSE,"Katla","Iceland",1512,"Subglacial volcano",4,2,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",63.63,-19.05
+1843,FALSE,FALSE,"Lamongan","Indonesia",1651,"Stratovolcano",2,4,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-8,113.342
+1872,FALSE,FALSE,"Vesuvius","Italy",1281,"Complex volcano",3,9,"Few (~1 to 50)",11,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",40.821,14.426
+1878,TRUE,TRUE,"Okmok","United States",1073,"Shield volcano",2,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",53.42,-168.13
+1913,FALSE,FALSE,"Ambrym","Vanuatu",1334,"Pyroclastic shield",3,21,"Few (~1 to 50)",NA,"None/No Record",NA,"SEVERE (~$5 to $24 million)",NA,"None/No Record",-16.25,168.12
+1949,FALSE,FALSE,"Purace","Colombia",4650,"Stratovolcano",2,17,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",2.32,-76.4
+1957,FALSE,FALSE,"Aso","Japan",1592,"Caldera",2,12,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",32.88,131.1
+1963,FALSE,FALSE,"Irazu","Costa Rica",3432,"Stratovolcano",3,40,"Few (~1 to 50)",NA,"Few (~1 to 50)",NA,"MODERATE (~$1 to $5 million)",400,"Many (~101 to 1000)",9.979,-83.852
+1971,FALSE,FALSE,"Fuego","Guatemala",3763,"Stratovolcano",3,10,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",14.473,-90.88
+1992,FALSE,FALSE,"Negro, Cerro","Nicaragua",728,"Cinder cone",3,11,"Few (~1 to 50)",50,"Few (~1 to 50)",3,"MODERATE (~$1 to $5 million)",NA,"Few (~1 to 50)",12.506,-86.702
+1997,FALSE,FALSE,"Hakkoda Group","Japan",1585,"Stratovolcano",NA,3,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",40.65,140.88
+1997,FALSE,FALSE,"Adatara","Japan",1718,"Stratovolcano",NA,4,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",37.62,140.28
+1997,FALSE,FALSE,"Aso","Japan",1592,"Caldera",NA,2,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",32.88,131.1
+2004,FALSE,FALSE,"Egon","Indonesia",1703,"Stratovolcano",1,1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-8.67,122.45
+2013,FALSE,FALSE,"Paluweh","Indonesia",875,"Stratovolcano",NA,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"Few (~1 to 50)",-8.32,121.708
+2013,FALSE,FALSE,"Sakura-jima","Japan",1117,"Stratovolcano",NA,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",31.58,130.67
+2015,FALSE,FALSE,"Karangetang [Api Siau]","Indonesia",1784,"Stratovolcano",NA,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"Few (~1 to 50)",2.78,125.48
+416,TRUE,FALSE,"Krakatau","Indonesia",813,"Caldera",NA,NA,"Few (~1 to 50)",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",-6.102,105.423
+1311,FALSE,FALSE,"Kelut","Indonesia",1731,"Stratovolcano",3,NA,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-7.93,112.308
+1410,FALSE,FALSE,"Nasu","Japan",1917,"Stratovolcano",3,180,"Many (~101 to 1000)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",37.12,139.97
+1672,FALSE,FALSE,"Fayal","Portugal",1043,"Stratovolcano",2,3,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",38.6,-28.73
+1780,TRUE,FALSE,"Sakura-jima","Japan",1117,"Stratovolcano",NA,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",31.58,130.67
+1800,FALSE,FALSE,"Kieyo","Tanzania",2175,"Stratovolcano",2,NA,"Many (~101 to 1000)",NA,"None/No Record",NA,"SEVERE (~$5 to $24 million)",NA,"None/No Record",-9.23,33.78
+1803,FALSE,FALSE,"Asama","Japan",2560,"Complex volcano",2,NA,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",36.4,138.53
+1894,FALSE,FALSE,"Ambrym","Vanuatu",1334,"Pyroclastic shield",3,10,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-16.25,168.12
+1910,FALSE,FALSE,"Usu","Japan",731,"Stratovolcano",2,1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",42.53,140.83
+1911,FALSE,FALSE,"Asama","Japan",2560,"Complex volcano",2,1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",60,"Some (~51 to 100)",36.4,138.53
+1917,FALSE,TRUE,"San Salvador","El Salvador",1893,"Stratovolcano",3,325,"Many (~101 to 1000)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",13.736,-89.286
+1923,FALSE,FALSE,"Tangkubanparahu","Indonesia",2084,"Stratovolcano",NA,3,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-6.77,107.6
+1923,FALSE,FALSE,"Kirishima","Japan",1700,"Shield volcano",2,1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",31.93,130.87
+1929,FALSE,FALSE,"Komaga-take","Japan",1140,"Stratovolcano",4,2,"Few (~1 to 50)",4,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",42.07,140.68
+1929,FALSE,FALSE,"Santa Maria","Guatemala",3772,"Stratovolcano",3,200,"Many (~101 to 1000)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",14.756,-91.552
+1939,TRUE,FALSE,"Kick-'em-Jenny","Netherlands",-177,"Submarine volcano",1,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",12.3,-61.63
+1951,FALSE,FALSE,"Kelut","Indonesia",1731,"Stratovolcano",3,7,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-7.93,112.308
+1966,FALSE,FALSE,"Awu","Indonesia",1320,"Stratovolcano",4,39,"Few (~1 to 50)",1000,"Many (~101 to 1000)",NA,"None/No Record",NA,"Some (~51 to 100)",3.67,125.5
+1971,FALSE,FALSE,"Villarrica","Chile",2847,"Stratovolcano",2,15,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-39.42,-71.93
+1974,FALSE,FALSE,"Niigata-Yake-yama","Japan",2400,"Lava dome",2,3,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",36.92,138.03
+1977,FALSE,FALSE,"Karthala","Comoros",2361,"Shield volcano",0,NA,"Few (~1 to 50)",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",-11.75,43.38
+1978,FALSE,FALSE,"Bulusan","Philippines",1565,"Stratovolcano",2,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",12.77,124.05
+1982,FALSE,FALSE,"Chichon, El","Mexico",1150,"Tuff cone",5,33,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",17.36,-93.228
+1986,FALSE,FALSE,"Akita-Yake-yama","Japan",1366,"Complex volcano",NA,1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",39.97,140.77
+2001,FALSE,FALSE,"Etna","Italy",3350,"Stratovolcano",2,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"Few (~1 to 50)",37.734,15.004
+2018,FALSE,FALSE,"Kilauea","United States",1222,"Shield volcano",1,1,"Few (~1 to 50)",3,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",19.425,-155.292
+-1645,FALSE,FALSE,"Aniakchak","United States",1341,"Caldera",6,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",56.88,-158.17
+1636,FALSE,FALSE,"Hekla","Iceland",1491,"Stratovolcano",3,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",63.98,-19.7
+1669,FALSE,FALSE,"Etna","Italy",3350,"Stratovolcano",3,2,"Few (~1 to 50)",5,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",37.734,15.004
+1698,TRUE,FALSE,"Vesuvius","Italy",1281,"Complex volcano",3,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",40.821,14.426
+1706,TRUE,FALSE,"Tenerife","Spain",3715,"Stratovolcano",2,NA,"None/No Record",NA,"None/No Record",NA,"SEVERE (~$5 to $24 million)",NA,"None/No Record",28.271,-16.641
+1707,FALSE,TRUE,"Fuji","Japan",3776,"Stratovolcano",4,NA,"Few (~1 to 50)",NA,"None/No Record",NA,"LIMITED (~<$1 million)",75,"Few (~1 to 50)",35.35,138.73
+1826,FALSE,FALSE,"Dieng Volc Complex","Indonesia",2565,"Complex volcano",2,NA,"Some (~51 to 100)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-7.2,109.92
+1832,FALSE,FALSE,"Etna","Italy",3350,"Stratovolcano",2,NA,"Some (~51 to 100)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",37.734,15.004
+1835,FALSE,FALSE,"Cosiguina","Nicaragua",872,"Stratovolcano",5,NA,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",12.98,-87.57
+1860,FALSE,FALSE,"Grimsvotn","Iceland",1725,"Caldera",NA,1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",64.42,-17.33
+1871,FALSE,FALSE,"Gamalama","Indonesia",1715,"Stratovolcano",2,1,"Few (~1 to 50)",1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",0.8,127.325
+1872,FALSE,FALSE,"Sinarka","Russia",934,"Stratovolcano",4,NA,"Many (~101 to 1000)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",48.875,154.175
+1899,FALSE,FALSE,"Dona Juana","Colombia",4150,"Stratovolcano",4,55,"Some (~51 to 100)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",1.47,-76.92
+1905,FALSE,FALSE,"Vesuvius","Italy",1281,"Complex volcano",2,1,"Few (~1 to 50)",1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",40.821,14.426
+1924,FALSE,FALSE,"Kilauea","United States",1222,"Shield volcano",2,1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",19.425,-155.292
+1931,FALSE,FALSE,"Asama","Japan",2560,"Complex volcano",3,3,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",36.4,138.53
+1947,FALSE,FALSE,"Mayon","Philippines",2462,"Stratovolcano",2,NA,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",13.257,123.685
+1957,FALSE,TRUE,"Vsevidof","United States",2149,"Stratovolcano",2,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",53.13,-168.68
+1963,FALSE,FALSE,"Batur","Indonesia",1717,"Caldera",2,2,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"Few (~1 to 50)",-8.242,115.375
+1967,FALSE,FALSE,"Lengai, Ol Doinyo","Tanzania",2890,"Stratovolcano",3,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",-2.751,35.902
+1969,FALSE,FALSE,"Iya","Indonesia",637,"Stratovolcano",3,2,"Few (~1 to 50)",10,"Few (~1 to 50)",NA,"None/No Record",287,"Many (~101 to 1000)",-8.88,121.63
+1988,FALSE,FALSE,"Semeru","Indonesia",3676,"Stratovolcano",3,1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-8.108,112.92
+1990,FALSE,FALSE,"Aso","Japan",1592,"Caldera",2,1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",32.88,131.1
+1994,FALSE,TRUE,"Huila","Colombia",5365,"Stratovolcano",NA,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",2.92,-76.05
+1999,FALSE,FALSE,"Shiveluch","Russia",3283,"Stratovolcano",4,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",56.653,161.36
+1999,FALSE,FALSE,"Tungurahua","Ecuador",5023,"Stratovolcano",3,1,"Few (~1 to 50)",4,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",-1.467,-78.442
+2019,FALSE,FALSE,"White Island","New Zealand",321,"Stratovolcano",2,21,"Few (~1 to 50)",24,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",-37.52,177.18
+1593,FALSE,FALSE,"Raung","Indonesia",3332,"Stratovolcano",5,NA,"Many (~101 to 1000)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-8.125,114.042
+1609,FALSE,FALSE,"Tengchong","China",2865,"Pyroclastic cone",NA,NA,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",25.32,98.47
+1692,FALSE,FALSE,"Serua","Pacific Ocean",641,"Stratovolcano",4,NA,"Some (~51 to 100)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-6.3,130
+1718,FALSE,FALSE,"Pico","Portugal",2351,"Stratovolcano",2,2,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",38.47,-28.4
+1846,FALSE,FALSE,"Taupo","New Zealand",760,"Caldera",NA,63,"Some (~51 to 100)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-38.82,176
+1866,FALSE,FALSE,"Santorini","Greece",329,"Shield volcano",2,1,"Few (~1 to 50)",NA,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",36.404,25.396
+1877,TRUE,TRUE,"Mauna Loa","United States",4170,"Shield volcano",0,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",19.475,-155.608
+1883,FALSE,FALSE,"Bagana","Papua New Guinea",1750,"Lava cone",3,NA,"Some (~51 to 100)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-6.14,155.195
+1886,FALSE,FALSE,"Niuafo'ou","Tonga",260,"Shield volcano",4,NA,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-15.6,-175.63
+1896,FALSE,FALSE,"Kirishima","Japan",1700,"Shield volcano",2,1,"Few (~1 to 50)",1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",31.93,130.87
+1902,TRUE,FALSE,"Pelee","Martinique",1397,"Stratovolcano",4,28000,"Very Many (~1001 or more)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",14.82,-61.17
+1914,FALSE,FALSE,"Aoba","Vanuatu",1496,"Shield volcano",NA,100,"Some (~51 to 100)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-15.4,167.83
+1923,FALSE,FALSE,"Papandayan","Indonesia",2665,"Stratovolcano",1,1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-7.32,107.73
+1928,FALSE,FALSE,"Santorini","Greece",329,"Shield volcano",2,48,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",36.404,25.396
+1947,FALSE,FALSE,"Akagi","Japan",1828,"Stratovolcano",NA,699,"Many (~101 to 1000)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",36.53,139.18
+1963,TRUE,FALSE,"Agung","Indonesia",3142,"Stratovolcano",5,1028,"Very Many (~1001 or more)",624,"Many (~101 to 1000)",NA,"None/No Record",NA,"None/No Record",-8.342,115.508
+1963,FALSE,FALSE,"Semeru","Indonesia",3676,"Stratovolcano",2,1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-8.108,112.92
+1965,TRUE,FALSE,"Taal","Philippines",400,"Stratovolcano",4,355,"Many (~101 to 1000)",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"Few (~1 to 50)",14.002,120.993
+1973,FALSE,FALSE,"Vestmannaeyjar","Iceland",279,"Submarine volcano",3,1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",63.43,-20.28
+1974,FALSE,FALSE,"Karangetang [Api Siau]","Indonesia",1784,"Stratovolcano",3,4,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",2.78,125.48
+1975,TRUE,TRUE,"Kilauea","United States",1222,"Shield volcano",0,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",19.425,-155.292
+1982,FALSE,FALSE,"Chichon, El","Mexico",1150,"Tuff cone",5,1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",17.36,-93.228
+1986,FALSE,FALSE,"Oku Volc Field","Cameroon",3011,"Maar",3,1700,"Very Many (~1001 or more)",300,"Many (~101 to 1000)",NA,"None/No Record",NA,"None/No Record",6.25,10.5
+1992,FALSE,FALSE,"Semeru","Indonesia",3676,"Stratovolcano",3,3,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-8.108,112.92
+1994,FALSE,FALSE,"Yasur","Vanuatu",361,"Stratovolcano",3,1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-19.52,169.425
+1998,FALSE,FALSE,"San Cristobal","Nicaragua",1745,"Stratovolcano",NA,1620,"Very Many (~1001 or more)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",12.702,-87.004
+2004,FALSE,FALSE,"Tengger Caldera","Indonesia",2329,"Stratovolcano",2,2,"Few (~1 to 50)",5,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",-7.942,112.95
+2007,FALSE,FALSE,"Huila","Colombia",5365,"Stratovolcano",NA,NA,"None/No Record",NA,"None/No Record",NA,"MODERATE (~$1 to $5 million)",NA,"Few (~1 to 50)",2.92,-76.05
+2008,FALSE,FALSE,"Chaiten","Chile",962,"Caldera",NA,1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-42.833,-72.646
+2008,TRUE,FALSE,"Kasatochi","United States",314,"Stratovolcano",3,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",52.18,-175.5
+2017,FALSE,FALSE,"Merapi","Indonesia",2947,"Stratovolcano",NA,8,"Few (~1 to 50)",8,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",-7.542,110.442
+-1610,TRUE,TRUE,"Santorini","Greece",329,"Shield volcano",7,NA,"Many (~101 to 1000)",NA,"None/No Record",NA,"SEVERE (~$5 to $24 million)",NA,"None/No Record",36.404,25.396
+-150,FALSE,FALSE,"St. Andrew Strait","Papua New Guinea",270,"Complex volcano",NA,NA,"Many (~101 to 1000)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-2.38,147.35
+-100,FALSE,FALSE,"Okmok","United States",1073,"Shield volcano",6,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",53.42,-168.13
+1341,FALSE,FALSE,"Hekla","Iceland",1491,"Stratovolcano",3,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",63.98,-19.7
+1430,FALSE,FALSE,"Kuwae","Vanuatu",-2,"Caldera",NA,NA,"Many (~101 to 1000)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-16.829,168.536
+1510,FALSE,FALSE,"Hekla","Iceland",1491,"Stratovolcano",4,1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",63.98,-19.7
+1580,FALSE,FALSE,"Billy Mitchell","Papua New Guinea",1544,"Pyroclastic shield",6,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-6.092,155.225
+1698,FALSE,FALSE,"Cereme","Indonesia",3078,"Stratovolcano",3,NA,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-6.892,108.4
+1716,TRUE,TRUE,"Taal","Philippines",400,"Stratovolcano",4,NA,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",14.002,120.993
+1717,FALSE,FALSE,"Fuego","Guatemala",3763,"Stratovolcano",3,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",14.473,-90.88
+1721,FALSE,FALSE,"Katla","Iceland",1512,"Subglacial volcano",5,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",63.63,-19.05
+1819,TRUE,FALSE,"Asuncion","United States",857,"Stratovolcano",NA,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",19.67,145.4
+1845,FALSE,FALSE,"Ruiz","Colombia",5321,"Stratovolcano",3,1000,"Many (~101 to 1000)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",4.895,-75.322
+1895,FALSE,FALSE,"Kirishima","Japan",1700,"Shield volcano",2,4,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",31.93,130.87
+1901,TRUE,TRUE,"Epi","Vanuatu",833,"Stratovolcano",NA,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-16.68,168.37
+1907,TRUE,TRUE,"Unnamed","Tonga",-500,"Submarine volcano",0,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-21.38,-175.65
+1928,TRUE,FALSE,"Krakatau","Indonesia",813,"Caldera",NA,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-6.102,105.423
+1940,FALSE,FALSE,"Lengai, Ol Doinyo","Tanzania",2890,"Stratovolcano",2,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",-2.751,35.902
+1946,FALSE,FALSE,"Semeru","Indonesia",3676,"Stratovolcano",2,6,"Few (~1 to 50)",NA,"None/No Record",NA,"MODERATE (~$1 to $5 million)",81,"Some (~51 to 100)",-8.108,112.92
+1953,FALSE,FALSE,"Merapi","Indonesia",2947,"Stratovolcano",3,64,"Some (~51 to 100)",57,"Some (~51 to 100)",NA,"MODERATE (~$1 to $5 million)",144,"Many (~101 to 1000)",-7.542,110.442
+1954,FALSE,FALSE,"Tate-yama","Japan",2621,"Stratovolcano",NA,1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",36.57,137.6
+1961,FALSE,FALSE,"Asama","Japan",2560,"Complex volcano",2,1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",36.4,138.53
+1962,FALSE,FALSE,"Tokachi","Japan",2077,"Stratovolcano",3,5,"Few (~1 to 50)",11,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",43.42,142.68
+1963,FALSE,TRUE,"Agung","Indonesia",3142,"Stratovolcano",3,120,"Some (~51 to 100)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-8.342,115.508
+1969,TRUE,FALSE,"Didicas","Philippines",244,"Compound volcano",2,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",19.077,122.202
+1997,FALSE,FALSE,"Karangetang [Api Siau]","Indonesia",1784,"Stratovolcano",1,3,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",2.78,125.48
+2000,FALSE,FALSE,"Semeru","Indonesia",3676,"Stratovolcano",3,2,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-8.108,112.92
+2009,FALSE,FALSE,"Kilauea","United States",1222,"Shield volcano",NA,NA,"None/No Record",NA,"None/No Record",NA,"MODERATE (~$1 to $5 million)",NA,"None/No Record",19.425,-155.292
+2011,FALSE,FALSE,"Merapi","Indonesia",2947,"Stratovolcano",NA,1,"Few (~1 to 50)",1,"Few (~1 to 50)",NA,"LIMITED (~<$1 million)",NA,"None/No Record",-7.542,110.442
+-1890,FALSE,FALSE,"Hudson, Cerro","Chile",1905,"Stratovolcano",6,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-45.9,-72.97
+-455,FALSE,FALSE,"Cotopaxi","Ecuador",5911,"Stratovolcano",4,NA,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-0.677,-78.436
+240,FALSE,FALSE,"Ksudach","Russia",1079,"Stratovolcano",6,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",51.8,157.53
+1362,FALSE,FALSE,"Oraefajokull","Iceland",2119,"Stratovolcano",5,220,"Many (~101 to 1000)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",64,-16.65
+1385,FALSE,FALSE,"Kelut","Indonesia",1731,"Stratovolcano",3,NA,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-7.93,112.308
+1630,FALSE,FALSE,"Furnas","Portugal",805,"Stratovolcano",4,200,"Many (~101 to 1000)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",37.77,-25.32
+1669,FALSE,TRUE,"Etna","Italy",3350,"Stratovolcano",3,NA,"Many (~101 to 1000)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",37.734,15.004
+1670,FALSE,FALSE,"Aoba","Vanuatu",1496,"Shield volcano",2,NA,"Many (~101 to 1000)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-15.4,167.83
+1690,FALSE,FALSE,"Guntur","Indonesia",2249,"Complex volcano",3,NA,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-7.13,107.83
+1766,FALSE,FALSE,"Mayon","Philippines",2462,"Stratovolcano",3,49,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",13.257,123.685
+1780,FALSE,FALSE,"Aoga-shima","Japan",423,"Stratovolcano",3,7,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"Few (~1 to 50)",32.45,139.77
+1784,FALSE,FALSE,"Grimsvotn","Iceland",1725,"Caldera",4,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",64.42,-17.33
+1890,FALSE,FALSE,"Victory","Papua New Guinea",1925,"Stratovolcano",2,NA,"Many (~101 to 1000)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-9.2,149.07
+1913,FALSE,FALSE,"Asama","Japan",2560,"Complex volcano",1,1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",36.4,138.53
+1926,FALSE,FALSE,"Tokachi","Japan",2077,"Stratovolcano",3,144,"Many (~101 to 1000)",207,"Many (~101 to 1000)",NA,"None/No Record",5080,"Very Many (~1001 or more)",43.42,142.68
+1932,FALSE,FALSE,"Fuego","Guatemala",3763,"Stratovolcano",4,NA,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",14.473,-90.88
+1964,FALSE,FALSE,"Villarrica","Chile",2847,"Stratovolcano",2,25,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-39.42,-71.93
+1967,TRUE,FALSE,"Deception Island","Antarctica",576,"Caldera",3,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-62.97,-60.65
+1974,FALSE,FALSE,"Merapi","Indonesia",2947,"Stratovolcano",2,9,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",6,"Few (~1 to 50)",-7.542,110.442
+1977,FALSE,FALSE,"Nyiragongo","Congo, DRC",3470,"Stratovolcano",1,NA,"Some (~51 to 100)",NA,"None/No Record",NA,"SEVERE (~$5 to $24 million)",NA,"None/No Record",-1.52,29.25
+1988,FALSE,FALSE,"Lonquimay","Chile",2865,"Stratovolcano",3,1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-38.377,-71.58
+1991,FALSE,FALSE,"Unzen","Japan",1500,"Complex volcano",1,43,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",32.75,130.3
+1993,FALSE,FALSE,"Guagua Pichincha","Ecuador",4784,"Stratovolcano",1,2,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-0.171,-78.598
+2008,FALSE,FALSE,"Tungurahua","Ecuador",5023,"Stratovolcano",3,2,"Few (~1 to 50)",2,"Few (~1 to 50)",NA,"LIMITED (~<$1 million)",2,"Few (~1 to 50)",-1.467,-78.442
+2011,FALSE,FALSE,"Nabro","Eritrea",2218,"Stratovolcano",3,31,"Few (~1 to 50)",NA,"Many (~101 to 1000)",NA,"LIMITED (~<$1 million)",NA,"None/No Record",13.37,41.7
+2013,FALSE,FALSE,"Ubinas","Peru",5672,"Stratovolcano",NA,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",-16.355,-70.903
+2014,FALSE,FALSE,"Sinabung","Indonesia",2460,"Stratovolcano",NA,17,"Few (~1 to 50)",3,"Few (~1 to 50)",NA,"LIMITED (~<$1 million)",NA,"Some (~51 to 100)",3.17,98.392
+2015,FALSE,FALSE,"Sinabung","Indonesia",2460,"Stratovolcano",NA,1,"Few (~1 to 50)",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",3.17,98.392
+-1900,FALSE,FALSE,"Black Peak","United States",1032,"Stratovolcano",6,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",56.53,-158.8
+1477,FALSE,FALSE,"Bardarbunga","Iceland",2000,"Stratovolcano",6,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",64.63,-17.53
+1597,FALSE,FALSE,"Raung","Indonesia",3332,"Stratovolcano",3,NA,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-8.125,114.042
+1673,TRUE,FALSE,"Gamkonora","Indonesia",1635,"Stratovolcano",5,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"Few (~1 to 50)",1.375,127.52
+1754,TRUE,TRUE,"Taal","Philippines",400,"Stratovolcano",4,12,"Few (~1 to 50)",NA,"None/No Record",NA,"EXTREME (~>=$25 million)",NA,"Very Many (~1001 or more)",14.002,120.993
+1768,FALSE,FALSE,"Cotopaxi","Ecuador",5911,"Stratovolcano",4,NA,"Many (~101 to 1000)",NA,"None/No Record",NA,"SEVERE (~$5 to $24 million)",NA,"None/No Record",-0.677,-78.436
+1792,TRUE,TRUE,"Unzen","Japan",1500,"Complex volcano",2,NA,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",32.75,130.3
+1814,FALSE,FALSE,"Mayon","Philippines",2462,"Stratovolcano",4,1200,"Very Many (~1001 or more)",NA,"None/No Record",NA,"SEVERE (~$5 to $24 million)",NA,"Many (~101 to 1000)",13.257,123.685
+1815,TRUE,FALSE,"Tambora","Indonesia",2850,"Stratovolcano",7,11000,"Very Many (~1001 or more)",NA,"Very Many (~1001 or more)",NA,"EXTREME (~>=$25 million)",NA,"Very Many (~1001 or more)",-8.25,118
+1818,FALSE,FALSE,"Colima","Mexico",3850,"Stratovolcano",4,NA,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",19.514,-103.62
+1854,TRUE,FALSE,"Alaid","Russia",2339,"Stratovolcano",3,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",50.858,155.55
+1863,TRUE,TRUE,"Yasur","Vanuatu",361,"Stratovolcano",NA,NA,"Many (~101 to 1000)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-19.52,169.425
+1872,FALSE,FALSE,"Merapi","Indonesia",2947,"Stratovolcano",4,30,"Few (~1 to 50)",NA,"Few (~1 to 50)",NA,"None/No Record",50,"Few (~1 to 50)",-7.542,110.442
+1884,TRUE,FALSE,"Krakatau","Indonesia",813,"Caldera",NA,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-6.102,105.423
+1888,TRUE,FALSE,"Ritter Island","Papua New Guinea",140,"Stratovolcano",3,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-5.52,148.121
+1888,FALSE,FALSE,"Bandai","Japan",1819,"Stratovolcano",4,461,"Many (~101 to 1000)",70,"Some (~51 to 100)",NA,"MODERATE (~$1 to $5 million)",NA,"Some (~51 to 100)",37.6,140.08
+1913,FALSE,FALSE,"Semeru","Indonesia",3676,"Stratovolcano",2,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",-8.108,112.92
+1916,FALSE,FALSE,"Tungurahua","Ecuador",5023,"Stratovolcano",4,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-1.467,-78.442
+1920,FALSE,FALSE,"Merapi","Indonesia",2947,"Stratovolcano",3,33,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-7.542,110.442
+1946,FALSE,FALSE,"Semeru","Indonesia",3676,"Stratovolcano",2,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",-8.108,112.92
+1948,FALSE,FALSE,"Iliwerung","Indonesia",1018,"Complex volcano",2,NA,"None/No Record",NA,"None/No Record",NA,"MODERATE (~$1 to $5 million)",NA,"None/No Record",-8.54,123.59
+1950,FALSE,FALSE,"Camiguin","Philippines",1332,"Stratovolcano",3,68,"Some (~51 to 100)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",9.203,124.673
+1950,FALSE,FALSE,"Asama","Japan",2560,"Complex volcano",2,1,"Few (~1 to 50)",1,"Few (~1 to 50)",NA,"None/No Record",NA,"Few (~1 to 50)",36.4,138.53
+1951,TRUE,TRUE,"Cosiguina","Nicaragua",872,"Stratovolcano",NA,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",12.98,-87.57
+1956,TRUE,FALSE,"Bezymianny","Russia",2882,"Stratovolcano",5,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",55.978,160.587
+1958,TRUE,FALSE,"Kuwae","Vanuatu",-2,"Caldera",2,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-16.829,168.536
+1967,FALSE,FALSE,"Semeru","Indonesia",3676,"Stratovolcano",3,3,"Few (~1 to 50)",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",-8.108,112.92
+1974,FALSE,FALSE,"Sakura-jima","Japan",1117,"Stratovolcano",3,5,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",31.58,130.67
+1979,FALSE,FALSE,"Dieng Volc Complex","Indonesia",2565,"Complex volcano",1,149,"Many (~101 to 1000)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-7.2,109.92
+1984,FALSE,FALSE,"Mayon","Philippines",2462,"Stratovolcano",3,1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",13.257,123.685
+1988,FALSE,FALSE,"Banda Api","Pacific Ocean",640,"Caldera",3,4,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-4.525,129.871
+1993,FALSE,FALSE,"Krakatau","Indonesia",813,"Caldera",1,1,"Few (~1 to 50)",5,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",-6.102,105.423
+1996,TRUE,FALSE,"Karymsky","Russia",1536,"Stratovolcano",2,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",54.05,159.43
+1997,TRUE,FALSE,"Soufriere Hills","Montserrat",915,"Stratovolcano",NA,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",16.72,-62.18
+2006,FALSE,FALSE,"Bulusan","Philippines",1565,"Stratovolcano",2,1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",12.77,124.05
+2007,FALSE,FALSE,"Manam","Papua New Guinea",1807,"Stratovolcano",4,4,"Few (~1 to 50)",1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",-4.1,145.061
+2007,FALSE,FALSE,"Tair, Jebel at","Yemen",244,"Stratovolcano",NA,7,"Few (~1 to 50)",1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",15.7,41.742
+2011,FALSE,FALSE,"Kirishima","Japan",1700,"Shield volcano",NA,NA,"None/No Record",NA,"Few (~1 to 50)",NA,"LIMITED (~<$1 million)",NA,"None/No Record",31.93,130.87
+2012,FALSE,FALSE,"Tolbachik","Russia",3682,"Shield volcano",NA,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",55.83,160.33
+2018,TRUE,TRUE,"Kilauea","United States",1222,"Shield volcano",1,NA,"None/No Record",1,"Few (~1 to 50)",370,"EXTREME (~>=$25 million)",716,"Many (~101 to 1000)",19.425,-155.292
+2020,TRUE,TRUE,"Ijen","Indonesia",2799,"Stratovolcano",NA,1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-8.058,114.242
+-3550,FALSE,FALSE,"Pinatubo","Philippines",1486,"Stratovolcano",6,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",15.13,120.35
+1050,TRUE,FALSE,"Santorini","Greece",329,"Shield volcano",NA,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",36.404,25.396
+1177,FALSE,FALSE,"Katla","Iceland",1512,"Subglacial volcano",3,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",63.63,-19.05
+1595,FALSE,FALSE,"Ruiz","Colombia",5321,"Stratovolcano",4,636,"Many (~101 to 1000)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",4.895,-75.322
+1598,FALSE,FALSE,"Banda Api","Pacific Ocean",640,"Caldera",3,NA,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-4.525,129.871
+1638,FALSE,FALSE,"Raung","Indonesia",3332,"Stratovolcano",4,1001,"Very Many (~1001 or more)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-8.125,114.042
+1659,FALSE,TRUE,"San Salvador","El Salvador",1893,"Stratovolcano",3,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",13.736,-89.286
+1684,FALSE,FALSE,"Grimsvotn","Iceland",1725,"Caldera",2,1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",64.42,-17.33
+1693,TRUE,FALSE,"Hekla","Iceland",1491,"Stratovolcano",4,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",63.98,-19.7
+1694,FALSE,FALSE,"Banda Api","Pacific Ocean",640,"Caldera",3,NA,"Some (~51 to 100)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-4.525,129.871
+1794,FALSE,FALSE,"Vesuvius","Italy",1281,"Complex volcano",3,400,"Many (~101 to 1000)",NA,"None/No Record",NA,"SEVERE (~$5 to $24 million)",NA,"None/No Record",40.821,14.426
+1800,FALSE,FALSE,"San Jorge","Portugal",1053,"Fissure vent",1,9,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",38.65,-28.08
+1816,FALSE,FALSE,"Aso","Japan",1592,"Caldera",2,1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",32.88,131.1
+1817,FALSE,FALSE,"Ijen","Indonesia",2799,"Stratovolcano",2,NA,"Some (~51 to 100)",NA,"None/No Record",NA,"None/No Record",90,"Some (~51 to 100)",-8.058,114.242
+1825,FALSE,FALSE,"Balbi","Papua New Guinea",2715,"Stratovolcano",NA,NA,"Many (~101 to 1000)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-5.83,154.98
+1846,FALSE,FALSE,"E-san","Japan",618,"Stratovolcano",1,NA,"Many (~101 to 1000)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",41.8,141.17
+1875,FALSE,FALSE,"Mayon","Philippines",2462,"Stratovolcano",NA,1500,"Very Many (~1001 or more)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",13.257,123.685
+1889,TRUE,TRUE,"Banua Wuhu","Indonesia",-5,"Submarine volcano",2,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",3.138,125.491
+1912,FALSE,FALSE,"Novarupta","United States",841,"Caldera",6,2,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",58.27,-155.16
+1953,FALSE,FALSE,"Hakone","Japan",1438,"Complex volcano",NA,10,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",35.22,139.02
+1961,FALSE,FALSE,"Daisetsu","Japan",2290,"Stratovolcano",NA,2,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",43.68,142.88
+1964,FALSE,FALSE,"Dieng Volc Complex","Indonesia",2565,"Complex volcano",1,114,"Many (~101 to 1000)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-7.2,109.92
+1965,TRUE,FALSE,"Kick-'em-Jenny","Netherlands",-177,"Submarine volcano",0,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",12.3,-61.63
+1971,TRUE,FALSE,"Tinakula","Solomon Is.",851,"Stratovolcano",2,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-10.38,165.8
+1976,FALSE,FALSE,"Semeru","Indonesia",3676,"Stratovolcano",2,119,"Many (~101 to 1000)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-8.108,112.92
+1976,FALSE,FALSE,"Karangetang [Api Siau]","Indonesia",1784,"Stratovolcano",2,1,"Few (~1 to 50)",1,"Few (~1 to 50)",NA,"None/No Record",24,"Few (~1 to 50)",2.78,125.48
+1978,FALSE,FALSE,"Santa Maria","Guatemala",3772,"Stratovolcano",3,1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",14.756,-91.552
+1983,FALSE,FALSE,"Kliuchevskoi","Russia",4835,"Stratovolcano",2,1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",56.057,160.638
+1986,FALSE,FALSE,"Oshima","Japan",758,"Stratovolcano",3,1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",34.73,139.38
+1992,FALSE,FALSE,"Karangetang [Api Siau]","Indonesia",1784,"Stratovolcano",2,2,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",2.78,125.48
+2002,FALSE,FALSE,"Karangetang [Api Siau]","Indonesia",1784,"Stratovolcano",3,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"Few (~1 to 50)",2.78,125.48
+2013,FALSE,FALSE,"Paluweh","Indonesia",875,"Stratovolcano",3,5,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-8.32,121.708
+2013,FALSE,FALSE,"Sinabung","Indonesia",2460,"Stratovolcano",2,NA,"None/No Record",NA,"None/No Record",NA,"MODERATE (~$1 to $5 million)",NA,"None/No Record",3.17,98.392
+2017,FALSE,FALSE,"Sinabung","Indonesia",2460,"Stratovolcano",2,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"Some (~51 to 100)",3.17,98.392
+2018,TRUE,FALSE,"Krakatau","Indonesia",813,"Caldera",1,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-6.102,105.423
+2019,FALSE,FALSE,"Ulawun","Papua New Guinea",2334,"Stratovolcano",NA,NA,"None/No Record",2,"Few (~1 to 50)",14,"SEVERE (~$5 to $24 million)",NA,"None/No Record",-5.05,151.33
+-3580,FALSE,FALSE,"Taal","Philippines",400,"Stratovolcano",6,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",14.002,120.993
+-2040,FALSE,FALSE,"Long Island","Papua New Guinea",1280,"Complex volcano",6,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-5.358,147.12
+653,FALSE,FALSE,"Dakataua","Papua New Guinea",400,"Caldera",6,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-5.056,150.108
+683,FALSE,FALSE,"Rabaul","Papua New Guinea",688,"Pyroclastic shield",6,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",-4.271,152.203
+950,FALSE,FALSE,"Katla","Iceland",1512,"Subglacial volcano",NA,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",63.63,-19.05
+1580,FALSE,FALSE,"San Jorge","Portugal",1053,"Fissure vent",3,10,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",38.65,-28.08
+1581,FALSE,FALSE,"Fuego","Guatemala",3763,"Stratovolcano",4,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",14.473,-90.88
+1608,TRUE,FALSE,"Gamalama","Indonesia",1715,"Stratovolcano",3,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",0.8,127.325
+1625,FALSE,FALSE,"Katla","Iceland",1512,"Subglacial volcano",5,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",63.63,-19.05
+1660,FALSE,FALSE,"Teon","Pacific Ocean",655,"Stratovolcano",4,3,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-6.92,129.125
+1773,FALSE,FALSE,"Gamalama","Indonesia",1715,"Stratovolcano",2,NA,"Some (~51 to 100)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",0.8,127.325
+1779,FALSE,FALSE,"Vesuvius","Italy",1281,"Complex volcano",2,NA,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",40.821,14.426
+1801,FALSE,FALSE,"Chokai","Japan",2237,"Stratovolcano",2,8,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",39.08,140.03
+1804,FALSE,FALSE,"Shikotsu","Japan",1320,"Caldera",3,NA,"Many (~101 to 1000)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",42.7,141.33
+1820,TRUE,TRUE,"Westdahl","United States",1654,"Stratovolcano",2,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",54.52,-164.65
+1845,FALSE,FALSE,"Hekla","Iceland",1491,"Stratovolcano",4,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",63.98,-19.7
+1867,FALSE,FALSE,"Zao","Japan",1841,"Complex volcano",2,3,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",38.15,140.45
+1870,FALSE,FALSE,"Aoba","Vanuatu",1496,"Shield volcano",2,NA,"Many (~101 to 1000)",NA,"None/No Record",NA,"SEVERE (~$5 to $24 million)",NA,"Many (~101 to 1000)",-15.4,167.83
+1910,FALSE,FALSE,"Taupo","New Zealand",760,"Caldera",NA,1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-38.82,176
+1952,FALSE,FALSE,"Hakone","Japan",1438,"Complex volcano",NA,1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",35.22,139.02
+1953,FALSE,FALSE,"Aso","Japan",1592,"Caldera",2,6,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",32.88,131.1
+1963,FALSE,FALSE,"Irazu","Costa Rica",3432,"Stratovolcano",3,15,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",9.979,-83.852
+1974,TRUE,FALSE,"Ritter Island","Papua New Guinea",140,"Stratovolcano",1,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-5.52,148.121
+1986,FALSE,FALSE,"Merapi","Indonesia",2947,"Stratovolcano",2,1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-7.542,110.442
+1987,FALSE,FALSE,"Pacaya","Guatemala",2552,"Complex volcano",3,NA,"None/No Record",15,"Few (~1 to 50)",NA,"LIMITED (~<$1 million)",63,"Some (~51 to 100)",14.381,-90.601
+1990,FALSE,FALSE,"Rabaul","Papua New Guinea",688,"Pyroclastic shield",NA,6,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-4.271,152.203
+1993,FALSE,FALSE,"Pinatubo","Philippines",1486,"Stratovolcano",NA,14,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",15.13,120.35
+2000,TRUE,TRUE,"Miyake-jima","Japan",815,"Stratovolcano",2,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",34.08,139.53
+2006,FALSE,FALSE,"Mayon","Philippines",2462,"Stratovolcano",1,1266,"Very Many (~1001 or more)",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",13.257,123.685
+2009,FALSE,FALSE,"Redoubt","United States",3108,"Stratovolcano",NA,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",60.48,-152.75
+2016,FALSE,FALSE,"Sinabung","Indonesia",2460,"Stratovolcano",NA,7,"Few (~1 to 50)",3,"Few (~1 to 50)",100,"EXTREME (~>=$25 million)",NA,"None/No Record",3.17,98.392
+2018,FALSE,FALSE,"Kusatsu-Shirane","Japan",2176,"Stratovolcano",NA,1,"Few (~1 to 50)",11,"Few (~1 to 50)",NA,"LIMITED (~<$1 million)",NA,"None/No Record",36.62,138.55
+2019,FALSE,FALSE,"Stromboli","Italy",926,"Stratovolcano",2,1,"Few (~1 to 50)",1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",38.789,15.213
+-197,TRUE,TRUE,"Santorini","Greece",329,"Shield volcano",3,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",36.404,25.396
+60,FALSE,FALSE,"Bona-Churchill","United States",5005,"Stratovolcano",6,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",61.38,-141.75
+1631,TRUE,TRUE,"Vesuvius","Italy",1281,"Complex volcano",5,4000,"Very Many (~1001 or more)",NA,"None/No Record",NA,"EXTREME (~>=$25 million)",NA,"Very Many (~1001 or more)",40.821,14.426
+1682,FALSE,FALSE,"Vesuvius","Italy",1281,"Complex volcano",3,4,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",40.821,14.426
+1757,FALSE,TRUE,"San Jorge","Portugal",1053,"Fissure vent",0,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",38.65,-28.08
+1812,FALSE,FALSE,"Soufriere St. Vincent","St. Vincent & the Grenadines",1220,"Stratovolcano",4,56,"Some (~51 to 100)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",13.33,-61.18
+1827,FALSE,FALSE,"Avachinsky","Russia",2741,"Stratovolcano",2,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",53.255,158.83
+1846,FALSE,FALSE,"Tangkubanparahu","Indonesia",2084,"Stratovolcano",2,NA,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-6.77,107.6
+1856,FALSE,FALSE,"Komaga-take","Japan",1140,"Stratovolcano",4,20,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"Many (~101 to 1000)",42.07,140.68
+1883,TRUE,FALSE,"Augustine","United States",1252,"Lava dome",4,8,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",59.37,-153.42
+1914,TRUE,TRUE,"Sakura-jima","Japan",1117,"Stratovolcano",4,28,"Few (~1 to 50)",NA,"Many (~101 to 1000)",0.04,"LIMITED (~<$1 million)",2148,"Very Many (~1001 or more)",31.58,130.67
+1919,TRUE,FALSE,"Stromboli","Italy",926,"Stratovolcano",3,4,"Few (~1 to 50)",NA,"Many (~101 to 1000)",NA,"LIMITED (~<$1 million)",10,"Few (~1 to 50)",38.789,15.213
+1927,FALSE,FALSE,"Esjufjoll","Iceland",1760,"Stratovolcano",1,1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",64.27,-16.65
+1944,FALSE,FALSE,"Vesuvius","Italy",1281,"Complex volcano",2,27,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",40.821,14.426
+1949,FALSE,FALSE,"Camiguin","Philippines",1332,"Stratovolcano",3,2,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",9.203,124.673
+1953,TRUE,FALSE,"Myojun Knoll","Japan",360,"Submarine volcano",2,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",32.1,139.85
+1968,FALSE,FALSE,"Arenal","Costa Rica",1657,"Stratovolcano",3,80,"Some (~51 to 100)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",10.463,-84.703
+1972,FALSE,FALSE,"Hakone","Japan",1438,"Complex volcano",NA,2,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",35.22,139.02
+1981,FALSE,FALSE,"Alaid","Russia",2339,"Stratovolcano",2,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",50.858,155.55
+1990,FALSE,FALSE,"Kelut","Indonesia",1731,"Stratovolcano",NA,4,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-7.93,112.308
+1997,FALSE,FALSE,"Soufriere Hills","Montserrat",915,"Stratovolcano",3,2,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",16.72,-62.18
+2002,FALSE,FALSE,"Semeru","Indonesia",3676,"Stratovolcano",3,3,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-8.108,112.92
+2006,FALSE,FALSE,"Tungurahua","Ecuador",5023,"Stratovolcano",3,5,"Few (~1 to 50)",13,"Few (~1 to 50)",NA,"SEVERE (~$5 to $24 million)",NA,"Many (~101 to 1000)",-1.467,-78.442
+1334,FALSE,FALSE,"Kelut","Indonesia",1731,"Stratovolcano",3,NA,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-7.93,112.308
+1564,FALSE,FALSE,"Gamkonora","Indonesia",1635,"Stratovolcano",3,NA,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",1.375,127.52
+1711,FALSE,FALSE,"Awu","Indonesia",1320,"Stratovolcano",3,3000,"Very Many (~1001 or more)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",3.67,125.5
+1873,FALSE,FALSE,"Vesuvius","Italy",1281,"Complex volcano",NA,9,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",40.821,14.426
+1877,FALSE,FALSE,"Cotopaxi","Ecuador",5911,"Stratovolcano",4,340,"Many (~101 to 1000)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-0.677,-78.436
+1892,TRUE,FALSE,"Awu","Indonesia",1320,"Stratovolcano",3,1532,"Very Many (~1001 or more)",NA,"None/No Record",NA,"SEVERE (~$5 to $24 million)",NA,"Many (~101 to 1000)",3.67,125.5
+1895,FALSE,FALSE,"Semeru","Indonesia",3676,"Stratovolcano",2,NA,"Few (~1 to 50)",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",-8.108,112.92
+1895,FALSE,FALSE,"Karkar","Papua New Guinea",1839,"Stratovolcano",2,1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-4.649,145.964
+1902,TRUE,FALSE,"Pelee","Martinique",1397,"Stratovolcano",NA,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",14.82,-61.17
+1904,FALSE,FALSE,"Karthala","Comoros",2361,"Shield volcano",2,1,"Few (~1 to 50)",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",-11.75,43.38
+1906,TRUE,FALSE,"Vesuvius","Italy",1281,"Complex volcano",3,350,"Many (~101 to 1000)",300,"Many (~101 to 1000)",NA,"None/No Record",NA,"None/No Record",40.821,14.426
+1928,FALSE,FALSE,"Etna","Italy",3350,"Stratovolcano",1,5,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",37.734,15.004
+1929,FALSE,FALSE,"Calbuco","Chile",2003,"Stratovolcano",3,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-41.326,-72.614
+1930,FALSE,FALSE,"Merapi","Indonesia",2947,"Stratovolcano",3,1369,"Very Many (~1001 or more)",NA,"None/No Record",NA,"SEVERE (~$5 to $24 million)",1109,"Very Many (~1001 or more)",-7.542,110.442
+1933,TRUE,FALSE,"Kharimkotan","Russia",1145,"Stratovolcano",3,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",49.12,154.508
+1933,FALSE,FALSE,"Kuchinoerabu-jima","Japan",649,"Stratovolcano",4,8,"Few (~1 to 50)",26,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",30.43,130.22
+1950,FALSE,FALSE,"Semeru","Indonesia",3676,"Stratovolcano",1,6,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-8.108,112.92
+1972,FALSE,FALSE,"Fournaise, Piton de la","Reunion",2631,"Shield volcano",2,3,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-21.229,55.713
+1978,FALSE,FALSE,"Usu","Japan",731,"Stratovolcano",3,3,"Few (~1 to 50)",2,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",42.53,140.83
+1979,TRUE,FALSE,"Iliwerung","Indonesia",1018,"Complex volcano",NA,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-8.54,123.59
+1996,FALSE,FALSE,"Maderas","Nicaragua",1394,"Stratovolcano",NA,6,"Few (~1 to 50)",NA,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",11.446,-85.515
+2002,FALSE,FALSE,"Reventador","Ecuador",3562,"Stratovolcano",4,NA,"Few (~1 to 50)",NA,"Few (~1 to 50)",NA,"LIMITED (~<$1 million)",NA,"Few (~1 to 50)",-0.078,-77.656
+2011,FALSE,FALSE,"Tungurahua","Ecuador",5023,"Stratovolcano",4,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",-1.467,-78.442
+2016,FALSE,FALSE,"Aso","Japan",1592,"Caldera",NA,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",32.88,131.1
+-1460,FALSE,FALSE,"Taupo","New Zealand",760,"Caldera",6,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-38.82,176
+1000,FALSE,FALSE,"Changbaishan","North Korea",2744,"Stratovolcano",7,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",41.98,128.08
+1727,FALSE,FALSE,"Oraefajokull","Iceland",2119,"Stratovolcano",4,3,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",64,-16.65
+1826,FALSE,FALSE,"Kelut","Indonesia",1731,"Stratovolcano",3,NA,"Few (~1 to 50)",65,"Some (~51 to 100)",NA,"SEVERE (~$5 to $24 million)",NA,"Many (~101 to 1000)",-7.93,112.308
+1868,TRUE,TRUE,"Mauna Loa","United States",4170,"Shield volcano",2,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",37,"Few (~1 to 50)",19.475,-155.608
+1869,FALSE,FALSE,"Lewotobi","Indonesia",1703,"Stratovolcano",2,2,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-8.53,122.775
+1895,FALSE,FALSE,"Dakataua","Papua New Guinea",400,"Caldera",2,NA,"Few (~1 to 50)",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",-5.056,150.108
+1900,FALSE,FALSE,"Adatara","Japan",1718,"Stratovolcano",2,72,"Some (~51 to 100)",10,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",37.62,140.28
+1900,FALSE,FALSE,"Tullu Moje","Ethiopia",2349,"Pumice cone",NA,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",8.158,39.13
+1902,FALSE,FALSE,"Merapi","Indonesia",2947,"Stratovolcano",2,16,"Few (~1 to 50)",45,"Few (~1 to 50)",NA,"None/No Record",NA,"Some (~51 to 100)",-7.542,110.442
+1907,FALSE,FALSE,"Lewotobi","Indonesia",1703,"Stratovolcano",2,1,"Few (~1 to 50)",NA,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",-8.53,122.775
+1913,TRUE,TRUE,"Awu","Indonesia",1320,"Stratovolcano",2,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",3.67,125.5
+1930,FALSE,FALSE,"Asama","Japan",2560,"Complex volcano",3,6,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",36.4,138.53
+1932,FALSE,FALSE,"Merapi","Indonesia",2947,"Stratovolcano",NA,NA,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-7.542,110.442
+1938,TRUE,FALSE,"Nyamuragira","Congo, DRC",3058,"Shield volcano",1,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",-1.408,29.2
+1938,FALSE,FALSE,"Mayon","Philippines",2462,"Stratovolcano",2,NA,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",13.257,123.685
+1954,FALSE,FALSE,"Camiguin","Philippines",1332,"Stratovolcano",NA,2,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",9.203,124.673
+1958,FALSE,FALSE,"Mahawu","Indonesia",1324,"Stratovolcano",2,1,"Few (~1 to 50)",10,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",1.358,124.858
+1961,FALSE,FALSE,"Tate-yama","Japan",2621,"Stratovolcano",NA,1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",36.57,137.6
+1964,FALSE,FALSE,"Paluweh","Indonesia",875,"Stratovolcano",2,1,"Few (~1 to 50)",3,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",-8.32,121.708
+1992,FALSE,FALSE,"Spurr","United States",3374,"Stratovolcano",4,1,"Few (~1 to 50)",NA,"None/No Record",2,"MODERATE (~$1 to $5 million)",NA,"None/No Record",61.3,-152.25
+1995,FALSE,FALSE,"Parker","Philippines",1824,"Stratovolcano",NA,60,"Some (~51 to 100)",NA,"None/No Record",NA,"MODERATE (~$1 to $5 million)",300,"Many (~101 to 1000)",6.12,124.892
+1998,FALSE,FALSE,"Kelut","Indonesia",1731,"Stratovolcano",NA,10,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-7.93,112.308
+2000,FALSE,FALSE,"Arenal","Costa Rica",1657,"Stratovolcano",3,2,"Few (~1 to 50)",1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",10.463,-84.703
+2010,FALSE,FALSE,"Pacaya","Guatemala",2552,"Complex volcano",1,1,"Few (~1 to 50)",NA,"None/No Record",NA,"LIMITED (~<$1 million)",3,"Few (~1 to 50)",14.381,-90.601
+2010,FALSE,FALSE,"Merapi","Indonesia",2947,"Stratovolcano",NA,367,"Many (~101 to 1000)",277,"Many (~101 to 1000)",600,"EXTREME (~>=$25 million)",NA,"Many (~101 to 1000)",-7.542,110.442
+2011,FALSE,FALSE,"Lokon-Empung","Indonesia",1580,"Stratovolcano",NA,1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",1.358,124.792
+2013,FALSE,FALSE,"Merapi","Indonesia",2947,"Stratovolcano",NA,1,"Few (~1 to 50)",1,"Few (~1 to 50)",NA,"LIMITED (~<$1 million)",NA,"None/No Record",-7.542,110.442
+2016,FALSE,FALSE,"Rinjani","Indonesia",3726,"Stratovolcano",NA,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-8.42,116.47
+2018,FALSE,FALSE,"Kilauea","United States",1222,"Shield volcano",NA,NA,"None/No Record",23,"Few (~1 to 50)",1,"LIMITED (~<$1 million)",NA,"None/No Record",19.425,-155.292
+-1010,FALSE,FALSE,"Tungurahua","Ecuador",5023,"Stratovolcano",5,NA,"Many (~101 to 1000)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-1.467,-78.442
+350,FALSE,FALSE,"Augustine","United States",1252,"Lava dome",NA,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",59.37,-153.42
+1311,FALSE,FALSE,"Katla","Iceland",1512,"Subglacial volcano",4,NA,"Some (~51 to 100)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",63.63,-19.05
+1587,FALSE,FALSE,"Merapi","Indonesia",2947,"Stratovolcano",4,NA,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-7.542,110.442
+1716,FALSE,FALSE,"Kelut","Indonesia",1731,"Stratovolcano",2,NA,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-7.93,112.308
+1729,FALSE,FALSE,"Bardarbunga","Iceland",2000,"Stratovolcano",1,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",64.63,-17.53
+1742,FALSE,FALSE,"Cotopaxi","Ecuador",5911,"Stratovolcano",3,NA,"Many (~101 to 1000)",NA,"None/No Record",NA,"SEVERE (~$5 to $24 million)",NA,"None/No Record",-0.677,-78.436
+1772,TRUE,FALSE,"Gamalama","Indonesia",1715,"Stratovolcano",3,35,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",0.8,127.325
+1775,FALSE,FALSE,"Lokon-Empung","Indonesia",1580,"Stratovolcano",3,NA,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",1.358,124.792
+1840,FALSE,FALSE,"Ararat","Turkey",5165,"Stratovolcano",3,1900,"Very Many (~1001 or more)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",39.7,44.28
+1871,FALSE,FALSE,"Mayon","Philippines",2462,"Stratovolcano",3,3,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",13.257,123.685
+1874,FALSE,FALSE,"Taal","Philippines",400,"Stratovolcano",2,NA,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",14.002,120.993
+1883,TRUE,FALSE,"Krakatau","Indonesia",813,"Caldera",6,2000,"Very Many (~1001 or more)",NA,"Many (~101 to 1000)",NA,"SEVERE (~$5 to $24 million)",NA,"Many (~101 to 1000)",-6.102,105.423
+1885,FALSE,FALSE,"Semeru","Indonesia",3676,"Stratovolcano",2,74,"Some (~51 to 100)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-8.108,112.92
+1919,TRUE,FALSE,"Mauna Loa","United States",4170,"Shield volcano",0,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",19.475,-155.608
+1939,FALSE,FALSE,"Dieng Volc Complex","Indonesia",2565,"Complex volcano",1,10,"Few (~1 to 50)",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",-7.2,109.92
+1952,TRUE,FALSE,"Myojun Knoll","Japan",360,"Submarine volcano",2,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",32.1,139.85
+1952,FALSE,FALSE,"Ambalatungan Group","Philippines",2329,"Compound volcano",1,12,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",17.32,121.1
+1961,FALSE,FALSE,"Calbuco","Chile",2003,"Stratovolcano",3,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",-41.326,-72.614
+1978,FALSE,FALSE,"Semeru","Indonesia",3676,"Stratovolcano",3,12,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-8.108,112.92
+1984,FALSE,FALSE,"Oku Volc Field","Cameroon",3011,"Maar",NA,37,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",6.25,10.5
+1986,FALSE,FALSE,"Stromboli","Italy",926,"Stratovolcano",2,1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",38.789,15.213
+1987,FALSE,TRUE,"Sirung","Indonesia",862,"Complex volcano",NA,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-8.51,124.148
+1993,FALSE,FALSE,"Kilauea","United States",1222,"Shield volcano",NA,1,"Few (~1 to 50)",22,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",19.425,-155.292
+1996,FALSE,FALSE,"Popocatepetl","Mexico",5426,"Stratovolcano",3,5,"Few (~1 to 50)",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",19.023,-98.622
+2006,FALSE,FALSE,"Tungurahua","Ecuador",5023,"Stratovolcano",3,1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-1.467,-78.442
+2010,FALSE,FALSE,"Sinabung","Indonesia",2460,"Stratovolcano",NA,2,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",3.17,98.392
+2016,FALSE,FALSE,"Yellowstone","United States",2805,"Caldera",NA,1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",44.43,-110.67
+-4360,FALSE,FALSE,"Macauley Island","New Zealand",238,"Caldera",6,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-30.2,-178.47
+-4000,FALSE,FALSE,"Pago","Papua New Guinea",742,"Caldera",6,NA,"Few (~1 to 50)",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",-5.58,150.52
+-50,FALSE,FALSE,"Apoyeque","Nicaragua",518,"Pyroclastic shield",6,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",12.242,-86.342
+46,TRUE,FALSE,"Santorini","Greece",329,"Shield volcano",3,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",36.404,25.396
+500,FALSE,FALSE,"Arhab, Harra of","Yemen",3100,"Volcanic field",NA,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",15.63,44.08
+787,FALSE,FALSE,"Vesuvius","Italy",1281,"Complex volcano",3,NA,"Few (~1 to 50)",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",40.821,14.426
+1536,FALSE,FALSE,"Etna","Italy",3350,"Stratovolcano",3,1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",37.734,15.004
+1690,TRUE,FALSE,"Vesuvius","Italy",1281,"Complex volcano",NA,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",40.821,14.426
+1726,FALSE,FALSE,"Bardarbunga","Iceland",2000,"Stratovolcano",1,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",64.63,-17.53
+1730,FALSE,FALSE,"Raung","Indonesia",3332,"Stratovolcano",3,NA,"Some (~51 to 100)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-8.125,114.042
+1742,FALSE,FALSE,"Cotopaxi","Ecuador",5911,"Stratovolcano",3,NA,"Many (~101 to 1000)",NA,"None/No Record",NA,"SEVERE (~$5 to $24 million)",NA,"None/No Record",-0.677,-78.436
+1749,TRUE,TRUE,"Taal","Philippines",400,"Stratovolcano",3,NA,"Few (~1 to 50)",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",14.002,120.993
+1848,FALSE,FALSE,"Kelut","Indonesia",1731,"Stratovolcano",2,21,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",800,"Many (~101 to 1000)",-7.93,112.308
+1861,FALSE,TRUE,"Dubbi","Eritrea",1625,"Stratovolcano",3,106,"Many (~101 to 1000)",NA,"None/No Record",NA,"SEVERE (~$5 to $24 million)",NA,"Many (~101 to 1000)",13.58,41.808
+1892,TRUE,FALSE,"Tofua","Tonga",512,"Caldera",2,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-19.75,-175.07
+1897,FALSE,FALSE,"Mayon","Philippines",2462,"Stratovolcano",3,350,"Many (~101 to 1000)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",13.257,123.685
+1902,TRUE,FALSE,"Pelee","Martinique",1397,"Stratovolcano",NA,23,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",14.82,-61.17
+1912,FALSE,FALSE,"Nyamuragira","Congo, DRC",3058,"Shield volcano",3,20,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-1.408,29.2
+1919,FALSE,FALSE,"Popocatepetl","Mexico",5426,"Stratovolcano",1,NA,"Some (~51 to 100)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",19.023,-98.622
+1919,TRUE,FALSE,"Banua Wuhu","Indonesia",-5,"Submarine volcano",NA,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"Few (~1 to 50)",3.138,125.491
+1923,TRUE,TRUE,"Cendres, Ile des","Vietnam",-20,"Submarine volcanoes",2,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",10.158,109.014
+1929,FALSE,FALSE,"Etna","Italy",3350,"Stratovolcano",2,2,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",37.734,15.004
+1939,FALSE,FALSE,"Tori-shima","Japan",403,"Stratovolcano",2,2,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",30.48,140.32
+1940,FALSE,FALSE,"Karangetang [Api Siau]","Indonesia",1784,"Stratovolcano",2,1,"Few (~1 to 50)",2,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",2.78,125.48
+1947,FALSE,FALSE,"Asama","Japan",2560,"Complex volcano",2,11,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",36.4,138.53
+1957,FALSE,FALSE,"Oshima","Japan",758,"Stratovolcano",2,1,"Few (~1 to 50)",53,"Some (~51 to 100)",NA,"None/No Record",NA,"None/No Record",34.73,139.38
+1979,FALSE,FALSE,"Aso","Japan",1592,"Caldera",2,3,"Few (~1 to 50)",11,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",32.88,131.1
+1980,FALSE,FALSE,"Hood","United States",3426,"Stratovolcano",NA,1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",45.374,-121.694
+1989,FALSE,FALSE,"Kirishima","Japan",1700,"Shield volcano",NA,2,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",31.93,130.87
+1994,FALSE,FALSE,"Aso","Japan",1592,"Caldera",1,1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",32.88,131.1
+2001,FALSE,FALSE,"Etna","Italy",3350,"Stratovolcano",3,1,"Few (~1 to 50)",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",37.734,15.004
+2011,FALSE,FALSE,"Bulusan","Philippines",1565,"Stratovolcano",2,1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",12.77,124.05
+2014,FALSE,FALSE,"Kelut","Indonesia",1731,"Stratovolcano",NA,7,"Few (~1 to 50)",NA,"None/No Record",NA,"SEVERE (~$5 to $24 million)",4098,"Very Many (~1001 or more)",-7.93,112.308
+-1860,FALSE,FALSE,"St. Helens","United States",2549,"Stratovolcano",6,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",46.2,-122.18
+230,FALSE,FALSE,"Taupo","New Zealand",760,"Caldera",6,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-38.82,176
+1169,TRUE,TRUE,"Etna","Italy",3350,"Stratovolcano",NA,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",37.734,15.004
+1566,FALSE,FALSE,"Kirishima","Japan",1700,"Shield volcano",3,NA,"Many (~101 to 1000)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",31.93,130.87
+1597,FALSE,FALSE,"Hekla","Iceland",1491,"Stratovolcano",4,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",63.98,-19.7
+1640,FALSE,FALSE,"Tungurahua","Ecuador",5023,"Stratovolcano",3,5000,"Very Many (~1001 or more)",NA,"None/No Record",NA,"None/No Record",NA,"Very Many (~1001 or more)",-1.467,-78.442
+1650,TRUE,FALSE,"Santorini","Greece",329,"Shield volcano",4,120,"Many (~101 to 1000)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",36.404,25.396
+1660,FALSE,FALSE,"Katla","Iceland",1512,"Subglacial volcano",4,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",63.63,-19.05
+1672,FALSE,FALSE,"Merapi","Indonesia",2947,"Stratovolcano",3,3000,"Very Many (~1001 or more)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-7.542,110.442
+1679,FALSE,TRUE,"Zukur","Yemen",624,"Shield volcano",NA,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",14.02,42.75
+1717,FALSE,FALSE,"Kirishima","Japan",1700,"Shield volcano",3,1,"Few (~1 to 50)",30,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",31.93,130.87
+1741,TRUE,FALSE,"Oshima-Oshima","Japan",737,"Stratovolcano",4,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",41.5,139.37
+1753,FALSE,FALSE,"Grimsvotn","Iceland",1725,"Caldera",2,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",64.42,-17.33
+1780,TRUE,FALSE,"Sakura-jima","Japan",1117,"Stratovolcano",4,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",31.58,130.67
+1817,FALSE,FALSE,"Raung","Indonesia",3332,"Stratovolcano",4,NA,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-8.125,114.042
+1833,FALSE,FALSE,"Kaba","Indonesia",1952,"Stratovolcano",2,126,"Many (~101 to 1000)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-3.52,102.62
+1841,FALSE,FALSE,"Kuchinoerabu-jima","Japan",649,"Stratovolcano",2,NA,"None/No Record",NA,"None/No Record",NA,"MODERATE (~$1 to $5 million)",NA,"Some (~51 to 100)",30.43,130.22
+1843,TRUE,FALSE,"Liamuiga","St. Kitts & Nevis",1156,"Stratovolcano",0,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",17.37,-62.8
+1871,TRUE,FALSE,"Ruang","Indonesia",725,"Stratovolcano",2,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"Few (~1 to 50)",2.28,125.425
+1899,FALSE,FALSE,"Manam","Papua New Guinea",1807,"Stratovolcano",2,2,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-4.1,145.061
+1900,FALSE,FALSE,"Kirishima","Japan",1700,"Shield volcano",2,2,"Few (~1 to 50)",3,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",31.93,130.87
+1928,FALSE,FALSE,"Mayon","Philippines",2462,"Stratovolcano",3,NA,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",13.257,123.685
+1937,TRUE,TRUE,"Rabaul","Papua New Guinea",688,"Pyroclastic shield",4,507,"Many (~101 to 1000)",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"Few (~1 to 50)",-4.271,152.203
+1946,FALSE,FALSE,"Sakura-jima","Japan",1117,"Stratovolcano",2,1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",31.58,130.67
+1953,TRUE,FALSE,"St. Andrew Strait","Papua New Guinea",270,"Complex volcano",0,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-2.38,147.35
+1976,FALSE,FALSE,"Sangay","Ecuador",5230,"Stratovolcano",3,2,"Few (~1 to 50)",4,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",-2.03,-78.33
+1977,FALSE,FALSE,"Kliuchevskoi","Russia",4835,"Stratovolcano",3,1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",56.057,160.638
+1981,FALSE,FALSE,"Mayon","Philippines",2462,"Stratovolcano",NA,200,"Many (~101 to 1000)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",13.257,123.685
+1992,FALSE,FALSE,"Karangetang [Api Siau]","Indonesia",1784,"Stratovolcano",1,6,"Few (~1 to 50)",1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",2.78,125.48
+1994,TRUE,FALSE,"Rabaul","Papua New Guinea",688,"Pyroclastic shield",3,4,"Few (~1 to 50)",NA,"None/No Record",86,"EXTREME (~>=$25 million)",NA,"None/No Record",-4.271,152.203
+1997,FALSE,FALSE,"Merapi","Indonesia",2947,"Stratovolcano",2,6,"Few (~1 to 50)",NA,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",-7.542,110.442
+2005,FALSE,FALSE,"Manam","Papua New Guinea",1807,"Stratovolcano",4,1,"Few (~1 to 50)",14,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",-4.1,145.061
+2006,FALSE,FALSE,"Raoul Island","New Zealand",516,"Stratovolcano",NA,1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-29.27,-177.92
+2014,FALSE,FALSE,"Fogo","Cape Verde",2829,"Stratovolcano",NA,NA,"None/No Record",NA,"None/No Record",NA,"MODERATE (~$1 to $5 million)",230,"Many (~101 to 1000)",14.95,-24.35
+2015,FALSE,FALSE,"Manam","Papua New Guinea",1807,"Stratovolcano",2,NA,"None/No Record",2,"Few (~1 to 50)",NA,"LIMITED (~<$1 million)",NA,"None/No Record",-4.1,145.061
+-1050,FALSE,FALSE,"Pinatubo","Philippines",1486,"Stratovolcano",6,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",15.13,120.35
+764,FALSE,FALSE,"Sakura-jima","Japan",1117,"Stratovolcano",4,80,"Some (~51 to 100)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",31.58,130.67
+766,TRUE,TRUE,"Sakura-jima","Japan",1117,"Stratovolcano",3,NA,"Many (~101 to 1000)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",31.58,130.67
+1760,FALSE,FALSE,"Makian","Indonesia",1357,"Stratovolcano",4,2000,"Very Many (~1001 or more)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",0.32,127.4
+1766,FALSE,FALSE,"Hekla","Iceland",1491,"Stratovolcano",4,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",63.98,-19.7
+1790,FALSE,FALSE,"Kilauea","United States",1222,"Shield volcano",4,5405,"Very Many (~1001 or more)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",19.425,-155.292
+1803,FALSE,FALSE,"Asama","Japan",2560,"Complex volcano",2,NA,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",36.4,138.53
+1813,TRUE,FALSE,"Vesuvius","Italy",1281,"Complex volcano",2,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",40.821,14.426
+1825,FALSE,FALSE,"Shishaldin","United States",2857,"Stratovolcano",3,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",54.75,-163.97
+1869,FALSE,FALSE,"Lamongan","Indonesia",1651,"Stratovolcano",2,8,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-8,113.342
+1883,TRUE,FALSE,"Krakatau","Indonesia",813,"Caldera",NA,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-6.102,105.423
+1900,FALSE,FALSE,"Asama","Japan",2560,"Complex volcano",2,25,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",36.4,138.53
+1914,FALSE,FALSE,"White Island","New Zealand",321,"Stratovolcano",NA,11,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-37.52,177.18
+1928,TRUE,FALSE,"Paluweh","Indonesia",875,"Stratovolcano",3,98,"Some (~51 to 100)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-8.32,121.708
+1952,TRUE,FALSE,"Myojun Knoll","Japan",360,"Submarine volcano",2,31,"Few (~1 to 50)",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",32.1,139.85
+1953,FALSE,FALSE,"Sirung","Indonesia",862,"Complex volcano",0,5,"Few (~1 to 50)",1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",-8.51,124.148
+1963,FALSE,FALSE,"Villarrica","Chile",2847,"Stratovolcano",2,NA,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-39.42,-71.93
+1976,FALSE,FALSE,"Merapi","Indonesia",2947,"Stratovolcano",2,29,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-7.542,110.442
+1977,FALSE,FALSE,"Usu","Japan",731,"Stratovolcano",3,3,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",42.53,140.83
+1980,TRUE,TRUE,"St. Helens","United States",2549,"Stratovolcano",5,57,"Some (~51 to 100)",NA,"None/No Record",2000,"EXTREME (~>=$25 million)",NA,"None/No Record",46.2,-122.18
+1981,FALSE,FALSE,"Vilyuchik","Russia",2173,"Stratovolcano",NA,NA,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",52.68,158.3
+1985,FALSE,FALSE,"Ruiz","Colombia",5321,"Stratovolcano",3,23080,"Very Many (~1001 or more)",10000,"Very Many (~1001 or more)",NA,"None/No Record",NA,"None/No Record",4.895,-75.322
+1990,FALSE,FALSE,"Shiveluch","Russia",3283,"Stratovolcano",3,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",56.653,161.36
+1990,FALSE,FALSE,"Santa Maria","Guatemala",3772,"Stratovolcano",3,4,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",14.756,-91.552
+1995,FALSE,FALSE,"Yasur","Vanuatu",361,"Stratovolcano",3,2,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-19.52,169.425
+2006,FALSE,FALSE,"Merapi","Indonesia",2947,"Stratovolcano",1,2,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-7.542,110.442
+2010,FALSE,FALSE,"Eyjafjallajokull","Iceland",1666,"Stratovolcano",2,2,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",63.63,-19.62
+2010,FALSE,FALSE,"Tungurahua","Ecuador",5023,"Stratovolcano",3,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",-1.467,-78.442
+2011,FALSE,FALSE,"Katla","Iceland",1512,"Subglacial volcano",NA,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",63.63,-19.05
+2015,FALSE,FALSE,"Sinabung","Indonesia",2460,"Stratovolcano",NA,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"Few (~1 to 50)",3.17,98.392
+2018,FALSE,TRUE,"Ambrym","Vanuatu",1334,"Pyroclastic shield",2,NA,"None/No Record",NA,"None/No Record",NA,"MODERATE (~$1 to $5 million)",NA,"Few (~1 to 50)",-16.25,168.12
+2019,FALSE,FALSE,"Manam","Papua New Guinea",1807,"Stratovolcano",4,NA,"None/No Record",NA,"None/No Record",NA,"MODERATE (~$1 to $5 million)",NA,"None/No Record",-4.1,145.061
+-1370,FALSE,FALSE,"Pago","Papua New Guinea",742,"Caldera",6,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-5.58,150.52
+710,FALSE,FALSE,"Pago","Papua New Guinea",742,"Caldera",6,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-5.58,150.52
+1853,FALSE,FALSE,"Mayon","Philippines",2462,"Stratovolcano",3,34,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"Few (~1 to 50)",13.257,123.685
+1872,FALSE,FALSE,"Merapi","Indonesia",2947,"Stratovolcano",4,200,"Many (~101 to 1000)",NA,"None/No Record",NA,"SEVERE (~$5 to $24 million)",NA,"Many (~101 to 1000)",-7.542,110.442
+1878,TRUE,FALSE,"Yasur","Vanuatu",361,"Stratovolcano",3,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-19.52,169.425
+1905,TRUE,FALSE,"Savai'i","Samoa",1858,"Shield volcano",2,NA,"None/No Record",NA,"None/No Record",NA,"SEVERE (~$5 to $24 million)",NA,"Many (~101 to 1000)",-13.612,-172.525
+1918,FALSE,FALSE,"Katla","Iceland",1512,"Subglacial volcano",4,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",63.63,-19.05
+1944,TRUE,FALSE,"Stromboli","Italy",926,"Stratovolcano",2,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",38.789,15.213
+1952,TRUE,FALSE,"Myojun Knoll","Japan",360,"Submarine volcano",2,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",32.1,139.85
+1955,FALSE,FALSE,"Carran-Los Venados","Chile",1114,"Pyroclastic cone",4,2,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-40.35,-72.07
+1961,FALSE,FALSE,"Merapi","Indonesia",2947,"Stratovolcano",3,6,"Few (~1 to 50)",6,"Few (~1 to 50)",NA,"MODERATE (~$1 to $5 million)",NA,"Many (~101 to 1000)",-7.542,110.442
+1975,FALSE,FALSE,"Arenal","Costa Rica",1657,"Stratovolcano",3,2,"Few (~1 to 50)",NA,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",10.463,-84.703
+1980,FALSE,FALSE,"Hekla","Iceland",1491,"Stratovolcano",3,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",63.98,-19.7
+1981,FALSE,FALSE,"Paluweh","Indonesia",875,"Stratovolcano",2,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"Few (~1 to 50)",-8.32,121.708
+1988,FALSE,FALSE,"Akita-Yake-yama","Japan",1366,"Complex volcano",NA,3,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",39.97,140.77
+1991,FALSE,FALSE,"Karthala","Comoros",2361,"Shield volcano",2,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",-11.75,43.38
+1994,FALSE,FALSE,"Merapi","Indonesia",2947,"Stratovolcano",3,60,"Some (~51 to 100)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-7.542,110.442
+1995,FALSE,FALSE,"Yake-dake","Japan",2455,"Stratovolcano",1,4,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",36.22,137.58
+2002,TRUE,FALSE,"Stromboli","Italy",926,"Stratovolcano",NA,NA,"None/No Record",NA,"Few (~1 to 50)",NA,"LIMITED (~<$1 million)",NA,"Few (~1 to 50)",38.789,15.213
+2003,TRUE,FALSE,"Soufriere Hills","Montserrat",915,"Stratovolcano",3,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",16.72,-62.18
+2010,FALSE,FALSE,"Tungurahua","Ecuador",5023,"Stratovolcano",3,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",-1.467,-78.442
+2018,FALSE,FALSE,"Fuego","Guatemala",3763,"Stratovolcano",2,201,"Many (~101 to 1000)",27,"Few (~1 to 50)",120,"EXTREME (~>=$25 million)",186,"Many (~101 to 1000)",14.473,-90.88
+-4350,FALSE,FALSE,"Kikai","Japan",717,"Caldera",7,NA,"Many (~101 to 1000)",NA,"None/No Record",NA,"SEVERE (~$5 to $24 million)",NA,"Many (~101 to 1000)",30.78,130.28
+934,FALSE,FALSE,"Katla","Iceland",1512,"Subglacial volcano",4,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",63.63,-19.05
+1250,FALSE,FALSE,"Fentale","Ethiopia",2007,"Stratovolcano",NA,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",8.975,39.93
+1389,FALSE,FALSE,"Hekla","Iceland",1491,"Stratovolcano",3,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",63.98,-19.7
+1471,FALSE,FALSE,"Sakura-jima","Japan",1117,"Stratovolcano",5,NA,"Many (~101 to 1000)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",31.58,130.67
+1500,FALSE,FALSE,"Katla","Iceland",1512,"Subglacial volcano",4,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",63.63,-19.05
+1590,FALSE,FALSE,"Colima","Mexico",3850,"Stratovolcano",3,NA,"Many (~101 to 1000)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",19.514,-103.62
+1596,FALSE,FALSE,"Asama","Japan",2560,"Complex volcano",2,NA,"Many (~101 to 1000)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",36.4,138.53
+1606,TRUE,FALSE,"Hachijo-jima","Japan",854,"Stratovolcano",2,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",33.13,139.77
+1712,FALSE,FALSE,"Bardarbunga","Iceland",2000,"Stratovolcano",2,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",64.63,-17.53
+1716,FALSE,FALSE,"Bardarbunga","Iceland",2000,"Stratovolcano",2,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",64.63,-17.53
+1737,FALSE,FALSE,"Vesuvius","Italy",1281,"Complex volcano",2,2,"Few (~1 to 50)",NA,"None/No Record",NA,"MODERATE (~$1 to $5 million)",NA,"None/No Record",40.821,14.426
+1779,FALSE,FALSE,"Sakura-jima","Japan",1117,"Stratovolcano",4,153,"Many (~101 to 1000)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",31.58,130.67
+1783,FALSE,FALSE,"Asama","Japan",2560,"Complex volcano",4,1491,"Very Many (~1001 or more)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",36.4,138.53
+1822,FALSE,FALSE,"Merapi","Indonesia",2947,"Stratovolcano",3,100,"Some (~51 to 100)",NA,"Some (~51 to 100)",NA,"SEVERE (~$5 to $24 million)",NA,"Many (~101 to 1000)",-7.542,110.442
+1840,FALSE,FALSE,"Tinakula","Solomon Is.",851,"Stratovolcano",3,NA,"Many (~101 to 1000)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-10.38,165.8
+1845,TRUE,TRUE,"Soputan","Indonesia",1784,"Stratovolcano",2,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",1.108,124.725
+1847,FALSE,FALSE,"Fogo","Cape Verde",2829,"Stratovolcano",2,NA,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",14.95,-24.35
+1856,TRUE,TRUE,"Awu","Indonesia",1320,"Stratovolcano",3,2806,"Very Many (~1001 or more)",NA,"Some (~51 to 100)",NA,"SEVERE (~$5 to $24 million)",NA,"Many (~101 to 1000)",3.67,125.5
+1861,FALSE,FALSE,"Makian","Indonesia",1357,"Stratovolcano",4,326,"Many (~101 to 1000)",47,"Few (~1 to 50)",NA,"None/No Record",NA,"Many (~101 to 1000)",0.32,127.4
+1903,FALSE,FALSE,"Okataina","New Zealand",1111,"Lava dome",1,4,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-38.12,176.5
+1951,FALSE,FALSE,"Hakone","Japan",1438,"Complex volcano",NA,2,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",35.22,139.02
+1954,FALSE,FALSE,"Bam","Papua New Guinea",685,"Stratovolcano",2,NA,"None/No Record",NA,"Some (~51 to 100)",NA,"None/No Record",NA,"None/No Record",-3.6,144.85
+1958,FALSE,FALSE,"Daisetsu","Japan",2290,"Stratovolcano",NA,2,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",43.68,142.88
+1962,FALSE,FALSE,"Gamalama","Indonesia",1715,"Stratovolcano",2,5,"Few (~1 to 50)",5,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",0.8,127.325
+1969,FALSE,FALSE,"Merapi","Indonesia",2947,"Stratovolcano",2,3,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-7.542,110.442
+1973,FALSE,FALSE,"Paluweh","Indonesia",875,"Stratovolcano",3,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"Few (~1 to 50)",-8.32,121.708
+1974,FALSE,FALSE,"Sakura-jima","Japan",1117,"Stratovolcano",3,3,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",31.58,130.67
+1978,FALSE,FALSE,"Tangkubanparahu","Indonesia",2084,"Stratovolcano",NA,3,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-6.77,107.6
+1983,FALSE,FALSE,"Colo [Una Una]","Indonesia",507,"Stratovolcano",4,NA,"None/No Record",NA,"None/No Record",NA,"MODERATE (~$1 to $5 million)",NA,"Many (~101 to 1000)",-0.17,121.608
+1987,FALSE,FALSE,"Etna","Italy",3350,"Stratovolcano",2,2,"Few (~1 to 50)",7,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",37.734,15.004
+1994,FALSE,FALSE,"Rinjani","Indonesia",3726,"Stratovolcano",3,31,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-8.42,116.47
+1996,FALSE,FALSE,"Grimsvotn","Iceland",1725,"Caldera",3,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",64.42,-17.33
+1997,FALSE,FALSE,"Soufriere Hills","Montserrat",915,"Stratovolcano",3,22,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",16.72,-62.18
+1999,FALSE,FALSE,"Guagua Pichincha","Ecuador",4784,"Stratovolcano",3,2,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-0.171,-78.598
+2001,FALSE,FALSE,"Merapi","Indonesia",2947,"Stratovolcano",2,2,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-7.542,110.442
+2002,FALSE,FALSE,"Nyiragongo","Congo, DRC",3470,"Stratovolcano",1,100,"Some (~51 to 100)",400,"Many (~101 to 1000)",NA,"SEVERE (~$5 to $24 million)",NA,"Many (~101 to 1000)",-1.52,29.25
+2011,FALSE,FALSE,"Karangetang [Api Siau]","Indonesia",1784,"Stratovolcano",NA,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",2.78,125.48
+2012,FALSE,FALSE,"Kilauea","United States",1222,"Shield volcano",NA,NA,"None/No Record",NA,"None/No Record",NA,"MODERATE (~$1 to $5 million)",NA,"None/No Record",19.425,-155.292
+2012,FALSE,FALSE,"Kilauea","United States",1222,"Shield volcano",NA,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",1,"Few (~1 to 50)",19.425,-155.292
+-4050,FALSE,FALSE,"Masaya","Nicaragua",635,"Caldera",6,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",11.984,-86.161
+-2420,FALSE,FALSE,"Vesuvius","Italy",1281,"Complex volcano",5,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",40.821,14.426
+79,TRUE,TRUE,"Vesuvius","Italy",1281,"Complex volcano",5,2100,"Very Many (~1001 or more)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",40.821,14.426
+1375,FALSE,FALSE,"Chichon, El","Mexico",1150,"Tuff cone",5,NA,"Some (~51 to 100)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",17.36,-93.228
+1376,FALSE,FALSE,"Kelut","Indonesia",1731,"Stratovolcano",3,NA,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-7.93,112.308
+1538,FALSE,FALSE,"Campi Flegrei","Italy",458,"Caldera",3,24,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",40.827,14.139
+1664,FALSE,FALSE,"Unzen","Japan",1500,"Complex volcano",2,30,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",32.75,130.3
+1698,FALSE,FALSE,"Cotopaxi","Ecuador",5911,"Stratovolcano",3,NA,"Some (~51 to 100)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-0.677,-78.436
+1775,FALSE,FALSE,"Gamalama","Indonesia",1715,"Stratovolcano",3,1300,"Very Many (~1001 or more)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",0.8,127.325
+1800,FALSE,FALSE,"Mayon","Philippines",2462,"Stratovolcano",2,NA,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",13.257,123.685
+1822,FALSE,FALSE,"Usu","Japan",731,"Stratovolcano",4,50,"Few (~1 to 50)",53,"Some (~51 to 100)",NA,"None/No Record",NA,"Some (~51 to 100)",42.53,140.83
+1822,FALSE,FALSE,"Galunggung","Indonesia",2168,"Stratovolcano",5,4011,"Very Many (~1001 or more)",NA,"None/No Record",NA,"SEVERE (~$5 to $24 million)",NA,"Many (~101 to 1000)",-7.25,108.05
+1840,TRUE,FALSE,"Gamalama","Indonesia",1715,"Stratovolcano",2,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",0.8,127.325
+1874,FALSE,FALSE,"Miyake-jima","Japan",815,"Stratovolcano",3,1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",34.08,139.53
+1911,TRUE,FALSE,"Piparo","Trinidad",140,"Mud volcano",NA,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",10,-61
+1911,FALSE,FALSE,"Semeru","Indonesia",3676,"Stratovolcano",3,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",-8.108,112.92
+1916,TRUE,FALSE,"Stromboli","Italy",926,"Stratovolcano",3,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",38.789,15.213
+1928,FALSE,FALSE,"Dieng Volc Complex","Indonesia",2565,"Complex volcano",2,40,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-7.2,109.92
+1933,TRUE,FALSE,"Bulusan","Philippines",1565,"Stratovolcano",2,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",12.77,124.05
+1944,FALSE,FALSE,"Usu","Japan",731,"Stratovolcano",2,1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",42.53,140.83
+1953,FALSE,FALSE,"Ruapehu","New Zealand",2797,"Stratovolcano",NA,151,"Many (~101 to 1000)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-39.28,175.57
+1966,FALSE,FALSE,"Kelut","Indonesia",1731,"Stratovolcano",4,215,"Many (~101 to 1000)",86,"Some (~51 to 100)",NA,"None/No Record",NA,"None/No Record",-7.93,112.308
+1966,FALSE,FALSE,"Lengai, Ol Doinyo","Tanzania",2890,"Stratovolcano",4,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",-2.751,35.902
+1969,FALSE,FALSE,"Narugo","Japan",462,"Caldera",NA,1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",38.73,140.73
+1971,FALSE,FALSE,"Hudson, Cerro","Chile",1905,"Stratovolcano",3,5,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-45.9,-72.97
+1973,FALSE,FALSE,"Iliwerung","Indonesia",1018,"Complex volcano",2,2,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-8.54,123.59
+1979,FALSE,FALSE,"Karkar","Papua New Guinea",1839,"Stratovolcano",2,2,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-4.649,145.964
+1981,FALSE,FALSE,"Etna","Italy",3350,"Stratovolcano",2,NA,"None/No Record",NA,"None/No Record",10,"SEVERE (~$5 to $24 million)",NA,"None/No Record",37.734,15.004
+1982,FALSE,TRUE,"Chichon, El","Mexico",1150,"Tuff cone",5,1879,"Very Many (~1001 or more)",NA,"None/No Record",3.3,"MODERATE (~$1 to $5 million)",NA,"None/No Record",17.36,-93.228
+1993,FALSE,FALSE,"Galeras","Colombia",4276,"Complex volcano",2,9,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",1.22,-77.37
+2002,FALSE,TRUE,"Etna","Italy",3350,"Stratovolcano",3,NA,"None/No Record",32,"Few (~1 to 50)",NA,"MODERATE (~$1 to $5 million)",NA,"Some (~51 to 100)",37.734,15.004
+2008,FALSE,FALSE,"Huila","Colombia",5365,"Stratovolcano",NA,10,"Few (~1 to 50)",NA,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",2.92,-76.05
+2011,FALSE,FALSE,"Puyehue","Chile",2236,"Stratovolcano",4,NA,"None/No Record",NA,"None/No Record",NA,"MODERATE (~$1 to $5 million)",NA,"None/No Record",-40.59,-72.117
+2013,FALSE,FALSE,"Okataina","New Zealand",1111,"Lava dome",NA,1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-38.12,176.5
+2014,FALSE,FALSE,"On-take","Japan",3063,"Complex volcano",3,55,"Some (~51 to 100)",70,"Some (~51 to 100)",NA,"None/No Record",NA,"None/No Record",35.9,137.48
+2014,FALSE,FALSE,"Gamalama","Indonesia",1715,"Stratovolcano",NA,1,"Few (~1 to 50)",4,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",0.8,127.325
+2018,FALSE,FALSE,"Mayon","Philippines",2462,"Stratovolcano",NA,NA,"None/No Record",1972,"Very Many (~1001 or more)",3.564,"MODERATE (~$1 to $5 million)",NA,"None/No Record",13.257,123.685
+2018,FALSE,FALSE,"Manam","Papua New Guinea",1807,"Stratovolcano",4,NA,"None/No Record",NA,"None/No Record",NA,"SEVERE (~$5 to $24 million)",164,"Many (~101 to 1000)",-4.1,145.061
+200,FALSE,FALSE,"Arhab, Harra of","Yemen",3100,"Volcanic field",NA,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",15.63,44.08
+640,FALSE,FALSE,"Uwayrid, Harrat","Saudi Arabia",1900,"Volcanic field",2,NA,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",27.08,37.25
+1169,TRUE,FALSE,"Etna","Italy",3350,"Stratovolcano",NA,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",37.734,15.004
+1600,FALSE,TRUE,"Huaynaputina","Peru",4850,"Stratovolcano",6,1500,"Very Many (~1001 or more)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-16.608,-70.85
+1629,FALSE,FALSE,"Grimsvotn","Iceland",1725,"Caldera",2,4,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",64.42,-17.33
+1717,FALSE,FALSE,"Bardarbunga","Iceland",2000,"Stratovolcano",3,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",64.63,-17.53
+1778,FALSE,FALSE,"Raikoke","Russia",551,"Stratovolcano",4,15,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",48.292,153.25
+1789,FALSE,FALSE,"Oshima","Japan",758,"Stratovolcano",2,NA,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",34.73,139.38
+1805,FALSE,FALSE,"Vesuvius","Italy",1281,"Complex volcano",2,4,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",40.821,14.426
+1829,FALSE,FALSE,"Guntur","Indonesia",2249,"Complex volcano",2,NA,"Many (~101 to 1000)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-7.13,107.83
+1837,TRUE,TRUE,"Peuet Sague","Indonesia",2801,"Complex volcano",NA,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",4.914,96.329
+1853,TRUE,FALSE,"Unnamed","Taiwan",0,"Submarine volcano",2,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",24,121.83
+1854,FALSE,FALSE,"Aso","Japan",1592,"Caldera",2,3,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",32.88,131.1
+1860,FALSE,FALSE,"Semeru","Indonesia",3676,"Stratovolcano",2,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",-8.108,112.92
+1871,TRUE,TRUE,"Camiguin","Philippines",1332,"Stratovolcano",2,NA,"Few (~1 to 50)",NA,"None/No Record",NA,"SEVERE (~$5 to $24 million)",NA,"Many (~101 to 1000)",9.203,124.673
+1875,FALSE,FALSE,"Askja","Iceland",1516,"Stratovolcano",5,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",65.03,-16.75
+1886,FALSE,FALSE,"Tungurahua","Ecuador",5023,"Stratovolcano",4,2,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-1.467,-78.442
+1886,FALSE,FALSE,"Okataina","New Zealand",1111,"Lava dome",2,153,"Many (~101 to 1000)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-38.12,176.5
+1893,FALSE,FALSE,"Calbuco","Chile",2003,"Stratovolcano",4,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",-41.326,-72.614
+1951,FALSE,FALSE,"Camiguin","Philippines",1332,"Stratovolcano",3,500,"Many (~101 to 1000)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",9.203,124.673
+1953,TRUE,FALSE,"Myojun Knoll","Japan",360,"Submarine volcano",2,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",32.1,139.85
+1957,FALSE,FALSE,"Unzen","Japan",1500,"Complex volcano",NA,13,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",32.75,130.3
+1981,FALSE,FALSE,"Semeru","Indonesia",3676,"Stratovolcano",3,1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-8.108,112.92
+1993,FALSE,FALSE,"Wurlali","Indonesia",868,"Stratovolcano",NA,1,"Few (~1 to 50)",12,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",-7.125,128.675
+1993,FALSE,FALSE,"Pinatubo","Philippines",1486,"Stratovolcano",1,4,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",15.13,120.35
+1996,FALSE,FALSE,"Kanlaon","Philippines",2435,"Stratovolcano",2,3,"Few (~1 to 50)",18,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",10.412,123.132
+2013,FALSE,FALSE,"Mayon","Philippines",2462,"Stratovolcano",NA,5,"Few (~1 to 50)",8,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",13.257,123.685
+2017,FALSE,FALSE,"Etna","Italy",3350,"Stratovolcano",NA,NA,"None/No Record",10,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",37.734,15.004
+2017,FALSE,FALSE,"Dieng Volc Complex","Indonesia",2565,"Complex volcano",NA,8,"Few (~1 to 50)",11,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",-7.2,109.92
+450,FALSE,FALSE,"Ilopango","El Salvador",450,"Caldera",6,30000,"Very Many (~1001 or more)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",13.672,-89.053
+1565,FALSE,TRUE,"Pacaya","Guatemala",2552,"Complex volcano",3,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",14.381,-90.601
+1716,FALSE,FALSE,"Kirishima","Japan",1700,"Shield volcano",3,1,"Few (~1 to 50)",31,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",31.93,130.87
+1721,FALSE,FALSE,"Asama","Japan",2560,"Complex volcano",1,15,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",36.4,138.53
+1762,FALSE,FALSE,"Kliuchevskoi","Russia",4835,"Stratovolcano",2,NA,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",56.057,160.638
+1784,FALSE,FALSE,"Sabancaya","Peru",5967,"Stratovolcano",NA,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",-15.78,-71.85
+1786,FALSE,FALSE,"Dieng Volc Complex","Indonesia",2565,"Complex volcano",2,38,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"Some (~51 to 100)",-7.2,109.92
+1800,FALSE,FALSE,"Guntur","Indonesia",2249,"Complex volcano",NA,NA,"Many (~101 to 1000)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-7.13,107.83
+1800,FALSE,FALSE,"Hualalai","United States",2523,"Shield volcano",0,2,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",19.692,-155.87
+1839,TRUE,FALSE,"Unnamed","Chile",-642,"Submarine volcano",2,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-33.62,-76.83
+1861,FALSE,FALSE,"Grimsvotn","Iceland",1725,"Caldera",2,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",64.42,-17.33
+1878,TRUE,TRUE,"Rabaul","Papua New Guinea",688,"Pyroclastic shield",3,1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-4.271,152.203
+1901,FALSE,FALSE,"Kelut","Indonesia",1731,"Stratovolcano",3,NA,"Some (~51 to 100)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-7.93,112.308
+1911,TRUE,TRUE,"Taal","Philippines",400,"Stratovolcano",3,1335,"Very Many (~1001 or more)",199,"Many (~101 to 1000)",NA,"SEVERE (~$5 to $24 million)",543,"Many (~101 to 1000)",14.002,120.993
+1917,FALSE,FALSE,"Lengai, Ol Doinyo","Tanzania",2890,"Stratovolcano",3,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",-2.751,35.902
+1921,FALSE,FALSE,"Nasu","Japan",1917,"Stratovolcano",NA,1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",37.12,139.97
+1933,FALSE,FALSE,"Hakone","Japan",1438,"Complex volcano",NA,1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",35.22,139.02
+1941,FALSE,FALSE,"Semeru","Indonesia",3676,"Stratovolcano",2,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",-8.108,112.92
+1944,FALSE,FALSE,"Usu","Japan",731,"Stratovolcano",2,1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",42.53,140.83
+1947,FALSE,FALSE,"Hekla","Iceland",1491,"Stratovolcano",4,1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",63.98,-19.7
+1976,FALSE,FALSE,"Kusatsu-Shirane","Japan",2176,"Stratovolcano",NA,3,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",36.62,138.55
+1979,FALSE,FALSE,"Etna","Italy",3350,"Stratovolcano",2,9,"Few (~1 to 50)",23,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",37.734,15.004
+1982,FALSE,FALSE,"Galunggung","Indonesia",2168,"Stratovolcano",4,68,"Some (~51 to 100)",NA,"None/No Record",15,"SEVERE (~$5 to $24 million)",NA,"None/No Record",-7.25,108.05
+1988,FALSE,FALSE,"Arenal","Costa Rica",1657,"Stratovolcano",3,1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",10.463,-84.703
+2005,FALSE,FALSE,"Karthala","Comoros",2361,"Shield volcano",NA,NA,"Few (~1 to 50)",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",-11.75,43.38
+2010,FALSE,FALSE,"Tengger Caldera","Indonesia",2329,"Stratovolcano",NA,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",-7.942,112.95
+-141,FALSE,FALSE,"Etna","Italy",3350,"Stratovolcano",NA,40,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",37.734,15.004
+1262,FALSE,FALSE,"Katla","Iceland",1512,"Subglacial volcano",3,NA,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",63.63,-19.05
+1300,FALSE,FALSE,"Hekla","Iceland",1491,"Stratovolcano",4,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",63.98,-19.7
+1331,FALSE,FALSE,"Aso","Japan",1592,"Caldera",2,NA,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",32.88,131.1
+1714,TRUE,FALSE,"Vesuvius","Italy",1281,"Complex volcano",NA,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",40.821,14.426
+1907,TRUE,FALSE,"Savai'i","Samoa",1858,"Shield volcano",NA,NA,"None/No Record",NA,"None/No Record",NA,"SEVERE (~$5 to $24 million)",NA,"Many (~101 to 1000)",-13.612,-172.525
+1911,FALSE,FALSE,"Asama","Japan",2560,"Complex volcano",2,NA,"Many (~101 to 1000)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",36.4,138.53
+1913,FALSE,FALSE,"Colima","Mexico",3850,"Stratovolcano",4,13,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",19.514,-103.62
+1944,FALSE,FALSE,"Cleveland","United States",1730,"Stratovolcano",3,1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",52.82,-169.95
+1952,TRUE,FALSE,"Myojun Knoll","Japan",360,"Submarine volcano",2,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",32.1,139.85
+1960,TRUE,TRUE,"Puyehue","Chile",2236,"Stratovolcano",3,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-40.59,-72.117
+1971,FALSE,FALSE,"La Palma","Spain",2426,"Stratovolcano",2,NA,"Few (~1 to 50)",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",28.58,-17.83
+1972,TRUE,FALSE,"Ritter Island","Papua New Guinea",140,"Stratovolcano",1,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-5.52,148.121
+1979,FALSE,FALSE,"Soufriere St. Vincent","St. Vincent & the Grenadines",1220,"Stratovolcano",3,2,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",13.33,-61.18
+1983,FALSE,TRUE,"Miyake-jima","Japan",815,"Stratovolcano",3,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",34.08,139.53
+1984,FALSE,FALSE,"Etna","Italy",3350,"Stratovolcano",3,1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",37.734,15.004
+1990,FALSE,FALSE,"Aso","Japan",1592,"Caldera",2,1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",32.88,131.1
+1991,FALSE,FALSE,"Etna","Italy",3350,"Stratovolcano",2,NA,"None/No Record",NA,"None/No Record",2.5,"MODERATE (~$1 to $5 million)",NA,"None/No Record",37.734,15.004
+1994,FALSE,FALSE,"Semeru","Indonesia",3676,"Stratovolcano",3,6,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-8.108,112.92
+2007,FALSE,FALSE,"Salak","Indonesia",2211,"Stratovolcano",NA,6,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-6.72,106.73
+2017,FALSE,FALSE,"Fuego","Guatemala",3763,"Stratovolcano",2,NA,"None/No Record",NA,"None/No Record",NA,"MODERATE (~$1 to $5 million)",NA,"None/No Record",14.473,-90.88
+2017,FALSE,FALSE,"Aoba","Vanuatu",1496,"Shield volcano",NA,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",-15.4,167.83
+2018,FALSE,FALSE,"Aoba","Vanuatu",1496,"Shield volcano",3,4,"Few (~1 to 50)",NA,"None/No Record",NA,"MODERATE (~$1 to $5 million)",NA,"Few (~1 to 50)",-15.4,167.83
+2019,TRUE,FALSE,"Stromboli","Italy",926,"Stratovolcano",2,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",38.789,15.213
+1631,FALSE,TRUE,"Dama Ali","Ethiopia",1068,"Shield volcano",NA,50,"Few (~1 to 50)",NA,"None/No Record",NA,"MODERATE (~$1 to $5 million)",NA,"None/No Record",11.28,41.63
+1659,TRUE,FALSE,"Teon","Pacific Ocean",655,"Stratovolcano",4,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-6.92,129.125
+1664,TRUE,FALSE,"Iwo-Tori-shima","Japan",217,"Complex volcano",NA,NA,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",27.85,128.25
+1707,TRUE,FALSE,"Santorini","Greece",329,"Shield volcano",NA,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",36.404,25.396
+1729,FALSE,FALSE,"Krafla","Iceland",650,"Caldera",2,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",65.73,-16.78
+1780,FALSE,FALSE,"Sakura-jima","Japan",1117,"Stratovolcano",4,NA,"Many (~101 to 1000)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",31.58,130.67
+1835,FALSE,TRUE,"Banda Api","Pacific Ocean",640,"Caldera",NA,NA,"Many (~101 to 1000)",NA,"None/No Record",NA,"MODERATE (~$1 to $5 million)",NA,"Some (~51 to 100)",-4.525,129.871
+1843,TRUE,FALSE,"Soufriere Guadeloupe","Guadeloupe",1467,"Stratovolcano",NA,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",16.05,-61.67
+1854,FALSE,FALSE,"Shiveluch","Russia",3283,"Stratovolcano",5,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",56.653,161.36
+1856,TRUE,FALSE,"Shishaldin","United States",2857,"Stratovolcano",NA,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",54.75,-163.97
+1860,FALSE,FALSE,"Fuego","Guatemala",3763,"Stratovolcano",2,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",14.473,-90.88
+1868,TRUE,TRUE,"Etna","Italy",3350,"Stratovolcano",NA,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",37.734,15.004
+1872,FALSE,FALSE,"Merapi","Indonesia",2947,"Stratovolcano",4,170,"Many (~101 to 1000)",NA,"None/No Record",NA,"None/No Record",NA,"Some (~51 to 100)",-7.542,110.442
+1875,FALSE,FALSE,"Kelut","Indonesia",1731,"Stratovolcano",0,NA,"Few (~1 to 50)",NA,"None/No Record",NA,"MODERATE (~$1 to $5 million)",NA,"Some (~51 to 100)",-7.93,112.308
+1878,TRUE,TRUE,"Yasur","Vanuatu",361,"Stratovolcano",NA,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-19.52,169.425
+1909,FALSE,TRUE,"Cameroon, Mt.","Cameroon",4095,"Stratovolcano",2,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",4.203,9.17
+1914,FALSE,FALSE,"Pago","Papua New Guinea",742,"Caldera",3,NA,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-5.58,150.52
+1917,FALSE,FALSE,"Okataina","New Zealand",1111,"Lava dome",1,2,"Few (~1 to 50)",3,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",-38.12,176.5
+1930,TRUE,FALSE,"Krakatau","Indonesia",813,"Caldera",2,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-6.102,105.423
+1930,TRUE,FALSE,"Stromboli","Italy",926,"Stratovolcano",3,5,"Few (~1 to 50)",20,"Few (~1 to 50)",NA,"MODERATE (~$1 to $5 million)",NA,"None/No Record",38.789,15.213
+1934,FALSE,FALSE,"Hood","United States",3426,"Stratovolcano",NA,1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",45.374,-121.694
+1946,TRUE,FALSE,"Sarychev Peak","Russia",1496,"Stratovolcano",4,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",48.092,153.2
+1954,TRUE,FALSE,"Stromboli","Italy",926,"Stratovolcano",NA,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",38.789,15.213
+1955,FALSE,FALSE,"Sakura-jima","Japan",1117,"Stratovolcano",3,NA,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",31.58,130.67
+1962,FALSE,FALSE,"Merapi","Indonesia",2947,"Stratovolcano",NA,2,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-7.542,110.442
+1990,FALSE,FALSE,"Kelut","Indonesia",1731,"Stratovolcano",4,32,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-7.93,112.308
+1993,FALSE,FALSE,"Unzen","Japan",1500,"Complex volcano",1,1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"Few (~1 to 50)",32.75,130.3
+2010,FALSE,FALSE,"Karangetang [Api Siau]","Indonesia",1784,"Stratovolcano",3,4,"Few (~1 to 50)",5,"Few (~1 to 50)",NA,"None/No Record",NA,"Few (~1 to 50)",2.78,125.48
+2014,FALSE,FALSE,"Kilauea","United States",1222,"Shield volcano",NA,NA,"None/No Record",NA,"None/No Record",14.5,"SEVERE (~$5 to $24 million)",1,"Few (~1 to 50)",19.425,-155.292
+2016,FALSE,FALSE,"Sinabung","Indonesia",2460,"Stratovolcano",NA,1,"Few (~1 to 50)",4,"Few (~1 to 50)",NA,"LIMITED (~<$1 million)",3,"Few (~1 to 50)",3.17,98.392
+2019,FALSE,FALSE,"Manam","Papua New Guinea",1807,"Stratovolcano",4,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",-4.1,145.061
+2019,FALSE,FALSE,"Sinabung","Indonesia",2460,"Stratovolcano",NA,NA,"None/No Record",NA,"None/No Record",NA,"MODERATE (~$1 to $5 million)",NA,"None/No Record",3.17,98.392
+-1550,FALSE,FALSE,"Redoubt","United States",3108,"Stratovolcano",NA,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",60.48,-152.75
+-250,FALSE,FALSE,"Raoul Island","New Zealand",516,"Stratovolcano",6,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-29.27,-177.92
+1640,TRUE,TRUE,"Komaga-take","Japan",1140,"Stratovolcano",5,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",42.07,140.68
+1785,FALSE,FALSE,"Aoga-shima","Japan",423,"Stratovolcano",3,135,"Many (~101 to 1000)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",32.45,139.77
+1812,FALSE,FALSE,"Awu","Indonesia",1320,"Stratovolcano",3,953,"Many (~101 to 1000)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",3.67,125.5
+1853,FALSE,FALSE,"Niuafo'ou","Tonga",260,"Shield volcano",0,25,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-15.6,-175.63
+1892,FALSE,FALSE,"Sorikmarapi","Indonesia",2145,"Stratovolcano",2,180,"Many (~101 to 1000)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",0.686,99.539
+1917,FALSE,FALSE,"Calbuco","Chile",2003,"Stratovolcano",3,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",-41.326,-72.614
+1938,FALSE,FALSE,"Asama","Japan",2560,"Complex volcano",1,NA,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",36.4,138.53
+1941,FALSE,FALSE,"Asama","Japan",2560,"Complex volcano",2,1,"Few (~1 to 50)",1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",36.4,138.53
+1943,FALSE,FALSE,"Michoacan-Guanajuato","Mexico",3860,"Cinder cone",4,3,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",19.48,-102.25
+1944,FALSE,FALSE,"Dieng Volc Complex","Indonesia",2565,"Complex volcano",2,117,"Many (~101 to 1000)",250,"Many (~101 to 1000)",NA,"None/No Record",NA,"None/No Record",-7.2,109.92
+1953,FALSE,FALSE,"Oshima","Japan",758,"Stratovolcano",1,1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",34.73,139.38
+1973,FALSE,FALSE,"Hudson, Cerro","Chile",1905,"Stratovolcano",NA,2,"Few (~1 to 50)",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"Few (~1 to 50)",-45.9,-72.97
+1990,FALSE,FALSE,"Aso","Japan",1592,"Caldera",2,1,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",32.88,131.1
+1991,FALSE,TRUE,"Pinatubo","Philippines",1486,"Stratovolcano",6,350,"Many (~101 to 1000)",4,"Few (~1 to 50)",NA,"SEVERE (~$5 to $24 million)",NA,"None/No Record",15.13,120.35
+1992,FALSE,FALSE,"Pinatubo","Philippines",1486,"Stratovolcano",1,6,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",15.13,120.35
+1995,FALSE,FALSE,"Fogo","Cape Verde",2829,"Stratovolcano",2,NA,"None/No Record",20,"Few (~1 to 50)",NA,"LIMITED (~<$1 million)",10,"Few (~1 to 50)",14.95,-24.35
+1996,FALSE,FALSE,"Manam","Papua New Guinea",1807,"Stratovolcano",3,13,"Few (~1 to 50)",29,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",-4.1,145.061
+2000,FALSE,FALSE,"Kilauea","United States",1222,"Shield volcano",NA,2,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",19.425,-155.292
+2005,FALSE,FALSE,"Santa Ana","El Salvador",2365,"Stratovolcano",3,2,"Few (~1 to 50)",NA,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",13.853,-89.63
+2006,TRUE,FALSE,"Soufriere Hills","Montserrat",915,"Stratovolcano",2,NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",16.72,-62.18
+2015,FALSE,FALSE,"Calbuco","Chile",2003,"Stratovolcano",NA,NA,"None/No Record",NA,"None/No Record",NA,"MODERATE (~$1 to $5 million)",NA,"Some (~51 to 100)",-41.326,-72.614
+2017,FALSE,FALSE,"Campi Flegrei","Italy",458,"Caldera",NA,3,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",NA,"None/No Record",40.827,14.139
+2018,FALSE,FALSE,"Kadovar","Papua New Guinea",365,"Stratovolcano",NA,NA,"None/No Record",NA,"None/No Record",NA,"LIMITED (~<$1 million)",NA,"None/No Record",-3.62,144.62
+2018,FALSE,FALSE,"Ijen","Indonesia",2799,"Stratovolcano",NA,NA,"None/No Record",30,"Few (~1 to 50)",NA,"None/No Record",NA,"None/No Record",-8.058,114.242

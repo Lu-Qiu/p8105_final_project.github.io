@@ -33,69 +33,6 @@ scale_colour_discrete = scale_colour_viridis_d
 scale_fill_discrete   = scale_fill_viridis_d
 ```
 
-```{r}
-tidy_df = 
-  read.csv(
-    "data/significant-volcanic-eruption-database.csv", 
-    sep = ";", na.strings=c("", NA)) |>
-  janitor::clean_names() |>
-  select(
-    -c(month, day, location, status, volcano_missing, volcano_missing_description, earthquakes_houses_damaged_description),
-    -starts_with("total")
-    ) |>
-  mutate( # change flags to boolean
-    flag_tsunami = case_match(flag_tsunami, "Tsunami"~ TRUE, NA ~ FALSE),
-    flag_earthquake = case_match(flag_earthquake, "Earthquake"~ TRUE, NA ~ FALSE)
-  ) |>
-  separate(coordinates, into = c("lat", "long"), sep = ",") |>
-  mutate(
-    lat = as.numeric(lat), long = as.numeric(long)
-  ) |>
-  mutate_at(vars(ends_with('description')), ~ifelse(is.na(.), "None/No Record", .)) |>
-  mutate( # shorten description
-    volcano_deaths_description = case_match(
-      volcano_deaths_description,
-      "Very Many (~1001 or more deaths)" ~ "Very Many (~1001 or more)", 
-      "Many (~101 to 1000 deaths)" ~ "Many (~101 to 1000)", 
-      "Some (~51 to 100 deaths)" ~ "Some (~51 to 100)", 
-      "Few (~1 to 50 deaths)" ~ "Few (~1 to 50)",
-      "None/No Record" ~ "None/No Record"
-    ),
-    volcano_injuries_description = case_match(
-      volcano_injuries_description,
-      "Very Many (~1001 or more deaths)" ~ "Very Many (~1001 or more)", 
-      "Many (~101 to 1000 deaths)" ~ "Many (~101 to 1000)", 
-      "Some (~51 to 100 deaths)" ~ "Some (~51 to 100)", 
-      "Few (~1 to 50 deaths)" ~ "Few (~1 to 50)",
-      "None/No Record" ~ "None/No Record"
-    ),
-    volcano_damage_description = case_match(
-      volcano_damage_description,
-      "EXTREME (~$25 million or more)" ~ "EXTREME (~>=$25 million)", 
-      "SEVERE (~>$5 to $24 million)" ~ "SEVERE (~$5 to $24 million)", 
-      "MODERATE (~$1 to $5 million)" ~ "MODERATE (~$1 to $5 million)", 
-      "LIMITED (roughly corresponding to less than $1 million)" ~ "LIMITED (~<$1 million)",
-      "None/No Record" ~ "None/No Record"
-    ),
-    volcano_houses_destroyed_description = case_match(
-      volcano_houses_destroyed_description,
-      "Very Many (~1001 or more houses)" ~ "Very Many (~1001 or more)", 
-      "Many (~101 to 1000 houses)" ~ "Many (~101 to 1000)", 
-      "Some (~51 to 100 houses)" ~ "Some (~51 to 100)", 
-      "Few (~1 to 50 houses)" ~ "Few (~1 to 50)",
-      "None/No Record" ~ "None/No Record"
-    )
-  ) |>
-  mutate( # change descriptions to factors w/ levels
-    volcano_deaths_description = factor(volcano_deaths_description, levels = c("Very Many (~1001 or more)", "Many (~101 to 1000)", "Some (~51 to 100)", "Few (~1 to 50)", "None/No Record")),
-    volcano_injuries_description = factor(volcano_injuries_description, levels = c("Very Many (~1001 or more)", "Many (~101 to 1000)", "Some (~51 to 100)", "Few (~1 to 50)", "None/No Record")),
-    volcano_damage_description = factor(volcano_damage_description, levels = c("EXTREME (~>=$25 million)", "SEVERE (~$5 to $24 million)", "MODERATE (~$1 to $5 million)", "LIMITED (~<$1 million)", "None/No Record")),
-    volcano_houses_destroyed_description = factor(volcano_houses_destroyed_description, levels = c("Very Many (~1001 or more)", "Many (~101 to 1000)", "Some (~51 to 100)", "Few (~1 to 50)", "None/No Record"))
-  )
-
-```
-
-
 ## Methodology
 
 
@@ -103,6 +40,10 @@ tidy_df =
 ## Correlation Analysis
 
 ```{r}
+# Import tidied data
+tidy_df = read_csv("data/volcanic-eruption-final.csv")
+
+# Select variables of interest
 variables_of_interest <- c("flag_earthquake", "flag_tsunami", "volcanic_explosivity_index", "elevation")
 
 selected_data <- tidy_df %>%

@@ -39,10 +39,9 @@ scale_fill_discrete   = scale_fill_viridis_d
 ```{r}
 tidy_df = 
   read.csv(
-    "data/significant-volcanic-eruption-database.csv", 
-    sep = ";", na.strings=c("", NA)) |>
+    "data/significant-volcanic-eruption-database.csv", sep = ";", na.strings=c("", NA)) |>
   janitor::clean_names() |>
-  select(
+  dplyr::select(
     -c(month, day, location, status, volcano_missing, volcano_missing_description, earthquakes_houses_damaged_description),
     -starts_with("total")
     ) |>
@@ -96,6 +95,7 @@ tidy_df =
     volcano_houses_destroyed_description = factor(volcano_houses_destroyed_description, levels = c("Very Many (~1001 or more)", "Many (~101 to 1000)", "Some (~51 to 100)", "Few (~1 to 50)", "None/No Record"))
   )
 
+write.csv(tidy_df, "data/volcanic-eruption-final.csv", row.names=FALSE)
 ```
 
 The final dataset used in the analysis has the following key variables:
@@ -107,17 +107,17 @@ The final dataset used in the analysis has the following key variables:
 * `country`: the country where the volcano is located
 * `elevation`: the elevation of the volcano
 * `volcano_type`: the type of the volcano
-* `volcanic_explosivity_index`          
-* `volcano_deaths`                      
-* `volcano_deaths_description`         
-* `volcano_injuries`                    
-* `volcano_injuries_description`       
-* `volcano_damage_in_m`                
-* `volcano_damage_description`         
-* `volcano_houses_destroyed`             
-* `volcano_houses_destroyed_description`
-* `lat`                                 
-* `long`
+* `volcanic_explosivity_index`: volcanic explosivity index of the eruption         
+* `volcano_deaths`: deaths caused directly by volcanic eruption                      
+* `volcano_deaths_description`: description of deaths caused directly by volcanic eruption          
+* `volcano_injuries`: injuries caused directly by volcanic eruption                    
+* `volcano_injuries_description`: description of injuries caused directly by volcanic eruption       
+* `volcano_damage_in_m`: damage (in million dollars) caused directly by volcanic eruption  
+* `volcano_damage_description`: description of damage (in million dollars) caused directly by volcanic eruption         
+* `volcano_houses_destroyed`: houses destroyed directly by volcanic eruption             
+* `volcano_houses_destroyed_description`: description of houses destroyed directly by volcanic eruption
+* `lat`: latitude                                
+* `long`: longitude
 
 
 ## Geographical Distribution of Volcanic Eruptions
@@ -181,7 +181,92 @@ plot_grid(country1, country2, ncol = 1)
 The top five countries with the most volcanoes are: Indonesia, Japan, United States, Papua New Guinea and Russia.  
 The top five countries with the most volcanic eruptions are: Indonesia, Japan, Italy, Iceland and United States.
 
-## The Factors Influencing Volcanic Losses(numeric)
+----------------------
+
+## Time Distribution of Volcanic Eruptions
+
+```{r}
+# Tidy data for plotting
+voc_year <- tidy_df%>%
+  group_by(year,volcanic_explosivity_index)%>%
+  summarise(count = n())
+
+voc_year$period <- ifelse(voc_year$year < 0, "Before Christ",
+ifelse(voc_year$year <= 1000, "0-1000",
+ifelse(voc_year$year <= 1500, "1000-1500",
+ifelse(voc_year$year <= 1899, "1500-1900",
+ifelse(tidy_df$year <= 1999, "20th century", "21st century"))))) 
+
+# Change the variable type to factor
+voc_year$period <- factor(voc_year$period, levels = c("Before Christ", "0-1000", "1000-1500", "1500-1900", "20th century","21st century"))
+```
+
+### Volcanic Eruption Counts Over Periods
+
+```{r}
+expo <- voc_year |>
+  select(period,volcanic_explosivity_index) |>
+  group_by(period,volcanic_explosivity_index) |>
+  summarise(count = n())
+
+# Plotting
+ggplot(expo,aes(x = period, y = count,fill = volcanic_explosivity_index)) +
+  geom_bar(stat="identity", position="stack") +
+   labs(
+    x = "Period",
+    y = "Count",
+    title = "Volcanic Explosivity Index Count Over Periods"
+  )
+```
+
+
+### Analysis of Deaths and Injuries Over Time
+```{r}
+time_df <- tidy_df |>
+  filter(year > 1900) |>
+  mutate(
+    volcano_deaths = replace(volcano_deaths, is.na(volcano_deaths), 0),
+    volcano_injuries = replace(volcano_injuries, is.na(volcano_injuries), 0),
+    volcano_damage_in_m = replace(volcano_damage_in_m, is.na(volcano_damage_in_m), 0),
+    volcano_houses_destroyed = replace(volcano_houses_destroyed, is.na(volcano_houses_destroyed), 0),
+    year = as.character(year)
+  ) |>
+group_by(year) |>
+  summarize(
+    total_deaths = sum(volcano_deaths,na.rm = TRUE),
+    total_injuries = sum(volcano_injuries,na.rm = TRUE),
+    total_damage = sum(volcano_damage_in_m,na.rm = TRUE),
+    total_house_destruction = sum(volcano_houses_destroyed,na.rm = TRUE)
+  )
+
+
+ggplot(time_df, aes(x = as.numeric(year))) +
+  geom_line(aes(y = total_deaths, color = "Deaths"), size = 1) +
+  geom_line(aes(y = total_injuries, color = "Injuries"), size = 1) +
+  labs(
+    title = "Analysis of Toal Deaths and Total Injuries Over Time",
+    x = "Year",
+    y = "Count",
+    color = "Variable"
+  )
+```
+
+### Analysis of Damage and Houses Destroyed Over Time
+```{r}
+ggplot(time_df, aes(x = as.numeric(year))) +
+  geom_line(aes(y = total_damage, color = "Damage"), size = 1) +
+  geom_line(aes(y = total_house_destruction, color = "Houses Destroyed"), size = 1)+
+  labs(
+    title = "Analysis of Damage and Houses Destroyed Over Time",
+    x = "Year",
+    y = "Count",
+    color = "Variable"
+  ) 
+```
+
+----------------------
+
+## The Factors Influencing Volcanic Losses (Numeric)
 
 In this section, we aim to explore the impact of various factors(the occurrence of tsunami and earthquake, the type of volcano and the volcanic explosivity index) on casualties and property losses resulting from volcanic eruptions.
 
@@ -197,7 +282,7 @@ numeric_df =
     volcanic_explosivity_index = factor(volcanic_explosivity_index))
 ```
 
-### Plot: Tsunami Occurrence Influencing Volcanic Losses
+### Tsunami 
 
 ```{r}
 par(mfrow = c(2,2))
@@ -226,7 +311,7 @@ tsunami_damage =
   filter(!is.na(volcano_damage_in_m)) |>
   ggplot(aes(x = flag_tsunami, y = log(volcano_damage_in_m), group = flag_tsunami, fill = flag_tsunami)) +
   geom_boxplot() +
-  labs(title = "Damage(money in million) vs Tsunami", x = "Tsunami Occurrence", y = "ln_Damage(money in million)") 
+  labs(title = "Damage vs Tsunami", x = "Tsunami Occurrence", y = "ln_Damage(money in million)") 
 
 
 # volcano_houses_destroyed vs flag_tsunami 
@@ -240,9 +325,9 @@ tsunami_houses_destroyed =
 grid.arrange(tsunami_injuries, tsunami_deaths, tsunami_damage, tsunami_houses_destroyed, ncol = 2)
 ```
 
-* Comment: The box plots above indicate a noticeable influence of tsunami occurrence on the volcanic losses. The tsunami effects triggered by volcanic activities are likely to contribute to an increase in both casualties and property damage.
+The box plots above indicate a noticeable influence of tsunami occurrence on the volcanic losses. The tsunami effects triggered by volcanic activities are likely to contribute to an increase in both casualties and property damage.
 
-### Plot: Earthquake Occurrence Influencing Volcanic Losses
+### Earthquake 
 
 ```{r}
 par(mfrow = c(2,2))
@@ -262,7 +347,7 @@ earthquake_deaths =
   filter(!is.na(volcano_deaths)) |>
   ggplot(aes(x = flag_earthquake, y = log(volcano_deaths), group = flag_earthquake, fill = flag_earthquake)) +
   geom_boxplot() +
-  labs(title = "Deaths VS Earthquake", x = "Earthquake Occurrence", y = "ln_Deaths")
+  labs(title = "Deaths vs Earthquake", x = "Earthquake Occurrence", y = "ln_Deaths")
 
 
 #damage vs flag_earthquake 
@@ -271,7 +356,7 @@ earthquake_damage =
   filter(!is.na(volcano_damage_in_m)) |>
   ggplot(aes(x = flag_earthquake, y = log(volcano_damage_in_m), group = flag_earthquake, fill = flag_earthquake)) +
   geom_boxplot() +
-  labs(title = "Damage(money in million) VS Earthquake", x = "Earthquake Occurrence", y = "ln_Damage(money in million)") 
+  labs(title = "Damage vs Earthquake", x = "Earthquake Occurrence", y = "ln_Damage(money in million)") 
 
 
 #volcano_houses_destroyed vs flag_earthquake
@@ -280,15 +365,15 @@ earthquake_houses_destroyed =
   filter(!is.na(volcano_houses_destroyed)) |>
   ggplot(aes(x = flag_earthquake, y = log(volcano_houses_destroyed), group = flag_earthquake,fill = flag_earthquake)) +
   geom_boxplot() +
-  labs(title = "Houses Destroyed VS Earthquake", x = "Earthquake Occurrence", y = "ln_Houses Destroyed") 
+  labs(title = "Houses Destroyed vs Earthquake", x = "Earthquake Occurrence", y = "ln_Houses Destroyed") 
 
 
 grid.arrange(earthquake_injuries, earthquake_deaths, earthquake_damage, earthquake_houses_destroyed, ncol = 2)
 ```
 
-* Comment: The above box plots indicate that when volcanic eruptions trigger volcanic earthquakes, there is a generally noticeable increase in casualties and property damage compared to situations where volcanic earthquakes are not triggered.
+The above box plots indicate that when volcanic eruptions trigger volcanic earthquakes, there is a generally noticeable increase in casualties and property damage compared to situations where volcanic earthquakes are not triggered.
 
-### Plot: Volcano Type Influencing Volcanic Losses
+### Volcano Type 
 
 ```{r}
 par(mfrow = c(2,2))
@@ -319,7 +404,7 @@ type_damage =
   filter(!is.na(volcano_damage_in_m)) |>
   ggplot(aes(x = reorder(volcano_type, volcano_damage_in_m, median), y = log(volcano_damage_in_m), group = volcano_type, fill = volcano_type)) +
   geom_boxplot() +
-  labs(title = "Damage vs Volcano Type", x = "Volcano Type", y = "ln_Damage(money in million)")+
+  labs(title = "Damage vs Volcano Type", x = "Volcano Type", y = "ln_Damage")+
   theme(axis.text.x = element_text(angle = 45, hjust = 1), legend.position = "none")
 
 
@@ -335,11 +420,11 @@ type_houses_destroyed =
 grid.arrange(type_injuries, type_deaths, type_damage, type_houses_destroyed, ncol = 2)
 ```
 
-* Comment: 
-  * The above box plots indicate that there is no clear correlation between the types of volcanoes and the volcanic losses. Some volcanoes that result in significant property damage during eruptions do not necessarily lead to a high number of casualties (which may be related to missing values).
-  * Among these volcanoes, eruptions of the "Maar" type lead to the most severe casualties, while eruptions of the "Stratovolcano" type comparatively result in more substantial property damage.
 
-### Plot: VEI Influencing Volcanic Losses
+* The above box plots indicate that there is no clear correlation between the types of volcanoes and the volcanic losses. Some volcanoes that result in significant property damage during eruptions do not necessarily lead to a high number of casualties (which may be related to missing values).
+* Among these volcanoes, eruptions of the "Maar" type lead to the most severe casualties, while eruptions of the "Stratovolcano" type comparatively result in more substantial property damage.
+
+### VEI 
 
 ```{r}
 par(mfrow = c(2,2))
@@ -351,7 +436,7 @@ VEI_injuries =
          !is.na(volcanic_explosivity_index)) |>
   ggplot(aes(x = volcanic_explosivity_index, y = log(volcano_injuries), group = volcanic_explosivity_index, fill = volcanic_explosivity_index)) +
   geom_boxplot() +
-  labs(title = "Injuries VS VEI", x = "VEI (level)", y = "ln_Injuries")+
+  labs(title = "Injuries vs VEI", x = "VEI (level)", y = "ln_Injuries")+
   theme(legend.position = "none")
 
 
@@ -373,7 +458,7 @@ VEI_damage =
          !is.na(volcanic_explosivity_index)) |>
   ggplot(aes(x = volcanic_explosivity_index, y = log(volcano_damage_in_m), group = volcanic_explosivity_index, fill = volcanic_explosivity_index)) +
   geom_boxplot() +
-  labs(title = "Damage(money in million) vs VEI", x = "VEI (level)", y = "ln_Damage(money in million)") +
+  labs(title = "Damage vs VEI", x = "VEI (level)", y = "ln_Damage") +
   theme(legend.position = "none")
 
 
@@ -391,7 +476,7 @@ VEI_houses_destroyed =
 grid.arrange(VEI_injuries, VEI_deaths, VEI_damage, VEI_houses_destroyed, ncol = 2)
 ```
 
-* Comment: The above box plots show that with the increase in the volcanic explosivity index, there is a general upward trend in casualties and property damage caused by volcanic eruptions. In other words, as the energy of the volcanic eruption increases, the casualties and losses become more severe.
+The above box plots show that with the increase in the volcanic explosivity index, there is a general upward trend in casualties and property damage caused by volcanic eruptions. In other words, as the energy of the volcanic eruption increases, the casualties and losses become more severe.
 
 -------------------
 
@@ -660,115 +745,11 @@ cad_df|>
 We can see that as VEI increases, the proportion of volcanic eruptions with more severe losses also increases, especially for casualty levels. This indicates that eruptions with a large VEI is likely to be more deadly.
 
 
------------------------------
-
-## Time Distribution of Volcanic Eruptions
-
-### Tidy data
-```{r}
-voc_year <- tidy_df%>%
-  group_by(year,volcanic_explosivity_index)%>%
-  summarise(count = n())
-```
-
-```{r}
-voc_year$period <- ifelse(voc_year$year < 0, "Before Christ",
-ifelse(voc_year$year <= 1000, "0-1000",
-ifelse(voc_year$year <= 1500, "1000-1500",
-ifelse(voc_year$year <= 1899, "1500-1900",
-ifelse(tidy_df$year <= 1999, "20th century", "21st century"))))) 
-
-voc_year$period <- factor(voc_year$period, levels = c("Before Christ", "0-1000", "1000-1500", "1500-1900", "20th century","21st century"))
-```
-
-#### Plot 1: Volcanic Explosivity Index Frequency Over Periods
-```{r}
-expo_frequency<- voc_year%>%
-  select(period,volcanic_explosivity_index)%>%
-  group_by(period)%>%
-  summarise(count = n()) 
-```
-
-```{r}
-ggplot(expo_frequency,aes(x = period, y = count))+
-  geom_bar(stat="identity",fill = "#D04F4F")+
-  labs(
-    x = "Period",
-    y = "Count",
-    title = "Volcanic Explosivity Index Frequency Over Periods"
-  )
-```
-
-#### Plot2: Volcanic Explosivity Index Count Over Periods
-```{r}
-expo <- voc_year%>%
-  select(period,volcanic_explosivity_index)%>%
-  group_by(period,volcanic_explosivity_index)%>%
-  summarise(count = n())
-```
-
-```{r,fig.width=9}
-ggplot(expo,aes(x = period, y = count,fill = volcanic_explosivity_index))+
-  geom_bar(stat="identity", position="stack") +
-   labs(
-    x = "Period",
-    y = "Count",
-    title = "Volcanic Explosivity Index Count Over Periods"
-  )
-```
-
-### Tidy Data 2
-```{r}
-time_df <- tidy_df |>
-  filter(year > 1900) |>
-  mutate(
-    volcano_deaths = replace(volcano_deaths, is.na(volcano_deaths), 0),
-    volcano_injuries = replace(volcano_injuries, is.na(volcano_injuries), 0),
-    volcano_damage_in_m = replace(volcano_damage_in_m, is.na(volcano_damage_in_m), 0),
-    volcano_houses_destroyed = replace(volcano_houses_destroyed, is.na(volcano_houses_destroyed), 0),
-    year = as.character(year)
-  ) |>
-group_by(year) |>
-  summarize(
-    total_deaths = sum(volcano_deaths,na.rm = TRUE),
-    total_injuries = sum(volcano_injuries,na.rm = TRUE),
-    total_damage = sum(volcano_damage_in_m,na.rm = TRUE),
-    total_house_destruction = sum(volcano_houses_destroyed,na.rm = TRUE)
-  )
-
-```
-
-#### Plot 3:Analysis of Toal Deaths and Total Injuries Over Time
-```{r}
-ggplot(time_df, aes(x = as.numeric(year))) +
-  geom_line(aes(y = total_deaths, color = "Deaths"), size = 1) +
-  geom_line(aes(y = total_injuries, color = "Injuries"), size = 1) +
-  labs(
-    title = "Analysis of Toal Deaths and Total Injuries Over Time",
-    x = "Year",
-    y = "Count",
-    color = "Variable"
-  )
-```
-
-#### Plot 4: Analysis of Total Damage and House Destruction Over Time
-```{r}
-ggplot(time_df, aes(x = as.numeric(year))) +
-  geom_line(aes(y = total_damage, color = "Damage"), size = 1) +
-  geom_line(aes(y = total_house_destruction, color = "House Destruction"), size = 1)+
-  labs(
-    title = "Analysis of Total Damage and House Destruction Over Time",
-    x = "Year",
-    y = "Count",
-    color = "Variable"
-  ) 
-```
+----------------------
 
 ## Iceland Volcanic Activity Analysis
 
 ```{r}
-library(tidyverse)
-library(ggplot2)
 iceland_volcanic_data = read_delim("data/significant-volcanic-eruption-database.csv") |>
   filter(Country == "Iceland") |>
   janitor::clean_names()
@@ -779,8 +760,6 @@ ggplot(iceland_volcanic_data, aes(x = year)) +
   labs(title = "Distribution of Volcanic Eruptions in Iceland Over Time",
        x = "Year",
        y = "Number of Eruptions")
-library(tidyverse)
-library(ggplot2)
 
 iceland_volcanic_data %>%
   count(volcano_type) %>%
