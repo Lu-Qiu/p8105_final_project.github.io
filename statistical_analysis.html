@@ -13,7 +13,7 @@
 
 <title>Statistical Analysis</title>
 
-<script src="site_libs/header-attrs-2.24/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.25/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/yeti.min.css" rel="stylesheet" />
@@ -439,6 +439,35 @@ library(tidyverse)</code></pre>
 </div>
 <div id="correlation-analysis相关性分析" class="section level3">
 <h3>Correlation analysis(相关性分析)</h3>
+<pre class="r"><code>library(Hmisc)</code></pre>
+<pre><code>## Warning: 程辑包&#39;Hmisc&#39;是用R版本4.3.2 来建造的</code></pre>
+<pre><code>## 
+## 载入程辑包：&#39;Hmisc&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:dplyr&#39;:
+## 
+##     src, summarize</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     format.pval, units</code></pre>
+<pre class="r"><code>library(corrplot)</code></pre>
+<pre><code>## corrplot 0.92 loaded</code></pre>
+<pre class="r"><code>variables_of_interest &lt;- c(&quot;flag_earthquake&quot;, &quot;flag_tsunami&quot;, &quot;volcanic_explosivity_index&quot;, &quot;elevation&quot;)
+
+selected_data &lt;- tidy_df %&gt;%
+  select(all_of(variables_of_interest))
+
+cor_matrix &lt;- rcorr(as.matrix(selected_data), type = &quot;spearman&quot;)
+
+correlation_matrix &lt;- cor_matrix$r
+p_value_matrix &lt;- cor_matrix$P
+p_value_matrix[is.na(p_value_matrix)] &lt;- 1
+corrplot(correlation_matrix, p.mat = p_value_matrix, method = &quot;color&quot;,
+         tl.col = &quot;black&quot;, tl.srt = 45, tl.offset = 0.5, tl.cex = 0.8,
+         sig.level = c(0.001, 0.01, 0.05), pch.cex = 0.9, pch.col = &quot;grey20&quot;,
+         tl.pos = &quot;lt&quot;, insig = &quot;label_sig&quot;, type = &quot;upper&quot;)
+corrplot(correlation_matrix, type = &quot;lower&quot;, add = TRUE, method = &quot;number&quot;,
+         tl.pos = &quot;n&quot;, cl.pos = &quot;n&quot;)</code></pre>
+<p><img src="statistical_analysis_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 </div>
 <div id="test-effect-modifier" class="section level3">
 <h3>Test effect modifier</h3>
@@ -525,7 +554,59 @@ summary(model2)</code></pre>
 ## 
 ## Residual Deviance: 1618.762 
 ## AIC: 1634.762 
-## (176 observations deleted due to missingness)</code></pre>
+## (因为不存在，176个观察量被删除了)</code></pre>
+</div>
+<div
+id="comparison-between-models-with-and-without-flag_tsunami相关性分析的后续不需要的话就删掉"
+class="section level3">
+<h3>Comparison between models with and without
+flag_tsunami(相关性分析的后续，不需要的话就删掉)</h3>
+<pre class="r"><code>model_without_tsunami &lt;- polr(volcano_deaths_description ~ flag_earthquake + volcanic_explosivity_index + elevation, data = tidy_df, Hess = TRUE)
+anova(model2, model_without_tsunami)|&gt; knitr::kable()</code></pre>
+<table>
+<colgroup>
+<col width="58%" />
+<col width="8%" />
+<col width="8%" />
+<col width="5%" />
+<col width="4%" />
+<col width="7%" />
+<col width="6%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Model</th>
+<th align="right">Resid. df</th>
+<th align="right">Resid. Dev</th>
+<th align="left">Test</th>
+<th align="right">Df</th>
+<th align="right">LR stat.</th>
+<th align="right">Pr(Chi)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">flag_earthquake + volcanic_explosivity_index +
+elevation</td>
+<td align="right">652</td>
+<td align="right">1661.081</td>
+<td align="left"></td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="even">
+<td align="left">flag_earthquake + flag_tsunami +
+volcanic_explosivity_index + elevation</td>
+<td align="right">651</td>
+<td align="right">1618.762</td>
+<td align="left">1 vs 2</td>
+<td align="right">1</td>
+<td align="right">42.31956</td>
+<td align="right">0</td>
+</tr>
+</tbody>
+</table>
 <p>The estimated model can be written as:</p>
 <p>Interpretation:</p>
 <p>Some people require a p value to be satisfied. In this situation,

@@ -84,6 +84,27 @@ tidy_df =
 
 ### Correlation analysis(相关性分析)
 
+```{r}
+library(Hmisc)
+library(corrplot)
+
+variables_of_interest <- c("flag_earthquake", "flag_tsunami", "volcanic_explosivity_index", "elevation")
+
+selected_data <- tidy_df %>%
+  select(all_of(variables_of_interest))
+
+cor_matrix <- rcorr(as.matrix(selected_data), type = "spearman")
+
+correlation_matrix <- cor_matrix$r
+p_value_matrix <- cor_matrix$P
+p_value_matrix[is.na(p_value_matrix)] <- 1
+corrplot(correlation_matrix, p.mat = p_value_matrix, method = "color",
+         tl.col = "black", tl.srt = 45, tl.offset = 0.5, tl.cex = 0.8,
+         sig.level = c(0.001, 0.01, 0.05), pch.cex = 0.9, pch.col = "grey20",
+         tl.pos = "lt", insig = "label_sig", type = "upper")
+corrplot(correlation_matrix, type = "lower", add = TRUE, method = "number",
+         tl.pos = "n", cl.pos = "n")
+```
 
 ### Test effect modifier
 Now we will examine the relationship between the dependent variable `volcano_deaths_description` and the interaction between `flag_earthquake` and `flag_tsunami`.
@@ -108,6 +129,15 @@ model2 <- polr(volcano_deaths_description ~ flag_earthquake + flag_tsunami + vol
 ## view a summary of the model
 summary(model2)
 ```
+
+
+### Comparison between models with and without flag_tsunami(相关性分析的后续，不需要的话就删掉)
+
+```{r}
+model_without_tsunami <- polr(volcano_deaths_description ~ flag_earthquake + volcanic_explosivity_index + elevation, data = tidy_df, Hess = TRUE)
+anova(model2, model_without_tsunami)|> knitr::kable()
+```
+
 The estimated model can be written as:
 
 
