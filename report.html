@@ -33,6 +33,7 @@
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 <link href="site_libs/font-awesome-6.4.2/css/all.min.css" rel="stylesheet" />
@@ -221,6 +222,9 @@ $(document).ready(function () {
 </style>
 
 <!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
 
 
 
@@ -350,6 +354,14 @@ div.tocify {
 
 <div id="header">
 
+<div class="btn-group pull-right float-right">
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
 
 
 <h1 class="title toc-ignore">Project Report</h1>
@@ -359,19 +371,132 @@ div.tocify {
 
 <div id="motivation" class="section level3">
 <h3>Motivation</h3>
-<p>Provide an overview of the project goals and motivation.</p>
+<p>Recently, a striking news about the potential volcano eruption in
+Iceland caught our attention. Motivated by the need to better understand
+and analyze the impact of such natural phenomena, we aim to delve into
+the patterns, trends, and factors surrounding volcanic eruptions,
+utilizing data science techniques to extract meaningful insights.</p>
 </div>
 <div id="related-work" class="section level3">
 <h3>Related work</h3>
-<p>Related work: Anything that inspired you, such as a paper, a web
-site, or something we discussed in class.</p>
+<p>Caldera J, Wirasinghe S C. Analysis and classification of volcanic
+eruptions[J]. 2014.</p>
 </div>
 <div id="initial-questions" class="section level3">
 <h3>Initial questions</h3>
-<p>What questions are you trying to answer? How did these questions
-evolve over the course of the project? What new questions did you
-consider in the course of your analysis? Data: Source, scraping method,
-cleaning, etc.</p>
+<ul>
+<li><p>What are the characteristics and patterns of volcanic
+eruptions?</p></li>
+<li><p>What are the main factors that influence the losses
+(e.g. casualties, economic damage) caused by a volcanic
+eruption?</p></li>
+</ul>
+</div>
+<div id="data" class="section level3">
+<h3>Data</h3>
+<p>We use the <a
+href="https://public.opendatasoft.com/explore/dataset/significant-volcanic-eruption-database/information/">Significant
+Volcanic Eruption Database</a> in our study. The original csv file can
+be downloaded at the linked website.</p>
+<pre class="r"><code>tidy_df = 
+  read.csv(
+    &quot;data/significant-volcanic-eruption-database.csv&quot;, 
+    sep = &quot;;&quot;, na.strings=c(&quot;&quot;, NA)) |&gt;
+  janitor::clean_names() |&gt;
+  select(
+    -c(month, day, location, status, volcano_missing, volcano_missing_description, earthquakes_houses_damaged_description),
+    -starts_with(&quot;total&quot;)
+    ) |&gt;
+  mutate( # change flags to boolean
+    flag_tsunami = case_match(flag_tsunami, &quot;Tsunami&quot;~ TRUE, NA ~ FALSE),
+    flag_earthquake = case_match(flag_earthquake, &quot;Earthquake&quot;~ TRUE, NA ~ FALSE)
+  ) |&gt;
+  separate(coordinates, into = c(&quot;lat&quot;, &quot;long&quot;), sep = &quot;,&quot;) |&gt;
+  mutate(
+    lat = as.numeric(lat), long = as.numeric(long)
+  ) |&gt;
+  mutate_at(vars(ends_with(&#39;description&#39;)), ~ifelse(is.na(.), &quot;None/No Record&quot;, .)) |&gt;
+  mutate( # shorten description
+    volcano_deaths_description = case_match(
+      volcano_deaths_description,
+      &quot;Very Many (~1001 or more deaths)&quot; ~ &quot;Very Many (~1001 or more)&quot;, 
+      &quot;Many (~101 to 1000 deaths)&quot; ~ &quot;Many (~101 to 1000)&quot;, 
+      &quot;Some (~51 to 100 deaths)&quot; ~ &quot;Some (~51 to 100)&quot;, 
+      &quot;Few (~1 to 50 deaths)&quot; ~ &quot;Few (~1 to 50)&quot;,
+      &quot;None/No Record&quot; ~ &quot;None/No Record&quot;
+    ),
+    volcano_injuries_description = case_match(
+      volcano_injuries_description,
+      &quot;Very Many (~1001 or more deaths)&quot; ~ &quot;Very Many (~1001 or more)&quot;, 
+      &quot;Many (~101 to 1000 deaths)&quot; ~ &quot;Many (~101 to 1000)&quot;, 
+      &quot;Some (~51 to 100 deaths)&quot; ~ &quot;Some (~51 to 100)&quot;, 
+      &quot;Few (~1 to 50 deaths)&quot; ~ &quot;Few (~1 to 50)&quot;,
+      &quot;None/No Record&quot; ~ &quot;None/No Record&quot;
+    ),
+    volcano_damage_description = case_match(
+      volcano_damage_description,
+      &quot;EXTREME (~$25 million or more)&quot; ~ &quot;EXTREME (~&gt;=$25 million)&quot;, 
+      &quot;SEVERE (~&gt;$5 to $24 million)&quot; ~ &quot;SEVERE (~$5 to $24 million)&quot;, 
+      &quot;MODERATE (~$1 to $5 million)&quot; ~ &quot;MODERATE (~$1 to $5 million)&quot;, 
+      &quot;LIMITED (roughly corresponding to less than $1 million)&quot; ~ &quot;LIMITED (~&lt;$1 million)&quot;,
+      &quot;None/No Record&quot; ~ &quot;None/No Record&quot;
+    ),
+    volcano_houses_destroyed_description = case_match(
+      volcano_houses_destroyed_description,
+      &quot;Very Many (~1001 or more houses)&quot; ~ &quot;Very Many (~1001 or more)&quot;, 
+      &quot;Many (~101 to 1000 houses)&quot; ~ &quot;Many (~101 to 1000)&quot;, 
+      &quot;Some (~51 to 100 houses)&quot; ~ &quot;Some (~51 to 100)&quot;, 
+      &quot;Few (~1 to 50 houses)&quot; ~ &quot;Few (~1 to 50)&quot;,
+      &quot;None/No Record&quot; ~ &quot;None/No Record&quot;
+    )
+  ) |&gt;
+  mutate( # change descriptions to factors w/ levels
+    volcano_deaths_description = factor(volcano_deaths_description, levels = c(&quot;Very Many (~1001 or more)&quot;, &quot;Many (~101 to 1000)&quot;, &quot;Some (~51 to 100)&quot;, &quot;Few (~1 to 50)&quot;, &quot;None/No Record&quot;)),
+    volcano_injuries_description = factor(volcano_injuries_description, levels = c(&quot;Very Many (~1001 or more)&quot;, &quot;Many (~101 to 1000)&quot;, &quot;Some (~51 to 100)&quot;, &quot;Few (~1 to 50)&quot;, &quot;None/No Record&quot;)),
+    volcano_damage_description = factor(volcano_damage_description, levels = c(&quot;EXTREME (~&gt;=$25 million)&quot;, &quot;SEVERE (~$5 to $24 million)&quot;, &quot;MODERATE (~$1 to $5 million)&quot;, &quot;LIMITED (~&lt;$1 million)&quot;, &quot;None/No Record&quot;)),
+    volcano_houses_destroyed_description = factor(volcano_houses_destroyed_description, levels = c(&quot;Very Many (~1001 or more)&quot;, &quot;Many (~101 to 1000)&quot;, &quot;Some (~51 to 100)&quot;, &quot;Few (~1 to 50)&quot;, &quot;None/No Record&quot;))
+  )</code></pre>
+<p>The raw data is a global listing of over 800 volcanic eruptions and
+their information. We clean the data format, make sure the variables are
+appropriately encoded, correct or shorten some of the character
+variables’ values, and select the variables of our interest. The final
+dataset used for the analysis has <code>18</code> variables, listed
+below:</p>
+<ul>
+<li><code>year</code>: the year of eruption</li>
+<li><code>flag_tsunami</code>: whether there is a tsunami accompanying
+the volcanic eruption</li>
+<li><code>flag_earthquake</code>: whether there is an earthquake
+accompanying the volcanic eruption</li>
+<li><code>volcano_name</code>: the name of the volcano</li>
+<li><code>country</code>: the country where the volcano is located</li>
+<li><code>elevation</code>: the elevation of the volcano</li>
+<li><code>volcano_type</code>: the type of the volcano</li>
+<li><code>volcanic_explosivity_index</code>: VEI<br />
+</li>
+<li><code>volcano_deaths</code>: number of deaths caused by the
+eruption</li>
+<li><code>volcano_deaths_description</code>: severity level of
+deaths</li>
+<li><code>volcano_injuries</code>: number of injuries caused by the
+eruption<br />
+</li>
+<li><code>volcano_injuries_description</code>: severity level of
+injuries</li>
+<li><code>volcano_damage_in_m</code>: economic damage in million caused
+by the eruption<br />
+</li>
+<li><code>volcano_damage_description</code>: severity level of economic
+damage</li>
+<li><code>volcano_houses_destroyed</code>: number of houses destroyed by
+the eruption<br />
+</li>
+<li><code>volcano_houses_destroyed_description</code>: severity level of
+house destruction</li>
+<li><code>lat</code>: latitude of the volcano<br />
+</li>
+<li><code>long</code>: longitude of the volcano</li>
+</ul>
 </div>
 <div id="exploratory-analysis" class="section level3">
 <h3>Exploratory analysis</h3>
@@ -425,6 +550,11 @@ $(document).ready(function () {
 </script>
 
 <!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("hide" === "show");
+});
+</script>
 
 <script>
 $(document).ready(function ()  {
