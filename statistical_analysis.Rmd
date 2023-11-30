@@ -131,17 +131,24 @@ Interprate:
 
 
 
+
+
+We can also get confidence intervals for the parameter estimates.
+```{r}
 # default method gives profiled CIs
-(ci <- confint(m)) 
+(ci <- confint(model2)) 
 
 # CIs assuming normality
-confint.default(m) 
+confint.default(model2) 
+```
+
+
 
 ## odds ratios
-exp(coef(m))
+exp(coef(model2))
 
 ## OR and CI
-exp(cbind(OR = coef(m), ci))
+exp(cbind(OR = coef(model2), ci))
 
 ```
 
