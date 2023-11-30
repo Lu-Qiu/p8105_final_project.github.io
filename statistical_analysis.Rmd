@@ -41,13 +41,12 @@ scale_fill_discrete   = scale_fill_viridis_d
 
 ```{r}
 # Import tidied data
-tidy_df = read_csv("data/volcanic-eruption-final.csv")
+tidy_df = read.csv2("data/volcanic-eruption-final.csv", sep = ",", stringsAsFactors = TRUE)
 
 # Select variables of interest
-variables_of_interest <- c("flag_earthquake", "flag_tsunami", "volcanic_explosivity_index", "elevation")
-
-selected_data <- tidy_df %>%
-  select(all_of(variables_of_interest))
+selected_data <- 
+  tidy_df |>
+  dplyr::select(flag_earthquake, flag_tsunami, volcanic_explosivity_index, elevation)
 
 cor_matrix <- rcorr(as.matrix(selected_data), type = "spearman")
 
@@ -65,7 +64,7 @@ corrplot(correlation_matrix, type = "lower", add = TRUE, method = "number",
 ## Test of Effect Modifier
 Now we will examine the relationship between the dependent variable `volcano_deaths_description` and the interaction between `flag_earthquake` and `flag_tsunami`.
 ```{r}
-model1 <- polr(volcano_deaths_description~flag_earthquake*flag_tsunami,data = tidy_df)
+model1 <- polr(volcano_deaths_description ~ flag_earthquake*flag_tsunami, data = tidy_df)
 summary(model1)
 
 ctable1 <- coef(summary(model1))
@@ -86,13 +85,6 @@ model2 <- polr(volcano_deaths_description ~ flag_earthquake + flag_tsunami + vol
 summary(model2)
 ```
 
-
-## Comparison between models with and without flag_tsunami(相关性分析的后续，不需要的话就删掉)
-
-```{r}
-model_without_tsunami <- polr(volcano_deaths_description ~ flag_earthquake + volcanic_explosivity_index + elevation, data = tidy_df, Hess = TRUE)
-anova(model2, model_without_tsunami)|> knitr::kable()
-```
 
 The estimated model can be written as:
 
