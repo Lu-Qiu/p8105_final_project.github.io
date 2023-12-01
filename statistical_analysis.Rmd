@@ -35,10 +35,15 @@ scale_fill_discrete   = scale_fill_viridis_d
 
 ## Methodology
 
-
+Based on the results in exploratory data analysis, it is clear that deaths, injuries, damage and houses destroyed by volcanic eruptions can be affected by factors like earthquake, tsunami and VEI of the volcano. To better describe their relationship, in this part, we aim to fit an ordinal logistic regression model, utilizing the descriptive data of deaths, injuries, damage and houses destroyed as outcome.
+.......
+.......
 
 ## Correlation Analysis
 
+First, we perform a correlation analysis. If two predictors have strong correlation, we can only keep one of them in our regression model. This careful consideration ensures the avoidance of multicollinearity, thereby enhancing the precision and interpretability of our model's results.
+
+Correlation between the variables is shown by the following heatmap:
 ```{r}
 # Import tidied data
 tidy_df = read.csv2("data/volcanic-eruption-final.csv", sep = ",", stringsAsFactors = TRUE)
@@ -61,6 +66,9 @@ corrplot(correlation_matrix, type = "lower", add = TRUE, method = "number",
          tl.pos = "n", cl.pos = "n")
 ```
 
+From the results of correlation analysis, we can see that there is a positive correlation between `flag_tsunami` and `flag_earthquake`. However, correlation coefficient (r) is 0.35, indicating only a moderate correlation. Therefore, we'll both `flag_tsunami` and `flag_earthquake` in our later analysis.   
+We also notice that there is a negative correlation between `elevation` and `flag_tsunami`. The is because volcanoes under the sea are more likely to cause tsunami.
+
 ## Test of Effect Modifier
 Now we will examine the relationship between the dependent variable `volcano_deaths_description` and the interaction between `flag_earthquake` and `flag_tsunami`.
 ```{r}
@@ -79,7 +87,7 @@ The interaction p-value is greater than 0.05, so it's not significant. There is 
 ## Fit the Ordinal Logistic Regression Model
 
 ```{r}
-model2 <- polr(volcano_deaths_description ~ flag_earthquake + flag_tsunami + volcanic_explosivity_index+elevation, data = tidy_df, Hess=TRUE)
+model2 <- polr(volcano_deaths_description ~ flag_earthquake + flag_tsunami + volcanic_explosivity_index + elevation, data = tidy_df, Hess=TRUE)
 
 ## view a summary of the model
 summary(model2)

@@ -371,9 +371,22 @@ div.tocify {
 
 <div id="methodology" class="section level2">
 <h2>Methodology</h2>
+<p>Based on the results in exploratory data analysis, it is clear that
+deaths, injuries, damage and houses destroyed by volcanic eruptions can
+be affected by factors like earthquake, tsunami and VEI of the volcano.
+To better describe their relationship, in this part, we aim to fit an
+ordinal logistic regression model, utilizing the descriptive data of
+deaths, injuries, damage and houses destroyed as outcome. ……. …….</p>
 </div>
 <div id="correlation-analysis" class="section level2">
 <h2>Correlation Analysis</h2>
+<p>First, we perform a correlation analysis. If two predictors have
+strong correlation, we can only keep one of them in our regression
+model. This careful consideration ensures the avoidance of
+multicollinearity, thereby enhancing the precision and interpretability
+of our model’s results.</p>
+<p>Correlation between the variables is shown by the following
+heatmap:</p>
 <pre class="r"><code># Import tidied data
 tidy_df = read.csv2(&quot;data/volcanic-eruption-final.csv&quot;, sep = &quot;,&quot;, stringsAsFactors = TRUE)
 
@@ -394,6 +407,15 @@ corrplot(correlation_matrix, p.mat = p_value_matrix, method = &quot;color&quot;,
 corrplot(correlation_matrix, type = &quot;lower&quot;, add = TRUE, method = &quot;number&quot;,
          tl.pos = &quot;n&quot;, cl.pos = &quot;n&quot;)</code></pre>
 <p><img src="statistical_analysis_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p>From the results of correlation analysis, we can see that there is a
+positive correlation between <code>flag_tsunami</code> and
+<code>flag_earthquake</code>. However, correlation coefficient (r) is
+0.35, indicating only a moderate correlation. Therefore, we’ll both
+<code>flag_tsunami</code> and <code>flag_earthquake</code> in our later
+analysis.<br />
+We also notice that there is a negative correlation between
+<code>elevation</code> and <code>flag_tsunami</code>. The is because
+volcanoes under the sea are more likely to cause tsunami.</p>
 </div>
 <div id="test-of-effect-modifier" class="section level2">
 <h2>Test of Effect Modifier</h2>
@@ -455,7 +477,7 @@ simpler model without the interaction term.</p>
 <div id="fit-the-ordinal-logistic-regression-model"
 class="section level2">
 <h2>Fit the Ordinal Logistic Regression Model</h2>
-<pre class="r"><code>model2 &lt;- polr(volcano_deaths_description ~ flag_earthquake + flag_tsunami + volcanic_explosivity_index+elevation, data = tidy_df, Hess=TRUE)
+<pre class="r"><code>model2 &lt;- polr(volcano_deaths_description ~ flag_earthquake + flag_tsunami + volcanic_explosivity_index + elevation, data = tidy_df, Hess=TRUE)
 
 ## view a summary of the model
 summary(model2)</code></pre>
