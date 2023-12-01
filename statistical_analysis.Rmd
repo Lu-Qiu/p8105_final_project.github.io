@@ -17,7 +17,7 @@ library(corrplot)
 # set knitr defaults
 knitr::opts_chunk$set(
   echo = TRUE, 
-  message = TRUE, 
+  message = FALSE, 
   warning = FALSE
 )
 
@@ -36,6 +36,7 @@ scale_fill_discrete   = scale_fill_viridis_d
 ## Methodology
 
 Based on the results in exploratory data analysis, it is clear that deaths, injuries, damage and houses destroyed by volcanic eruptions can be affected by factors like earthquake, tsunami and VEI of the volcano. To better describe their relationship, in this part, we aim to fit an ordinal logistic regression model, utilizing the descriptive data of deaths, injuries, damage and houses destroyed as outcome.
+
 .......
 .......
 
@@ -69,20 +70,27 @@ corrplot(correlation_matrix, type = "lower", add = TRUE, method = "number",
 From the results of correlation analysis, we can see that there is a positive correlation between `flag_tsunami` and `flag_earthquake`. However, correlation coefficient (r) is 0.35, indicating only a moderate correlation. Therefore, we'll include both `flag_tsunami` and `flag_earthquake` in our later analysis.   
 We also notice that there is a negative correlation between `elevation` and `flag_tsunami`. This is probably because volcanoes under the sea are more likely to cause tsunami.
 
+
 ## Test of Effect Modifier
-Now we will examine the relationship between the dependent variable `volcano_deaths_description` and the interaction between `flag_earthquake` and `flag_tsunami`.
+To test for the presence of an effect modifier, we'll use an interaction term in our regression model. An interaction term is the product of variables and is included in the model to examine whether the effect of one variable on the outcome is different depending on the level of the other variables.
+
 ```{r}
-model1 <- polr(volcano_deaths_description ~ flag_earthquake*flag_tsunami, data = tidy_df)
-summary(model1)
+# Fit a model with interaction term
+interaction_model <- polr(volcano_deaths_description ~ flag_earthquake*flag_tsunami*volcanic_explosivity_index, data = tidy_df)
 
-ctable1 <- coef(summary(model1))
+# Tidy up the summary
+tidy_interaction <- broom::tidy(interaction_model)
 
-p <- pnorm(abs(ctable1[, "t value"]), lower.tail = FALSE) * 2
+# Add p-values to the tidy summary
+tidy_interaction$p_value <- pnorm(abs(tidy_interaction$estimate), lower.tail = FALSE) * 2
 
-(ctable1 <- cbind(ctable1, "p value" = p))
+# Display the tidy summary
+knitr::kable(tidy_interaction)
+  
 
 ```
-The interaction p-value is greater than 0.05, so it's not significant. There is not enough evidence to suggest that the relationship between volcano_deaths_description and the combination of flag_earthquake and flag_tsunami is significantly different from the sum of their individual effects.Given this result, we consider using a simpler model without the interaction term.
+
+Because none of the interaction term is statistically significant (p-value > 0.05). There is not enough evidence of effect modification. Given this result, we consider using a simpler model without the interaction term.
 
 ## Fit the Ordinal Logistic Regression Model
 
