@@ -66,8 +66,8 @@ corrplot(correlation_matrix, type = "lower", add = TRUE, method = "number",
          tl.pos = "n", cl.pos = "n")
 ```
 
-From the results of correlation analysis, we can see that there is a positive correlation between `flag_tsunami` and `flag_earthquake`. However, correlation coefficient (r) is 0.35, indicating only a moderate correlation. Therefore, we'll both `flag_tsunami` and `flag_earthquake` in our later analysis.   
-We also notice that there is a negative correlation between `elevation` and `flag_tsunami`. The is because volcanoes under the sea are more likely to cause tsunami.
+From the results of correlation analysis, we can see that there is a positive correlation between `flag_tsunami` and `flag_earthquake`. However, correlation coefficient (r) is 0.35, indicating only a moderate correlation. Therefore, we'll include both `flag_tsunami` and `flag_earthquake` in our later analysis.   
+We also notice that there is a negative correlation between `elevation` and `flag_tsunami`. This is probably because volcanoes under the sea are more likely to cause tsunami.
 
 ## Test of Effect Modifier
 Now we will examine the relationship between the dependent variable `volcano_deaths_description` and the interaction between `flag_earthquake` and `flag_tsunami`.
