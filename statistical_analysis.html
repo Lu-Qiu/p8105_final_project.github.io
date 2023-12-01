@@ -376,7 +376,8 @@ deaths, injuries, damage and houses destroyed by volcanic eruptions can
 be affected by factors like earthquake, tsunami and VEI of the volcano.
 To better describe their relationship, in this part, we aim to fit an
 ordinal logistic regression model, utilizing the descriptive data of
-deaths, injuries, damage and houses destroyed as outcome. ……. …….</p>
+deaths, injuries, damage and houses destroyed as outcome.</p>
+<p>……. …….</p>
 </div>
 <div id="correlation-analysis" class="section level2">
 <h2>Correlation Analysis</h2>
@@ -419,60 +420,137 @@ because volcanoes under the sea are more likely to cause tsunami.</p>
 </div>
 <div id="test-of-effect-modifier" class="section level2">
 <h2>Test of Effect Modifier</h2>
-<p>Now we will examine the relationship between the dependent variable
-<code>volcano_deaths_description</code> and the interaction between
-<code>flag_earthquake</code> and <code>flag_tsunami</code>.</p>
-<pre class="r"><code>model1 &lt;- polr(volcano_deaths_description ~ flag_earthquake*flag_tsunami, data = tidy_df)
-summary(model1)</code></pre>
-<pre><code>## 
-## Re-fitting to get Hessian</code></pre>
-<pre><code>## Call:
-## polr(formula = volcano_deaths_description ~ flag_earthquake * 
-##     flag_tsunami, data = tidy_df)
-## 
-## Coefficients:
-##                                       Value Std. Error t value
-## flag_earthquakeTRUE                   1.495     0.3586   4.169
-## flag_tsunamiTRUE                      1.641     0.1935   8.484
-## flag_earthquakeTRUE:flag_tsunamiTRUE -1.755     0.4852  -3.616
-## 
-## Intercepts:
-##                                             Value   Std. Error t value
-## Few (~1 to 50)|Many (~101 to 1000)           0.2165  0.0784     2.7614
-## Many (~101 to 1000)|None/No Record           0.6751  0.0827     8.1665
-## None/No Record|Some (~51 to 100)             2.8280  0.1401    20.1829
-## Some (~51 to 100)|Very Many (~1001 or more)  3.6264  0.1840    19.7083
-## 
-## Residual Deviance: 1963.819 
-## AIC: 1977.819</code></pre>
-<pre class="r"><code>ctable1 &lt;- coef(summary(model1))</code></pre>
-<pre><code>## 
-## Re-fitting to get Hessian</code></pre>
-<pre class="r"><code>p &lt;- pnorm(abs(ctable1[, &quot;t value&quot;]), lower.tail = FALSE) * 2
+<p>To test for the presence of an effect modifier, we’ll use an
+interaction term in our regression model. An interaction term is the
+product of variables and is included in the model to examine whether the
+effect of one variable on the outcome is different depending on the
+level of the other variables.</p>
+<pre class="r"><code># Fit a model with interaction term
+interaction_model &lt;- polr(volcano_deaths_description ~ flag_earthquake*flag_tsunami*volcanic_explosivity_index, data = tidy_df)
 
-(ctable1 &lt;- cbind(ctable1, &quot;p value&quot; = p))</code></pre>
-<pre><code>##                                                  Value Std. Error   t value
-## flag_earthquakeTRUE                          1.4948264 0.35858142  4.168722
-## flag_tsunamiTRUE                             1.6413385 0.19345608  8.484295
-## flag_earthquakeTRUE:flag_tsunamiTRUE        -1.7545526 0.48516877 -3.616376
-## Few (~1 to 50)|Many (~101 to 1000)           0.2165084 0.07840457  2.761425
-## Many (~101 to 1000)|None/No Record           0.6751161 0.08266894  8.166503
-## None/No Record|Some (~51 to 100)             2.8279769 0.14011718 20.182942
-## Some (~51 to 100)|Very Many (~1001 or more)  3.6264221 0.18400469 19.708313
-##                                                  p value
-## flag_earthquakeTRUE                         3.063118e-05
-## flag_tsunamiTRUE                            2.170298e-17
-## flag_earthquakeTRUE:flag_tsunamiTRUE        2.987565e-04
-## Few (~1 to 50)|Many (~101 to 1000)          5.754968e-03
-## Many (~101 to 1000)|None/No Record          3.174586e-16
-## None/No Record|Some (~51 to 100)            1.382669e-90
-## Some (~51 to 100)|Very Many (~1001 or more) 1.829649e-86</code></pre>
-<p>The interaction p-value is greater than 0.05, so it’s not
-significant. There is not enough evidence to suggest that the
-relationship between volcano_deaths_description and the combination of
-flag_earthquake and flag_tsunami is significantly different from the sum
-of their individual effects.Given this result, we consider using a
-simpler model without the interaction term.</p>
+# Tidy up the summary
+tidy_interaction &lt;- broom::tidy(interaction_model)
+
+# Add p-values to the tidy summary
+tidy_interaction$p_value &lt;- pnorm(abs(tidy_interaction$estimate), lower.tail = FALSE) * 2
+
+# Display the tidy summary
+knitr::kable(tidy_interaction)</code></pre>
+<table>
+<colgroup>
+<col width="54%" />
+<col width="9%" />
+<col width="8%" />
+<col width="9%" />
+<col width="10%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">term</th>
+<th align="right">estimate</th>
+<th align="right">std.error</th>
+<th align="right">statistic</th>
+<th align="left">coef.type</th>
+<th align="right">p_value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">flag_earthquakeTRUE</td>
+<td align="right">2.7806790</td>
+<td align="right">1.0474785</td>
+<td align="right">2.6546407</td>
+<td align="left">coefficient</td>
+<td align="right">0.0054245</td>
+</tr>
+<tr class="even">
+<td align="left">flag_tsunamiTRUE</td>
+<td align="right">2.7759661</td>
+<td align="right">0.4864677</td>
+<td align="right">5.7063731</td>
+<td align="left">coefficient</td>
+<td align="right">0.0055038</td>
+</tr>
+<tr class="odd">
+<td align="left">volcanic_explosivity_index</td>
+<td align="right">0.5404384</td>
+<td align="right">0.0669494</td>
+<td align="right">8.0723420</td>
+<td align="left">coefficient</td>
+<td align="right">0.5888948</td>
+</tr>
+<tr class="even">
+<td align="left">flag_earthquakeTRUE:flag_tsunamiTRUE</td>
+<td align="right">-2.5323948</td>
+<td align="right">1.2840025</td>
+<td align="right">-1.9722663</td>
+<td align="left">coefficient</td>
+<td align="right">0.0113286</td>
+</tr>
+<tr class="odd">
+<td align="left">flag_earthquakeTRUE:volcanic_explosivity_index</td>
+<td align="right">-0.3523253</td>
+<td align="right">0.3367962</td>
+<td align="right">-1.0461083</td>
+<td align="left">coefficient</td>
+<td align="right">0.7245943</td>
+</tr>
+<tr class="even">
+<td align="left">flag_tsunamiTRUE:volcanic_explosivity_index</td>
+<td align="right">-0.3345279</td>
+<td align="right">0.1648441</td>
+<td align="right">-2.0293592</td>
+<td align="left">coefficient</td>
+<td align="right">0.7379812</td>
+</tr>
+<tr class="odd">
+<td
+align="left">flag_earthquakeTRUE:flag_tsunamiTRUE:volcanic_explosivity_index</td>
+<td align="right">0.1292320</td>
+<td align="right">0.4195615</td>
+<td align="right">0.3080167</td>
+<td align="left">coefficient</td>
+<td align="right">0.8971741</td>
+</tr>
+<tr class="even">
+<td align="left">Few (~1 to 50)|Many (~101 to 1000)</td>
+<td align="right">1.7750410</td>
+<td align="right">0.2222801</td>
+<td align="right">7.9856028</td>
+<td align="left">scale</td>
+<td align="right">0.0758911</td>
+</tr>
+<tr class="odd">
+<td align="left">Many (~101 to 1000)|None/No Record</td>
+<td align="right">2.3220775</td>
+<td align="right">0.2325619</td>
+<td align="right">9.9847698</td>
+<td align="left">scale</td>
+<td align="right">0.0202288</td>
+</tr>
+<tr class="even">
+<td align="left">None/No Record|Some (~51 to 100)</td>
+<td align="right">4.3559613</td>
+<td align="right">0.2748869</td>
+<td align="right">15.8463761</td>
+<td align="left">scale</td>
+<td align="right">0.0000132</td>
+</tr>
+<tr class="odd">
+<td align="left">Some (~51 to 100)|Very Many (~1001 or more)</td>
+<td align="right">5.1694338</td>
+<td align="right">0.3015639</td>
+<td align="right">17.1420829</td>
+<td align="left">scale</td>
+<td align="right">0.0000002</td>
+</tr>
+</tbody>
+</table>
+<p>Because none of the interaction term is statistically significant
+(p-value &gt; 0.05). There is not enough evidence of effect
+modification. Given this result, we consider using a simpler model
+without the interaction term.</p>
 </div>
 <div id="fit-the-ordinal-logistic-regression-model"
 class="section level2">
@@ -543,7 +621,6 @@ p &lt;- pnorm(abs(ctable2[, &quot;t value&quot;]), lower.tail = FALSE) * 2
 <p>We can also get confidence intervals for the parameter estimates.</p>
 <pre class="r"><code># default method gives profiled CIs
 (ci &lt;- confint(model2)) </code></pre>
-<pre><code>## Waiting for profiling to be done...</code></pre>
 <pre><code>##                                    2.5 %       97.5 %
 ## flag_earthquakeTRUE        -5.165332e-02 1.0953216002
 ## flag_tsunamiTRUE            1.318250e+00 2.1870135764
