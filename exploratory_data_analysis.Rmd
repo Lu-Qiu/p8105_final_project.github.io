@@ -837,39 +837,50 @@ From the bar charts, there don't seem to be a significant association between th
 ## Iceland Volcanic Activity Analysis
 
 ```{r}
-iceland_volcanic_data = read_delim("data/significant-volcanic-eruption-database.csv") |>
-  filter(Country == "Iceland") |>
-  janitor::clean_names()
+iceland_volcanic_data <- tidy_df %>%
+  filter(country == "Iceland")
 
-ggplot(iceland_volcanic_data, aes(x = year)) +
-  geom_histogram(bins = 30, fill = "#69b3a2", color = "#1b4332") +
+ggplot(iceland_volcanic_data, aes(x = year, fill = as.factor(-year))) +
+  geom_histogram(bins = 30, color = "darkgray") +
+  scale_fill_viridis_d() + 
   theme_minimal() +
-  labs(title = "Distribution of Volcanic Eruptions in Iceland Over Time",
+  theme(legend.position = "none") + 
+  labs(title = "Plot 1: Distribution of Volcanic Eruptions in Iceland Over Time",
        x = "Year",
        y = "Number of Eruptions")
 
+```
+
+Plot 1 shows the number of volcanic eruptions in Iceland over several centuries. The data suggests an increase in recorded eruptions over time, particularly around the late 1700s. However the increasing trend in later years could be attributed to better documentation as well as an actual increase in volcanic activity.
+
+```{r}
 iceland_volcanic_data %>%
   count(volcano_type) %>%
   arrange(desc(n)) %>%
   mutate(volcano_type = factor(volcano_type, levels = volcano_type)) %>%
   ggplot(aes(x = volcano_type, y = n, fill = volcano_type)) + 
   geom_col() + 
-  scale_fill_brewer(palette = "Reds") +
+  scale_fill_viridis_d()+
   theme_minimal() +
-  labs(title = "Prevalence of Different Volcano Types in Iceland",
+  labs(title = "Plot 2: Prevalence of Different Volcano Types in Iceland",
        x = "Volcano Type",
        y = "Count") +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
 
+Plot 2 indicates that stratovolcanoes are the most prevalent volcano type in Iceland, suggesting varied and complex volcanic activity.
+
+```{r}
 iceland_volcanic_data |>
-  mutate(vei_ordered = factor(volcanic_explosivity_index, levels = 1:6)) |>
-  ggplot(aes(x = vei_ordered, fill = vei_ordered)) +
+  mutate(VEI = factor(volcanic_explosivity_index, levels = 1:6)) |>
+  ggplot(aes(x = VEI, fill = fct_rev(VEI))) +
   geom_bar() +
-  scale_fill_brewer(palette = "Blues") +
+  scale_fill_viridis_d(na.value = "gray")+
   theme_minimal() +
-  labs(title = "Distribution of Volcanic Explosivity Index (VEI) in Iceland",
+  labs(title = "Plot 3: Distribution of Volcanic Explosivity Index (VEI) in Iceland",
        x = "VEI",
        y = "Count")
 
 ```
 
+Plot 3 shows that eruptions with a Volcanic Explosivity Index of 3 and 4 are most common in Iceland, indicating moderate explosivity is typical for Icelandic eruptions.
