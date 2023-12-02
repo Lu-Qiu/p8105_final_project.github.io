@@ -472,6 +472,8 @@ because volcanoes under the sea are more likely to cause tsunami.</p>
 <div id="fit-the-ordinal-logistic-regression-model"
 class="section level2">
 <h2>Fit the Ordinal Logistic Regression Model</h2>
+<div id="fit-model" class="section level3">
+<h3>Fit Model</h3>
 <p>Then we can fit the following ordinal logistic regression model:</p>
 <p>volcano_deaths_description ~ flag_earthquake + flag_tsunami +
 volcanic_explosivity_index + elevation</p>
@@ -561,6 +563,9 @@ logistic_model |&gt; broom::tidy() |&gt; knitr::kable()</code></pre>
 </table>
 <p>The estimated model can be written as:</p>
 <p>… … …</p>
+</div>
+<div id="p-value" class="section level3">
+<h3>P-value</h3>
 <p>Some people require a p value to be satisfied. In this situation,
 comparing the t-value to the conventional normal distribution using a z
 test is one method of computing a p-value. This is only true when there
@@ -655,40 +660,118 @@ knitr::kable(ctable2)</code></pre>
 </tr>
 </tbody>
 </table>
-<p>Interpretation:</p>
+<p><strong>Interpretations</strong>:</p>
 <p>All the four predictors (<code>flag_earthquake</code>,
 <code>flag_tsunami</code>, <code>volcanic_explosivity_index</code>,
-<code>elevation</code>) have a p value less than 0.05, indicating that
-all of them are statistically significant.</p>
-<p>We can also get confidence intervals for the parameter estimates.
-These can be obtained either by profiling the likelihood function or by
-using the standard errors and assuming a normal distribution. Note that
-profiled CIs are not symmetric (although they are usually close to
-symmetric). If the 95% CI does not cross 0, the parameter estimate is
-statistically significant.</p>
-<pre class="r"><code># default method gives profiled CIs
-# (ci &lt;- confint(logistic_model)) 
+<code>elevation</code>) have p-values less than 0.05, indicating that
+each of them is statistically significant at the 0.05 significance
+level.</p>
+</div>
+<div id="confidence-interval" class="section level3">
+<h3>Confidence Interval</h3>
+<p>We can also get confidence intervals for the parameter estimates. If
+the 95% CI does not cross 0, the parameter estimate is statistically
+significant.</p>
+<pre class="r"><code>ci = confint.default(logistic_model) 
 
-# CIs assuming normality
-ci = confint.default(logistic_model) </code></pre>
-<p>Interpretation:</p>
+knitr::kable(ci)</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="right">2.5 %</th>
+<th align="right">97.5 %</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">flag_earthquakeTRUE</td>
+<td align="right">0.1086245</td>
+<td align="right">0.9058069</td>
+</tr>
+<tr class="even">
+<td align="left">flag_tsunamiTRUE</td>
+<td align="right">0.4353478</td>
+<td align="right">1.4109823</td>
+</tr>
+<tr class="odd">
+<td align="left">volcanic_explosivity_index</td>
+<td align="right">0.4584128</td>
+<td align="right">0.7323241</td>
+</tr>
+<tr class="even">
+<td align="left">elevation</td>
+<td align="right">0.0000711</td>
+<td align="right">0.0004272</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Interpretations</strong>:</p>
+<p>The CIs for all predictors (<code>flag_earthquake</code>,
+<code>flag_tsunami</code>, <code>volcanic_explosivity_index</code>,
+<code>elevation</code>) do not include 0. Therefore, the parameter
+estimates are statistically significant.</p>
+</div>
+<div id="odds-ratio" class="section level3">
+<h3>Odds Ratio</h3>
 <p>Another way to interpret logistic regression models is to convert the
 coefficients into odds ratios. To get the OR and confidence intervals,
 we just exponentiate the estimates and confidence intervals.</p>
-<pre class="r"><code>## odds ratios
-exp(coef(logistic_model))</code></pre>
-<pre><code>##        flag_earthquakeTRUE           flag_tsunamiTRUE 
-##                   1.660661                   2.517245 
-## volcanic_explosivity_index                  elevation 
-##                   1.813699                   1.000249</code></pre>
-<pre class="r"><code>## OR and CI
-exp(cbind(OR = coef(logistic_model), ci))</code></pre>
-<pre><code>##                                  OR    2.5 %   97.5 %
-## flag_earthquakeTRUE        1.660661 1.114744 2.473927
-## flag_tsunamiTRUE           2.517245 1.545501 4.099981
-## volcanic_explosivity_index 1.813699 1.581562 2.079909
-## elevation                  1.000249 1.000071 1.000427</code></pre>
-<p>Interpretation:</p>
+<pre class="r"><code>exp(cbind(OR = coef(logistic_model), ci)) |&gt; knitr::kable()</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="right">OR</th>
+<th align="right">2.5 %</th>
+<th align="right">97.5 %</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">flag_earthquakeTRUE</td>
+<td align="right">1.660661</td>
+<td align="right">1.114744</td>
+<td align="right">2.473927</td>
+</tr>
+<tr class="even">
+<td align="left">flag_tsunamiTRUE</td>
+<td align="right">2.517245</td>
+<td align="right">1.545500</td>
+<td align="right">4.099981</td>
+</tr>
+<tr class="odd">
+<td align="left">volcanic_explosivity_index</td>
+<td align="right">1.813699</td>
+<td align="right">1.581562</td>
+<td align="right">2.079909</td>
+</tr>
+<tr class="even">
+<td align="left">elevation</td>
+<td align="right">1.000249</td>
+<td align="right">1.000071</td>
+<td align="right">1.000427</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Interpretation</strong>:</p>
+<ul>
+<li>For volcano eruptions accompanied by earthquake, the odds of causing
+more deaths (i.e., very many, many or some versus few) is 1.66 times
+that of volcano eruptions that are not accompanied by earthquake,
+holding constant all other variables.</li>
+<li>For volcano eruptions accompanied by tsunami, the odds of causing
+more deaths (i.e., very many, many or some versus few) is 2.52 times
+that of volcano eruptions that are not accompanied by tsunami, holding
+constant all other variables.</li>
+<li>For every one unit increase in volcanic explosivity index (VEI), the
+odds of causing more deaths (i.e., very many, many or some versus few)
+is multiplied 1.85 times (i.e., increases 81%), holding constant all
+other variables.</li>
+<li>A one-unit increase in elevation is not associated with a change in
+the odds of causing more deaths.</li>
+</ul>
+</div>
 </div>
 
 

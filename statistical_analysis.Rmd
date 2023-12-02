@@ -94,6 +94,8 @@ We also notice that there is a negative correlation between `elevation` and `fla
 
 ## Fit the Ordinal Logistic Regression Model
 
+### Fit Model
+
 Then we can fit the following ordinal logistic regression model:
 
 volcano_deaths_description ~ flag_earthquake + flag_tsunami + volcanic_explosivity_index + elevation
@@ -115,6 +117,8 @@ The estimated model can be written as:
 ...
 ...
 
+### P-value
+
 Some people require a p value to be satisfied. In this situation, comparing the t-value to the conventional normal distribution using a z test is one method of computing a p-value. This is only true when there are infinite degrees of freedom, but large samples can well approximate it; as sample size drops, the sample becomes more biased. This method is simple to implement and is utilized in other software programs like Stata. We compute the p-values and then merge them back with the table after storing the coefficient table.
 ```{r}
 ## store table
@@ -129,32 +133,31 @@ ctable2 <- cbind(ctable2, "p value" = p)
 knitr::kable(ctable2)
 
 ```
-Interpretation:
+**Interpretations**:
 
-All the four predictors (`flag_earthquake`, `flag_tsunami`, `volcanic_explosivity_index`, `elevation`) have a p value less than 0.05, indicating that all of them are statistically significant.
+All the four predictors (`flag_earthquake`, `flag_tsunami`, `volcanic_explosivity_index`, `elevation`) have p-values less than 0.05, indicating that each of them is statistically significant at the 0.05 significance level.
 
+### Confidence Interval
 
-
-
-We can also get confidence intervals for the parameter estimates. These can be obtained either by profiling the likelihood function or by using the standard errors and assuming a normal distribution. Note that profiled CIs are not symmetric (although they are usually close to symmetric). If the 95% CI does not cross 0, the parameter estimate is statistically significant.
+We can also get confidence intervals for the parameter estimates. If the 95% CI does not cross 0, the parameter estimate is statistically significant.
 ```{r}
-# default method gives profiled CIs
-# (ci <- confint(logistic_model)) 
-
-# CIs assuming normality
 ci = confint.default(logistic_model) 
+
+knitr::kable(ci)
 ```
-Interpretation:
+**Interpretations**:
 
+The CIs for all predictors (`flag_earthquake`, `flag_tsunami`, `volcanic_explosivity_index`, `elevation`) do not include 0. Therefore, the parameter estimates are statistically significant.
 
+### Odds Ratio
 
 Another way to interpret logistic regression models is to convert the coefficients into odds ratios. To get the OR and confidence intervals, we just exponentiate the estimates and confidence intervals.
 ```{r}
-## odds ratios
-exp(coef(logistic_model))
-
-## OR and CI
-exp(cbind(OR = coef(logistic_model), ci))
-
+exp(cbind(OR = coef(logistic_model), ci)) |> knitr::kable()
 ```
-Interpretation:
+**Interpretation**:
+
+* For volcano eruptions accompanied by earthquake, the odds of causing more deaths (i.e., very many, many or some versus few) is 1.66 times that of volcano eruptions that are not accompanied by earthquake, holding constant all other variables.
+* For volcano eruptions accompanied by tsunami, the odds of causing more deaths (i.e., very many, many or some versus few) is 2.52 times that of volcano eruptions that are not accompanied by tsunami, holding constant all other variables.
+* For every one unit increase in volcanic explosivity index (VEI), the odds of causing more deaths (i.e., very many, many or some versus few) is multiplied 1.85 times (i.e., increases 81%), holding constant all other variables.
+* A one-unit increase in elevation is not associated with a change in the odds of causing more deaths.
