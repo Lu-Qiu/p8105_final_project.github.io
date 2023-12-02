@@ -13,7 +13,7 @@
 
 <title>Statistical Analysis</title>
 
-<script src="site_libs/header-attrs-2.25/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.24/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/yeti.min.css" rel="stylesheet" />
@@ -372,12 +372,61 @@ div.tocify {
 <div id="methodology" class="section level2">
 <h2>Methodology</h2>
 <p>Based on the results in exploratory data analysis, it is clear that
-deaths, injuries, damage and houses destroyed by volcanic eruptions can
-be affected by factors like earthquake, tsunami and VEI of the volcano.
-To better describe their relationship, in this part, we aim to fit an
-ordinal logistic regression model, utilizing the descriptive data of
-deaths, injuries, damage and houses destroyed as outcome.</p>
-<p>……. …….</p>
+deaths and damage by volcanic eruptions can be affected by factors like
+earthquake, tsunami and VEI of the volcano. To better describe their
+relationship, in this part, We utilize descriptive data on personnel
+fatalities and property losses from the dataset, and since they are
+ordinal categorical variables, we use <strong>ordinal logistic
+regression</strong> to assess the association between predictors and the
+ordinal outcomes.</p>
+<p>We use the <code>polr</code> command from the MASS package to
+estimate an ordered logistic regression model. We also specify
+<code>Hess=TRUE</code> to have the model return the observed information
+matrix from optimization (called the Hessian) which is used to get
+standard errors.</p>
+<div id="definition" class="section level3">
+<h3>Definition</h3>
+<p>An ordinal variable is a categorical variable in which the levels
+have a natural ordering. Let <span class="math inline">\(Y\)</span> be
+an ordinal outcome with <span class="math inline">\(J\)</span>
+categories. Then <span class="math inline">\(P(Y≤j)\)</span>is the
+cumulative probability of <span class="math inline">\(Y\)</span> less
+than or equal to a specific category <span
+class="math inline">\(j=1,...J-1\)</span>. The odds of being less than
+or equal a particular category can be defined as <span
+class="math display">\[\frac{P(Y≤j)}{P(Y&gt;j)}\]</span> for <span
+class="math inline">\(j=1,...J-1\)</span> since <span
+class="math inline">\(P(Y&gt;j) = 0\)</span> and dividing by zero is
+undefined. The <strong>log odds</strong> is also known as the
+<strong>logit</strong>, so that <span
+class="math display">\[log\frac{P(Y≤j)}{P(Y&gt;j)}=logit(P(Y≤j))\]</span>
+In R’s polr the ordinal logistic regression model is parameterized as
+<span
+class="math display">\[logit(P(Y≤j))=β_{j0}-η_{1}x_{1}-η_{2}x_{2}-...-η_{p}x_{p}\]</span></p>
+</div>
+<div id="application" class="section level3">
+<h3>Application</h3>
+<p>We use the <strong>ordinal logistic regression</strong> to evaluate
+the effect of several factors on casualties and property losses which
+are the outcomes we are interested in. Predictors are tsunami,
+earthquake and VEI in this model. Our ordinal logistic regression model
+can be parameterized as: <span
+class="math display">\[logit(P(Y≤j))=β_{j0}-η_{1}X_{1}-η_{2}X_{2}-η_{3}X_{3}\]</span>
+where,</p>
+<ul>
+<li><span class="math inline">\(β_{j0}\)</span>is an intercept and
+represents the log-odds of <span class="math inline">\(Y≤j\)</span> when
+all the predictors are at 0 or their reference level.</li>
+<li><span class="math inline">\(X_{1}\)</span> is tsunami, <span
+class="math inline">\(X_{2}\)</span> is earthquake, <span
+class="math inline">\(X_{3}\)</span> is VEI.</li>
+<li>Each <span class="math inline">\(-η_{k}\)</span> for <span
+class="math inline">\(k = 1,2,3\)</span> is the log of the odds ratio
+comparing the odds of <span class="math inline">\(Y≤j\)</span> between
+individuals who differ by 1-unit in <span
+class="math inline">\(X_{k}\)</span>.</li>
+</ul>
+</div>
 </div>
 <div id="correlation-analysis" class="section level2">
 <h2>Correlation Analysis</h2>

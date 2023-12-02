@@ -35,10 +35,28 @@ scale_fill_discrete   = scale_fill_viridis_d
 
 ## Methodology
 
-Based on the results in exploratory data analysis, it is clear that deaths, injuries, damage and houses destroyed by volcanic eruptions can be affected by factors like earthquake, tsunami and VEI of the volcano. To better describe their relationship, in this part, we aim to fit an ordinal logistic regression model, utilizing the descriptive data of deaths, injuries, damage and houses destroyed as outcome.
+Based on the results in exploratory data analysis, it is clear that deaths and damage by volcanic eruptions can be affected by factors like earthquake, tsunami and VEI of the volcano. To better describe their relationship, in this part, We utilize descriptive data on personnel fatalities and property losses from the dataset, and since they are ordinal categorical variables, we use **ordinal logistic regression** to assess the association between predictors and the ordinal outcomes.
 
-.......
-.......
+We use the `polr` command from the MASS package to estimate an ordered logistic regression model. We also specify `Hess=TRUE` to have the model return the observed information matrix from optimization (called the Hessian) which is used to get standard errors.
+
+### Definition
+An ordinal variable is a categorical variable in which the levels have a natural ordering. Let $Y$ be an ordinal outcome with $J$ categories. Then $P(Y≤j)$is the cumulative probability of $Y$ less than or equal to a specific category
+$j=1,...J-1$. The odds of being less than or equal a particular category can be defined as
+$$\frac{P(Y≤j)}{P(Y>j)}$$
+for $j=1,...J-1$ since $P(Y>j) = 0$ and dividing by zero is undefined. The **log odds** is also known as the **logit**, so that
+$$log\frac{P(Y≤j)}{P(Y>j)}=logit(P(Y≤j))$$
+In R’s polr the ordinal logistic regression model is parameterized as
+$$logit(P(Y≤j))=β_{j0}-η_{1}x_{1}-η_{2}x_{2}-...-η_{p}x_{p}$$
+
+### Application
+
+We use the **ordinal logistic regression** to evaluate the effect of several factors on casualties and property losses which are the outcomes we are interested in. Predictors are tsunami, earthquake and VEI in this model. Our ordinal logistic regression model can be parameterized as:
+$$logit(P(Y≤j))=β_{j0}-η_{1}X_{1}-η_{2}X_{2}-η_{3}X_{3}$$
+where,  
+
+* $β_{j0}$is an intercept and represents the log-odds of $Y≤j$ when all the predictors are at 0 or their reference level. 
+* $X_{1}$ is tsunami, $X_{2}$ is earthquake, $X_{3}$ is VEI.
+* Each $-η_{k}$ for $k = 1,2,3$ is the log of the odds ratio comparing the odds of $Y≤j$ between individuals who differ by 1-unit in $X_{k}$.
 
 ## Correlation Analysis
 
