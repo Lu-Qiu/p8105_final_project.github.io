@@ -372,14 +372,15 @@ div.tocify {
 <div id="methodology" class="section level2">
 <h2>Methodology</h2>
 <p>Based on the results in exploratory data analysis, it is clear that
-deaths and damage by volcanic eruptions can be affected by factors like
-earthquake, tsunami and VEI of the volcano. To better describe their
-relationship, in this part, We utilize descriptive data on personnel
-fatalities and property losses from the dataset, and since they are
-ordinal categorical variables, we use <strong>ordinal logistic
-regression</strong> to assess the association between predictors and the
-ordinal outcomes.</p>
-<p>We use the <code>polr</code> command from the MASS package to
+deaths, injuries, damage and houses destroyed by volcanic eruptions can
+be affected by factors like earthquake, tsunami, VEI and elevation of
+the volcano. In this statistical analysis part, we’ll focus on the
+relationship between volcanic deaths and other factors. To better
+describe their relationship, we’ll utilize descriptive data on deaths
+from the dataset, and since it is an ordinal categorical variable, we’ll
+use <strong>ordinal logistic regression</strong> to assess the
+association between predictors and the ordinal outcome.</p>
+<p>We’ll use the <code>polr</code> command from the MASS package to
 estimate an ordered logistic regression model. We also specify
 <code>Hess=TRUE</code> to have the model return the observed information
 matrix from optimization (called the Hessian) which is used to get
@@ -409,9 +410,9 @@ class="math display">\[logit(P(Y≤j))=β_{j0}-η_{1}x_{1}-η_{2}x_{2}-...-η_{p
 <p>We use the <strong>ordinal logistic regression</strong> to evaluate
 the effect of several factors on casualties and property losses which
 are the outcomes we are interested in. Predictors are tsunami,
-earthquake and VEI in this model. Our ordinal logistic regression model
-can be parameterized as: <span
-class="math display">\[logit(P(Y≤j))=β_{j0}-η_{1}X_{1}-η_{2}X_{2}-η_{3}X_{3}\]</span>
+earthquake, VEI and elevation in this model. Our ordinal logistic
+regression model can be parameterized as: <span
+class="math display">\[logit(P(Y≤j))=β_{j0}-η_{1}X_{1}-η_{2}X_{2}-η_{3}X_{3}-η_{4}X_{4}\]</span>
 where,</p>
 <ul>
 <li><span class="math inline">\(β_{j0}\)</span>is an intercept and
@@ -419,9 +420,10 @@ represents the log-odds of <span class="math inline">\(Y≤j\)</span> when
 all the predictors are at 0 or their reference level.</li>
 <li><span class="math inline">\(X_{1}\)</span> is tsunami, <span
 class="math inline">\(X_{2}\)</span> is earthquake, <span
-class="math inline">\(X_{3}\)</span> is VEI.</li>
+class="math inline">\(X_{3}\)</span> is VEI, <span
+class="math inline">\(X_{4}\)</span> is elevation.</li>
 <li>Each <span class="math inline">\(-η_{k}\)</span> for <span
-class="math inline">\(k = 1,2,3\)</span> is the log of the odds ratio
+class="math inline">\(k = 1,2,3,4\)</span> is the log of the odds ratio
 comparing the odds of <span class="math inline">\(Y≤j\)</span> between
 individuals who differ by 1-unit in <span
 class="math inline">\(X_{k}\)</span>.</li>
