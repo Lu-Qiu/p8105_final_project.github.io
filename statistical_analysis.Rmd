@@ -65,7 +65,9 @@ First, we perform a correlation analysis. If two predictors have strong correlat
 Correlation between the variables is shown by the following heatmap:
 ```{r}
 # Import tidied data
-tidy_df = read.csv2("data/volcanic-eruption-final.csv", sep = ",", stringsAsFactors = TRUE)
+tidy_df = 
+  read.csv2("data/volcanic-eruption-final.csv", sep = ",", stringsAsFactors = TRUE)
+  
 
 # Select variables of interest
 selected_data <- 
@@ -89,69 +91,58 @@ From the results of correlation analysis, we can see that there is a positive co
 We also notice that there is a negative correlation between `elevation` and `flag_tsunami`. This is probably because volcanoes under the sea are more likely to cause tsunami.
 
 
-## Test of Effect Modifier
-To test for the presence of an effect modifier, we'll use an interaction term in our regression model. An interaction term is the product of variables and is included in the model to examine whether the effect of one variable on the outcome is different depending on the level of the other variables.
-
-```{r}
-# Fit a model with interaction term
-interaction_model <- polr(volcano_deaths_description ~ flag_earthquake*flag_tsunami*volcanic_explosivity_index, data = tidy_df)
-
-# Tidy up the summary
-tidy_interaction <- broom::tidy(interaction_model)
-
-# Add p-values to the tidy summary
-tidy_interaction$p_value <- pnorm(abs(tidy_interaction$estimate), lower.tail = FALSE) * 2
-
-# Display the tidy summary
-knitr::kable(tidy_interaction)
-  
-
-```
-
-Because none of the interaction term is statistically significant (p-value > 0.05). There is not enough evidence of effect modification. Given this result, we consider using a simpler model without the interaction term.
 
 ## Fit the Ordinal Logistic Regression Model
 
+Then we can fit the following ordinal logistic regression model:
+
+volcano_deaths_description ~ flag_earthquake + flag_tsunami + volcanic_explosivity_index + elevation
 ```{r}
-model2 <- polr(volcano_deaths_description ~ flag_earthquake + flag_tsunami + volcanic_explosivity_index + elevation, data = tidy_df, Hess=TRUE)
+death_df = 
+  tidy_df |>
+  filter(volcano_deaths_description != "None/No Record")
+
+logistic_model <- polr(volcano_deaths_description ~ flag_earthquake + flag_tsunami + volcanic_explosivity_index + elevation, data = death_df, Hess=TRUE)
 
 ## view a summary of the model
-summary(model2)
+logistic_model |> broom::tidy() |> knitr::kable()
 ```
 
 
 The estimated model can be written as:
 
-
-Interpretation:
-
-
+...
+...
+...
 
 Some people require a p value to be satisfied. In this situation, comparing the t-value to the conventional normal distribution using a z test is one method of computing a p-value. This is only true when there are infinite degrees of freedom, but large samples can well approximate it; as sample size drops, the sample becomes more biased. This method is simple to implement and is utilized in other software programs like Stata. We compute the p-values and then merge them back with the table after storing the coefficient table.
 ```{r}
 ## store table
-ctable2 <- coef(summary(model2))
+ctable2 <- coef(summary(logistic_model))
 
 ## calculate and store p values
 p <- pnorm(abs(ctable2[, "t value"]), lower.tail = FALSE) * 2
 
 ## combined table
-(ctable2 <- cbind(ctable2, "p value" = p))
+ctable2 <- cbind(ctable2, "p value" = p)
+
+knitr::kable(ctable2)
+
 ```
 Interpretation:
 
+All the four predictors (`flag_earthquake`, `flag_tsunami`, `volcanic_explosivity_index`, `elevation`) have a p value less than 0.05, indicating that all of them are statistically significant.
 
 
 
 
-
-We can also get confidence intervals for the parameter estimates.
+We can also get confidence intervals for the parameter estimates. These can be obtained either by profiling the likelihood function or by using the standard errors and assuming a normal distribution. Note that profiled CIs are not symmetric (although they are usually close to symmetric). If the 95% CI does not cross 0, the parameter estimate is statistically significant.
 ```{r}
 # default method gives profiled CIs
-(ci <- confint(model2)) 
+# (ci <- confint(logistic_model)) 
 
 # CIs assuming normality
-confint.default(model2) 
+ci = confint.default(logistic_model) 
 ```
 Interpretation:
 
@@ -160,10 +151,10 @@ Interpretation:
 Another way to interpret logistic regression models is to convert the coefficients into odds ratios. To get the OR and confidence intervals, we just exponentiate the estimates and confidence intervals.
 ```{r}
 ## odds ratios
-exp(coef(model2))
+exp(coef(logistic_model))
 
 ## OR and CI
-exp(cbind(OR = coef(model2), ci))
+exp(cbind(OR = coef(logistic_model), ci))
 
 ```
 Interpretation:

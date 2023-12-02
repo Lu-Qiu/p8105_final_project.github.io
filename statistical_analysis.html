@@ -13,7 +13,7 @@
 
 <title>Statistical Analysis</title>
 
-<script src="site_libs/header-attrs-2.24/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.25/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/yeti.min.css" rel="stylesheet" />
@@ -438,7 +438,9 @@ of our model’s results.</p>
 <p>Correlation between the variables is shown by the following
 heatmap:</p>
 <pre class="r"><code># Import tidied data
-tidy_df = read.csv2(&quot;data/volcanic-eruption-final.csv&quot;, sep = &quot;,&quot;, stringsAsFactors = TRUE)
+tidy_df = 
+  read.csv2(&quot;data/volcanic-eruption-final.csv&quot;, sep = &quot;,&quot;, stringsAsFactors = TRUE)
+  
 
 # Select variables of interest
 selected_data &lt;- 
@@ -467,32 +469,27 @@ We also notice that there is a negative correlation between
 <code>elevation</code> and <code>flag_tsunami</code>. This is probably
 because volcanoes under the sea are more likely to cause tsunami.</p>
 </div>
-<div id="test-of-effect-modifier" class="section level2">
-<h2>Test of Effect Modifier</h2>
-<p>To test for the presence of an effect modifier, we’ll use an
-interaction term in our regression model. An interaction term is the
-product of variables and is included in the model to examine whether the
-effect of one variable on the outcome is different depending on the
-level of the other variables.</p>
-<pre class="r"><code># Fit a model with interaction term
-interaction_model &lt;- polr(volcano_deaths_description ~ flag_earthquake*flag_tsunami*volcanic_explosivity_index, data = tidy_df)
+<div id="fit-the-ordinal-logistic-regression-model"
+class="section level2">
+<h2>Fit the Ordinal Logistic Regression Model</h2>
+<p>Then we can fit the following ordinal logistic regression model:</p>
+<p>volcano_deaths_description ~ flag_earthquake + flag_tsunami +
+volcanic_explosivity_index + elevation</p>
+<pre class="r"><code>death_df = 
+  tidy_df |&gt;
+  filter(volcano_deaths_description != &quot;None/No Record&quot;)
 
-# Tidy up the summary
-tidy_interaction &lt;- broom::tidy(interaction_model)
+logistic_model &lt;- polr(volcano_deaths_description ~ flag_earthquake + flag_tsunami + volcanic_explosivity_index + elevation, data = death_df, Hess=TRUE)
 
-# Add p-values to the tidy summary
-tidy_interaction$p_value &lt;- pnorm(abs(tidy_interaction$estimate), lower.tail = FALSE) * 2
-
-# Display the tidy summary
-knitr::kable(tidy_interaction)</code></pre>
+## view a summary of the model
+logistic_model |&gt; broom::tidy() |&gt; knitr::kable()</code></pre>
 <table>
 <colgroup>
-<col width="54%" />
-<col width="9%" />
-<col width="8%" />
-<col width="9%" />
+<col width="53%" />
 <col width="10%" />
-<col width="8%" />
+<col width="10%" />
+<col width="10%" />
+<col width="13%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -501,137 +498,69 @@ knitr::kable(tidy_interaction)</code></pre>
 <th align="right">std.error</th>
 <th align="right">statistic</th>
 <th align="left">coef.type</th>
-<th align="right">p_value</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td align="left">flag_earthquakeTRUE</td>
-<td align="right">2.7806790</td>
-<td align="right">1.0474785</td>
-<td align="right">2.6546407</td>
+<td align="right">0.5072157</td>
+<td align="right">0.2033666</td>
+<td align="right">2.494095</td>
 <td align="left">coefficient</td>
-<td align="right">0.0054245</td>
 </tr>
 <tr class="even">
 <td align="left">flag_tsunamiTRUE</td>
-<td align="right">2.7759661</td>
-<td align="right">0.4864677</td>
-<td align="right">5.7063731</td>
+<td align="right">0.9231651</td>
+<td align="right">0.2488909</td>
+<td align="right">3.709115</td>
 <td align="left">coefficient</td>
-<td align="right">0.0055038</td>
 </tr>
 <tr class="odd">
 <td align="left">volcanic_explosivity_index</td>
-<td align="right">0.5404384</td>
-<td align="right">0.0669494</td>
-<td align="right">8.0723420</td>
+<td align="right">0.5953685</td>
+<td align="right">0.0698766</td>
+<td align="right">8.520283</td>
 <td align="left">coefficient</td>
-<td align="right">0.5888948</td>
 </tr>
 <tr class="even">
-<td align="left">flag_earthquakeTRUE:flag_tsunamiTRUE</td>
-<td align="right">-2.5323948</td>
-<td align="right">1.2840025</td>
-<td align="right">-1.9722663</td>
+<td align="left">elevation</td>
+<td align="right">0.0002492</td>
+<td align="right">0.0000908</td>
+<td align="right">2.743274</td>
 <td align="left">coefficient</td>
-<td align="right">0.0113286</td>
 </tr>
 <tr class="odd">
-<td align="left">flag_earthquakeTRUE:volcanic_explosivity_index</td>
-<td align="right">-0.3523253</td>
-<td align="right">0.3367962</td>
-<td align="right">-1.0461083</td>
-<td align="left">coefficient</td>
-<td align="right">0.7245943</td>
-</tr>
-<tr class="even">
-<td align="left">flag_tsunamiTRUE:volcanic_explosivity_index</td>
-<td align="right">-0.3345279</td>
-<td align="right">0.1648441</td>
-<td align="right">-2.0293592</td>
-<td align="left">coefficient</td>
-<td align="right">0.7379812</td>
-</tr>
-<tr class="odd">
-<td
-align="left">flag_earthquakeTRUE:flag_tsunamiTRUE:volcanic_explosivity_index</td>
-<td align="right">0.1292320</td>
-<td align="right">0.4195615</td>
-<td align="right">0.3080167</td>
-<td align="left">coefficient</td>
-<td align="right">0.8971741</td>
-</tr>
-<tr class="even">
 <td align="left">Few (~1 to 50)|Many (~101 to 1000)</td>
-<td align="right">1.7750410</td>
-<td align="right">0.2222801</td>
-<td align="right">7.9856028</td>
+<td align="right">3.1386412</td>
+<td align="right">0.0615358</td>
+<td align="right">51.005098</td>
 <td align="left">scale</td>
-<td align="right">0.0758911</td>
-</tr>
-<tr class="odd">
-<td align="left">Many (~101 to 1000)|None/No Record</td>
-<td align="right">2.3220775</td>
-<td align="right">0.2325619</td>
-<td align="right">9.9847698</td>
-<td align="left">scale</td>
-<td align="right">0.0202288</td>
 </tr>
 <tr class="even">
-<td align="left">None/No Record|Some (~51 to 100)</td>
-<td align="right">4.3559613</td>
-<td align="right">0.2748869</td>
-<td align="right">15.8463761</td>
+<td align="left">Many (~101 to 1000)|None/No Record</td>
+<td align="right">4.1242602</td>
+<td align="right">0.1194732</td>
+<td align="right">34.520371</td>
 <td align="left">scale</td>
-<td align="right">0.0000132</td>
 </tr>
 <tr class="odd">
-<td align="left">Some (~51 to 100)|Very Many (~1001 or more)</td>
-<td align="right">5.1694338</td>
-<td align="right">0.3015639</td>
-<td align="right">17.1420829</td>
+<td align="left">None/No Record|Some (~51 to 100)</td>
+<td align="right">4.1251308</td>
+<td align="right">0.1194732</td>
+<td align="right">34.527652</td>
 <td align="left">scale</td>
-<td align="right">0.0000002</td>
+</tr>
+<tr class="even">
+<td align="left">Some (~51 to 100)|Very Many (~1001 or more)</td>
+<td align="right">5.0484971</td>
+<td align="right">0.1728692</td>
+<td align="right">29.204137</td>
+<td align="left">scale</td>
 </tr>
 </tbody>
 </table>
-<p>Because none of the interaction term is statistically significant
-(p-value &gt; 0.05). There is not enough evidence of effect
-modification. Given this result, we consider using a simpler model
-without the interaction term.</p>
-</div>
-<div id="fit-the-ordinal-logistic-regression-model"
-class="section level2">
-<h2>Fit the Ordinal Logistic Regression Model</h2>
-<pre class="r"><code>model2 &lt;- polr(volcano_deaths_description ~ flag_earthquake + flag_tsunami + volcanic_explosivity_index + elevation, data = tidy_df, Hess=TRUE)
-
-## view a summary of the model
-summary(model2)</code></pre>
-<pre><code>## Call:
-## polr(formula = volcano_deaths_description ~ flag_earthquake + 
-##     flag_tsunami + volcanic_explosivity_index + elevation, data = tidy_df, 
-##     Hess = TRUE)
-## 
-## Coefficients:
-##                                Value Std. Error t value
-## flag_earthquakeTRUE        0.5233064  2.374e-01   2.205
-## flag_tsunamiTRUE           1.7496090  1.365e-01  12.821
-## volcanic_explosivity_index 0.4423352  5.103e-02   8.669
-## elevation                  0.0001512  7.523e-05   2.010
-## 
-## Intercepts:
-##                                             Value   Std. Error t value
-## Few (~1 to 50)|Many (~101 to 1000)           1.7683  0.1808     9.7788
-## Many (~101 to 1000)|None/No Record           2.2875  0.1874    12.2077
-## None/No Record|Some (~51 to 100)             4.2917  0.2302    18.6448
-## Some (~51 to 100)|Very Many (~1001 or more)  5.1359  0.2665    19.2752
-## 
-## Residual Deviance: 1554.857 
-## AIC: 1570.857 
-## (176 observations deleted due to missingness)</code></pre>
 <p>The estimated model can be written as:</p>
-<p>Interpretation:</p>
+<p>… … …</p>
 <p>Some people require a p value to be satisfied. In this situation,
 comparing the t-value to the conventional normal distribution using a z
 test is one method of computing a p-value. This is only true when there
@@ -641,64 +570,124 @@ simple to implement and is utilized in other software programs like
 Stata. We compute the p-values and then merge them back with the table
 after storing the coefficient table.</p>
 <pre class="r"><code>## store table
-ctable2 &lt;- coef(summary(model2))
+ctable2 &lt;- coef(summary(logistic_model))
 
 ## calculate and store p values
 p &lt;- pnorm(abs(ctable2[, &quot;t value&quot;]), lower.tail = FALSE) * 2
 
 ## combined table
-(ctable2 &lt;- cbind(ctable2, &quot;p value&quot; = p))</code></pre>
-<pre><code>##                                                    Value   Std. Error   t value
-## flag_earthquakeTRUE                         0.5233064241 2.373657e-01  2.204643
-## flag_tsunamiTRUE                            1.7496089533 1.364604e-01 12.821365
-## volcanic_explosivity_index                  0.4423351663 5.102586e-02  8.668843
-## elevation                                   0.0001511924 7.522748e-05  2.009803
-## Few (~1 to 50)|Many (~101 to 1000)          1.7682821950 1.808280e-01  9.778806
-## Many (~101 to 1000)|None/No Record          2.2874672429 1.873783e-01 12.207747
-## None/No Record|Some (~51 to 100)            4.2916848241 2.301819e-01 18.644754
-## Some (~51 to 100)|Very Many (~1001 or more) 5.1359406818 2.664526e-01 19.275247
-##                                                  p value
-## flag_earthquakeTRUE                         2.747919e-02
-## flag_tsunamiTRUE                            1.244895e-37
-## volcanic_explosivity_index                  4.365329e-18
-## elevation                                   4.445208e-02
-## Few (~1 to 50)|Many (~101 to 1000)          1.388391e-22
-## Many (~101 to 1000)|None/No Record          2.826081e-34
-## None/No Record|Some (~51 to 100)            1.392942e-77
-## Some (~51 to 100)|Very Many (~1001 or more) 8.668522e-83</code></pre>
+ctable2 &lt;- cbind(ctable2, &quot;p value&quot; = p)
+
+knitr::kable(ctable2)</code></pre>
+<table>
+<colgroup>
+<col width="54%" />
+<col width="11%" />
+<col width="12%" />
+<col width="11%" />
+<col width="11%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="right">Value</th>
+<th align="right">Std. Error</th>
+<th align="right">t value</th>
+<th align="right">p value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">flag_earthquakeTRUE</td>
+<td align="right">0.5072157</td>
+<td align="right">0.2033666</td>
+<td align="right">2.494095</td>
+<td align="right">0.0126279</td>
+</tr>
+<tr class="even">
+<td align="left">flag_tsunamiTRUE</td>
+<td align="right">0.9231651</td>
+<td align="right">0.2488909</td>
+<td align="right">3.709115</td>
+<td align="right">0.0002080</td>
+</tr>
+<tr class="odd">
+<td align="left">volcanic_explosivity_index</td>
+<td align="right">0.5953685</td>
+<td align="right">0.0698766</td>
+<td align="right">8.520283</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="even">
+<td align="left">elevation</td>
+<td align="right">0.0002492</td>
+<td align="right">0.0000908</td>
+<td align="right">2.743274</td>
+<td align="right">0.0060830</td>
+</tr>
+<tr class="odd">
+<td align="left">Few (~1 to 50)|Many (~101 to 1000)</td>
+<td align="right">3.1386412</td>
+<td align="right">0.0615358</td>
+<td align="right">51.005098</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="even">
+<td align="left">Many (~101 to 1000)|None/No Record</td>
+<td align="right">4.1242602</td>
+<td align="right">0.1194732</td>
+<td align="right">34.520371</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="odd">
+<td align="left">None/No Record|Some (~51 to 100)</td>
+<td align="right">4.1251308</td>
+<td align="right">0.1194732</td>
+<td align="right">34.527652</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="even">
+<td align="left">Some (~51 to 100)|Very Many (~1001 or more)</td>
+<td align="right">5.0484971</td>
+<td align="right">0.1728692</td>
+<td align="right">29.204137</td>
+<td align="right">0.0000000</td>
+</tr>
+</tbody>
+</table>
 <p>Interpretation:</p>
-<p>We can also get confidence intervals for the parameter estimates.</p>
+<p>All the four predictors (<code>flag_earthquake</code>,
+<code>flag_tsunami</code>, <code>volcanic_explosivity_index</code>,
+<code>elevation</code>) have a p value less than 0.05, indicating that
+all of them are statistically significant.</p>
+<p>We can also get confidence intervals for the parameter estimates.
+These can be obtained either by profiling the likelihood function or by
+using the standard errors and assuming a normal distribution. Note that
+profiled CIs are not symmetric (although they are usually close to
+symmetric). If the 95% CI does not cross 0, the parameter estimate is
+statistically significant.</p>
 <pre class="r"><code># default method gives profiled CIs
-(ci &lt;- confint(model2)) </code></pre>
-<pre><code>##                                    2.5 %       97.5 %
-## flag_earthquakeTRUE        -5.165332e-02 1.0953216002
-## flag_tsunamiTRUE            1.318250e+00 2.1870135764
-## volcanic_explosivity_index  3.302431e-01 0.5564068167
-## elevation                   2.903546e-05 0.0002741418</code></pre>
-<pre class="r"><code># CIs assuming normality
-confint.default(model2) </code></pre>
-<pre><code>##                                   2.5 %       97.5 %
-## flag_earthquakeTRUE        5.807828e-02 0.9885345695
-## flag_tsunamiTRUE           1.482151e+00 2.0170664782
-## volcanic_explosivity_index 3.423263e-01 0.5423440121
-## elevation                  3.749240e-06 0.0002986355</code></pre>
+# (ci &lt;- confint(logistic_model)) 
+
+# CIs assuming normality
+ci = confint.default(logistic_model) </code></pre>
 <p>Interpretation:</p>
 <p>Another way to interpret logistic regression models is to convert the
 coefficients into odds ratios. To get the OR and confidence intervals,
 we just exponentiate the estimates and confidence intervals.</p>
 <pre class="r"><code>## odds ratios
-exp(coef(model2))</code></pre>
+exp(coef(logistic_model))</code></pre>
 <pre><code>##        flag_earthquakeTRUE           flag_tsunamiTRUE 
-##                   1.687598                   5.752353 
+##                   1.660661                   2.517245 
 ## volcanic_explosivity_index                  elevation 
-##                   1.556337                   1.000151</code></pre>
+##                   1.813699                   1.000249</code></pre>
 <pre class="r"><code>## OR and CI
-exp(cbind(OR = coef(model2), ci))</code></pre>
+exp(cbind(OR = coef(logistic_model), ci))</code></pre>
 <pre><code>##                                  OR    2.5 %   97.5 %
-## flag_earthquakeTRUE        1.687598 0.949658 2.990144
-## flag_tsunamiTRUE           5.752353 3.736875 8.908569
-## volcanic_explosivity_index 1.556337 1.391306 1.744393
-## elevation                  1.000151 1.000029 1.000274</code></pre>
+## flag_earthquakeTRUE        1.660661 1.114744 2.473927
+## flag_tsunamiTRUE           2.517245 1.545501 4.099981
+## volcanic_explosivity_index 1.813699 1.581562 2.079909
+## elevation                  1.000249 1.000071 1.000427</code></pre>
 <p>Interpretation:</p>
 </div>
 
