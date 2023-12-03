@@ -66,7 +66,8 @@ Correlation between the variables is shown by the following heatmap:
 ```{r}
 # Import tidied data
 tidy_df = 
-  read.csv2("data/volcanic-eruption-final.csv", sep = ",", stringsAsFactors = TRUE)
+  read.csv2("data/volcanic-eruption-final.csv", sep = ",", stringsAsFactors = TRUE) |>
+  mutate(elevation = elevation / 1000)
   
 
 # Select variables of interest
@@ -159,5 +160,5 @@ exp(cbind(OR = coef(logistic_model), ci)) |> knitr::kable()
 
 * For volcano eruptions accompanied by earthquake, the odds of causing more deaths (i.e., very many, many or some versus few) is 1.66 times that of volcano eruptions that are not accompanied by earthquake, holding constant all other variables.
 * For volcano eruptions accompanied by tsunami, the odds of causing more deaths (i.e., very many, many or some versus few) is 2.52 times that of volcano eruptions that are not accompanied by tsunami, holding constant all other variables.
-* For every one unit increase in volcanic explosivity index (VEI), the odds of causing more deaths (i.e., very many, many or some versus few) is multiplied 1.85 times (i.e., increases 81%), holding constant all other variables.
-* A one-unit increase in elevation is not associated with a change in the odds of causing more deaths.
+* For every one unit increase in volcanic explosivity index (VEI), the odds of causing more deaths (i.e., very many, many or some versus few) is multiplied 1.81 times (i.e., increases 81%), holding constant all other variables.
+* For every one unit (km) increase in elevation, the odds of causing more deaths (i.e., very many, many or some versus few) is multiplied 1.28 times (i.e., increases 28%), holding constant all other variables.
