@@ -345,7 +345,7 @@ tsunami_houses_destroyed =
   geom_boxplot() +
   labs(title = "Houses Destroyed vs Tsunami", x = "Tsunami Occurrence", y = "ln_Houses Destroyed")
 
-grid.arrange(tsunami_injuries, tsunami_deaths, tsunami_damage, tsunami_houses_destroyed, ncol = 2)
+grid.arrange(tsunami_deaths, tsunami_injuries, tsunami_damage, tsunami_houses_destroyed, ncol = 2)
 ```
 
 The box plots above indicate a noticeable influence of tsunami occurrence on the volcanic losses. The tsunami effects triggered by volcanic activities are likely to contribute to an increase in both casualties and property damage.
@@ -391,7 +391,7 @@ earthquake_houses_destroyed =
   labs(title = "Houses Destroyed vs Earthquake", x = "Earthquake Occurrence", y = "ln_Houses Destroyed") 
 
 
-grid.arrange(earthquake_injuries, earthquake_deaths, earthquake_damage, earthquake_houses_destroyed, ncol = 2)
+grid.arrange(earthquake_deaths, earthquake_injuries, earthquake_damage, earthquake_houses_destroyed, ncol = 2)
 ```
 
 The above box plots indicate that when volcanic eruptions trigger volcanic earthquakes, there is a generally noticeable increase in casualties and property damage compared to situations where volcanic earthquakes are not triggered.
@@ -440,7 +440,7 @@ type_houses_destroyed =
   labs(title = "Houses Destroyed vs Volcano Type", x = "Volcano Type", y = "ln_Houses Destroyed")+
   theme(axis.text.x = element_text(angle = 45, hjust = 1), legend.position = "none")
 
-grid.arrange(type_injuries, type_deaths, type_damage, type_houses_destroyed, ncol = 2)
+grid.arrange(type_deaths, type_injuries, type_damage, type_houses_destroyed, ncol = 2)
 ```
 
 
@@ -496,7 +496,7 @@ VEI_houses_destroyed =
   theme(legend.position = "none")
 
 
-grid.arrange(VEI_injuries, VEI_deaths, VEI_damage, VEI_houses_destroyed, ncol = 2)
+grid.arrange(VEI_deaths, VEI_injuries, VEI_damage, VEI_houses_destroyed, ncol = 2)
 ```
 
 The above box plots show that with the increase in the volcanic explosivity index, there is a general upward trend in casualties and property damage caused by volcanic eruptions. In other words, as the energy of the volcanic eruption increases, the casualties and losses become more severe.
@@ -553,7 +553,7 @@ elevation_houses_destroyed =
   theme(legend.position = "none")
 
 
-grid.arrange(elevation_injuries, elevation_deaths, elevation_damage, elevation_houses_destroyed, ncol = 2)
+grid.arrange(elevation_deaths, elevation_injuries, elevation_damage, elevation_houses_destroyed, ncol = 2)
 ```
 
 The above plots show that, apart from the deaths, there is no significant correlation between the elevation of volcanoes and the number of injuries or property damage. Volcanoes at higher elevations tend to result in a higher number of deaths, and this trend becomes more pronounced when the volcano's elevation exceeds 5000 meters.
