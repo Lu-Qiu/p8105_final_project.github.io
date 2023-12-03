@@ -555,7 +555,7 @@ cad_df = tidy_df |>
          elevation)
 ```
 
-----------------------
+
 
 ### Tsunami
 
@@ -637,7 +637,6 @@ grid.arrange(
 
 We can see that in general, for volcanic eruptions with casualties and damages, the occurrence of tsunami will increase the severity of the losses.
 
-----------------------
 
 ### Earthquake
 
@@ -707,7 +706,6 @@ grid.arrange(
 We can see that in general, for volcanic eruptions with casualties and damages, the occurrence of earthquakes will increase the severity of the losses.
 
 
-----------------------
 
 ### VEI
 
@@ -792,7 +790,6 @@ grid.arrange(
 We can see that as VEI increases, the proportion of volcanic eruptions with more severe losses also increases, especially for casualty levels. This indicates that eruptions with a large VEI is likely to be more deadly.
 
 
-----------------------
 
 ### Elevation
 
@@ -899,16 +896,15 @@ iceland_volcanic_data <- tidy_df %>%
 
 ggplot(iceland_volcanic_data, aes(x = year, fill = as.factor(-year))) +
   geom_histogram(bins = 30, color = "darkgray") +
-  scale_fill_viridis_d() + 
   theme_minimal() +
   theme(legend.position = "none") + 
-  labs(title = "Plot 1: Distribution of Volcanic Eruptions in Iceland Over Time",
+  labs(title = "Distribution of Volcanic Eruptions in Iceland Over Time",
        x = "Year",
        y = "Number of Eruptions")
 
 ```
 
-Plot 1 shows the number of volcanic eruptions in Iceland over several centuries. The data suggests an increase in recorded eruptions over time, particularly around the late 1700s. However the increasing trend in later years could be attributed to better documentation as well as an actual increase in volcanic activity.
+The above plot shows the number of volcanic eruptions in Iceland over several centuries. The data suggests an increase in recorded eruptions over time, particularly around the late 1700s. However the increasing trend in later years could be attributed to better documentation as well as an actual increase in volcanic activity.
 
 ```{r}
 iceland_volcanic_data %>%
@@ -917,15 +913,14 @@ iceland_volcanic_data %>%
   mutate(volcano_type = factor(volcano_type, levels = volcano_type)) %>%
   ggplot(aes(x = volcano_type, y = n, fill = volcano_type)) + 
   geom_col() + 
-  scale_fill_viridis_d()+
   theme_minimal() +
-  labs(title = "Plot 2: Prevalence of Different Volcano Types in Iceland",
+  labs(title = "Prevalence of Different Volcano Types in Iceland",
        x = "Volcano Type",
        y = "Count") +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 ```
 
-Plot 2 indicates that stratovolcanoes are the most prevalent volcano type in Iceland, suggesting varied and complex volcanic activity.
+The above plot indicates that stratovolcanoes are the most prevalent volcano type in Iceland, suggesting varied and complex volcanic activity.
 
 ```{r}
 iceland_volcanic_data |>
@@ -934,10 +929,10 @@ iceland_volcanic_data |>
   geom_bar() +
   scale_fill_viridis_d(na.value = "gray")+
   theme_minimal() +
-  labs(title = "Plot 3: Distribution of Volcanic Explosivity Index (VEI) in Iceland",
+  labs(title = "Distribution of Volcanic Explosivity Index (VEI) in Iceland",
        x = "VEI",
        y = "Count")
 
 ```
 
-Plot 3 shows that eruptions with a Volcanic Explosivity Index of 3 and 4 are most common in Iceland, indicating moderate explosivity is typical for Icelandic eruptions.
+The above plot shows that eruptions with a Volcanic Explosivity Index of 3 and 4 are most common in Iceland, indicating moderate explosivity is typical for Icelandic eruptions.
