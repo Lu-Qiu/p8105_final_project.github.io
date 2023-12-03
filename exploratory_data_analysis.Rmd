@@ -556,7 +556,7 @@ elevation_houses_destroyed =
 grid.arrange(elevation_injuries, elevation_deaths, elevation_damage, elevation_houses_destroyed, ncol = 2)
 ```
 
-The above plots show that there is no obvious relationship between the elevation of the volcanoes and the casualties and property losses caused by the eruption.
+The above plots show that, apart from the deaths, there is no significant correlation between the elevation of volcanoes and the number of injuries or property damage. Volcanoes at higher elevations tend to result in a higher number of deaths, and this trend becomes more pronounced when the volcano's elevation exceeds 5000 meters.
 
 -------------------
 
