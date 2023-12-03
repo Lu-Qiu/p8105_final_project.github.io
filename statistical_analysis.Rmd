@@ -35,7 +35,7 @@ scale_fill_discrete   = scale_fill_viridis_d
 
 ## Methodology
 
-Based on the results in exploratory data analysis, it is clear that deaths, injuries, damage and houses destroyed by volcanic eruptions can be affected by factors like earthquake, tsunami, VEI and elevation of the volcano. In this statistical analysis part, we'll focus on the relationship between volcanic deaths and other factors. To better describe their relationship, we'll utilize descriptive data on deaths from the dataset, and since it is an ordinal categorical variable, we'll use **ordinal logistic regression** to assess the association between predictors and the ordinal outcome.
+Based on the results in exploratory data analysis, it is clear that deaths, injuries, damage and houses destroyed by volcanic eruptions can be affected by factors like earthquake, tsunami, VEI and elevation of the volcano. Because deaths is the only outcome that may be affected by all four factors mentioned above, we'll use deaths as the outcome in our model fitting. We'll utilize descriptive data on deaths from the dataset, and since it is an ordinal categorical variable, we'll use **ordinal logistic regression** to assess the association between predictors and the ordinal outcome.
 
 We'll use the `polr` command from the MASS package to estimate an ordered logistic regression model. We also specify `Hess=TRUE` to have the model return the observed information matrix from optimization (called the Hessian) which is used to get standard errors.
 
@@ -66,8 +66,7 @@ Correlation between the variables is shown by the following heatmap:
 ```{r}
 # Import tidied data
 tidy_df = 
-  read.csv2("data/volcanic-eruption-final.csv", sep = ",", stringsAsFactors = TRUE) |>
-  mutate(elevation = elevation / 1000)
+  read.csv2("data/volcanic-eruption-final.csv", sep = ",", stringsAsFactors = TRUE) 
   
 
 # Select variables of interest
@@ -118,6 +117,8 @@ The estimated model can be written as:
 ...
 ...
 
+The estimate for `elevation` appears relatively small, possibly because the unit of measurement for elevation is in meters (m). If we use kilometers (km) instead, the estimate would likely increase.
+
 ### P-value
 
 Some people require a p value to be satisfied. In this situation, comparing the t-value to the conventional normal distribution using a z test is one method of computing a p-value. This is only true when there are infinite degrees of freedom, but large samples can well approximate it; as sample size drops, the sample becomes more biased. This method is simple to implement and is utilized in other software programs like Stata. We compute the p-values and then merge them back with the table after storing the coefficient table.
@@ -161,4 +162,4 @@ exp(cbind(OR = coef(logistic_model), ci)) |> knitr::kable()
 * For volcano eruptions accompanied by earthquake, the odds of causing more deaths (i.e., very many, many or some versus few) is 1.66 times that of volcano eruptions that are not accompanied by earthquake, holding constant all other variables.
 * For volcano eruptions accompanied by tsunami, the odds of causing more deaths (i.e., very many, many or some versus few) is 2.52 times that of volcano eruptions that are not accompanied by tsunami, holding constant all other variables.
 * For every one unit increase in volcanic explosivity index (VEI), the odds of causing more deaths (i.e., very many, many or some versus few) is multiplied 1.81 times (i.e., increases 81%), holding constant all other variables.
-* For every one unit (km) increase in elevation, the odds of causing more deaths (i.e., very many, many or some versus few) is multiplied 1.28 times (i.e., increases 28%), holding constant all other variables.
+* A one-unit increase in elevation is not associated with a change in the odds of causing more deaths.
