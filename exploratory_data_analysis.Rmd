@@ -159,7 +159,9 @@ geo_df |>
                "Eruption Count: ", eruption_count) |> lapply(htmltools::HTML)) 
 ```
 
-We can notice that most volcanoes are located at the edge of the continents. This pattern is a result of the tectonic plate boundaries where volcanic activity is often concentrated. 
+We can notice that most volcanoes are located along the peripheries of continents. This pattern is a result of the tectonic plate boundaries where volcanic activity is often concentrated. 
+
+We can also notice that the majority of volcanoes are located along the Pacific Ocean. This area is known as the "Ring of Fire". It traces boundaries between several tectonic plates—including the Pacific, Juan de Fuca, Cocos, Indian-Australian, Nazca, North American, and Philippine Plates.
 
 ```{r}
 country1 =
