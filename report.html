@@ -394,10 +394,15 @@ eruption?</p></li>
 </div>
 <div id="data" class="section level3">
 <h3>Data</h3>
+<div id="data-source" class="section level4">
+<h4>Data Source</h4>
 <p>We use the <a
 href="https://public.opendatasoft.com/explore/dataset/significant-volcanic-eruption-database/information/">Significant
 Volcanic Eruption Database</a> in our study. The original csv file can
 be downloaded at the linked website.</p>
+</div>
+<div id="data-cleaning" class="section level4">
+<h4>Data Cleaning</h4>
 <pre class="r"><code>tidy_df = 
   read.csv(
     &quot;data/significant-volcanic-eruption-database.csv&quot;, 
@@ -457,11 +462,33 @@ be downloaded at the linked website.</p>
     volcano_houses_destroyed_description = factor(volcano_houses_destroyed_description, levels = c(&quot;Very Many (~1001 or more)&quot;, &quot;Many (~101 to 1000)&quot;, &quot;Some (~51 to 100)&quot;, &quot;Few (~1 to 50)&quot;, &quot;None/No Record&quot;))
   )</code></pre>
 <p>The raw data is a global listing of over 800 volcanic eruptions and
-their information. We clean the data format, make sure the variables are
-appropriately encoded, correct or shorten some of the character
-variables’ values, and select the variables of our interest. The final
-dataset used for the analysis has <code>18</code> variables, listed
-below:</p>
+their information. All the variables are compressed in two columns in
+the csv file, so when importing the data, we used
+<code>read.csv()</code> function to separate them by <code>;</code>, and
+set the empty values as <code>NA</code>.</p>
+<p>Next, we cleaned the variable names with
+<code>janitor::clean_names()</code>, and removed the unwanted variables
+(e.g. <code>month</code> and <code>day</code> which are missing for many
+eruptions, <code>location</code> which is unnecessary in our study,
+variables of total effect which are mostly repetition of volcano effect)
+from our dataframe.</p>
+<p>Finally, we used <code>mutate()</code> function to make some
+necessary adjustments to the variables, including:</p>
+<ul>
+<li><p>Changed the variable type of <code>flag_tsunami</code> and
+<code>flag_earthquake</code> from character to boolean using
+<code>case_match()</code>.</p></li>
+<li><p>Separated variable <code>coordinates</code> into two numeric
+variables <code>lat</code>, <code>long</code> using
+<code>separate()</code> and <code>as.numeric()</code>.</p></li>
+<li><p>For the loss description variables, changed the <code>NA</code>
+values to <code>"None/No Record"</code>, shortened the description
+length using <code>case_match()</code> and changed their type from
+character to factor using <code>factor()</code>, assigning the levels
+according to severity.</p></li>
+</ul>
+<p>The final dataframe used for the analysis, <code>tidy_df</code>, has
+<strong>18</strong> variables, listed below:</p>
 <ul>
 <li><code>year</code>: the year of eruption</li>
 <li><code>flag_tsunami</code>: whether there is a tsunami accompanying
@@ -497,6 +524,7 @@ house destruction</li>
 </li>
 <li><code>long</code>: longitude of the volcano</li>
 </ul>
+</div>
 </div>
 <div id="exploratory-analysis" class="section level3">
 <h3>Exploratory analysis</h3>

@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
   echo = TRUE, 
   message = FALSE, 
   warning = FALSE,
-  fig.align = "center"
+  fig.width = 9
 )
 
 # set theme defaults
@@ -49,7 +49,11 @@ Caldera J, Wirasinghe S C. Analysis and classification of volcanic eruptions[J].
 
 ### Data
 
+#### Data Source
+
 We use the [Significant Volcanic Eruption Database](https://public.opendatasoft.com/explore/dataset/significant-volcanic-eruption-database/information/) in our study. The original csv file can be downloaded at the linked website.
+
+#### Data Cleaning
 
 ```{r}
 tidy_df = 
@@ -113,7 +117,19 @@ tidy_df =
 
 ```
 
-The raw data is a global listing of over 800 volcanic eruptions and their information. We clean the data format, make sure the variables are appropriately encoded, correct or shorten some of the character variables' values, and select the variables of our interest. The final dataset used for the analysis has `18` variables, listed below:
+The raw data is a global listing of over 800 volcanic eruptions and their information. All the variables are compressed in two columns in the csv file, so when importing the data, we used `read.csv()` function to separate them by `;`, and set the empty values as `NA`.
+
+Next, we cleaned the variable names with `janitor::clean_names()`, and removed the unwanted variables (e.g. `month` and `day` which are missing for many eruptions, `location` which is unnecessary in our study, variables of total effect which are mostly repetition of volcano  effect) from our dataframe.
+
+Finally, we used `mutate()` function to make some necessary adjustments to the variables, including:
+
+* Changed the variable type of `flag_tsunami` and `flag_earthquake` from character to boolean using `case_match()`.
+
+* Separated variable `coordinates` into two numeric variables `lat`, `long` using `separate()` and `as.numeric()`.
+
+* For the loss description variables, changed the `NA` values to `"None/No Record"`, shortened the description length using `case_match()` and changed their type from character to factor using `factor()`, assigning the levels according to severity.
+
+The final dataframe used for the analysis, `tidy_df`,  has __18__ variables, listed below:
 
 * `year`: the year of eruption
 * `flag_tsunami`: whether there is a tsunami accompanying the volcanic eruption
