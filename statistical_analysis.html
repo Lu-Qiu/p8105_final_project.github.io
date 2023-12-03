@@ -481,6 +481,8 @@ class="section level2">
 volcanic_explosivity_index + elevation</p>
 <pre class="r"><code>death_df = 
   tidy_df |&gt;
+  mutate(volcano_deaths_description = droplevels(volcano_deaths_description, exclude = &quot;None/No Record&quot;)) |&gt;
+  mutate(volcano_deaths_description = factor(volcano_deaths_description, levels = c(&quot;Few (~1 to 50)&quot;, &quot;Some (~51 to 100)&quot;, &quot;Many (~101 to 1000)&quot;, &quot;Very Many (~1001 or more)&quot;))) |&gt;
   filter(volcano_deaths_description != &quot;None/No Record&quot;)
 
 logistic_model &lt;- polr(volcano_deaths_description ~ flag_earthquake + flag_tsunami + volcanic_explosivity_index + elevation, data = death_df, Hess=TRUE)
@@ -489,11 +491,11 @@ logistic_model &lt;- polr(volcano_deaths_description ~ flag_earthquake + flag_ts
 logistic_model |&gt; broom::tidy() |&gt; knitr::kable()</code></pre>
 <table>
 <colgroup>
-<col width="53%" />
+<col width="54%" />
 <col width="10%" />
 <col width="10%" />
 <col width="10%" />
-<col width="13%" />
+<col width="12%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -507,58 +509,51 @@ logistic_model |&gt; broom::tidy() |&gt; knitr::kable()</code></pre>
 <tbody>
 <tr class="odd">
 <td align="left">flag_earthquakeTRUE</td>
-<td align="right">0.5072157</td>
-<td align="right">0.2033666</td>
-<td align="right">2.494095</td>
+<td align="right">0.4677827</td>
+<td align="right">0.2042872</td>
+<td align="right">2.289829</td>
 <td align="left">coefficient</td>
 </tr>
 <tr class="even">
 <td align="left">flag_tsunamiTRUE</td>
-<td align="right">0.9231651</td>
-<td align="right">0.2488909</td>
-<td align="right">3.709115</td>
+<td align="right">1.0003685</td>
+<td align="right">0.2562528</td>
+<td align="right">3.903834</td>
 <td align="left">coefficient</td>
 </tr>
 <tr class="odd">
 <td align="left">volcanic_explosivity_index</td>
-<td align="right">0.5953685</td>
-<td align="right">0.0698766</td>
-<td align="right">8.520283</td>
+<td align="right">0.6581785</td>
+<td align="right">0.0700467</td>
+<td align="right">9.396279</td>
 <td align="left">coefficient</td>
 </tr>
 <tr class="even">
 <td align="left">elevation</td>
-<td align="right">0.0002492</td>
-<td align="right">0.0000908</td>
-<td align="right">2.743274</td>
+<td align="right">0.0002371</td>
+<td align="right">0.0000905</td>
+<td align="right">2.619574</td>
 <td align="left">coefficient</td>
 </tr>
 <tr class="odd">
-<td align="left">Few (~1 to 50)|Many (~101 to 1000)</td>
-<td align="right">3.1386412</td>
-<td align="right">0.0615358</td>
-<td align="right">51.005098</td>
+<td align="left">Few (~1 to 50)|Some (~51 to 100)</td>
+<td align="right">3.2838289</td>
+<td align="right">0.0647828</td>
+<td align="right">50.689804</td>
 <td align="left">scale</td>
 </tr>
 <tr class="even">
-<td align="left">Many (~101 to 1000)|None/No Record</td>
-<td align="right">4.1242602</td>
-<td align="right">0.1194732</td>
-<td align="right">34.520371</td>
+<td align="left">Some (~51 to 100)|Many (~101 to 1000)</td>
+<td align="right">3.7735547</td>
+<td align="right">0.0938727</td>
+<td align="right">40.198620</td>
 <td align="left">scale</td>
 </tr>
 <tr class="odd">
-<td align="left">None/No Record|Some (~51 to 100)</td>
-<td align="right">4.1251308</td>
-<td align="right">0.1194732</td>
-<td align="right">34.527652</td>
-<td align="left">scale</td>
-</tr>
-<tr class="even">
-<td align="left">Some (~51 to 100)|Very Many (~1001 or more)</td>
-<td align="right">5.0484971</td>
-<td align="right">0.1728692</td>
-<td align="right">29.204137</td>
+<td align="left">Many (~101 to 1000)|Very Many (~1001 or more)</td>
+<td align="right">5.2650075</td>
+<td align="right">0.1794452</td>
+<td align="right">29.340479</td>
 <td align="left">scale</td>
 </tr>
 </tbody>
@@ -592,11 +587,11 @@ ctable2 &lt;- cbind(ctable2, &quot;p value&quot; = p)
 knitr::kable(ctable2)</code></pre>
 <table>
 <colgroup>
-<col width="54%" />
+<col width="55%" />
+<col width="10%" />
 <col width="11%" />
-<col width="12%" />
-<col width="11%" />
-<col width="11%" />
+<col width="10%" />
+<col width="10%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -610,58 +605,51 @@ knitr::kable(ctable2)</code></pre>
 <tbody>
 <tr class="odd">
 <td align="left">flag_earthquakeTRUE</td>
-<td align="right">0.5072157</td>
-<td align="right">0.2033666</td>
-<td align="right">2.494095</td>
-<td align="right">0.0126279</td>
+<td align="right">0.4677827</td>
+<td align="right">0.2042872</td>
+<td align="right">2.289829</td>
+<td align="right">0.0220313</td>
 </tr>
 <tr class="even">
 <td align="left">flag_tsunamiTRUE</td>
-<td align="right">0.9231651</td>
-<td align="right">0.2488909</td>
-<td align="right">3.709115</td>
-<td align="right">0.0002080</td>
+<td align="right">1.0003685</td>
+<td align="right">0.2562528</td>
+<td align="right">3.903834</td>
+<td align="right">0.0000947</td>
 </tr>
 <tr class="odd">
 <td align="left">volcanic_explosivity_index</td>
-<td align="right">0.5953685</td>
-<td align="right">0.0698766</td>
-<td align="right">8.520283</td>
+<td align="right">0.6581785</td>
+<td align="right">0.0700467</td>
+<td align="right">9.396279</td>
 <td align="right">0.0000000</td>
 </tr>
 <tr class="even">
 <td align="left">elevation</td>
-<td align="right">0.0002492</td>
-<td align="right">0.0000908</td>
-<td align="right">2.743274</td>
-<td align="right">0.0060830</td>
+<td align="right">0.0002371</td>
+<td align="right">0.0000905</td>
+<td align="right">2.619574</td>
+<td align="right">0.0088040</td>
 </tr>
 <tr class="odd">
-<td align="left">Few (~1 to 50)|Many (~101 to 1000)</td>
-<td align="right">3.1386412</td>
-<td align="right">0.0615358</td>
-<td align="right">51.005098</td>
+<td align="left">Few (~1 to 50)|Some (~51 to 100)</td>
+<td align="right">3.2838289</td>
+<td align="right">0.0647828</td>
+<td align="right">50.689804</td>
 <td align="right">0.0000000</td>
 </tr>
 <tr class="even">
-<td align="left">Many (~101 to 1000)|None/No Record</td>
-<td align="right">4.1242602</td>
-<td align="right">0.1194732</td>
-<td align="right">34.520371</td>
+<td align="left">Some (~51 to 100)|Many (~101 to 1000)</td>
+<td align="right">3.7735547</td>
+<td align="right">0.0938727</td>
+<td align="right">40.198620</td>
 <td align="right">0.0000000</td>
 </tr>
 <tr class="odd">
-<td align="left">None/No Record|Some (~51 to 100)</td>
-<td align="right">4.1251308</td>
-<td align="right">0.1194732</td>
-<td align="right">34.527652</td>
-<td align="right">0.0000000</td>
-</tr>
-<tr class="even">
-<td align="left">Some (~51 to 100)|Very Many (~1001 or more)</td>
-<td align="right">5.0484971</td>
-<td align="right">0.1728692</td>
-<td align="right">29.204137</td>
+<td align="left">Many (~101 to 1000)|Very Many (~1001 or more)</td>
+<td align="right">5.2650075</td>
+<td align="right">0.1794452</td>
+<td align="right">29.340479</td>
 <td align="right">0.0000000</td>
 </tr>
 </tbody>
@@ -692,23 +680,23 @@ knitr::kable(ci)</code></pre>
 <tbody>
 <tr class="odd">
 <td align="left">flag_earthquakeTRUE</td>
-<td align="right">0.1086245</td>
-<td align="right">0.9058069</td>
+<td align="right">0.0673871</td>
+<td align="right">0.8681783</td>
 </tr>
 <tr class="even">
 <td align="left">flag_tsunamiTRUE</td>
-<td align="right">0.4353478</td>
-<td align="right">1.4109823</td>
+<td align="right">0.4981222</td>
+<td align="right">1.5026149</td>
 </tr>
 <tr class="odd">
 <td align="left">volcanic_explosivity_index</td>
-<td align="right">0.4584128</td>
-<td align="right">0.7323241</td>
+<td align="right">0.5208894</td>
+<td align="right">0.7954675</td>
 </tr>
 <tr class="even">
 <td align="left">elevation</td>
-<td align="right">0.0000711</td>
-<td align="right">0.0004272</td>
+<td align="right">0.0000597</td>
+<td align="right">0.0004145</td>
 </tr>
 </tbody>
 </table>
@@ -736,43 +724,43 @@ we just exponentiate the estimates and confidence intervals.</p>
 <tbody>
 <tr class="odd">
 <td align="left">flag_earthquakeTRUE</td>
-<td align="right">1.660661</td>
-<td align="right">1.114744</td>
-<td align="right">2.473927</td>
+<td align="right">1.596450</td>
+<td align="right">1.069710</td>
+<td align="right">2.382567</td>
 </tr>
 <tr class="even">
 <td align="left">flag_tsunamiTRUE</td>
-<td align="right">2.517245</td>
-<td align="right">1.545500</td>
-<td align="right">4.099981</td>
+<td align="right">2.719284</td>
+<td align="right">1.645628</td>
+<td align="right">4.493423</td>
 </tr>
 <tr class="odd">
 <td align="left">volcanic_explosivity_index</td>
-<td align="right">1.813699</td>
-<td align="right">1.581562</td>
-<td align="right">2.079909</td>
+<td align="right">1.931271</td>
+<td align="right">1.683524</td>
+<td align="right">2.215476</td>
 </tr>
 <tr class="even">
 <td align="left">elevation</td>
-<td align="right">1.000249</td>
-<td align="right">1.000071</td>
-<td align="right">1.000427</td>
+<td align="right">1.000237</td>
+<td align="right">1.000060</td>
+<td align="right">1.000415</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Interpretation</strong>:</p>
 <ul>
 <li>For volcano eruptions accompanied by earthquake, the odds of causing
-more deaths (i.e., very many, many or some versus few) is 1.66 times
+more deaths (i.e., very many, many or some versus few) is 1.60 times
 that of volcano eruptions that are not accompanied by earthquake,
 holding constant all other variables.</li>
 <li>For volcano eruptions accompanied by tsunami, the odds of causing
-more deaths (i.e., very many, many or some versus few) is 2.52 times
+more deaths (i.e., very many, many or some versus few) is 2.72 times
 that of volcano eruptions that are not accompanied by tsunami, holding
 constant all other variables.</li>
 <li>For every one unit increase in volcanic explosivity index (VEI), the
 odds of causing more deaths (i.e., very many, many or some versus few)
-is multiplied 1.81 times (i.e., increases 81%), holding constant all
+is multiplied 1.93 times (i.e., increases 93%), holding constant all
 other variables.</li>
 <li>A one-unit increase in elevation is not associated with a change in
 the odds of causing more deaths.</li>

@@ -102,6 +102,8 @@ volcano_deaths_description ~ flag_earthquake + flag_tsunami + volcanic_explosivi
 ```{r}
 death_df = 
   tidy_df |>
+  mutate(volcano_deaths_description = droplevels(volcano_deaths_description, exclude = "None/No Record")) |>
+  mutate(volcano_deaths_description = factor(volcano_deaths_description, levels = c("Few (~1 to 50)", "Some (~51 to 100)", "Many (~101 to 1000)", "Very Many (~1001 or more)"))) |>
   filter(volcano_deaths_description != "None/No Record")
 
 logistic_model <- polr(volcano_deaths_description ~ flag_earthquake + flag_tsunami + volcanic_explosivity_index + elevation, data = death_df, Hess=TRUE)
@@ -159,7 +161,7 @@ exp(cbind(OR = coef(logistic_model), ci)) |> knitr::kable()
 ```
 **Interpretation**:
 
-* For volcano eruptions accompanied by earthquake, the odds of causing more deaths (i.e., very many, many or some versus few) is 1.66 times that of volcano eruptions that are not accompanied by earthquake, holding constant all other variables.
-* For volcano eruptions accompanied by tsunami, the odds of causing more deaths (i.e., very many, many or some versus few) is 2.52 times that of volcano eruptions that are not accompanied by tsunami, holding constant all other variables.
-* For every one unit increase in volcanic explosivity index (VEI), the odds of causing more deaths (i.e., very many, many or some versus few) is multiplied 1.81 times (i.e., increases 81%), holding constant all other variables.
+* For volcano eruptions accompanied by earthquake, the odds of causing more deaths (i.e., very many, many or some versus few) is 1.60 times that of volcano eruptions that are not accompanied by earthquake, holding constant all other variables.
+* For volcano eruptions accompanied by tsunami, the odds of causing more deaths (i.e., very many, many or some versus few) is 2.72 times that of volcano eruptions that are not accompanied by tsunami, holding constant all other variables.
+* For every one unit increase in volcanic explosivity index (VEI), the odds of causing more deaths (i.e., very many, many or some versus few) is multiplied 1.93 times (i.e., increases 93%), holding constant all other variables.
 * A one-unit increase in elevation is not associated with a change in the odds of causing more deaths.
