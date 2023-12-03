@@ -35,7 +35,18 @@ scale_fill_discrete   = scale_fill_viridis_d
 
 ## Data Cleaning and Processing
 
-(Describe the steps in data cleaning)
+The raw data is a global listing of over 800 volcanic eruptions and their information. All the variables are compressed in two columns in the csv file, so when importing the data, we used `read.csv()` function to separate them by `;`, and set the empty values as `NA`.
+
+Next, we cleaned the variable names with `janitor::clean_names()`, and removed the unwanted variables (e.g. `month` and `day` which are missing for many eruptions, `location` which is unnecessary in our study, variables of total effect which are mostly repetition of volcano  effect) from our dataframe.
+
+Finally, we used `mutate()` function to make some necessary adjustments to the variables, including:
+
+* Changed the variable type of `flag_tsunami` and `flag_earthquake` from character to boolean using `case_match()`.
+
+* Separated variable `coordinates` into two numeric variables `lat`, `long` using `separate()` and `as.numeric()`.
+
+* For the loss description variables, changed the `NA` values to `"None/No Record"`, shortened the description length using `case_match()` and changed their type from character to factor using `factor()`, assigning the levels according to severity.
+
 
 ```{r}
 tidy_df = 
@@ -102,8 +113,8 @@ write.csv(tidy_df, "data/volcanic-eruption-final.csv", row.names=FALSE)
 The final dataset used in the analysis has the following key variables:
 
 * `year`: the year of eruption
-* `flag_tsunami`: specifies whether there is a tsunami accompanying the volcanic eruption (1: with tsunami, 0: no tsunami)
-* `flag_earthquake`: specifies whether there is an earthquake accompanying the volcanic eruption (1: with earthquake, 0: no earthquake)
+* `flag_tsunami`: specifies whether there is a tsunami accompanying the volcanic eruption 
+* `flag_earthquake`: specifies whether there is an earthquake accompanying the volcanic eruption
 * `volcano_name`: the name of the volcano
 * `country`: the country where the volcano is located
 * `elevation`: the elevation of the volcano
@@ -117,8 +128,8 @@ The final dataset used in the analysis has the following key variables:
 * `volcano_damage_description`: description of damage (in million dollars) caused directly by volcanic eruption         
 * `volcano_houses_destroyed`: houses destroyed directly by volcanic eruption             
 * `volcano_houses_destroyed_description`: description of houses destroyed directly by volcanic eruption
-* `lat`: latitude                                
-* `long`: longitude
+* `lat`: latitude of the volcano                              
+* `long`: longitude of the volcano
 
 
 ## Geographical Distribution of Volcanic Eruptions
@@ -202,7 +213,7 @@ ifelse(tidy_df$year <= 1999, "20th century", "21st century")))))
 voc_year$period <- factor(voc_year$period, levels = c("Before Christ", "0-1000", "1000-1500", "1500-1900", "20th century","21st century"))
 ```
 
-### Volcanic Eruption Counts Over Periods
+### Volcanic Eruption Counts Over Time Periods
 
 ```{r}
 expo <- voc_year |>
@@ -216,11 +227,12 @@ ggplot(expo,aes(x = period, y = count,fill = volcanic_explosivity_index)) +
    labs(
     x = "Period",
     y = "Count",
-    title = "Volcanic Explosivity Index Count Over Periods"
+    title = "Volcanic Eruption Counts Over Time Periods"
   )
 ```
-The graph shows the number of deaths and injuries caused by volcanic eruptions over time. The year from 1500 to 1900 saw the most volcanic eruptions, with a total of around 250. We can also find that most of the eruptions’ volcanic index range from 1 to 5 while only a small proportion of eruptions’ volcanic index are around 0. 
-The number of eruptions in the 20th century is approximately equal to the total number of eruptions from 1500 to 1900. Most eruptions’ volcanic index range from 2 to 5. Eruptions with grey degree consists of 25% of the total number of eruptions in the 20th century. The total number of eruptions of the rest four time periods are nearly equal. For eruptions taking place before Christ or from 0 to 1000 B.C., eruption with the volcanic index of 6 is the main type of eruption. For the 21st century, however, eruptions of each type have taken place at an almost equal chance.
+The above plot illustrates the total number of volcanic eruptions across different time periods. The period from 1500 to 1900 recorded the highest number of volcanic eruptions, totaling around 250. 
+
+The number of eruptions in the 20th century is approximately equal to the total number of eruptions from 1500 to 1900, with most eruptions’ VEI ranging from 2 to 5. The total number of eruptions across the remaining four time periods is nearly identical. For eruptions occurring before Christ or from 0 to 1000 B.C., those with a VEI of 6 constitute the main type of eruption. This is probably because only the most colossal volcanic eruptions were documented during this ancient era.
 
 ### Analysis of Deaths and Injuries Over Time
 ```{r}
@@ -252,9 +264,9 @@ ggplot(time_df, aes(x = as.numeric(year))) +
     color = "Variable"
   )
 ```
-As for the number of deaths, it has reached its climax at over 30000 around 1900. Then as the time goes, the number of deaths fluctuated between 0 and 5000 until around 1985, when the number of deaths reached another peak at about 25000. After that the number of deaths has dropped and continued to fluctuate between 0 and 1500.
+As for the number of deaths, it reached its climax at over 30000 around 1900. As time progressed, the number of deaths fluctuated between 0 and 5000 until around 1985, when it reached another peak at about 25000. After that, the number of deaths dropped and continued to fluctuate between 0 and 1500.
 
-When it comes to the number of injuries, however, the number does not fluctuate as drastically as the number of death. It has remained stable from 1900 to around1985.After hitting its pick at 10000 in around 1985, the number went down and continued to remain stable.
+When it comes to the number of injuries, however, the number did not fluctuate as drastically as the number of death. It remained stable from 1900 to around1985. After hitting its pick at 10000 in around 1985, the number went down and continued to remain stable.
 
 ### Analysis of Damage and Houses Destroyed Over Time
 ```{r}
