@@ -99,6 +99,9 @@ We also notice that there is a negative correlation between `elevation` and `fla
 Then we can fit the following ordinal logistic regression model:
 
 volcano_deaths_description ~ flag_earthquake + flag_tsunami + volcanic_explosivity_index + elevation
+
+`volcano_deaths_description` is a four-level variable, with levels "Few (~1 to 50)", "Some (~51 to 100)", "Many (~101 to 1000)", "Very Many (~1001 or more)", coded 1, 2, 3, and 4  respectively, that we will use as our outcome variable. 
+
 ```{r}
 death_df = 
   tidy_df |>
