@@ -55,7 +55,7 @@ $$logit(P(Y≤j))=β_{j0}-η_{1}X_{1}-η_{2}X_{2}-η_{3}X_{3}-η_{4}X_{4}$$
 where,  
 
 * $β_{j0}$is an intercept and represents the log-odds of $Y≤j$ when all the predictors are at 0 or their reference level. 
-* $X_{1}$ is tsunami, $X_{2}$ is earthquake, $X_{3}$ is VEI, $X_{4}$ is elevation.
+* $X_{1}$ is earthquake, $X_{2}$ is tsunami, $X_{3}$ is VEI, $X_{4}$ is elevation.
 * Each $-η_{k}$ for $k = 1,2,3,4$ is the log of the odds ratio comparing the odds of $Y≤j$ between individuals who differ by 1-unit in $X_{k}$.
 
 ## Correlation Analysis
@@ -115,9 +115,9 @@ logistic_model |> broom::tidy() |> knitr::kable()
 
 The estimated model can be written as:
 
-...
-...
-...
+$$logit(\hat{P}(Y≤1))=3.2838-0.4678×earthquake-1.0003×tsunami-0.6581×VEI-0.0002×elevation$$
+$$logit(\hat{P}(Y≤2))=3.7736-0.4678×earthquake-1.0003×tsunami-0.6581×VEI-0.0002×elevation$$
+$$logit(\hat{P}(Y≤3))=5.2650-0.4678×earthquake-1.0003×tsunami-0.6581×VEI-0.0002×elevation$$
 
 The estimate for `elevation` appears relatively small, possibly because the unit of measurement for elevation is in meters (m). If we use kilometers (km) instead, the estimate would likely increase.
 
