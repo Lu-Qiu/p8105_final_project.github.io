@@ -269,12 +269,12 @@ ggplot(time_df, aes(x = as.numeric(year))) +
 
 ## Factors Influencing Volcanic Losses (Numeric)
 
-In this section, we aim to explore the impact of various factors(the occurrence of tsunami and earthquake, the type of volcano and the volcanic explosivity index) on casualties and property losses resulting from volcanic eruptions.
+In this section, we aim to explore the impact of various factors(the occurrence of tsunami and earthquake, the type of volcano, the volcanic explosivity index and elevation) on casualties and property losses resulting from volcanic eruptions.
 
 ```{r}
 numeric_df = 
   tidy_df |> 
-  select(year,flag_tsunami,flag_earthquake,
+  select(year,flag_tsunami,flag_earthquake, elevation, 
          volcano_type, volcanic_explosivity_index,
          volcano_injuries, volcano_deaths, volcano_damage_in_m, volcano_houses_destroyed) |>
   mutate(
@@ -478,6 +478,63 @@ grid.arrange(VEI_injuries, VEI_deaths, VEI_damage, VEI_houses_destroyed, ncol = 
 ```
 
 The above box plots show that with the increase in the volcanic explosivity index, there is a general upward trend in casualties and property damage caused by volcanic eruptions. In other words, as the energy of the volcanic eruption increases, the casualties and losses become more severe.
+
+### Elevation 
+
+```{r}
+par(mfrow = c(2,2))
+
+# volcano_injuries vs elevation
+elevation_injuries = 
+  numeric_df |>
+  filter(!is.na(volcano_injuries),
+         !is.na(elevation)) |>
+  ggplot(aes(x = elevation, y = log(volcano_injuries))) +
+  geom_point() +
+  geom_smooth(se = FALSE)+
+  labs(title = "Injuries VS Elevation", x = "Elevation", y = "ln_Injuries")+
+  theme(legend.position = "none")
+
+# volcano_deaths vs elevation
+elevation_deaths = 
+  numeric_df |>
+  filter(!is.na(volcano_deaths),
+         !is.na(elevation)) |>
+  ggplot(aes(x = elevation, y = log(volcano_deaths))) +
+  geom_point() +
+  geom_smooth(se = FALSE)+
+  labs(title = "Deaths vs Elevation", x = "Elevation", y = "ln_Deaths")+
+  theme(legend.position = "none")
+
+
+# damage vs elevation 
+elevation_damage =
+  numeric_df |>
+  filter(!is.na(volcano_damage_in_m),
+         !is.na(elevation)) |>
+  ggplot(aes(x = elevation, y = log(volcano_damage_in_m))) +
+  geom_point() +
+  geom_smooth(se = FALSE)+
+  labs(title = "Damage vs Elevation", x = "Elevation", y = "ln_Damage") +
+  theme(legend.position = "none")
+
+
+# volcano_houses_destroyed vs elevation
+elevation_houses_destroyed =
+  numeric_df |>
+  filter(!is.na(volcano_houses_destroyed),
+         !is.na(elevation)) |>
+  ggplot(aes(x = elevation, y = log(volcano_houses_destroyed))) +
+  geom_point() +
+  geom_smooth(se = FALSE)+
+  labs(title = "Houses Destroyed vs Elevation", x = "Elevation", y = "ln_Houses Destroyed") +
+  theme(legend.position = "none")
+
+
+grid.arrange(elevation_injuries, elevation_deaths, elevation_damage, elevation_houses_destroyed, ncol = 2)
+```
+
+The above plots show that there is no obvious relationship between the elevation of the volcanoes and the casualties and property losses caused by the eruption.
 
 -------------------
 
