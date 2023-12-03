@@ -174,7 +174,8 @@ country1 =
   geom_bar(stat = "identity", width = 0.6) +
   labs(title = "Top Five Countries with the Most Volcanoes",
        x = "Country",
-       y = "Number of Volcanoes") 
+       y = "Number of Volcanoes") +
+  theme(legend.position = "none")
 
 
 country2 =
@@ -187,7 +188,8 @@ country2 =
   geom_bar(stat = "identity", width = 0.6) +
   labs(title = "Top Five Countries with the Most Volcanic Eruptions",
        x = "Country",
-       y = "Number of Eruptions") 
+       y = "Number of Eruptions") +
+  theme(legend.position = "none")
 
 plot_grid(country1, country2, ncol = 1)
 ```
@@ -316,7 +318,8 @@ tsunami_injuries =
   filter(!is.na(volcano_injuries)) |>
   ggplot(aes(x = flag_tsunami, y = log(volcano_injuries), group = flag_tsunami, fill = flag_tsunami)) +
   geom_boxplot() +
-  labs(title = "Injuries vs Tsunami", x = "Tsunami Occurrence", y = "ln_Injuries")
+  labs(title = "Injuries vs Tsunami", x = "Tsunami Occurrence", y = "ln_Injuries") +
+  theme(legend.position = "none")
 
 
 # volcano_deaths vs flag_tsunami
@@ -325,7 +328,8 @@ tsunami_deaths =
   filter(!is.na(volcano_deaths)) |>
   ggplot(aes(x = flag_tsunami, y = log(volcano_deaths), group = flag_tsunami, fill = flag_tsunami)) +
   geom_boxplot() +
-  labs(title = "Deaths vs Tsunami", x = "Tsunami Occurrence", y = "ln_Deaths") 
+  labs(title = "Deaths vs Tsunami", x = "Tsunami Occurrence", y = "ln_Deaths") +
+  theme(legend.position = "none") 
 
 
 # damage vs flag_tsunami
@@ -334,7 +338,8 @@ tsunami_damage =
   filter(!is.na(volcano_damage_in_m)) |>
   ggplot(aes(x = flag_tsunami, y = log(volcano_damage_in_m), group = flag_tsunami, fill = flag_tsunami)) +
   geom_boxplot() +
-  labs(title = "Damage vs Tsunami", x = "Tsunami Occurrence", y = "ln_Damage(money in million)") 
+  labs(title = "Damage vs Tsunami", x = "Tsunami Occurrence", y = "ln_Damage(money in million)") +
+  theme(legend.position = "none")
 
 
 # volcano_houses_destroyed vs flag_tsunami 
@@ -343,7 +348,8 @@ tsunami_houses_destroyed =
   filter(!is.na(volcano_houses_destroyed)) |>
   ggplot(aes(x = flag_tsunami, y = log(volcano_houses_destroyed), group = flag_tsunami, fill = flag_tsunami)) +
   geom_boxplot() +
-  labs(title = "Houses Destroyed vs Tsunami", x = "Tsunami Occurrence", y = "ln_Houses Destroyed")
+  labs(title = "Houses Destroyed vs Tsunami", x = "Tsunami Occurrence", y = "ln_Houses Destroyed") +
+  theme(legend.position = "none")
 
 grid.arrange(tsunami_deaths, tsunami_injuries, tsunami_damage, tsunami_houses_destroyed, ncol = 2)
 ```
@@ -361,7 +367,8 @@ earthquake_injuries =
   filter(!is.na(volcano_injuries)) |>
   ggplot(aes(x = flag_earthquake, y = log(volcano_injuries), group = flag_earthquake, fill = flag_earthquake)) +
   geom_boxplot() +
-  labs(title = "Injuries vs Earthquake", x = "Earthquake Occurrence", y = "ln_Injuries") 
+  labs(title = "Injuries vs Earthquake", x = "Earthquake Occurrence", y = "ln_Injuries") +
+  theme(legend.position = "none") 
 
 
 #volcano_deaths vs flag_earthquake
@@ -370,7 +377,8 @@ earthquake_deaths =
   filter(!is.na(volcano_deaths)) |>
   ggplot(aes(x = flag_earthquake, y = log(volcano_deaths), group = flag_earthquake, fill = flag_earthquake)) +
   geom_boxplot() +
-  labs(title = "Deaths vs Earthquake", x = "Earthquake Occurrence", y = "ln_Deaths")
+  labs(title = "Deaths vs Earthquake", x = "Earthquake Occurrence", y = "ln_Deaths") +
+  theme(legend.position = "none")
 
 
 #damage vs flag_earthquake 
@@ -379,7 +387,8 @@ earthquake_damage =
   filter(!is.na(volcano_damage_in_m)) |>
   ggplot(aes(x = flag_earthquake, y = log(volcano_damage_in_m), group = flag_earthquake, fill = flag_earthquake)) +
   geom_boxplot() +
-  labs(title = "Damage vs Earthquake", x = "Earthquake Occurrence", y = "ln_Damage(money in million)") 
+  labs(title = "Damage vs Earthquake", x = "Earthquake Occurrence", y = "ln_Damage(money in million)") +
+  theme(legend.position = "none")
 
 
 #volcano_houses_destroyed vs flag_earthquake
@@ -388,7 +397,8 @@ earthquake_houses_destroyed =
   filter(!is.na(volcano_houses_destroyed)) |>
   ggplot(aes(x = flag_earthquake, y = log(volcano_houses_destroyed), group = flag_earthquake,fill = flag_earthquake)) +
   geom_boxplot() +
-  labs(title = "Houses Destroyed vs Earthquake", x = "Earthquake Occurrence", y = "ln_Houses Destroyed") 
+  labs(title = "Houses Destroyed vs Earthquake", x = "Earthquake Occurrence", y = "ln_Houses Destroyed") +
+  theme(legend.position = "none")
 
 
 grid.arrange(earthquake_deaths, earthquake_injuries, earthquake_damage, earthquake_houses_destroyed, ncol = 2)
