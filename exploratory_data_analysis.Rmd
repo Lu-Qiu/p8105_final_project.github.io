@@ -219,7 +219,8 @@ ggplot(expo,aes(x = period, y = count,fill = volcanic_explosivity_index)) +
     title = "Volcanic Explosivity Index Count Over Periods"
   )
 ```
-
+The graph shows the number of deaths and injuries caused by volcanic eruptions over time. The year from 1500 to 1900 saw the most volcanic eruptions, with a total of around 250. We can also find that most of the eruptions’ volcanic index range from 1 to 5 while only a small proportion of eruptions’ volcanic index are around 0. 
+The number of eruptions in the 20th century is approximately equal to the total number of eruptions from 1500 to 1900. Most eruptions’ volcanic index range from 2 to 5. Eruptions with grey degree consists of 25% of the total number of eruptions in the 20th century. The total number of eruptions of the rest four time periods are nearly equal. For eruptions taking place before Christ or from 0 to 1000 B.C., eruption with the volcanic index of 6 is the main type of eruption. For the 21st century, however, eruptions of each type have taken place at an almost equal chance.
 
 ### Analysis of Deaths and Injuries Over Time
 ```{r}
@@ -251,6 +252,9 @@ ggplot(time_df, aes(x = as.numeric(year))) +
     color = "Variable"
   )
 ```
+As for the number of deaths, it has reached its climax at over 30000 around 1900. Then as the time goes, the number of deaths fluctuated between 0 and 5000 until around 1985, when the number of deaths reached another peak at about 25000. After that the number of deaths has dropped and continued to fluctuate between 0 and 1500.
+
+When it comes to the number of injuries, however, the number does not fluctuate as drastically as the number of death. It has remained stable from 1900 to around1985.After hitting its pick at 10000 in around 1985, the number went down and continued to remain stable.
 
 ### Analysis of Damage and Houses Destroyed Over Time
 ```{r}
@@ -264,6 +268,10 @@ ggplot(time_df, aes(x = as.numeric(year))) +
     color = "Variable"
   ) 
 ```
+As for the number of houses destroyed, the most significant increase in damage and houses destroyed occurred between 1900 and 1925. The number then remained stable and fluctuated slightly until the 2020s, when the number of houses destroyed drastically fluctuated ranging from 0 to 3300.
+
+In light of the number of damage, it remained stable over time and slightly fluctuated around 1975 and the 2010s respectively.
+
 
 ----------------------
 
