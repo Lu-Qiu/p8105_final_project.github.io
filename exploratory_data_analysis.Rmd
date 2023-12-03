@@ -904,8 +904,7 @@ grid.arrange(
   nrow = 2, heights=c(10, 3))
 ```
 
-From the bar charts, there don't seem to be a significant association between the severity of volcanic losses and the elevation of the volcano.
-
+In terms of deaths, eruptions of volcanoes with an elevation over 5000 meters seem to have more severe results. However, for other types of losses, there don't seem to be a significant association between the severity levels and the elevation. This echoes the results in the previous analysis of numeric losses.
 
 ----------------------
 
