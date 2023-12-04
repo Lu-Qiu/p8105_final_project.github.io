@@ -37,7 +37,7 @@ scale_fill_discrete   = scale_fill_viridis_d
 
 Based on the results in exploratory data analysis, it is clear that deaths, injuries, damage and houses destroyed by volcanic eruptions can be affected by factors like earthquake, tsunami, VEI and elevation of the volcano. Because deaths is the only outcome that may be affected by all four factors mentioned above, we'll use deaths as the outcome in our model fitting. We'll utilize descriptive data on deaths from the dataset, and since it is an ordinal categorical variable, we'll use **ordinal logistic regression** to assess the association between predictors and the ordinal outcome.
 
-We'll use the `polr` command from the MASS package to estimate an ordered logistic regression model. We also specify `Hess=TRUE` to have the model return the observed information matrix from optimization (called the Hessian) which is used to get standard errors.
+We'll use the `polr` command from the `MASS` package to estimate an ordered logistic regression model. We also specify `Hess=TRUE` to have the model return the observed information matrix from optimization (called the Hessian) which is used to get standard errors.
 
 ### Definition
 An ordinal variable is a categorical variable in which the levels have a natural ordering. Let $Y$ be an ordinal outcome with $J$ categories. Then $P(Y≤j)$is the cumulative probability of $Y$ less than or equal to a specific category
@@ -92,15 +92,15 @@ We also notice that there is a negative correlation between `elevation` and `fla
 
 
 
-## Fit the Ordinal Logistic Regression Model
+## Ordinal Logistic Regression Model
 
-### Fit Model
+### Fitting the Model
 
 Then we can fit the following ordinal logistic regression model:
 
-volcano_deaths_description ~ flag_earthquake + flag_tsunami + volcanic_explosivity_index + elevation
+$$volcano\_deaths{\_}description \sim flag\_earthquake + flag\_tsunami + volcanic\_explosivity\_index + elevation$$
 
-`volcano_deaths_description` is a four-level variable, with levels "Few (~1 to 50)", "Some (~51 to 100)", "Many (~101 to 1000)", "Very Many (~1001 or more)", coded 1, 2, 3, and 4  respectively, that we will use as our outcome variable. 
+In this model, `volcano_deaths_description` is a four-level variable, with levels "Few (~1 to 50)", "Some (~51 to 100)", "Many (~101 to 1000)", "Very Many (~1001 or more)", coded 1, 2, 3, and 4  respectively, that we will use as our outcome variable. 
 
 ```{r}
 death_df = 

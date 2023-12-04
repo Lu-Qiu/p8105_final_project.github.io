@@ -13,7 +13,7 @@
 
 <title>Statistical Analysis</title>
 
-<script src="site_libs/header-attrs-2.25/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.24/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/yeti.min.css" rel="stylesheet" />
@@ -380,11 +380,11 @@ model fitting. We’ll utilize descriptive data on deaths from the
 dataset, and since it is an ordinal categorical variable, we’ll use
 <strong>ordinal logistic regression</strong> to assess the association
 between predictors and the ordinal outcome.</p>
-<p>We’ll use the <code>polr</code> command from the MASS package to
-estimate an ordered logistic regression model. We also specify
-<code>Hess=TRUE</code> to have the model return the observed information
-matrix from optimization (called the Hessian) which is used to get
-standard errors.</p>
+<p>We’ll use the <code>polr</code> command from the <code>MASS</code>
+package to estimate an ordered logistic regression model. We also
+specify <code>Hess=TRUE</code> to have the model return the observed
+information matrix from optimization (called the Hessian) which is used
+to get standard errors.</p>
 <div id="definition" class="section level3">
 <h3>Definition</h3>
 <p>An ordinal variable is a categorical variable in which the levels
@@ -471,18 +471,18 @@ We also notice that there is a negative correlation between
 <code>elevation</code> and <code>flag_tsunami</code>. This is probably
 because volcanoes under the sea are more likely to cause tsunami.</p>
 </div>
-<div id="fit-the-ordinal-logistic-regression-model"
-class="section level2">
-<h2>Fit the Ordinal Logistic Regression Model</h2>
-<div id="fit-model" class="section level3">
-<h3>Fit Model</h3>
+<div id="ordinal-logistic-regression-model" class="section level2">
+<h2>Ordinal Logistic Regression Model</h2>
+<div id="fitting-the-model" class="section level3">
+<h3>Fitting the Model</h3>
 <p>Then we can fit the following ordinal logistic regression model:</p>
-<p>volcano_deaths_description ~ flag_earthquake + flag_tsunami +
-volcanic_explosivity_index + elevation</p>
-<p><code>volcano_deaths_description</code> is a four-level variable,
-with levels “Few (~1 to 50)”, “Some (~51 to 100)”, “Many (~101 to
-1000)”, “Very Many (~1001 or more)”, coded 1, 2, 3, and 4 respectively,
-that we will use as our outcome variable.</p>
+<p><span class="math display">\[volcano\_deaths{\_}description \sim
+flag\_earthquake + flag\_tsunami + volcanic\_explosivity\_index +
+elevation\]</span></p>
+<p>In this model, <code>volcano_deaths_description</code> is a
+four-level variable, with levels “Few (~1 to 50)”, “Some (~51 to 100)”,
+“Many (~101 to 1000)”, “Very Many (~1001 or more)”, coded 1, 2, 3, and 4
+respectively, that we will use as our outcome variable.</p>
 <pre class="r"><code>death_df = 
   tidy_df |&gt;
   mutate(volcano_deaths_description = droplevels(volcano_deaths_description, exclude = &quot;None/No Record&quot;)) |&gt;
