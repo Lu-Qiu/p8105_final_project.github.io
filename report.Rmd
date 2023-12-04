@@ -258,7 +258,7 @@ ggplot(expo,aes(x = period, y = count,fill = volcanic_explosivity_index)) +
 ```
 The above plot illustrates the total number of volcanic eruptions across different time periods. The period from 1500 to 1900 recorded the highest number of volcanic eruptions, totaling around 250. 
 
-The number of eruptions in the 20th century is approximately equal to the total number of eruptions from 1500 to 1900, with most eruptions’ VEI ranging from 2 to 5. The total number of eruptions across the remaining four time periods is nearly identical. For eruptions occurring before Christ or from 0 to 1000 B.C., those with a VEI of 6 constitute the main type of eruption. This is probably because only the most colossal volcanic eruptions were documented during this ancient era.
+The number of eruptions in the 20th century is approximately equal to the total number of eruptions from 1500 to 1900, with most eruptions’ VEI ranging from 2 to 5. The total number of eruptions across the remaining four time periods is nearly identical. For eruptions occurring before Christ or from 0 to 1000 A.D., those with a VEI of 6 constitute the main type of eruption. This is probably because only the most colossal volcanic eruptions were documented during this ancient era.
 
 #### Analysis of Deaths and Injuries Over Time
 ```{r}
@@ -292,7 +292,7 @@ ggplot(time_df, aes(x = as.numeric(year))) +
 ```
 As for the number of deaths, it reached its climax at over 30000 around 1900. As time progressed, the number of deaths fluctuated between 0 and 5000 until around 1985, when it reached another peak at about 25000. After that, the number of deaths dropped and continued to fluctuate between 0 and 1500.
 
-When it comes to the number of injuries, however, the number did not fluctuate as drastically as the number of death. It remained stable from 1900 to around1985. After hitting its pick at 10000 in around 1985, the number went down and continued to remain stable.
+When it comes to the number of injuries, however, the number did not fluctuate as drastically as the number of death. It remained stable from 1900 to around 1985. After hitting its pick at 10000 in around 1985, the number went down and continued to remain stable.
 
 #### Analysis of Damage and Houses Destroyed Over Time
 
@@ -1139,10 +1139,10 @@ We calculated the p-values and CIs for the coefficient estimates, suggesting **s
 
 ### Limitations
 
-While our study provides some insights into volcanic eruptions, it is worth noting that there are still many limitations to be recognized.
+While our study provides some insights into volcanic eruptions, it is worth noting that there are still many limitations to be recognized, including but not limited to the following.
 
-* Data quality: fail to record, ancient data reliability
+* **Data quality**: The dataset we use contains records of volcanic eruptions from over 4000 B.C. to 2020 A.D., but the data quality is likely to be inconsistent over the years. For example, as mentioned in the analysis of time distribution, people in ancient era may have documented only the most colossal volcanic eruptions. The bar chart of eruptions over time periods also supports this, as the number of recorded eruptions increases dramatically after 1500 A.D. compared to before 1500 A.D. Therefore, our study may not be able to accurately reflect the true characteristics of volcanic eruptions over the time span.
 
-* Data selection: None/No record data
+* **Data selection**: When analyzing factors influencing the severity of volcanic losses, we filtered out the "None/No record" values and focused only on the eruptions with losses recorded. However, this may introduce bias to our analysis, as the "None/No record" records makes up a large part of the data, and by removing them, we ignored the factors' influence on eruptions with no loss, as well as the eruptions that actually caused losses but were not recorded.
 
-* Model: generalizability, elevation
+* **Model generalizability**: Finally, it is debatable whether our model derived from the death severity level data can be generalized to other type of volcanic losses. For instance, in exploratory analysis, we found that the elevation of the volcano may be associated with deaths, but not other types of losses. This suggests that the model may need adjustments when dealing with a different type of outcome, and further statistical analysis is needed.
