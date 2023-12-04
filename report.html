@@ -393,12 +393,12 @@ the patterns, trends, and factors surrounding volcanic eruptions,
 utilizing data science techniques to extract meaningful insights.</p>
 </div>
 <div id="related-work" class="section level2">
-<h2>Related work</h2>
+<h2>Related Work</h2>
 <p>Caldera J, Wirasinghe S C. Analysis and classification of volcanic
 eruptions[J]. 2014.</p>
 </div>
 <div id="initial-questions" class="section level2">
-<h2>Initial questions</h2>
+<h2>Initial Questions</h2>
 <ul>
 <li><p>What are the characteristics and patterns of volcanic
 eruptions?</p></li>
@@ -423,7 +423,7 @@ be downloaded at the linked website.</p>
     &quot;data/significant-volcanic-eruption-database.csv&quot;, 
     sep = &quot;;&quot;, na.strings=c(&quot;&quot;, NA)) |&gt;
   janitor::clean_names() |&gt;
-  select(
+  dplyr::select(
     -c(month, day, location, status, volcano_missing, volcano_missing_description, earthquakes_houses_damaged_description),
     -starts_with(&quot;total&quot;)
     ) |&gt;
@@ -542,10 +542,7 @@ house destruction</li>
 </div>
 </div>
 <div id="exploratory-analysis" class="section level2">
-<h2>Exploratory analysis</h2>
-<p>Visualizations, summaries, and exploratory statistical analyses.
-Justify the steps you took, and show any major changes to your
-ideas.</p>
+<h2>Exploratory Analysis</h2>
 <p>To visualize the characteristics of volcanic eruptions that we’re
 interested in, we performed exploratory data analysis, which mainly
 consists of five parts: Distribution of Volcanic Eruptions (Geographical
@@ -577,8 +574,8 @@ geo_df |&gt;
                &quot;Volcano Type: &quot;, volcano_type, &quot;&lt;br&gt;&quot;,
                &quot;Elevation: &quot;, elevation, &quot;&lt;br&gt;&quot;,
                &quot;Eruption Count: &quot;, eruption_count) |&gt; lapply(htmltools::HTML)) </code></pre>
-<div class="leaflet html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-4256a636b4f5bd1299b4" style="width:864px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-4256a636b4f5bd1299b4">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addProviderTiles","args":["CartoDB.Positron",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addMarkers","args":[[37.62,-8.342000000000001,39.97,50.858,-16.25,-15.4,32.45,10.463,15.63,36.4,32.88,59.37,53.255,3.67,-4.525,37.6,3.138,64.63,61.38,12.77,-41.326,9.202999999999999,40.827,17.36,19.514,12.98,-0.677,43.68,-5.056,-7.2,37.734,14.95,14.473,-7.25,0.8,1.375,64.42,-0.171,-7.13,35.22,63.98,45.374,19.692,-45.9,2.92,-8.058,-8.539999999999999,9.978999999999999,-3.62,2.78,-4.649,-11.75,63.63,-7.93,12.3,19.425,31.93,56.057,42.07,65.73,-6.102,30.43,36.62,-16.829,28.58,-8,-2.751,-8.529999999999999,1.358,-5.358,0.32,-4.1,-0.381,19.475,13.257,-7.542,34.08,32.1,37.12,-15.6,-1.408,-1.52,-38.12,53.42,6.25,35.9,64,34.73,14.381,-5.58,-8.32,-7.32,14.82,15.13,19.023,2.32,-40.59,-4.271,-29.27,-8.125,60.48,-8.42,-5.52,2.28,4.895,-15.78,31.58,38.65,13.736,14.756,36.404,-13.612,-9.130000000000001,-8.108000000000001,54.75,56.653,3.17,-8.51,16.72,13.33,-2.38,46.2,38.789,14.002,-6.77,36.57,-38.82,-7.942,-6.92,-10.38,43.42,30.48,-1.467,32.75,42.53,40.821,-39.42,-37.52,-19.52],[140.28,115.508,140.77,155.55,168.12,167.83,139.77,-84.703,44.08,138.53,131.1,-153.42,158.83,125.5,129.871,140.08,125.491,-17.53,-141.75,124.05,-72.614,124.673,14.139,-93.22799999999999,-103.62,-87.56999999999999,-78.43600000000001,142.88,150.108,109.92,15.004,-24.35,-90.88,108.05,127.325,127.52,-17.33,-78.598,107.83,139.02,-19.7,-121.694,-155.87,-72.97,-76.05,114.242,123.59,-83.852,144.62,125.48,145.964,43.38,-19.05,112.308,-61.63,-155.292,130.87,160.638,140.68,-16.78,105.423,130.22,138.55,168.536,-17.83,113.342,35.902,122.775,124.792,147.12,127.4,145.061,100.473,-155.608,123.685,110.442,139.53,139.85,139.97,-175.63,29.2,29.25,176.5,-168.13,10.5,137.48,-16.65,139.38,-90.601,150.52,121.708,107.73,-61.17,120.35,-98.622,-76.40000000000001,-72.117,152.203,-177.92,114.042,-152.75,116.47,148.121,125.425,-75.322,-71.84999999999999,130.67,-28.08,-89.286,-91.55200000000001,25.396,-172.525,159.82,112.92,-163.97,161.36,98.392,124.148,-62.18,-61.18,147.35,-122.18,15.213,120.993,107.6,137.6,176,112.95,129.125,165.8,142.68,140.32,-78.44199999999999,130.3,140.83,14.426,-71.93000000000001,177.18,169.425],null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},null,null,{"showCoverageOnHover":true,"zoomToBoundsOnClick":true,"spiderfyOnMaxZoom":true,"removeOutsideVisibleBounds":true,"spiderLegPolylineOptions":{"weight":1.5,"color":"#222","opacity":0.5},"freezeAtZoom":false},null,["Name:  Adatara <br> Country:  Japan <br> Volcano Type:  Stratovolcano <br> Elevation:  1718 <br> Eruption Count:  2","Name:  Agung <br> Country:  Indonesia <br> Volcano Type:  Stratovolcano <br> Elevation:  3142 <br> Eruption Count:  2","Name:  Akita-Yake-yama <br> Country:  Japan <br> Volcano Type:  Complex volcano <br> Elevation:  1366 <br> Eruption Count:  2","Name:  Alaid <br> Country:  Russia <br> Volcano Type:  Stratovolcano <br> Elevation:  2339 <br> Eruption Count:  2","Name:  Ambrym <br> Country:  Vanuatu <br> Volcano Type:  Pyroclastic shield <br> Elevation:  1334 <br> Eruption Count:  4","Name:  Aoba <br> Country:  Vanuatu <br> Volcano Type:  Shield volcano <br> Elevation:  1496 <br> Eruption Count:  5","Name:  Aoga-shima <br> Country:  Japan <br> Volcano Type:  Stratovolcano <br> Elevation:  423 <br> Eruption Count:  2","Name:  Arenal <br> Country:  Costa Rica <br> Volcano Type:  Stratovolcano <br> Elevation:  1657 <br> Eruption Count:  4","Name:  Arhab, Harra of <br> Country:  Yemen <br> Volcano Type:  Volcanic field <br> Elevation:  3100 <br> Eruption Count:  2","Name:  Asama <br> Country:  Japan <br> Volcano Type:  Complex volcano <br> Elevation:  2560 <br> Eruption Count:  18","Name:  Aso <br> Country:  Japan <br> Volcano Type:  Caldera <br> Elevation:  1592 <br> Eruption Count:  16","Name:  Augustine <br> Country:  United States <br> Volcano Type:  Lava dome <br> Elevation:  1252 <br> Eruption Count:  3","Name:  Avachinsky <br> Country:  Russia <br> Volcano Type:  Stratovolcano <br> Elevation:  2741 <br> Eruption Count:  2","Name:  Awu <br> Country:  Indonesia <br> Volcano Type:  Stratovolcano <br> Elevation:  1320 <br> Eruption Count:  6","Name:  Banda Api <br> Country:  Pacific Ocean <br> Volcano Type:  Caldera <br> Elevation:  640 <br> Eruption Count:  6","Name:  Bandai <br> Country:  Japan <br> Volcano Type:  Stratovolcano <br> Elevation:  1819 <br> Eruption Count:  2","Name:  Banua Wuhu <br> Country:  Indonesia <br> Volcano Type:  Submarine volcano <br> Elevation:  -5 <br> Eruption Count:  3","Name:  Bardarbunga <br> Country:  Iceland <br> Volcano Type:  Stratovolcano <br> Elevation:  2000 <br> Eruption Count:  6","Name:  Bona-Churchill <br> Country:  United States <br> Volcano Type:  Stratovolcano <br> Elevation:  5005 <br> Eruption Count:  2","Name:  Bulusan <br> Country:  Philippines <br> Volcano Type:  Stratovolcano <br> Elevation:  1565 <br> Eruption Count:  4","Name:  Calbuco <br> Country:  Chile <br> Volcano Type:  Stratovolcano <br> Elevation:  2003 <br> Eruption Count:  5","Name:  Camiguin <br> Country:  Philippines <br> Volcano Type:  Stratovolcano <br> Elevation:  1332 <br> Eruption Count:  5","Name:  Campi Flegrei <br> Country:  Italy <br> Volcano Type:  Caldera <br> Elevation:  458 <br> Eruption Count:  3","Name:  Chichon, El <br> Country:  Mexico <br> Volcano Type:  Tuff cone <br> Elevation:  1150 <br> Eruption Count:  4","Name:  Colima <br> Country:  Mexico <br> Volcano Type:  Stratovolcano <br> Elevation:  3850 <br> Eruption Count:  4","Name:  Cosiguina <br> Country:  Nicaragua <br> Volcano Type:  Stratovolcano <br> Elevation:  872 <br> Eruption Count:  2","Name:  Cotopaxi <br> Country:  Ecuador <br> Volcano Type:  Stratovolcano <br> Elevation:  5911 <br> Eruption Count:  6","Name:  Daisetsu <br> Country:  Japan <br> Volcano Type:  Stratovolcano <br> Elevation:  2290 <br> Eruption Count:  2","Name:  Dakataua <br> Country:  Papua New Guinea <br> Volcano Type:  Caldera <br> Elevation:  400 <br> Eruption Count:  2","Name:  Dieng Volc Complex <br> Country:  Indonesia <br> Volcano Type:  Complex volcano <br> Elevation:  2565 <br> Eruption Count:  10","Name:  Etna <br> Country:  Italy <br> Volcano Type:  Stratovolcano <br> Elevation:  3350 <br> Eruption Count:  25","Name:  Fogo <br> Country:  Cape Verde <br> Volcano Type:  Stratovolcano <br> Elevation:  2829 <br> Eruption Count:  3","Name:  Fuego <br> Country:  Guatemala <br> Volcano Type:  Stratovolcano <br> Elevation:  3763 <br> Eruption Count:  11","Name:  Galunggung <br> Country:  Indonesia <br> Volcano Type:  Stratovolcano <br> Elevation:  2168 <br> Eruption Count:  2","Name:  Gamalama <br> Country:  Indonesia <br> Volcano Type:  Stratovolcano <br> Elevation:  1715 <br> Eruption Count:  10","Name:  Gamkonora <br> Country:  Indonesia <br> Volcano Type:  Stratovolcano <br> Elevation:  1635 <br> Eruption Count:  2","Name:  Grimsvotn <br> Country:  Iceland <br> Volcano Type:  Caldera <br> Elevation:  1725 <br> Eruption Count:  7","Name:  Guagua Pichincha <br> Country:  Ecuador <br> Volcano Type:  Stratovolcano <br> Elevation:  4784 <br> Eruption Count:  2","Name:  Guntur <br> Country:  Indonesia <br> Volcano Type:  Complex volcano <br> Elevation:  2249 <br> Eruption Count:  3","Name:  Hakone <br> Country:  Japan <br> Volcano Type:  Complex volcano <br> Elevation:  1438 <br> Eruption Count:  5","Name:  Hekla <br> Country:  Iceland <br> Volcano Type:  Stratovolcano <br> Elevation:  1491 <br> Eruption Count:  16","Name:  Hood <br> Country:  United States <br> Volcano Type:  Stratovolcano <br> Elevation:  3426 <br> Eruption Count:  2","Name:  Hualalai <br> Country:  United States <br> Volcano Type:  Shield volcano <br> Elevation:  2523 <br> Eruption Count:  2","Name:  Hudson, Cerro <br> Country:  Chile <br> Volcano Type:  Stratovolcano <br> Elevation:  1905 <br> Eruption Count:  4","Name:  Huila <br> Country:  Colombia <br> Volcano Type:  Stratovolcano <br> Elevation:  5365 <br> Eruption Count:  3","Name:  Ijen <br> Country:  Indonesia <br> Volcano Type:  Stratovolcano <br> Elevation:  2799 <br> Eruption Count:  3","Name:  Iliwerung <br> Country:  Indonesia <br> Volcano Type:  Complex volcano <br> Elevation:  1018 <br> Eruption Count:  5","Name:  Irazu <br> Country:  Costa Rica <br> Volcano Type:  Stratovolcano <br> Elevation:  3432 <br> Eruption Count:  2","Name:  Kadovar <br> Country:  Papua New Guinea <br> Volcano Type:  Stratovolcano <br> Elevation:  365 <br> Eruption Count:  2","Name:  Karangetang [Api Siau] <br> Country:  Indonesia <br> Volcano Type:  Stratovolcano <br> Elevation:  1784 <br> Eruption Count:  10","Name:  Karkar <br> Country:  Papua New Guinea <br> Volcano Type:  Stratovolcano <br> Elevation:  1839 <br> Eruption Count:  2","Name:  Karthala <br> Country:  Comoros <br> Volcano Type:  Shield volcano <br> Elevation:  2361 <br> Eruption Count:  6","Name:  Katla <br> Country:  Iceland <br> Volcano Type:  Subglacial volcano <br> Elevation:  1512 <br> Eruption Count:  15","Name:  Kelut <br> Country:  Indonesia <br> Volcano Type:  Stratovolcano <br> Elevation:  1731 <br> Eruption Count:  18","Name:  Kick-'em-Jenny <br> Country:  Netherlands <br> Volcano Type:  Submarine volcano <br> Elevation:  -177 <br> Eruption Count:  2","Name:  Kilauea <br> Country:  United States <br> Volcano Type:  Shield volcano <br> Elevation:  1222 <br> Eruption Count:  15","Name:  Kirishima <br> Country:  Japan <br> Volcano Type:  Shield volcano <br> Elevation:  1700 <br> Eruption Count:  9","Name:  Kliuchevskoi <br> Country:  Russia <br> Volcano Type:  Stratovolcano <br> Elevation:  4835 <br> Eruption Count:  3","Name:  Komaga-take <br> Country:  Japan <br> Volcano Type:  Stratovolcano <br> Elevation:  1140 <br> Eruption Count:  3","Name:  Krafla <br> Country:  Iceland <br> Volcano Type:  Caldera <br> Elevation:  650 <br> Eruption Count:  2","Name:  Krakatau <br> Country:  Indonesia <br> Volcano Type:  Caldera <br> Elevation:  813 <br> Eruption Count:  8","Name:  Kuchinoerabu-jima <br> Country:  Japan <br> Volcano Type:  Stratovolcano <br> Elevation:  649 <br> Eruption Count:  2","Name:  Kusatsu-Shirane <br> Country:  Japan <br> Volcano Type:  Stratovolcano <br> Elevation:  2176 <br> Eruption Count:  4","Name:  Kuwae <br> Country:  Vanuatu <br> Volcano Type:  Caldera <br> Elevation:  -2 <br> Eruption Count:  2","Name:  La Palma <br> Country:  Spain <br> Volcano Type:  Stratovolcano <br> Elevation:  2426 <br> Eruption Count:  2","Name:  Lamongan <br> Country:  Indonesia <br> Volcano Type:  Stratovolcano <br> Elevation:  1651 <br> Eruption Count:  2","Name:  Lengai, Ol Doinyo <br> Country:  Tanzania <br> Volcano Type:  Stratovolcano <br> Elevation:  2890 <br> Eruption Count:  4","Name:  Lewotobi <br> Country:  Indonesia <br> Volcano Type:  Stratovolcano <br> Elevation:  1703 <br> Eruption Count:  2","Name:  Lokon-Empung <br> Country:  Indonesia <br> Volcano Type:  Stratovolcano <br> Elevation:  1580 <br> Eruption Count:  3","Name:  Long Island <br> Country:  Papua New Guinea <br> Volcano Type:  Complex volcano <br> Elevation:  1280 <br> Eruption Count:  2","Name:  Makian <br> Country:  Indonesia <br> Volcano Type:  Stratovolcano <br> Elevation:  1357 <br> Eruption Count:  4","Name:  Manam <br> Country:  Papua New Guinea <br> Volcano Type:  Stratovolcano <br> Elevation:  1807 <br> Eruption Count:  9","Name:  Marapi <br> Country:  Indonesia <br> Volcano Type:  Complex volcano <br> Elevation:  2891 <br> Eruption Count:  2","Name:  Mauna Loa <br> Country:  United States <br> Volcano Type:  Shield volcano <br> Elevation:  4170 <br> Eruption Count:  3","Name:  Mayon <br> Country:  Philippines <br> Volcano Type:  Stratovolcano <br> Elevation:  2462 <br> Eruption Count:  19","Name:  Merapi <br> Country:  Indonesia <br> Volcano Type:  Stratovolcano <br> Elevation:  2947 <br> Eruption Count:  27","Name:  Miyake-jima <br> Country:  Japan <br> Volcano Type:  Stratovolcano <br> Elevation:  815 <br> Eruption Count:  4","Name:  Myojun Knoll <br> Country:  Japan <br> Volcano Type:  Submarine volcano <br> Elevation:  360 <br> Eruption Count:  6","Name:  Nasu <br> Country:  Japan <br> Volcano Type:  Stratovolcano <br> Elevation:  1917 <br> Eruption Count:  3","Name:  Niuafo'ou <br> Country:  Tonga <br> Volcano Type:  Shield volcano <br> Elevation:  260 <br> Eruption Count:  2","Name:  Nyamuragira <br> Country:  Congo, DRC <br> Volcano Type:  Shield volcano <br> Elevation:  3058 <br> Eruption Count:  2","Name:  Nyiragongo <br> Country:  Congo, DRC <br> Volcano Type:  Stratovolcano <br> Elevation:  3470 <br> Eruption Count:  3","Name:  Okataina <br> Country:  New Zealand <br> Volcano Type:  Lava dome <br> Elevation:  1111 <br> Eruption Count:  5","Name:  Okmok <br> Country:  United States <br> Volcano Type:  Shield volcano <br> Elevation:  1073 <br> Eruption Count:  2","Name:  Oku Volc Field <br> Country:  Cameroon <br> Volcano Type:  Maar <br> Elevation:  3011 <br> Eruption Count:  2","Name:  On-take <br> Country:  Japan <br> Volcano Type:  Complex volcano <br> Elevation:  3063 <br> Eruption Count:  2","Name:  Oraefajokull <br> Country:  Iceland <br> Volcano Type:  Stratovolcano <br> Elevation:  2119 <br> Eruption Count:  2","Name:  Oshima <br> Country:  Japan <br> Volcano Type:  Stratovolcano <br> Elevation:  758 <br> Eruption Count:  4","Name:  Pacaya <br> Country:  Guatemala <br> Volcano Type:  Complex volcano <br> Elevation:  2552 <br> Eruption Count:  4","Name:  Pago <br> Country:  Papua New Guinea <br> Volcano Type:  Caldera <br> Elevation:  742 <br> Eruption Count:  4","Name:  Paluweh <br> Country:  Indonesia <br> Volcano Type:  Stratovolcano <br> Elevation:  875 <br> Eruption Count:  6","Name:  Papandayan <br> Country:  Indonesia <br> Volcano Type:  Stratovolcano <br> Elevation:  2665 <br> Eruption Count:  2","Name:  Pelee <br> Country:  Martinique <br> Volcano Type:  Stratovolcano <br> Elevation:  1397 <br> Eruption Count:  4","Name:  Pinatubo <br> Country:  Philippines <br> Volcano Type:  Stratovolcano <br> Elevation:  1486 <br> Eruption Count:  6","Name:  Popocatepetl <br> Country:  Mexico <br> Volcano Type:  Stratovolcano <br> Elevation:  5426 <br> Eruption Count:  2","Name:  Purace <br> Country:  Colombia <br> Volcano Type:  Stratovolcano <br> Elevation:  4650 <br> Eruption Count:  2","Name:  Puyehue <br> Country:  Chile <br> Volcano Type:  Stratovolcano <br> Elevation:  2236 <br> Eruption Count:  2","Name:  Rabaul <br> Country:  Papua New Guinea <br> Volcano Type:  Pyroclastic shield <br> Elevation:  688 <br> Eruption Count:  6","Name:  Raoul Island <br> Country:  New Zealand <br> Volcano Type:  Stratovolcano <br> Elevation:  516 <br> Eruption Count:  2","Name:  Raung <br> Country:  Indonesia <br> Volcano Type:  Stratovolcano <br> Elevation:  3332 <br> Eruption Count:  5","Name:  Redoubt <br> Country:  United States <br> Volcano Type:  Stratovolcano <br> Elevation:  3108 <br> Eruption Count:  2","Name:  Rinjani <br> Country:  Indonesia <br> Volcano Type:  Stratovolcano <br> Elevation:  3726 <br> Eruption Count:  2","Name:  Ritter Island <br> Country:  Papua New Guinea <br> Volcano Type:  Stratovolcano <br> Elevation:  140 <br> Eruption Count:  3","Name:  Ruang <br> Country:  Indonesia <br> Volcano Type:  Stratovolcano <br> Elevation:  725 <br> Eruption Count:  2","Name:  Ruiz <br> Country:  Colombia <br> Volcano Type:  Stratovolcano <br> Elevation:  5321 <br> Eruption Count:  3","Name:  Sabancaya <br> Country:  Peru <br> Volcano Type:  Stratovolcano <br> Elevation:  5967 <br> Eruption Count:  2","Name:  Sakura-jima <br> Country:  Japan <br> Volcano Type:  Stratovolcano <br> Elevation:  1117 <br> Eruption Count:  14","Name:  San Jorge <br> Country:  Portugal <br> Volcano Type:  Fissure vent <br> Elevation:  1053 <br> Eruption Count:  3","Name:  San Salvador <br> Country:  El Salvador <br> Volcano Type:  Stratovolcano <br> Elevation:  1893 <br> Eruption Count:  3","Name:  Santa Maria <br> Country:  Guatemala <br> Volcano Type:  Stratovolcano <br> Elevation:  3772 <br> Eruption Count:  4","Name:  Santorini <br> Country:  Greece <br> Volcano Type:  Shield volcano <br> Elevation:  329 <br> Eruption Count:  8","Name:  Savai'i <br> Country:  Samoa <br> Volcano Type:  Shield volcano <br> Elevation:  1858 <br> Eruption Count:  2","Name:  Savo <br> Country:  Solomon Is. <br> Volcano Type:  Stratovolcano <br> Elevation:  510 <br> Eruption Count:  2","Name:  Semeru <br> Country:  Indonesia <br> Volcano Type:  Stratovolcano <br> Elevation:  3676 <br> Eruption Count:  23","Name:  Shishaldin <br> Country:  United States <br> Volcano Type:  Stratovolcano <br> Elevation:  2857 <br> Eruption Count:  2","Name:  Shiveluch <br> Country:  Russia <br> Volcano Type:  Stratovolcano <br> Elevation:  3283 <br> Eruption Count:  3","Name:  Sinabung <br> Country:  Indonesia <br> Volcano Type:  Stratovolcano <br> Elevation:  2460 <br> Eruption Count:  10","Name:  Sirung <br> Country:  Indonesia <br> Volcano Type:  Complex volcano <br> Elevation:  862 <br> Eruption Count:  2","Name:  Soufriere Hills <br> Country:  Montserrat <br> Volcano Type:  Stratovolcano <br> Elevation:  915 <br> Eruption Count:  6","Name:  Soufriere St. Vincent <br> Country:  St. Vincent & the Grenadines <br> Volcano Type:  Stratovolcano <br> Elevation:  1220 <br> Eruption Count:  3","Name:  St. Andrew Strait <br> Country:  Papua New Guinea <br> Volcano Type:  Complex volcano <br> Elevation:  270 <br> Eruption Count:  2","Name:  St. Helens <br> Country:  United States <br> Volcano Type:  Stratovolcano <br> Elevation:  2549 <br> Eruption Count:  3","Name:  Stromboli <br> Country:  Italy <br> Volcano Type:  Stratovolcano <br> Elevation:  926 <br> Eruption Count:  11","Name:  Taal <br> Country:  Philippines <br> Volcano Type:  Stratovolcano <br> Elevation:  400 <br> Eruption Count:  8","Name:  Tangkubanparahu <br> Country:  Indonesia <br> Volcano Type:  Stratovolcano <br> Elevation:  2084 <br> Eruption Count:  3","Name:  Tate-yama <br> Country:  Japan <br> Volcano Type:  Stratovolcano <br> Elevation:  2621 <br> Eruption Count:  4","Name:  Taupo <br> Country:  New Zealand <br> Volcano Type:  Caldera <br> Elevation:  760 <br> Eruption Count:  4","Name:  Tengger Caldera <br> Country:  Indonesia <br> Volcano Type:  Stratovolcano <br> Elevation:  2329 <br> Eruption Count:  2","Name:  Teon <br> Country:  Pacific Ocean <br> Volcano Type:  Stratovolcano <br> Elevation:  655 <br> Eruption Count:  2","Name:  Tinakula <br> Country:  Solomon Is. <br> Volcano Type:  Stratovolcano <br> Elevation:  851 <br> Eruption Count:  4","Name:  Tokachi <br> Country:  Japan <br> Volcano Type:  Stratovolcano <br> Elevation:  2077 <br> Eruption Count:  2","Name:  Tori-shima <br> Country:  Japan <br> Volcano Type:  Stratovolcano <br> Elevation:  403 <br> Eruption Count:  2","Name:  Tungurahua <br> Country:  Ecuador <br> Volcano Type:  Stratovolcano <br> Elevation:  5023 <br> Eruption Count:  11","Name:  Unzen <br> Country:  Japan <br> Volcano Type:  Complex volcano <br> Elevation:  1500 <br> Eruption Count:  5","Name:  Usu <br> Country:  Japan <br> Volcano Type:  Stratovolcano <br> Elevation:  731 <br> Eruption Count:  7","Name:  Vesuvius <br> Country:  Italy <br> Volcano Type:  Complex volcano <br> Elevation:  1281 <br> Eruption Count:  18","Name:  Villarrica <br> Country:  Chile <br> Volcano Type:  Stratovolcano <br> Elevation:  2847 <br> Eruption Count:  4","Name:  White Island <br> Country:  New Zealand <br> Volcano Type:  Stratovolcano <br> Elevation:  321 <br> Eruption Count:  2","Name:  Yasur <br> Country:  Vanuatu <br> Volcano Type:  Stratovolcano <br> Elevation:  361 <br> Eruption Count:  5"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[-45.9,65.73],"lng":[-177.92,177.18]}},"evals":[],"jsHooks":[]}</script>
+<div class="leaflet html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-7e4856ccd0fa452836a0" style="width:864px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-7e4856ccd0fa452836a0">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addProviderTiles","args":["CartoDB.Positron",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addMarkers","args":[[37.62,-8.342000000000001,39.97,50.858,-16.25,-15.4,32.45,10.463,15.63,36.4,32.88,59.37,53.255,3.67,-4.525,37.6,3.138,64.63,61.38,12.77,-41.326,9.202999999999999,40.827,17.36,19.514,12.98,-0.677,43.68,-5.056,-7.2,37.734,14.95,14.473,-7.25,0.8,1.375,64.42,-0.171,-7.13,35.22,63.98,45.374,19.692,-45.9,2.92,-8.058,-8.539999999999999,9.978999999999999,-3.62,2.78,-4.649,-11.75,63.63,-7.93,12.3,19.425,31.93,56.057,42.07,65.73,-6.102,30.43,36.62,-16.829,28.58,-8,-2.751,-8.529999999999999,1.358,-5.358,0.32,-4.1,-0.381,19.475,13.257,-7.542,34.08,32.1,37.12,-15.6,-1.408,-1.52,-38.12,53.42,6.25,35.9,64,34.73,14.381,-5.58,-8.32,-7.32,14.82,15.13,19.023,2.32,-40.59,-4.271,-29.27,-8.125,60.48,-8.42,-5.52,2.28,4.895,-15.78,31.58,38.65,13.736,14.756,36.404,-13.612,-9.130000000000001,-8.108000000000001,54.75,56.653,3.17,-8.51,16.72,13.33,-2.38,46.2,38.789,14.002,-6.77,36.57,-38.82,-7.942,-6.92,-10.38,43.42,30.48,-1.467,32.75,42.53,40.821,-39.42,-37.52,-19.52],[140.28,115.508,140.77,155.55,168.12,167.83,139.77,-84.703,44.08,138.53,131.1,-153.42,158.83,125.5,129.871,140.08,125.491,-17.53,-141.75,124.05,-72.614,124.673,14.139,-93.22799999999999,-103.62,-87.56999999999999,-78.43600000000001,142.88,150.108,109.92,15.004,-24.35,-90.88,108.05,127.325,127.52,-17.33,-78.598,107.83,139.02,-19.7,-121.694,-155.87,-72.97,-76.05,114.242,123.59,-83.852,144.62,125.48,145.964,43.38,-19.05,112.308,-61.63,-155.292,130.87,160.638,140.68,-16.78,105.423,130.22,138.55,168.536,-17.83,113.342,35.902,122.775,124.792,147.12,127.4,145.061,100.473,-155.608,123.685,110.442,139.53,139.85,139.97,-175.63,29.2,29.25,176.5,-168.13,10.5,137.48,-16.65,139.38,-90.601,150.52,121.708,107.73,-61.17,120.35,-98.622,-76.40000000000001,-72.117,152.203,-177.92,114.042,-152.75,116.47,148.121,125.425,-75.322,-71.84999999999999,130.67,-28.08,-89.286,-91.55200000000001,25.396,-172.525,159.82,112.92,-163.97,161.36,98.392,124.148,-62.18,-61.18,147.35,-122.18,15.213,120.993,107.6,137.6,176,112.95,129.125,165.8,142.68,140.32,-78.44199999999999,130.3,140.83,14.426,-71.93000000000001,177.18,169.425],null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},null,null,{"showCoverageOnHover":true,"zoomToBoundsOnClick":true,"spiderfyOnMaxZoom":true,"removeOutsideVisibleBounds":true,"spiderLegPolylineOptions":{"weight":1.5,"color":"#222","opacity":0.5},"freezeAtZoom":false},null,["Name:  Adatara <br> Country:  Japan <br> Volcano Type:  Stratovolcano <br> Elevation:  1718 <br> Eruption Count:  2","Name:  Agung <br> Country:  Indonesia <br> Volcano Type:  Stratovolcano <br> Elevation:  3142 <br> Eruption Count:  2","Name:  Akita-Yake-yama <br> Country:  Japan <br> Volcano Type:  Complex volcano <br> Elevation:  1366 <br> Eruption Count:  2","Name:  Alaid <br> Country:  Russia <br> Volcano Type:  Stratovolcano <br> Elevation:  2339 <br> Eruption Count:  2","Name:  Ambrym <br> Country:  Vanuatu <br> Volcano Type:  Pyroclastic shield <br> Elevation:  1334 <br> Eruption Count:  4","Name:  Aoba <br> Country:  Vanuatu <br> Volcano Type:  Shield volcano <br> Elevation:  1496 <br> Eruption Count:  5","Name:  Aoga-shima <br> Country:  Japan <br> Volcano Type:  Stratovolcano <br> Elevation:  423 <br> Eruption Count:  2","Name:  Arenal <br> Country:  Costa Rica <br> Volcano Type:  Stratovolcano <br> Elevation:  1657 <br> Eruption Count:  4","Name:  Arhab, Harra of <br> Country:  Yemen <br> Volcano Type:  Volcanic field <br> Elevation:  3100 <br> Eruption Count:  2","Name:  Asama <br> Country:  Japan <br> Volcano Type:  Complex volcano <br> Elevation:  2560 <br> Eruption Count:  18","Name:  Aso <br> Country:  Japan <br> Volcano Type:  Caldera <br> Elevation:  1592 <br> Eruption Count:  16","Name:  Augustine <br> Country:  United States <br> Volcano Type:  Lava dome <br> Elevation:  1252 <br> Eruption Count:  3","Name:  Avachinsky <br> Country:  Russia <br> Volcano Type:  Stratovolcano <br> Elevation:  2741 <br> Eruption Count:  2","Name:  Awu <br> Country:  Indonesia <br> Volcano Type:  Stratovolcano <br> Elevation:  1320 <br> Eruption Count:  6","Name:  Banda Api <br> Country:  Pacific Ocean <br> Volcano Type:  Caldera <br> Elevation:  640 <br> Eruption Count:  6","Name:  Bandai <br> Country:  Japan <br> Volcano Type:  Stratovolcano <br> Elevation:  1819 <br> Eruption Count:  2","Name:  Banua Wuhu <br> Country:  Indonesia <br> Volcano Type:  Submarine volcano <br> Elevation:  -5 <br> Eruption Count:  3","Name:  Bardarbunga <br> Country:  Iceland <br> Volcano Type:  Stratovolcano <br> Elevation:  2000 <br> Eruption Count:  6","Name:  Bona-Churchill <br> Country:  United States <br> Volcano Type:  Stratovolcano <br> Elevation:  5005 <br> Eruption Count:  2","Name:  Bulusan <br> Country:  Philippines <br> Volcano Type:  Stratovolcano <br> Elevation:  1565 <br> Eruption Count:  4","Name:  Calbuco <br> Country:  Chile <br> Volcano Type:  Stratovolcano <br> Elevation:  2003 <br> Eruption Count:  5","Name:  Camiguin <br> Country:  Philippines <br> Volcano Type:  Stratovolcano <br> Elevation:  1332 <br> Eruption Count:  5","Name:  Campi Flegrei <br> Country:  Italy <br> Volcano Type:  Caldera <br> Elevation:  458 <br> Eruption Count:  3","Name:  Chichon, El <br> Country:  Mexico <br> Volcano Type:  Tuff cone <br> Elevation:  1150 <br> Eruption Count:  4","Name:  Colima <br> Country:  Mexico <br> Volcano Type:  Stratovolcano <br> Elevation:  3850 <br> Eruption Count:  4","Name:  Cosiguina <br> Country:  Nicaragua <br> Volcano Type:  Stratovolcano <br> Elevation:  872 <br> Eruption Count:  2","Name:  Cotopaxi <br> Country:  Ecuador <br> Volcano Type:  Stratovolcano <br> Elevation:  5911 <br> Eruption Count:  6","Name:  Daisetsu <br> Country:  Japan <br> Volcano Type:  Stratovolcano <br> Elevation:  2290 <br> Eruption Count:  2","Name:  Dakataua <br> Country:  Papua New Guinea <br> Volcano Type:  Caldera <br> Elevation:  400 <br> Eruption Count:  2","Name:  Dieng Volc Complex <br> Country:  Indonesia <br> Volcano Type:  Complex volcano <br> Elevation:  2565 <br> Eruption Count:  10","Name:  Etna <br> Country:  Italy <br> Volcano Type:  Stratovolcano <br> Elevation:  3350 <br> Eruption Count:  25","Name:  Fogo <br> Country:  Cape Verde <br> Volcano Type:  Stratovolcano <br> Elevation:  2829 <br> Eruption Count:  3","Name:  Fuego <br> Country:  Guatemala <br> Volcano Type:  Stratovolcano <br> Elevation:  3763 <br> Eruption Count:  11","Name:  Galunggung <br> Country:  Indonesia <br> Volcano Type:  Stratovolcano <br> Elevation:  2168 <br> Eruption Count:  2","Name:  Gamalama <br> Country:  Indonesia <br> Volcano Type:  Stratovolcano <br> Elevation:  1715 <br> Eruption Count:  10","Name:  Gamkonora <br> Country:  Indonesia <br> Volcano Type:  Stratovolcano <br> Elevation:  1635 <br> Eruption Count:  2","Name:  Grimsvotn <br> Country:  Iceland <br> Volcano Type:  Caldera <br> Elevation:  1725 <br> Eruption Count:  7","Name:  Guagua Pichincha <br> Country:  Ecuador <br> Volcano Type:  Stratovolcano <br> Elevation:  4784 <br> Eruption Count:  2","Name:  Guntur <br> Country:  Indonesia <br> Volcano Type:  Complex volcano <br> Elevation:  2249 <br> Eruption Count:  3","Name:  Hakone <br> Country:  Japan <br> Volcano Type:  Complex volcano <br> Elevation:  1438 <br> Eruption Count:  5","Name:  Hekla <br> Country:  Iceland <br> Volcano Type:  Stratovolcano <br> Elevation:  1491 <br> Eruption Count:  16","Name:  Hood <br> Country:  United States <br> Volcano Type:  Stratovolcano <br> Elevation:  3426 <br> Eruption Count:  2","Name:  Hualalai <br> Country:  United States <br> Volcano Type:  Shield volcano <br> Elevation:  2523 <br> Eruption Count:  2","Name:  Hudson, Cerro <br> Country:  Chile <br> Volcano Type:  Stratovolcano <br> Elevation:  1905 <br> Eruption Count:  4","Name:  Huila <br> Country:  Colombia <br> Volcano Type:  Stratovolcano <br> Elevation:  5365 <br> Eruption Count:  3","Name:  Ijen <br> Country:  Indonesia <br> Volcano Type:  Stratovolcano <br> Elevation:  2799 <br> Eruption Count:  3","Name:  Iliwerung <br> Country:  Indonesia <br> Volcano Type:  Complex volcano <br> Elevation:  1018 <br> Eruption Count:  5","Name:  Irazu <br> Country:  Costa Rica <br> Volcano Type:  Stratovolcano <br> Elevation:  3432 <br> Eruption Count:  2","Name:  Kadovar <br> Country:  Papua New Guinea <br> Volcano Type:  Stratovolcano <br> Elevation:  365 <br> Eruption Count:  2","Name:  Karangetang [Api Siau] <br> Country:  Indonesia <br> Volcano Type:  Stratovolcano <br> Elevation:  1784 <br> Eruption Count:  10","Name:  Karkar <br> Country:  Papua New Guinea <br> Volcano Type:  Stratovolcano <br> Elevation:  1839 <br> Eruption Count:  2","Name:  Karthala <br> Country:  Comoros <br> Volcano Type:  Shield volcano <br> Elevation:  2361 <br> Eruption Count:  6","Name:  Katla <br> Country:  Iceland <br> Volcano Type:  Subglacial volcano <br> Elevation:  1512 <br> Eruption Count:  15","Name:  Kelut <br> Country:  Indonesia <br> Volcano Type:  Stratovolcano <br> Elevation:  1731 <br> Eruption Count:  18","Name:  Kick-'em-Jenny <br> Country:  Netherlands <br> Volcano Type:  Submarine volcano <br> Elevation:  -177 <br> Eruption Count:  2","Name:  Kilauea <br> Country:  United States <br> Volcano Type:  Shield volcano <br> Elevation:  1222 <br> Eruption Count:  15","Name:  Kirishima <br> Country:  Japan <br> Volcano Type:  Shield volcano <br> Elevation:  1700 <br> Eruption Count:  9","Name:  Kliuchevskoi <br> Country:  Russia <br> Volcano Type:  Stratovolcano <br> Elevation:  4835 <br> Eruption Count:  3","Name:  Komaga-take <br> Country:  Japan <br> Volcano Type:  Stratovolcano <br> Elevation:  1140 <br> Eruption Count:  3","Name:  Krafla <br> Country:  Iceland <br> Volcano Type:  Caldera <br> Elevation:  650 <br> Eruption Count:  2","Name:  Krakatau <br> Country:  Indonesia <br> Volcano Type:  Caldera <br> Elevation:  813 <br> Eruption Count:  8","Name:  Kuchinoerabu-jima <br> Country:  Japan <br> Volcano Type:  Stratovolcano <br> Elevation:  649 <br> Eruption Count:  2","Name:  Kusatsu-Shirane <br> Country:  Japan <br> Volcano Type:  Stratovolcano <br> Elevation:  2176 <br> Eruption Count:  4","Name:  Kuwae <br> Country:  Vanuatu <br> Volcano Type:  Caldera <br> Elevation:  -2 <br> Eruption Count:  2","Name:  La Palma <br> Country:  Spain <br> Volcano Type:  Stratovolcano <br> Elevation:  2426 <br> Eruption Count:  2","Name:  Lamongan <br> Country:  Indonesia <br> Volcano Type:  Stratovolcano <br> Elevation:  1651 <br> Eruption Count:  2","Name:  Lengai, Ol Doinyo <br> Country:  Tanzania <br> Volcano Type:  Stratovolcano <br> Elevation:  2890 <br> Eruption Count:  4","Name:  Lewotobi <br> Country:  Indonesia <br> Volcano Type:  Stratovolcano <br> Elevation:  1703 <br> Eruption Count:  2","Name:  Lokon-Empung <br> Country:  Indonesia <br> Volcano Type:  Stratovolcano <br> Elevation:  1580 <br> Eruption Count:  3","Name:  Long Island <br> Country:  Papua New Guinea <br> Volcano Type:  Complex volcano <br> Elevation:  1280 <br> Eruption Count:  2","Name:  Makian <br> Country:  Indonesia <br> Volcano Type:  Stratovolcano <br> Elevation:  1357 <br> Eruption Count:  4","Name:  Manam <br> Country:  Papua New Guinea <br> Volcano Type:  Stratovolcano <br> Elevation:  1807 <br> Eruption Count:  9","Name:  Marapi <br> Country:  Indonesia <br> Volcano Type:  Complex volcano <br> Elevation:  2891 <br> Eruption Count:  2","Name:  Mauna Loa <br> Country:  United States <br> Volcano Type:  Shield volcano <br> Elevation:  4170 <br> Eruption Count:  3","Name:  Mayon <br> Country:  Philippines <br> Volcano Type:  Stratovolcano <br> Elevation:  2462 <br> Eruption Count:  19","Name:  Merapi <br> Country:  Indonesia <br> Volcano Type:  Stratovolcano <br> Elevation:  2947 <br> Eruption Count:  27","Name:  Miyake-jima <br> Country:  Japan <br> Volcano Type:  Stratovolcano <br> Elevation:  815 <br> Eruption Count:  4","Name:  Myojun Knoll <br> Country:  Japan <br> Volcano Type:  Submarine volcano <br> Elevation:  360 <br> Eruption Count:  6","Name:  Nasu <br> Country:  Japan <br> Volcano Type:  Stratovolcano <br> Elevation:  1917 <br> Eruption Count:  3","Name:  Niuafo'ou <br> Country:  Tonga <br> Volcano Type:  Shield volcano <br> Elevation:  260 <br> Eruption Count:  2","Name:  Nyamuragira <br> Country:  Congo, DRC <br> Volcano Type:  Shield volcano <br> Elevation:  3058 <br> Eruption Count:  2","Name:  Nyiragongo <br> Country:  Congo, DRC <br> Volcano Type:  Stratovolcano <br> Elevation:  3470 <br> Eruption Count:  3","Name:  Okataina <br> Country:  New Zealand <br> Volcano Type:  Lava dome <br> Elevation:  1111 <br> Eruption Count:  5","Name:  Okmok <br> Country:  United States <br> Volcano Type:  Shield volcano <br> Elevation:  1073 <br> Eruption Count:  2","Name:  Oku Volc Field <br> Country:  Cameroon <br> Volcano Type:  Maar <br> Elevation:  3011 <br> Eruption Count:  2","Name:  On-take <br> Country:  Japan <br> Volcano Type:  Complex volcano <br> Elevation:  3063 <br> Eruption Count:  2","Name:  Oraefajokull <br> Country:  Iceland <br> Volcano Type:  Stratovolcano <br> Elevation:  2119 <br> Eruption Count:  2","Name:  Oshima <br> Country:  Japan <br> Volcano Type:  Stratovolcano <br> Elevation:  758 <br> Eruption Count:  4","Name:  Pacaya <br> Country:  Guatemala <br> Volcano Type:  Complex volcano <br> Elevation:  2552 <br> Eruption Count:  4","Name:  Pago <br> Country:  Papua New Guinea <br> Volcano Type:  Caldera <br> Elevation:  742 <br> Eruption Count:  4","Name:  Paluweh <br> Country:  Indonesia <br> Volcano Type:  Stratovolcano <br> Elevation:  875 <br> Eruption Count:  6","Name:  Papandayan <br> Country:  Indonesia <br> Volcano Type:  Stratovolcano <br> Elevation:  2665 <br> Eruption Count:  2","Name:  Pelee <br> Country:  Martinique <br> Volcano Type:  Stratovolcano <br> Elevation:  1397 <br> Eruption Count:  4","Name:  Pinatubo <br> Country:  Philippines <br> Volcano Type:  Stratovolcano <br> Elevation:  1486 <br> Eruption Count:  6","Name:  Popocatepetl <br> Country:  Mexico <br> Volcano Type:  Stratovolcano <br> Elevation:  5426 <br> Eruption Count:  2","Name:  Purace <br> Country:  Colombia <br> Volcano Type:  Stratovolcano <br> Elevation:  4650 <br> Eruption Count:  2","Name:  Puyehue <br> Country:  Chile <br> Volcano Type:  Stratovolcano <br> Elevation:  2236 <br> Eruption Count:  2","Name:  Rabaul <br> Country:  Papua New Guinea <br> Volcano Type:  Pyroclastic shield <br> Elevation:  688 <br> Eruption Count:  6","Name:  Raoul Island <br> Country:  New Zealand <br> Volcano Type:  Stratovolcano <br> Elevation:  516 <br> Eruption Count:  2","Name:  Raung <br> Country:  Indonesia <br> Volcano Type:  Stratovolcano <br> Elevation:  3332 <br> Eruption Count:  5","Name:  Redoubt <br> Country:  United States <br> Volcano Type:  Stratovolcano <br> Elevation:  3108 <br> Eruption Count:  2","Name:  Rinjani <br> Country:  Indonesia <br> Volcano Type:  Stratovolcano <br> Elevation:  3726 <br> Eruption Count:  2","Name:  Ritter Island <br> Country:  Papua New Guinea <br> Volcano Type:  Stratovolcano <br> Elevation:  140 <br> Eruption Count:  3","Name:  Ruang <br> Country:  Indonesia <br> Volcano Type:  Stratovolcano <br> Elevation:  725 <br> Eruption Count:  2","Name:  Ruiz <br> Country:  Colombia <br> Volcano Type:  Stratovolcano <br> Elevation:  5321 <br> Eruption Count:  3","Name:  Sabancaya <br> Country:  Peru <br> Volcano Type:  Stratovolcano <br> Elevation:  5967 <br> Eruption Count:  2","Name:  Sakura-jima <br> Country:  Japan <br> Volcano Type:  Stratovolcano <br> Elevation:  1117 <br> Eruption Count:  14","Name:  San Jorge <br> Country:  Portugal <br> Volcano Type:  Fissure vent <br> Elevation:  1053 <br> Eruption Count:  3","Name:  San Salvador <br> Country:  El Salvador <br> Volcano Type:  Stratovolcano <br> Elevation:  1893 <br> Eruption Count:  3","Name:  Santa Maria <br> Country:  Guatemala <br> Volcano Type:  Stratovolcano <br> Elevation:  3772 <br> Eruption Count:  4","Name:  Santorini <br> Country:  Greece <br> Volcano Type:  Shield volcano <br> Elevation:  329 <br> Eruption Count:  8","Name:  Savai'i <br> Country:  Samoa <br> Volcano Type:  Shield volcano <br> Elevation:  1858 <br> Eruption Count:  2","Name:  Savo <br> Country:  Solomon Is. <br> Volcano Type:  Stratovolcano <br> Elevation:  510 <br> Eruption Count:  2","Name:  Semeru <br> Country:  Indonesia <br> Volcano Type:  Stratovolcano <br> Elevation:  3676 <br> Eruption Count:  23","Name:  Shishaldin <br> Country:  United States <br> Volcano Type:  Stratovolcano <br> Elevation:  2857 <br> Eruption Count:  2","Name:  Shiveluch <br> Country:  Russia <br> Volcano Type:  Stratovolcano <br> Elevation:  3283 <br> Eruption Count:  3","Name:  Sinabung <br> Country:  Indonesia <br> Volcano Type:  Stratovolcano <br> Elevation:  2460 <br> Eruption Count:  10","Name:  Sirung <br> Country:  Indonesia <br> Volcano Type:  Complex volcano <br> Elevation:  862 <br> Eruption Count:  2","Name:  Soufriere Hills <br> Country:  Montserrat <br> Volcano Type:  Stratovolcano <br> Elevation:  915 <br> Eruption Count:  6","Name:  Soufriere St. Vincent <br> Country:  St. Vincent & the Grenadines <br> Volcano Type:  Stratovolcano <br> Elevation:  1220 <br> Eruption Count:  3","Name:  St. Andrew Strait <br> Country:  Papua New Guinea <br> Volcano Type:  Complex volcano <br> Elevation:  270 <br> Eruption Count:  2","Name:  St. Helens <br> Country:  United States <br> Volcano Type:  Stratovolcano <br> Elevation:  2549 <br> Eruption Count:  3","Name:  Stromboli <br> Country:  Italy <br> Volcano Type:  Stratovolcano <br> Elevation:  926 <br> Eruption Count:  11","Name:  Taal <br> Country:  Philippines <br> Volcano Type:  Stratovolcano <br> Elevation:  400 <br> Eruption Count:  8","Name:  Tangkubanparahu <br> Country:  Indonesia <br> Volcano Type:  Stratovolcano <br> Elevation:  2084 <br> Eruption Count:  3","Name:  Tate-yama <br> Country:  Japan <br> Volcano Type:  Stratovolcano <br> Elevation:  2621 <br> Eruption Count:  4","Name:  Taupo <br> Country:  New Zealand <br> Volcano Type:  Caldera <br> Elevation:  760 <br> Eruption Count:  4","Name:  Tengger Caldera <br> Country:  Indonesia <br> Volcano Type:  Stratovolcano <br> Elevation:  2329 <br> Eruption Count:  2","Name:  Teon <br> Country:  Pacific Ocean <br> Volcano Type:  Stratovolcano <br> Elevation:  655 <br> Eruption Count:  2","Name:  Tinakula <br> Country:  Solomon Is. <br> Volcano Type:  Stratovolcano <br> Elevation:  851 <br> Eruption Count:  4","Name:  Tokachi <br> Country:  Japan <br> Volcano Type:  Stratovolcano <br> Elevation:  2077 <br> Eruption Count:  2","Name:  Tori-shima <br> Country:  Japan <br> Volcano Type:  Stratovolcano <br> Elevation:  403 <br> Eruption Count:  2","Name:  Tungurahua <br> Country:  Ecuador <br> Volcano Type:  Stratovolcano <br> Elevation:  5023 <br> Eruption Count:  11","Name:  Unzen <br> Country:  Japan <br> Volcano Type:  Complex volcano <br> Elevation:  1500 <br> Eruption Count:  5","Name:  Usu <br> Country:  Japan <br> Volcano Type:  Stratovolcano <br> Elevation:  731 <br> Eruption Count:  7","Name:  Vesuvius <br> Country:  Italy <br> Volcano Type:  Complex volcano <br> Elevation:  1281 <br> Eruption Count:  18","Name:  Villarrica <br> Country:  Chile <br> Volcano Type:  Stratovolcano <br> Elevation:  2847 <br> Eruption Count:  4","Name:  White Island <br> Country:  New Zealand <br> Volcano Type:  Stratovolcano <br> Elevation:  321 <br> Eruption Count:  2","Name:  Yasur <br> Country:  Vanuatu <br> Volcano Type:  Stratovolcano <br> Elevation:  361 <br> Eruption Count:  5"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[-45.9,65.73],"lng":[-177.92,177.18]}},"evals":[],"jsHooks":[]}</script>
 <p>We can notice that most volcanoes are located along the peripheries
 of continents. This pattern is a result of the tectonic plate boundaries
 where volcanic activity is often concentrated.</p>
@@ -1396,14 +1393,469 @@ is typical for Icelandic eruptions.</p>
 </div>
 </div>
 <div id="additional-analysis" class="section level2">
-<h2>Additional analysis</h2>
-<p>If you undertake formal statistical analyses, describe these in
-detail</p>
+<h2>Additional Analysis</h2>
+<p>Based on the results in exploratory data analysis, it is clear that
+deaths, injuries, damage and houses destroyed by volcanic eruptions can
+be affected by factors like earthquake, tsunami, VEI and elevation of
+the volcano. Because deaths is the only outcome that may be affected by
+all four factors mentioned above, we’ll use deaths as the outcome in our
+model fitting. We’ll utilize descriptive data on deaths from the
+dataset, and since it is an ordinal categorical variable, we’ll use
+<strong>ordinal logistic regression</strong> to assess the association
+between predictors and the ordinal outcome.</p>
+<pre class="r"><code>library(MASS)
+library(Hmisc)
+library(corrplot)</code></pre>
+<div id="methodology" class="section level3">
+<h3>Methodology</h3>
+<p>An <strong>ordinal</strong> variable is a categorical variable in
+which the levels have a natural ordering. Let <span
+class="math inline">\(Y\)</span> be an ordinal outcome with <span
+class="math inline">\(J\)</span> categories. Then <span
+class="math inline">\(P(Y≤j)\)</span>is the cumulative probability of
+<span class="math inline">\(Y\)</span> less than or equal to a specific
+category <span class="math inline">\(j=1,...J-1\)</span>. The odds of
+being less than or equal a particular category can be defined as <span
+class="math display">\[\frac{P(Y≤j)}{P(Y&gt;j)}\]</span> for <span
+class="math inline">\(j=1,...J-1\)</span> since <span
+class="math inline">\(P(Y&gt;j) = 0\)</span> and dividing by zero is
+undefined. The <strong>log odds</strong> is also known as the
+<strong>logit</strong>, so that <span
+class="math display">\[log\frac{P(Y≤j)}{P(Y&gt;j)}=logit(P(Y≤j))\]</span>
+In R’s polr the ordinal logistic regression model is parameterized as
+<span
+class="math display">\[logit(P(Y≤j))=β_{j0}-η_{1}x_{1}-η_{2}x_{2}-...-η_{p}x_{p}\]</span></p>
+<p>In our case, we use the <strong>ordinal logistic regression</strong>
+to evaluate the effect of several factors on casualties and property
+losses which are the outcomes we are interested in. Predictors are
+tsunami, earthquake, VEI and elevation in this model. Our ordinal
+logistic regression model can be parameterized as: <span
+class="math display">\[logit(P(Y≤j))=β_{j0}-η_{1}X_{1}-η_{2}X_{2}-η_{3}X_{3}-η_{4}X_{4}\]</span>
+where,</p>
+<ul>
+<li><span class="math inline">\(β_{j0}\)</span>is an intercept and
+represents the log-odds of <span class="math inline">\(Y≤j\)</span> when
+all the predictors are at 0 or their reference level.</li>
+<li><span class="math inline">\(X_{1}\)</span> is earthquake, <span
+class="math inline">\(X_{2}\)</span> is tsunami, <span
+class="math inline">\(X_{3}\)</span> is VEI, <span
+class="math inline">\(X_{4}\)</span> is elevation.</li>
+<li>Each <span class="math inline">\(-η_{k}\)</span> for <span
+class="math inline">\(k = 1,2,3,4\)</span> is the log of the odds ratio
+comparing the odds of <span class="math inline">\(Y≤j\)</span> between
+individuals who differ by 1-unit in <span
+class="math inline">\(X_{k}\)</span>.</li>
+</ul>
+<p>We’ll use the <code>polr</code> command from the <code>MASS</code>
+package to estimate an ordered logistic regression model. We also
+specify <code>Hess=TRUE</code> to have the model return the observed
+information matrix from optimization (called the Hessian) which is used
+to get standard errors.</p>
+</div>
+<div id="correlation-analysis" class="section level3">
+<h3>Correlation Analysis</h3>
+<p>Before fitting the model, we need to perform a correlation analysis:
+if two predictors have strong correlation, we can only keep one of them
+in our regression model. This careful consideration ensures the
+avoidance of multicollinearity, thereby enhancing the precision and
+interpretability of our model’s results.</p>
+<p>Correlation between the variables is shown by the following
+heatmap:</p>
+<pre class="r"><code># Import tidied data
+tidy_df = 
+  read.csv2(&quot;data/volcanic-eruption-final.csv&quot;, sep = &quot;,&quot;, stringsAsFactors = TRUE) 
+  
+
+# Select variables of interest
+selected_data &lt;- 
+  tidy_df |&gt;
+  dplyr::select(flag_earthquake, flag_tsunami, volcanic_explosivity_index, elevation)
+
+cor_matrix &lt;- rcorr(as.matrix(selected_data), type = &quot;spearman&quot;)
+
+correlation_matrix &lt;- cor_matrix$r
+p_value_matrix &lt;- cor_matrix$P
+p_value_matrix[is.na(p_value_matrix)] &lt;- 1
+corrplot(correlation_matrix, p.mat = p_value_matrix, method = &quot;color&quot;,
+         tl.col = &quot;black&quot;, tl.srt = 45, tl.offset = 0.5, tl.cex = 0.8,
+         sig.level = c(0.001, 0.01, 0.05), pch.cex = 0.9, pch.col = &quot;grey20&quot;,
+         tl.pos = &quot;lt&quot;, insig = &quot;label_sig&quot;, type = &quot;upper&quot;)
+corrplot(correlation_matrix, type = &quot;lower&quot;, add = TRUE, method = &quot;number&quot;,
+         tl.pos = &quot;n&quot;, cl.pos = &quot;n&quot;)</code></pre>
+<p><img src="report_files/figure-html/unnamed-chunk-23-1.png" width="864" /></p>
+<p>From the results of correlation analysis, we can see that there is a
+positive correlation between <code>flag_tsunami</code> and
+<code>flag_earthquake</code>. However, correlation coefficient (r) is
+0.35, indicating only a moderate correlation. Therefore, we’ll include
+both <code>flag_tsunami</code> and <code>flag_earthquake</code> in our
+later analysis.</p>
+<p>We also notice that there is a negative correlation between
+<code>elevation</code> and <code>flag_tsunami</code>. This is probably
+because volcanoes under the sea are more likely to cause tsunami.</p>
+</div>
+<div id="ordinal-logistic-regression-model" class="section level3">
+<h3>Ordinal Logistic Regression Model</h3>
+<div id="fitting-the-model" class="section level4">
+<h4>Fitting the Model</h4>
+<p>Having completed the correlation analysis, we can fit the following
+ordinal logistic regression model:</p>
+<p><span class="math display">\[volcano\_deaths{\_}description \sim
+flag\_earthquake + flag\_tsunami + volcanic\_explosivity\_index +
+elevation\]</span></p>
+<p>In this model, <code>volcano_deaths_description</code> is a
+four-level variable, with levels “Few (~1 to 50)”, “Some (~51 to 100)”,
+“Many (~101 to 1000)”, “Very Many (~1001 or more)”, coded 1, 2, 3, and 4
+respectively, that we will use as our outcome variable.</p>
+<pre class="r"><code>death_df = 
+  tidy_df |&gt;
+  mutate(volcano_deaths_description = droplevels(volcano_deaths_description, exclude = &quot;None/No Record&quot;)) |&gt;
+  mutate(volcano_deaths_description = factor(volcano_deaths_description, levels = c(&quot;Few (~1 to 50)&quot;, &quot;Some (~51 to 100)&quot;, &quot;Many (~101 to 1000)&quot;, &quot;Very Many (~1001 or more)&quot;))) |&gt;
+  filter(volcano_deaths_description != &quot;None/No Record&quot;)
+
+logistic_model &lt;- polr(volcano_deaths_description ~ flag_earthquake + flag_tsunami + volcanic_explosivity_index + elevation, data = death_df, Hess=TRUE)
+
+## view a summary of the model
+logistic_model |&gt; broom::tidy() |&gt; knitr::kable()</code></pre>
+<table>
+<colgroup>
+<col width="54%" />
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+<col width="12%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">term</th>
+<th align="right">estimate</th>
+<th align="right">std.error</th>
+<th align="right">statistic</th>
+<th align="left">coef.type</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">flag_earthquakeTRUE</td>
+<td align="right">0.4677827</td>
+<td align="right">0.2042872</td>
+<td align="right">2.289829</td>
+<td align="left">coefficient</td>
+</tr>
+<tr class="even">
+<td align="left">flag_tsunamiTRUE</td>
+<td align="right">1.0003685</td>
+<td align="right">0.2562528</td>
+<td align="right">3.903834</td>
+<td align="left">coefficient</td>
+</tr>
+<tr class="odd">
+<td align="left">volcanic_explosivity_index</td>
+<td align="right">0.6581785</td>
+<td align="right">0.0700467</td>
+<td align="right">9.396279</td>
+<td align="left">coefficient</td>
+</tr>
+<tr class="even">
+<td align="left">elevation</td>
+<td align="right">0.0002371</td>
+<td align="right">0.0000905</td>
+<td align="right">2.619574</td>
+<td align="left">coefficient</td>
+</tr>
+<tr class="odd">
+<td align="left">Few (~1 to 50)|Some (~51 to 100)</td>
+<td align="right">3.2838289</td>
+<td align="right">0.0647828</td>
+<td align="right">50.689804</td>
+<td align="left">scale</td>
+</tr>
+<tr class="even">
+<td align="left">Some (~51 to 100)|Many (~101 to 1000)</td>
+<td align="right">3.7735547</td>
+<td align="right">0.0938727</td>
+<td align="right">40.198620</td>
+<td align="left">scale</td>
+</tr>
+<tr class="odd">
+<td align="left">Many (~101 to 1000)|Very Many (~1001 or more)</td>
+<td align="right">5.2650075</td>
+<td align="right">0.1794452</td>
+<td align="right">29.340479</td>
+<td align="left">scale</td>
+</tr>
+</tbody>
+</table>
+<p>The estimated model can be written as:</p>
+<p><span
+class="math display">\[logit(\hat{P}(Y≤1))=3.2838-0.4678×earthquake-1.0003×tsunami-0.6581×VEI-0.0002×elevation\]</span>
+<span
+class="math display">\[logit(\hat{P}(Y≤2))=3.7736-0.4678×earthquake-1.0003×tsunami-0.6581×VEI-0.0002×elevation\]</span>
+<span
+class="math display">\[logit(\hat{P}(Y≤3))=5.2650-0.4678×earthquake-1.0003×tsunami-0.6581×VEI-0.0002×elevation\]</span></p>
+<p>The estimate for <code>elevation</code> appears relatively small,
+possibly because the unit of measurement for elevation is in meters (m).
+If we use kilometers (km) instead, the estimate would likely
+increase.</p>
+</div>
+<div id="p-value" class="section level4">
+<h4>P-value</h4>
+<p>Some people require a p value to be satisfied. In this situation,
+comparing the t-value to the conventional normal distribution using a z
+test is one method of computing a p-value. This is only true when there
+are infinite degrees of freedom, but large samples can well approximate
+it; as sample size drops, the sample becomes more biased. This method is
+simple to implement and is utilized in other software programs like
+Stata. We compute the p-values and then merge them back with the table
+after storing the coefficient table.</p>
+<pre class="r"><code>## store table
+ctable2 &lt;- coef(summary(logistic_model))
+
+## calculate and store p values
+p &lt;- pnorm(abs(ctable2[, &quot;t value&quot;]), lower.tail = FALSE) * 2
+
+## combined table
+ctable2 &lt;- cbind(ctable2, &quot;p value&quot; = p)
+
+knitr::kable(ctable2)</code></pre>
+<table>
+<colgroup>
+<col width="55%" />
+<col width="10%" />
+<col width="11%" />
+<col width="10%" />
+<col width="10%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="right">Value</th>
+<th align="right">Std. Error</th>
+<th align="right">t value</th>
+<th align="right">p value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">flag_earthquakeTRUE</td>
+<td align="right">0.4677827</td>
+<td align="right">0.2042872</td>
+<td align="right">2.289829</td>
+<td align="right">0.0220313</td>
+</tr>
+<tr class="even">
+<td align="left">flag_tsunamiTRUE</td>
+<td align="right">1.0003685</td>
+<td align="right">0.2562528</td>
+<td align="right">3.903834</td>
+<td align="right">0.0000947</td>
+</tr>
+<tr class="odd">
+<td align="left">volcanic_explosivity_index</td>
+<td align="right">0.6581785</td>
+<td align="right">0.0700467</td>
+<td align="right">9.396279</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="even">
+<td align="left">elevation</td>
+<td align="right">0.0002371</td>
+<td align="right">0.0000905</td>
+<td align="right">2.619574</td>
+<td align="right">0.0088040</td>
+</tr>
+<tr class="odd">
+<td align="left">Few (~1 to 50)|Some (~51 to 100)</td>
+<td align="right">3.2838289</td>
+<td align="right">0.0647828</td>
+<td align="right">50.689804</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="even">
+<td align="left">Some (~51 to 100)|Many (~101 to 1000)</td>
+<td align="right">3.7735547</td>
+<td align="right">0.0938727</td>
+<td align="right">40.198620</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="odd">
+<td align="left">Many (~101 to 1000)|Very Many (~1001 or more)</td>
+<td align="right">5.2650075</td>
+<td align="right">0.1794452</td>
+<td align="right">29.340479</td>
+<td align="right">0.0000000</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Interpretations</strong>:</p>
+<p>All the four predictors (<code>flag_earthquake</code>,
+<code>flag_tsunami</code>, <code>volcanic_explosivity_index</code>,
+<code>elevation</code>) have p-values less than 0.05, indicating that
+each of them is statistically significant at the 0.05 significance
+level.</p>
+</div>
+<div id="confidence-interval" class="section level4">
+<h4>Confidence Interval</h4>
+<p>We can also get confidence intervals for the parameter estimates. If
+the 95% CI does not cross 0, the parameter estimate is statistically
+significant.</p>
+<pre class="r"><code>ci = confint.default(logistic_model) 
+
+knitr::kable(ci)</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="right">2.5 %</th>
+<th align="right">97.5 %</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">flag_earthquakeTRUE</td>
+<td align="right">0.0673871</td>
+<td align="right">0.8681783</td>
+</tr>
+<tr class="even">
+<td align="left">flag_tsunamiTRUE</td>
+<td align="right">0.4981222</td>
+<td align="right">1.5026149</td>
+</tr>
+<tr class="odd">
+<td align="left">volcanic_explosivity_index</td>
+<td align="right">0.5208894</td>
+<td align="right">0.7954675</td>
+</tr>
+<tr class="even">
+<td align="left">elevation</td>
+<td align="right">0.0000597</td>
+<td align="right">0.0004145</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Interpretations</strong>:</p>
+<p>The CIs for all predictors (<code>flag_earthquake</code>,
+<code>flag_tsunami</code>, <code>volcanic_explosivity_index</code>,
+<code>elevation</code>) do not include 0. Therefore, the parameter
+estimates are statistically significant.</p>
+</div>
+<div id="odds-ratio" class="section level4">
+<h4>Odds Ratio</h4>
+<p>Another way to interpret logistic regression models is to convert the
+coefficients into odds ratios. To get the OR and confidence intervals,
+we just exponentiate the estimates and confidence intervals.</p>
+<pre class="r"><code>exp(cbind(OR = coef(logistic_model), ci)) |&gt; knitr::kable()</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="right">OR</th>
+<th align="right">2.5 %</th>
+<th align="right">97.5 %</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">flag_earthquakeTRUE</td>
+<td align="right">1.596450</td>
+<td align="right">1.069710</td>
+<td align="right">2.382567</td>
+</tr>
+<tr class="even">
+<td align="left">flag_tsunamiTRUE</td>
+<td align="right">2.719284</td>
+<td align="right">1.645628</td>
+<td align="right">4.493423</td>
+</tr>
+<tr class="odd">
+<td align="left">volcanic_explosivity_index</td>
+<td align="right">1.931271</td>
+<td align="right">1.683524</td>
+<td align="right">2.215476</td>
+</tr>
+<tr class="even">
+<td align="left">elevation</td>
+<td align="right">1.000237</td>
+<td align="right">1.000060</td>
+<td align="right">1.000415</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Interpretation</strong>:</p>
+<ul>
+<li>For volcano eruptions accompanied by earthquake, the odds of causing
+more deaths (i.e., very many, many or some versus few) is 1.60 times
+that of volcano eruptions that are not accompanied by earthquake,
+holding constant all other variables.</li>
+<li>For volcano eruptions accompanied by tsunami, the odds of causing
+more deaths (i.e., very many, many or some versus few) is 2.72 times
+that of volcano eruptions that are not accompanied by tsunami, holding
+constant all other variables.</li>
+<li>For every one unit increase in volcanic explosivity index (VEI), the
+odds of causing more deaths (i.e., very many, many or some versus few)
+is multiplied 1.93 times (i.e., increases 93%), holding constant all
+other variables.</li>
+<li>A one-unit increase in elevation is not associated with a change in
+the odds of causing more deaths.</li>
+</ul>
+</div>
+</div>
 </div>
 <div id="discussion" class="section level2">
 <h2>Discussion</h2>
-<p>What were your findings? Are they what you expect? What insights into
-the data can you make?</p>
+<div id="findings-and-conclusions" class="section level3">
+<h3>Findings and Conclusions</h3>
+<p>By conducting exploratory data analysis, we demonstrates the
+geographical and temporal distribution of volcanic eruptions. We find
+that most volcanoes are located along the <strong>peripheries of
+continents</strong>, especially along the <strong>Pacific
+Ocean</strong>. And while eruptions before 1000 A.D. seem to have a
+higher VEI than those after, it could be attributed to <strong>reporting
+bias</strong> from ancient era, in which only the most colossal volcanic
+eruptions were documented. We also explore the potential factors that
+influence the casualties and property damages from volcanic eruptions.
+From the numeric and descriptive data of volcanic losses, we get similar
+conclusions that the occurrence of <strong>tsunami</strong> and
+<strong>earthquake</strong> and the <strong>VEI</strong> of the eruption
+are <strong>positively associated</strong> with volcanic losses. And
+while there is a potential relationship between the
+<strong>elevation</strong> of a volcano and the deaths from its
+eruption, this association is not very significant and does not appear
+in other types of losses, hence requires further analysis.</p>
+<p>For the statistical analysis, we choose <strong>ordinal logistic
+regression</strong> to assess the association between our predictors
+(tsunami, earthquake, VEI and elevation) and outcome (severity level of
+death). We perform a correlation analysis and find there is <strong>no
+strong multicollinearity</strong>, so we keep all the predictors and fit
+the ordinal logistic regression model: <span
+class="math inline">\(volcano\_deaths{\_}description \sim
+flag\_earthquake + flag\_tsunami + volcanic\_explosivity\_index +
+elevation\)</span>. We calculate the p-values and CIs for the for the
+coefficient estimates, which suggest <strong>significance</strong> for
+all four predictors. Therefore, we calculate the odds ratios and draw
+the following conclusions about the factors influencing volcanic
+deaths:</p>
+<ul>
+<li>For volcano eruptions accompanied by <strong>earthquake</strong>,
+the odds of causing more deaths (i.e., very many, many or some versus
+few) is <strong>1.60 times</strong> that of volcano eruptions without
+earthquake, holding constant all other variables.</li>
+<li>For volcano eruptions accompanied by <strong>tsunami</strong>, the
+odds of causing more deaths (i.e., very many, many or some versus few)
+is <strong>2.72 times</strong> that of volcano eruptions without
+tsunami, holding constant all other variables.</li>
+<li>For every one unit increase in volcanic explosivity index
+(<strong>VEI</strong>), the odds of causing more deaths (i.e., very
+many, many or some versus few) is multiplied <strong>1.93 times</strong>
+(i.e., increases 93%), holding constant all other variables.</li>
+<li>A one-unit (1 meter) increase in <strong>elevation</strong> is not
+associated with a change in the odds of causing more deaths, but
+<strong>large increase</strong> (e.g. &gt; 1000 meters) in elevation may
+be associated with higher odds of causing more deaths.</li>
+</ul>
+</div>
+<div id="limitations" class="section level3">
+<h3>Limitations</h3>
+</div>
 </div>
 
 
