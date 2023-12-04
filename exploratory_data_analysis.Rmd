@@ -236,7 +236,7 @@ ggplot(expo,aes(x = period, y = count,fill = volcanic_explosivity_index)) +
 ```
 The above plot illustrates the total number of volcanic eruptions across different time periods. The period from 1500 to 1900 recorded the highest number of volcanic eruptions, totaling around 250. 
 
-The number of eruptions in the 20th century is approximately equal to the total number of eruptions from 1500 to 1900, with most eruptions’ VEI ranging from 2 to 5. The total number of eruptions across the remaining four time periods is nearly identical. For eruptions occurring before Christ or from 0 to 1000 B.C., those with a VEI of 6 constitute the main type of eruption. This is probably because only the most colossal volcanic eruptions were documented during this ancient era.
+The number of eruptions in the 20th century is approximately equal to the total number of eruptions from 1500 to 1900, with most eruptions’ VEI ranging from 2 to 5. The total number of eruptions across the remaining four time periods is nearly identical. For eruptions occurring before Christ or from 0 to 1000 A.D., those with a VEI of 6 constitute the main type of eruption. This is probably because only the most colossal volcanic eruptions were documented during this ancient era.
 
 ### Analysis of Deaths and Injuries Over Time
 ```{r}
@@ -270,7 +270,7 @@ ggplot(time_df, aes(x = as.numeric(year))) +
 ```
 As for the number of deaths, it reached its climax at over 30000 around 1900. As time progressed, the number of deaths fluctuated between 0 and 5000 until around 1985, when it reached another peak at about 25000. After that, the number of deaths dropped and continued to fluctuate between 0 and 1500.
 
-When it comes to the number of injuries, however, the number did not fluctuate as drastically as the number of death. It remained stable from 1900 to around1985. After hitting its pick at 10000 in around 1985, the number went down and continued to remain stable.
+When it comes to the number of injuries, however, the number did not fluctuate as drastically as the number of death. It remained stable from 1900 to around 1985. After hitting its pick at 10000 in around 1985, the number went down and continued to remain stable.
 
 ### Analysis of Damage and Houses Destroyed Over Time
 ```{r}
