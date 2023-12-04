@@ -1137,3 +1137,10 @@ For the statistical analysis, we choose **ordinal logistic regression** to asses
 
 ### Limitations
 
+While our study provides some insights into volcanic eruptions, it is worth noting that there are still many limitations to be recognized.
+
+* Data quality: fail to record, ancient data reliability
+
+* Data selection: None/No record data
+
+* Model: generalizability, elevation
