@@ -167,4 +167,4 @@ exp(cbind(OR = coef(logistic_model), ci)) |> knitr::kable()
 * For volcano eruptions accompanied by earthquake, the odds of causing more deaths (i.e., very many, many or some versus few) is 1.60 times that of volcano eruptions that are not accompanied by earthquake, holding constant all other variables.
 * For volcano eruptions accompanied by tsunami, the odds of causing more deaths (i.e., very many, many or some versus few) is 2.72 times that of volcano eruptions that are not accompanied by tsunami, holding constant all other variables.
 * For every one unit increase in volcanic explosivity index (VEI), the odds of causing more deaths (i.e., very many, many or some versus few) is multiplied 1.93 times (i.e., increases 93%), holding constant all other variables.
-* A one-unit increase in elevation is not associated with a change in the odds of causing more deaths.
+* A one-unit (1 meter) increase in elevation is not associated with a change in the odds of causing more deaths, but large increase (e.g. > 1000 meters) in elevation may be associated with higher odds of causing more deaths.
