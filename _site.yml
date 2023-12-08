@@ -5,6 +5,8 @@ navbar:
   left: 
     - text: "Report"
       href: report.html
+    - text: "Video"
+      href: https://www.youtube.com/watch?v=EN79SfbcvIE 
     - text: "Exploratory Analysis"
       href: exploratory_data_analysis.html
     - text: "Statistical Analysis"
